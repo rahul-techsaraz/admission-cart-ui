@@ -1,0 +1,109 @@
+@media (min-width: 576px) {
+    .modal-dialog {
+      max-width: 400px;
+    }
+    .modal-dialog .modal-content {
+      padding: 1rem;
+    }
+  }
+  .modal-header .close {
+    margin-top: -1.5rem;
+  }
+
+  .form-title {
+    margin: -2rem 0rem 2rem;
+  }
+
+  .btn-round {
+    border-radius: 3rem;
+  }
+
+  .delimiter {
+    padding: 1rem;
+  }
+
+  .social-buttons .btn {
+    margin: 0 0.5rem 1rem;
+  }
+
+  .signup-section {
+    padding: 0.3rem 0rem;
+  }
+  .regtration-modal-popup button.btn-close.position-absolute {
+      background-color: #fff;
+      /* opacity: 1; */
+      color: #000;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      left: 10px;
+      top: 10px;
+  }
+  .regtration-modal-popup .modal-dialog{
+      max-width: 760px;
+  }
+  .regtration-modal-popup .modal-content{
+      background: var(--color-green);
+      padding: 0;
+  }
+  .regtration-modal-popup .formDesc{
+      height: 100%;
+      padding: 30px 0 30px 30px;
+  }
+  .regtration-modal-popup .formDesc h4{
+      font-size: 16px;
+      margin-bottom: 20px;
+  }
+  .regtration-modal-popup .formDesc ul{
+      margin-left: 15px;
+  }
+  .regtration-modal-popup .formDesc ul li{
+      font-size: 13px;
+      font-weight: 500;
+      list-style: disc;
+      margin-bottom: 10px;
+  }
+  .regtration-modal-popup .formsec{
+      background: var(--color-white);
+      padding: 30px;
+      height: 100%;
+  }
+  .regtration-modal-popup .formsec h4{
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 20px;
+  }
+  .applynow-btn{
+      width: 100%;
+      background: var(--color-yellow);
+  }
+  .regtration-modal-popup .formsec input:not(.reg-toggle),.regtration-modal-popup .formsec select{
+      width: 100%;
+      height: 40px;
+      border-radius: 0;
+      color: var(--color-grey);
+      font-size: 14px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+  }
+  .regtration-modal-popup .formsec .dropdown-toggle{
+      height: 40px;
+      border-radius: 0;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+  }
+  .regtration-modal-popup .formsec .reg-tgl-check label{
+      font-size: 15px;
+  }
+  .regtration-modal-popup .formsec p.regis-terms {
+      font-size: 13px;
+      color: var(--color-dark-grey);
+  }
+  .regtration-modal-popup .formsec p.regis-terms a,
+  .regtration-modal-popup .formsec p.reg-account-link a{
+      color: var(--color-green);
+  }
+  .regtration-modal-popup .formsec p.reg-account-link{
+      font-size: 14px;
+      color: var(--color-grey);
+  }
