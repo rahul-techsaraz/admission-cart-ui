@@ -12,15 +12,13 @@ import NewsLetter from "../components/footer/NewsLetter";
 import ContactUsPage from "../page/ContactUsPage";
 import Footer from "../components/footer/Footer";
 import CourseListing from "../components/courses/CourseListing";
-import DashBoard from "../components/DashBoard";
-
 import { CollegeSection } from "../components/about/offers/CollegesSection";
 import CollegeListing from "../components/colleges/CollegeListing";
 import ExamListing from "../components/exam/ExamListing";
 import CourseDetails from "../components/courses/course_details/CourseDetails";
 import CollegeDetails from "../components/colleges/college_details/CollegeDetails";
 import ExamDetails from "../components/exam/exam_details/ExamDetails";
-import UserDashBoard  from "../components/users/UserDashBoard";
+import DashBoard  from "../components/DashBoard";
 
   export const appRouter = createBrowserRouter([
     {
@@ -41,10 +39,10 @@ import UserDashBoard  from "../components/users/UserDashBoard";
           path: "/contact-us",
           element: <ContactUsPage/>,
         },
-        {
-          path: "/user/dashboard",
-          element: <UserDashBoard />,
-        },
+        // {
+        //   path: "/user/dashboard",
+        //   element: <DashBoard />,
+        // },
         {
           path: '/courses_list',
           element:<CourseListing />
