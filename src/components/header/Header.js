@@ -82,11 +82,11 @@ const Header = () => {
                 </section>
                 <section className="navbar-right">
                     <span  className="menu-block"><img src="images/search-icon.svg" alt="" /></span>
-                    <button className="menu-block" onClick={() => handleModel()}><img src={userImage} alt="" /></button>
+                    <button className="menu-blck" onClick={() => handleModel()}><img src={userImage} alt="" /></button>
                 </section>
             </nav>
         </div>
-    </header>
+    </header>o
         </>
     )
 }

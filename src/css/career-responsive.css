@@ -1,0 +1,159 @@
+@media screen and (max-width: 1024px){
+    .contain{
+        display: none;
+    }
+    .text-h5-button h5{
+        max-width: 410px;
+    }
+    /* .side-bar{
+        gap: 0;
+    } */
+}
+
+
+/* 912px start */
+@media screen and (max-width: 912px){
+    .contain{
+        display: none;
+    }
+    .left-box{
+        width: 100%;
+        padding-bottom: 0;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .text-image{
+        flex-direction: column;
+        text-align: center;
+    }
+    .box-down-img{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+    .text-h5-button{
+        width: 100%;
+        padding-top: 20px;
+    }
+    .order-text{
+        order: 3;
+    }
+    .text-h5-button h5{
+        margin: auto;
+    }
+    .box-down-img{
+        width: 50%;
+    }
+    .btn{
+        margin-top: 20px;
+    }
+    .button-box{
+        display: flex;
+        justify-content: center;
+      }
+}
+
+/* 430px start */
+
+@media screen and (max-width: 430px){
+    
+    .firstletter-name{
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .name h1{
+        max-width: 300px;
+    }
+    .contain{
+        display: none;
+    }
+    .left-box{
+        width: 100%;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .text-image{
+        flex-direction: column;
+    }
+    .box-down-img{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+    .text-h5-button{
+        width: 100%;
+        padding-top: 20px;
+    }
+    .order-text{
+        order: 3;
+      }
+      .button-box{
+        text-align: center;
+      }
+      .box-down-img img{
+        object-fit: contain;
+      }
+}
+
+
+/* 375 start */
+
+@media screen and (max-width: 375px){
+
+    .firstletter-name{
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .contain{
+        display: none;
+    }
+    .left-box{
+        width: 100%;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .text-image{
+        flex-direction: column;
+    }
+    .box-down-img{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+    .text-h5-button{
+        width: 100%;
+        padding-top: 20px;
+    }
+    .order-text{
+        order: 3;
+      }
+}
+
+/* 280pxs start */
+
+@media screen and (max-width: 280px){
+    .left-box{
+        width: 100%;
+    }
+    .callback-btn{
+        padding: 7px 30px;
+        font-size: 14px;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .btn{
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}

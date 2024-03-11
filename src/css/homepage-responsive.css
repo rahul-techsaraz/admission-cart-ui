@@ -11,13 +11,14 @@
     .img-box{
         padding: 20px;
     }
+    .contain{
+        display: none;
+    }
 }
 
 /* 912 start */
 
 @media screen and (max-width: 912px){
-
-
     .progress-wraper{
         display: none;
     }
@@ -34,13 +35,13 @@
     }
     .complte-your-profile{
         padding: 10px 15px;
-        font-size: 14px;
+        font-size: 11px;
     }
     .h3-p h3{
         font-size: 17px;
     }
     .img-box{
-        height: 90%;
+        height: 230px;
         padding: 20px 15px;
         gap: 20px;
     }
@@ -122,7 +123,6 @@
      }
      .img-box{
         padding: 20px 15px;
-        height: 90%;
         gap: 15px;
      }
 }
@@ -169,6 +169,9 @@
      .imgbox-img img{
         width: 100px;
         object-fit: contain;
+     }
+     .imgboxh3-p{
+        padding-bottom: 40px;
      }
 }
 

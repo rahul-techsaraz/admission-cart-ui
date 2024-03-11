@@ -19,6 +19,15 @@ import CourseDetails from "../components/courses/course_details/CourseDetails";
 import CollegeDetails from "../components/colleges/college_details/CollegeDetails";
 import ExamDetails from "../components/exam/exam_details/ExamDetails";
 import DashBoard from "../components/DashBoard";
+import UserDashBoard from "../components/users/UserDashBoard";
+import DashBoardMainSection from "../components/users/DashBoardMainSection";
+import Profile from "../components/users/Profile";
+import Counsellor from "../components/users/Counsellor";
+import Performence from "../components/users/Performence";
+import Collages from "../components/users/Collages";
+import Career from "../components/users/Career";
+import Document from "../components/users/Document";
+import Feed from "../components/users/Feed";
 
   export const appRouter = createBrowserRouter([
     {
@@ -39,10 +48,43 @@ import DashBoard from "../components/DashBoard";
           path: "/contact-us",
           element: <ContactUsPage/>,
         },
-        // {
-        //   path: "/user/dashboard",
-        //   element: <DashBoard />,
-        // },
+        {
+          path: "/user/dashboard",
+          element: <UserDashBoard />,
+          children:[{
+            path: "home",
+            element: <DashBoardMainSection/>
+          },
+          {
+            path: "profile",
+            element: <Profile/>
+          },
+          {
+            path: "counsellor",
+            element: <Counsellor/>
+          },
+          {
+            path: "performence",
+            element: <Performence/>
+          },
+          {
+            path: "collages",
+            element: <Collages/>
+          },
+          {
+            path: "career",
+            element: <Career/>
+          },
+          {
+            path: "document",
+            element: <Document/>
+          },
+          {
+            path: "feed",
+            element: <Feed/>
+          }
+          ]
+        },
         {
           path: '/courses_list',
           element:<CourseListing />

@@ -1,0 +1,151 @@
+@media screen and (max-width: 1024px){
+    .contain{
+        display: none;
+    }
+    /* .side-bar{
+        gap: 0;
+    } */
+}
+
+
+/* 912px start */
+@media screen and (max-width: 912px){
+    .contain{
+        display: none;
+    }
+    /* .side-navbar{
+        display: none;
+    } */
+    .left-box{
+        width: 100%;
+    }
+    .side-bar{
+        gap: 0;
+    }
+}
+
+/* 430px start */
+
+@media screen and (max-width: 430px){
+    
+    .firstletter-name{
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .name h1{
+        max-width: 300px;
+    }
+    .contain{
+        display: none;
+    }
+    /* .side-navbar{
+        display: none;
+    } */
+    .left-box{
+        width: 100%;
+    }
+    .besic-detials-all-text{
+        height: 100%;
+    }
+    .fname-dob-social{
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    .contact-details{
+        height:290px;
+    }
+    .educationl-details-wraper{
+        grid-template-columns: 1fr 1fr;
+    }
+    .preferences-all-text{
+        grid-template-columns: 1fr;
+    }
+    .exam-detils-p{
+        padding-right: 40px
+    }
+    .side-bar{
+        gap: 0;
+    }
+}
+
+
+/* 375 start */
+
+@media screen and (max-width: 375px){
+
+    .firstletter-name{
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .contain{
+        display: none;
+    }
+    /* .side-navbar{
+        display: none;
+    } */
+    .left-box{
+        width: 100%;
+    }
+    .besic-detials-all-text{
+        height: 100%;
+    }
+    .fname-dob-social{
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    .contact-details{
+        height: 290px;
+    }
+    .educationl-details-wraper{
+        grid-template-columns: 1fr 1fr;
+    }
+    .preferences-all-text{
+        grid-template-columns: 1fr;
+    }
+    .exam-detils-p{
+        padding-right: 20px
+    }
+    .side-bar{
+        gap: 0;
+    }
+}
+
+/* 280pxs start */
+
+@media screen and (max-width: 280px){
+    .left-box{
+        width: 100%;
+    }
+    .fname-dob-social{
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    .besic-detials-all-text{
+        padding: 20px 5px;
+    }
+    .full-name-h3, .do-b, .social, .gender-h3, .marital-h3, .physically-h3{
+        font-size: 12px;
+    }
+    .contact-details{
+        padding: 20px 5px;
+    }
+    .text h6{
+        font-size: 12px;
+    }
+    .education-details{
+        padding: 20px 5px 0
+    }
+    .preferences{
+        padding: 20px 5px;
+    }
+    .exam-details{
+        padding: 20px 5px;
+    }
+    .side-bar{
+        gap: 0;
+    }
+}

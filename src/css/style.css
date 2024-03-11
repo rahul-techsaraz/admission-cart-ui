@@ -806,8 +806,8 @@ ul.mega_menu {
 .banner-button-prev,
 .banner-button-next{
   background: var(--color-green);
-  width: 45px !important;
-  height: 45px !important;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 .banner-button-prev img,
@@ -857,17 +857,12 @@ ul.mega_menu {
 ============================== */
 .course-slider-section{
   overflow-x: hidden;
-  position: relative;
 }
 .course-slider .swiper-slide:nth-child(odd){
   background-color: var(--color-yellow);
-  width: 250px;
-  margin: 0 20px 0 0;
 }
 .course-slider .swiper-slide:nth-child(even){
   background-color: var(--color-green);
-  width: 250px;
-  margin: 0 20px 0 0;
 }
 .course-slider .swiper-slide{
   border-radius: 30px 30px 30px 0px;
@@ -911,32 +906,9 @@ p.course-para {
   font-weight: 400;
   line-height: normal;
   color: var(--color-black);
-  text-decoration: underline;
 }
 .course-readmore-btn img{
   width: 16px;
-}
-.react-multiple-carousel__arrow--left{
-  left: 0 !important;
-}
-.react-multiple-carousel__arrow--right{
-  right: 0 !important;
-}
-.react-multiple-carousel__arrow{
-  background: transparent !important;
-}
-.react-multiple-carousel__arrow::before{
-  color: var(--color-green) !important;
-}
-.courselist-button-next, .courselist-button-prev{
-  border-radius: 100px;
-  background: var(--color-white);
-  box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
-  width: 100px !important;
-  height: 100px !important;
-  text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 
@@ -976,9 +948,9 @@ p.course-para {
 
 /* career-process-section
 ============================== */
-/* .process-list{
+.process-list{
 
-} */
+}
 .process-list li{
   width: 16%;
   padding: 0 0 40px;
@@ -1167,26 +1139,12 @@ p.course-para {
   background: #FFF;
   padding: 20px 20px 0;
   margin: 50px 20px;
-  width: 280px;
-}
-/* .swiper-slide{
-  width: auto !important;
-} */
-
-.swiper-slide-next{
-  width: 316.25px;
 }
 .career-box:hover{
   border-radius: 0px 50px 0px 0px;
   border: 7px solid var(--color-green);
   background: #FFF;
   box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25);
-}
-.career-box-flex-box{
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: auto;
 }
 .career-upperbx {
   min-height: 180px;
@@ -1252,8 +1210,8 @@ p.course-para {
   border-radius: 100px;
   background: var(--color-white);
   box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
-  width: 100px !important;
-  height: 100px !important;
+  width: 100px;
+  height: 100px;
   text-align: center;
   cursor: pointer;
 }
@@ -1328,9 +1286,9 @@ p.course-para {
   font-weight: 400;
   line-height: normal;
 }
-/* .latest-blogpost-date{
+.latest-blogpost-date{
 
-} */
+}
 .upcoming-blog-col{
   box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25);
 }
@@ -1470,8 +1428,8 @@ p.course-para {
   border-radius: 100px;
   background: #B6FFDF;
   box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
-  width: 100px !important;
-  height: 100px !important;
+  width: 100px;
+  height: 100px;
   text-align: center;
   cursor: pointer;
 }
@@ -1479,12 +1437,9 @@ p.course-para {
 .testimonials-button-next:after{
   display: none;
 }
-.testimonial-slider-box3{
-  display: flex;
-}
-/* .testimonial-pagination .swiper-pagination-bullet-active{
+.testimonial-pagination .swiper-pagination-bullet-active{
 
-} */
+}
 
 /* newsletter-section
 ========================== */
@@ -1545,9 +1500,6 @@ p.course-para {
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 .contact-info-section p{
   font-size: 15px;
@@ -1586,9 +1538,9 @@ select.form-select {
   padding-bottom: 15px;
   height: auto;
 }
-/* .map-section{
+.map-section{
 
-} */
+}
 
 
 /* Footer
@@ -2953,9 +2905,6 @@ ul.exam-imp-list {
   height: 42px;
   width: 100%;
 }
-.green-btn{
-  text-decoration: underline;
-}
 
 
 
@@ -4316,7 +4265,7 @@ p.clg-stream-name {
 .page1{
   width: 45%;
   height:400px;
-  background: url('../images/sign-up-image/hiclipart.png');
+  background: url('../images/sign-up-image/hiclipart.com.png');
   background-color: #E8E8E8;
   background-position:left;
   background-repeat: no-repeat;
@@ -4507,7 +4456,7 @@ a{
     padding: 0;
     color: #575757;
 }
-.submit-span-btn{
+.submit-btn{
   border: 0;
   font-size: 12px;
   cursor: pointer;

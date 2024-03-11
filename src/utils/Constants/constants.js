@@ -1,3 +1,30 @@
+ import logo from '../../images/about-img1.png'
+ import chat from '../../images/homepage-image/chat.png'
+ import shortlist from '../../images/homepage-image/shortlist.png'
+ import form from '../../images/homepage-image/form.png'
+ import categories from '../../images/homepage-image/categories.png'
+ import checkMark from '../../images/homepage-image/check-mark.png'
+ import counsellor from '../../images/counsellors-collagedekho-image/img-banner-counsellor.60b1ca03.svg'
+ import noDataImg from '../../images/insurance-image-collagedekho/img-no-data.c0c99478.svg'
+ import buLogo from '../../images/collages-collagedekho-image/bulogo.avif'
+ import callNowBanner from '../../images/career-collage-dekho-image/callNowBanner.ccb277fe.svg'
+ import reward from '../..//images/document-collagedekho-image/img-reward.24f64b27 (1).svg'
+ import imgBannerUpload from '../../images/document-collagedekho-image/img-banner-upload.2ad9b1c8.svg'
+ import rankUpto1000 from '../../images/feed-collagedekho-image/List_of_Colleges_for_Upto_10000_Rank_in_MAH_MBA_CET.avif'
+ import lowRank from '../../images/feed-collagedekho-image/Colleges_Accepting_Low_Rank_in_MAH_MBA_CET.avif'
+ import cutOffScore from '../../images/feed-collagedekho-image/Untitled_design_-_2024-03-06T100222.513_1.avif'
+ import goodScore from '../../images/feed-collagedekho-image/What_is_a_Good_Score_in_MAH_MBA_CET.avif'
+ import topMbaMumbai from '../../images/feed-collagedekho-image/MAH_CET_Cutoff_2023_for_Top_MBA_Colleges_in_Mumbai_1.avif'
+ import topMbaPune from '../../images/feed-collagedekho-image/MAH_CET_Cutoff_for_Top_MBA_Colleges_in_Pune_1.avif'
+ import normalisation from '../../images/feed-collagedekho-image/MAH_MBA_CET_2023_Normalisation_Process.avif'
+ import cutoffJBIMS from '../../images/feed-collagedekho-image/MAH_MBA_CET_Cutoff_for_JBIMS.avif'
+ import cutoffPUMBA from '../../images/feed-collagedekho-image/MAH_MBA_CET_Cutoff_2023_for_PUMBA.avif'
+ import passingMarks from '../../images/feed-collagedekho-image/MAH_MBA_CET_Passing_Marks.avif'
+ import formCorrection from '../../images/feed-collagedekho-image/AP_ICET_Application_Form_Correction.avif'
+ import mcaGujarat from '../../images/feed-collagedekho-image/Gujarat_MCA_Admission_Process.avif'
+ import mahbacetai from '../../images/feed-collagedekho-image/MAHMBACETAI.avif'
+ import catTamilNadu from '../../images/feed-collagedekho-image/Best_CAT_Coaching_Institutes_in_Tamil_Nadu.avif'
+ import lowFees from '../../images/feed-collagedekho-image/MBA_Colleges_in_India_with_Low_Fees_1.avif'
  const constants = {
     tabList:{
         COURSES_NAME:'Courses',
@@ -54,6 +81,17 @@
          {name:'Bachelor of Dental Surgery (BDS)',path:'/courses_details/'},
          
          
-     ] 
+     ],
+     images:{users:{logo:logo, chat:chat, shortlist:shortlist,
+        form:form, categories:categories, checkMark:checkMark,
+        counsellor:counsellor, noDataImg:noDataImg, buLogo:buLogo,
+        callNowBanner:callNowBanner, reward:reward,imgBannerUpload:imgBannerUpload,
+        rankUpto1000:rankUpto1000, lowRank:lowRank, cutOffScore:cutOffScore,
+        goodScore:goodScore, topMbaMumbai:topMbaMumbai, topMbaPune:topMbaPune,
+        normalisation:normalisation, cutoffJBIMS:cutoffJBIMS, cutoffPUMBA:cutoffPUMBA,
+        passingMarks:passingMarks, formCorrection:formCorrection,
+        mcaGujarat:mcaGujarat, mahbacetai:mahbacetai, catTamilNadu:catTamilNadu,
+        lowFees:lowFees}}
+     
 }
 export default constants;
