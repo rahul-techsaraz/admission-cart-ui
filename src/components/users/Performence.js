@@ -1,5 +1,7 @@
 import React from 'react'
 import constants from '../../utils/Constants/constants'
+import '../../css/perfomence-collagedekho.css';
+import '../../css/perfomence-responsive.css';
 
 export default function Performence() {
   return (

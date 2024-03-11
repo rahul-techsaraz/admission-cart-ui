@@ -4,11 +4,19 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import { appRouter } from './Routes/router';
+import { Provider } from 'react-redux';
+import store from './state/store';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={appRouter} />
+    <ErrorBoundary>
+     <Provider store={store}>
+
+      <RouterProvider router={appRouter} />
+    </Provider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 

@@ -1,5 +1,8 @@
 import React from 'react'
-import constants from '../../utils/Constants/constants'
+import constants from '../../utils/Constants/constants';
+import '../../css/counsellors-collagedekho.css';
+import '../../css/counsellors-responsive.css';
+
 
 export default function Counsellor() {
   return (

@@ -1,5 +1,7 @@
 import React from 'react'
-import constants from '../../utils/Constants/constants'
+import constants from '../../utils/Constants/constants';
+import '../../css/document-collagedekho.css';
+import '../../css/document-responsive.css';
 
 export default function Document() {
   return (

@@ -28,6 +28,7 @@ import Collages from "../components/users/Collages";
 import Career from "../components/users/Career";
 import Document from "../components/users/Document";
 import Feed from "../components/users/Feed";
+import ErrorBoundary from "../components/ErrorBoundary";
 
   export const appRouter = createBrowserRouter([
     {
@@ -51,7 +52,9 @@ import Feed from "../components/users/Feed";
         {
           path: "/user/dashboard",
           element: <UserDashBoard />,
-          children:[{
+         
+          children: [
+            {
             path: "home",
             element: <DashBoardMainSection/>
           },
@@ -83,7 +86,8 @@ import Feed from "../components/users/Feed";
             path: "feed",
             element: <Feed/>
           }
-          ]
+          ],
+           
         },
         {
           path: '/courses_list',

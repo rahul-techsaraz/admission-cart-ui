@@ -1,5 +1,8 @@
 import React from 'react'
-import constants from '../../utils/Constants/constants'
+import constants from '../../utils/Constants/constants';
+import '../../css/career-collage-dekho.css';
+import '../../css/career-responsive.css';
+
 
 export default function Career() {
   return (

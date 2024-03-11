@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import '../../css/profilepage-collage-dekho.css';
+import '../../css/responsive-profile-page.css';
 
 export default function Profile() {
   return (

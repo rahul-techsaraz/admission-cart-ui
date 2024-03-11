@@ -86,7 +86,7 @@ const Header = () => {
                 </section>
             </nav>
         </div>
-    </header>o
+    </header>
         </>
     )
 }

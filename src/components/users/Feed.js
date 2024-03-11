@@ -1,5 +1,6 @@
 import React from 'react'
-import constants from '../../utils/Constants/constants'
+import constants from '../../utils/Constants/constants';
+import '../../css/feed-collage-dekho.css';
 
 export default function Feed() {
   return (

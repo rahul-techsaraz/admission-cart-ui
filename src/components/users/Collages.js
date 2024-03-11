@@ -1,5 +1,8 @@
 import React from 'react'
-import constants from '../../utils/Constants/constants'
+import constants from '../../utils/Constants/constants';
+import '../../css/collages-responsive.css';
+import '../../css/collage-collagedekho.css';
+
 
 export default function Collages() {
   return (
