@@ -77,12 +77,11 @@ const CourseList = () => {
                             <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt=""/></a>
                         </div>
                     </div>
-
                 </div>
-                
-  
             </div>
         </div>
+        <div class="swiper-button-prev courselist-button-prev"></div>
+        <div class="swiper-button-next courselist-button-next"></div>
     </section>
         </>
     )

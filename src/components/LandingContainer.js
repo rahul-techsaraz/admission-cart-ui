@@ -47,12 +47,12 @@ const LandingContainer = () => {
                    
                 </div>
               
-                {/* <div className="swiper-button-next banner-button-next">
+                <div className="swiper-button-next banner-button-next">
                     <img src={rightArrow} alt="" />
                 </div>
                 <div className="swiper-button-prev banner-button-prev">
                     <img src={leftArrow} alt="" />
-                </div> */}
+                </div>
                 
             </div>
 

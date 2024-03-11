@@ -146,12 +146,14 @@
   .theme-btn{
     display: inline-flex;
     height: 60px;
-    padding: 23px 45px;
+    padding: 0px 45px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    color: var(--color-black)
+    color: var(--color-black);
+    border: 0;
+  
   }
   .yellow-bg{
     background: var(--color-yellow);

@@ -47,20 +47,35 @@ const Testimonial = () => {
                             <div className="swiper-wrapper">
                                     {testimonialPersonDetails.map(details => (
                                 <div className="swiper-slide">
-
+                                  <div className="testimonial-slider-box3">
                                         <div className="testimonials-box">
                                         <div className="testi-content-box">
                                             <p>{details.description}</p>
                                         </div>
                                         <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
                                         <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
+                                     </div>
+
+                                     <div className="testimonials-box">
+                                        <div className="testi-content-box">
+                                            <p>{details.description}</p>
+                                        </div>
+                                        <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
+                                        <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
+                                     </div>
+
+                                     <div className="testimonials-box">
+                                        <div className="testi-content-box">
+                                            <p>{details.description}</p>
+                                        </div>
+                                        <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
+                                        <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
+                                     </div>
                                     </div>
                                 </div>
 
                                     ))}
                                     
-                              
-                               
 
                             </div>
                         </div>

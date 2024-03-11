@@ -58,7 +58,7 @@ export default function LoginModel() {
                 <button className="continue" >Continue</button>
                 <div className="account_submit">
                     <button type="button" className="account-btn">Create New Account?</button>
-                    <span  className="submit-btn" onClick={() => handleModel() }>Signup</span>
+                    <span  className="submit-span-btn" onClick={() => handleModel() }>Signup</span>
                 </div>
                 </div>
             </div>

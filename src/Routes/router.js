@@ -18,7 +18,7 @@ import ExamListing from "../components/exam/ExamListing";
 import CourseDetails from "../components/courses/course_details/CourseDetails";
 import CollegeDetails from "../components/colleges/college_details/CollegeDetails";
 import ExamDetails from "../components/exam/exam_details/ExamDetails";
-import DashBoard  from "../components/DashBoard";
+import DashBoard from "../components/DashBoard";
 
   export const appRouter = createBrowserRouter([
     {

@@ -78,8 +78,8 @@ const MockExamList = () => {
                     </div>
                 </div>
           
-                <div class="swiper-button-prev implink-button-prev"></div>
-                <div class="swiper-button-next implink-button-next"></div>
+                {/* <div class="swiper-button-prev implink-button-prev"></div>
+                <div class="swiper-button-next implink-button-next"></div> */}
                 
             </div>
         </div>
