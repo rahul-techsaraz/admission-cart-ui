@@ -25,6 +25,7 @@
  import mahbacetai from '../../images/feed-collagedekho-image/MAHMBACETAI.avif'
  import catTamilNadu from '../../images/feed-collagedekho-image/Best_CAT_Coaching_Institutes_in_Tamil_Nadu.avif'
  import lowFees from '../../images/feed-collagedekho-image/MBA_Colleges_in_India_with_Low_Fees_1.avif'
+ import connectUs from '../../images/payments-image/img-banner-connect-us.05ec2c9e.svg'
  const constants = {
     tabList:{
         COURSES_NAME:'Courses',
@@ -91,7 +92,89 @@
         normalisation:normalisation, cutoffJBIMS:cutoffJBIMS, cutoffPUMBA:cutoffPUMBA,
         passingMarks:passingMarks, formCorrection:formCorrection,
         mcaGujarat:mcaGujarat, mahbacetai:mahbacetai, catTamilNadu:catTamilNadu,
-        lowFees:lowFees}}
+        lowFees:lowFees, connectUs:connectUs}
+    },
+    userDashBoardSidebarMenu:[
+        {
+            lableName:"Home",
+            path:"/home",
+            firstSpanClassName:"home-icon",
+            itagClassName:"fa-house",
+            secondSpanClassName:"home-text"
+        },
+        {
+            lableName:"Profile",
+            path:"/profile",
+            firstSpanClassName:"profile-icon",
+            itagClassName:"fa-user",
+            secondSpanClassName:"profile-text"
+        },
+        {
+            lableName:"My Test Performance",
+            path:"/performence",
+            firstSpanClassName:"perfomence-i",
+            itagClassName:"fa-chart-pie",
+            secondSpanClassName:"perfomence-text"
+        },
+        {
+            lableName:"Collages",
+            path:"/collages",
+            firstSpanClassName:"collages-i",
+            itagClassName:"fa-building-columns",
+            secondSpanClassName:"collages-text"
+        },
+        {
+            lableName:"Career Compass",
+            path:"/career",
+            firstSpanClassName:"career-i",
+            itagClassName:"fa-compass",
+            secondSpanClassName:"career-text"
+        },
+        {
+            lableName:"Document",
+            path:"/document",
+            firstSpanClassName:"document-i",
+            itagClassName:"fa-id-card",
+            secondSpanClassName:"document-text"
+        },
+        {
+            lableName:"Feed",
+            path:"/feed",
+            firstSpanClassName:"feed-i",
+            itagClassName:"fa-comment",
+            secondSpanClassName:"feed-text"
+        },
+        {
+            lableName:"Payments",
+            path:"/payment",
+            firstSpanClassName:"payments-i",
+            itagClassName:"fa-money-check-dollar",
+            secondSpanClassName:"payments-text"
+        },
+        {
+            lableName:"Insurance",
+            path:"/insurance",
+            firstSpanClassName:"insurance-i",
+            itagClassName:"fa-car-burst",
+            secondSpanClassName:"insurance-text"
+        },
+        {
+            lableName:"Counsellors",
+            path:"/counsellor",
+            firstSpanClassName:"counsellors-i",
+            itagClassName:"fa-face-smile",
+            secondSpanClassName:"counsellors-text"
+        },
+        {
+            lableName:"Account Settings",
+            path:"/account",
+            firstSpanClassName:"account-i",
+            itagClassName:"fa-gear",
+            secondSpanClassName:"account-text"
+        }
+
+    ]
+
      
 }
 export default constants;

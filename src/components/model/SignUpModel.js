@@ -10,7 +10,7 @@ const SignUpModel = () => {
   }
 return(
     <>
-    <div div class="modal fade regtration-modal-popup show" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" role="dialog" style={{display: "block"}}>
+    {/* <div div class="modal fade regtration-modal-popup show" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" role="dialog" style={{display: "block"}}>
     <div className="modal-dialog">
     <div className="modal-content">
       <button type="button" className="btn-close" aria-label="Close" onClick={() => dispatch(toggelSignupModel({flag:false}))}></button>
@@ -45,7 +45,7 @@ return(
                               </div>
                               <div className="col-md-12">
                                 <input type="email" className="form-control" id="" placeholder="Email" />
-                              </div>
+                              </div> */}
                               {/* <div className="col-12">
                                 <select className="form-select" id="specificSizeSelect1">
                                   <option selected>Preferred Stream</option>
@@ -56,7 +56,7 @@ return(
                                   <option selected>Select Program Type</option>
                                 </select>
                               </div> */}
-                              <div className="col-md-12">
+                              {/* <div className="col-md-12">
                                 <select className="form-select" id="specificSizeSelect3">
                                   <option selected>State</option>
                                 </select>
@@ -85,7 +85,8 @@ return(
       
     </div>
   </div>
-    </div>
+    </div> */}
+    
 
     </>
 )

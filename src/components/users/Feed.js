@@ -1,6 +1,8 @@
 import React from 'react'
 import constants from '../../utils/Constants/constants';
 import '../../css/feed-collage-dekho.css';
+import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom';
 
 export default function Feed() {
   return (
@@ -8,34 +10,11 @@ export default function Feed() {
         <section className="profile-page">
         <div className="container">
         <div className="side-bar">
-            <div className="side-navbar-parents">
-                
-            <div className="side-navbar">
-                <input type="checkbox" id="check"/>
-                <label for="check">
-                    <i className="fa-solid fa-bars-staggered" id="bars"></i>
-                    <i className="fa-solid fa-xmark" id="cancel"></i>
-                </label>
-            <ul>
-                <li><a href="#"><span className="home-icon"><i className="fa-solid fa-house"></i></span> <span className="home-text">Home</span></a></li>
-                <li><a href="#"><span><i className="fa-solid fa-user"></i></span> <span className="profile-text">Profile</span></a></li>
-                <li><a href="#"><span><i className="fa-solid fa-chart-pie"></i></span> My Test Performance</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-building-columns"></i></span> Collages</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-compass"></i></span>Career Compass</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-id-card"></i></span> Document</a></li>
-                <li className="active"><a href="#"><span className="feed-i"><i className="fa-solid fa-comment"></i></span><span className="feed-text">Feed</span></a></li>
-                <li><a href="#"><span><i className="fa-solid fa-money-check-dollar"></i></span> Payments</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-gift"></i></span> Rewards</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-car-burst"></i></span> Insurance</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-face-smile"></i></span> Counsellors</a></li>
-                <li><a href="#"><span><i className="fa-solid fa-gear"></i></span> Account Settings</a></li>
-            </ul>
-        </div>
-    </div>
+            <Sidebar/>
         <div className="left-box">
             {/* <!-- My Feed start --> */}
             <div className="my-feed-box">
-               <li><a href="#">My Feed</a></li>
+               <li><Link>My Feed</Link></li>
             </div>
             <div className="all-collage">
                 <div className="img-colg-name">

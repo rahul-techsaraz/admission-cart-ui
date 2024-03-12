@@ -29,6 +29,10 @@ import Career from "../components/users/Career";
 import Document from "../components/users/Document";
 import Feed from "../components/users/Feed";
 import ErrorBoundary from "../components/ErrorBoundary";
+import Payment from "../components/users/Payment";
+import Insurance from "../components/users/Insurance";
+import Account from "../components/users/Account";
+import PsychometricTest from "../components/PsychometricTest";
 
   export const appRouter = createBrowserRouter([
     {
@@ -85,7 +89,20 @@ import ErrorBoundary from "../components/ErrorBoundary";
           {
             path: "feed",
             element: <Feed/>
+          },
+          {
+            path: "payment",
+            element: <Payment/>
+          },
+          {
+            path: "insurance",
+            element: <Insurance/>
+          },
+          {
+            path: "account",
+            element: <Account/>
           }
+          
           ],
            
         },

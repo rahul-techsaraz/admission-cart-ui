@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     openSignupModel: false,
     openLoginModel: false,
-    openDashBoardModel:false
+    openDashBoardModel:false,
+    activemenue:1
  
 };
 
@@ -20,6 +21,10 @@ const commonSlice = createSlice({
   toggelDashBoardModel: (state) => {
           state.openDashBoardModel = !state.openDashBoardModel;
       },
+  upDateActiveMenu: (state, action)=>{
+    console.log(action)
+    state.activemenue = action.payload.index
+  }
 
   },
 });
@@ -27,7 +32,8 @@ const commonSlice = createSlice({
 export const { 
     toggelSignupModel,
     toggelLoginModel,
-    toggelDashBoardModel
+    toggelDashBoardModel,
+    upDateActiveMenu
  } = commonSlice.actions;
 
 export default commonSlice.reducer;

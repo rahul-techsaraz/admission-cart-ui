@@ -7,6 +7,7 @@ import ICmanageProfile from '../../images/homepage-image/Ic-manage-profile.dd386
 import ICFeedbackProfile from '../../images/homepage-image/Ic-feedback.47ae6b92.svg';
 import ICLegalProfile from '../../images/homepage-image/ic-legal.6c5d124d.svg';
 import ICSettingProfile from '../../images/homepage-image/Ic-settings.5c58e061.svg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,7 +28,7 @@ export default function DashBoardMainSection() {
                     <h3>Hey Jayanta Kumar Mondal, Your profile is incomplete !</h3>
                     <p className="incomplete-p">Complete your profile and we will help you in building better college recommendations for you.You are one step closer to earning 100 reward points</p>
                 </div>
-                <button className="complte-your-profile btn1">Complete Your Profile</button>
+                <Link to={"/user/dashboard/profile"}><button className="complte-your-profile btn1">Complete Your Profile</button></Link>
             </div>
 
             
