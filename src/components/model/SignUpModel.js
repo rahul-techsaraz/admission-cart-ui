@@ -8,6 +8,7 @@ const SignUpModel = () => {
     dispatch(toggelSignupModel({ flag: false }));
     dispatch(toggelLoginModel({flag:true}))
   }
+  
 return(
     <>
     {/* <div div class="modal fade regtration-modal-popup show" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" role="dialog" style={{display: "block"}}>
