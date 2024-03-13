@@ -124,7 +124,7 @@
             secondSpanClassName:"collages-text"
         },
         {
-            lableName:"Career Compass",
+            lableName:"Career",
             path:"/career",
             firstSpanClassName:"career-i",
             itagClassName:"fa-compass",
@@ -137,27 +137,9 @@
             itagClassName:"fa-id-card",
             secondSpanClassName:"document-text"
         },
-        {
-            lableName:"Feed",
-            path:"/feed",
-            firstSpanClassName:"feed-i",
-            itagClassName:"fa-comment",
-            secondSpanClassName:"feed-text"
-        },
-        {
-            lableName:"Payments",
-            path:"/payment",
-            firstSpanClassName:"payments-i",
-            itagClassName:"fa-money-check-dollar",
-            secondSpanClassName:"payments-text"
-        },
-        {
-            lableName:"Insurance",
-            path:"/insurance",
-            firstSpanClassName:"insurance-i",
-            itagClassName:"fa-car-burst",
-            secondSpanClassName:"insurance-text"
-        },
+       
+       
+        
         {
             lableName:"Counsellors",
             path:"/counsellor",
