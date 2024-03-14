@@ -1,30 +1,33 @@
-import SignUpModel from "../model/SignUpModel";
 import userImage from '../../images/user-icon.svg'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link  } from "react-router-dom";
 import MegaMenu from "./MegaMenu";
 import { tabName } from "../../data/header/TabData";
 import { megaMenuData } from "../../data/header/megaMenuData";
-import { UseSelector,useDispatch, useSelector } from "react-redux";
-import { toggelLoginModel, toggelSignupModel } from "../../features/commonSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { toggelLoginModel, toggelAfterLoginModel } from "../../features/commonSlice";
 import LoginModel from "../model/LoginModel";
+import AfterLoginModel from "../model/AfterLoginModel";
 const Header = () => {
     const [model, setModel] = useState(false);
-    
-    //Redux State
-    const { openSignupModel,openLoginModel } = useSelector(state => state.common)
-    //Dispatch Actions
     const dispatch = useDispatch();
+    //Redux State
+    const { openAfterLoginModel, openLoginModel } = useSelector(state => state.common)
+    //Dispatch Actions
     const handleModel = () => {
-        dispatch(toggelSignupModel({flag:false}))
-
-        dispatch(toggelLoginModel({flag:true}))
+        if(localStorage.getItem("token")){
+            dispatch(toggelAfterLoginModel({flag:true}))
+            dispatch(toggelLoginModel({flag:false}))
+        }else{
+            dispatch(toggelAfterLoginModel({flag:false}))
+            dispatch(toggelLoginModel({flag:true}))
+        }
     }
  
    
     return(
         <>
-            {openSignupModel && <SignUpModel />}
+            {openAfterLoginModel && <AfterLoginModel/>}
         {openLoginModel && <LoginModel/>}
             
         <header className="header">

@@ -6,7 +6,7 @@ import { upDateActiveMenu } from '../../features/commonSlice'
 
 export default function Sidebar() {
     const {openLoginModel,activemenue}= useSelector((state)=>state.common)
-    console.log(activemenue)
+    // console.log(activemenue)
     const dispatch= useDispatch()
   return (
     <>

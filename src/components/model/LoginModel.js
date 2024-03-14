@@ -3,12 +3,13 @@ import user2 from '../../images/sign-up-image/users-2.png';
 import nationalFLag from '../../images/sign-up-image/national-flag.png';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { toggelLoginModel, toggelSignupModel } from '../../features/commonSlice';
+import { toggelLoginModel, updateFirstName } from '../../features/commonSlice';
 import '../../css/collagedekho.css'
 
 
 export default function LoginModel() {
     const [loginModelToggle, setLoginModelToggle] = useState(true)
+    const [firstName, setFirstName] = useState('')
     const [loginPhone, setLoginPhone] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -16,10 +17,17 @@ export default function LoginModel() {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const dispatch = useDispatch();
-    const handleModel = () => {
-        dispatch(toggelLoginModel({flag:false}))
+    // const handleModel = () => {
+    //     dispatch(toggelLoginModel({flag:false}))
 
-        dispatch(toggelSignupModel({flag:true}))
+    //     dispatch(toggelSignupModel({flag:true}))
+    // }
+    const validateName = ()=>{
+        if(firstName.length === 0){
+            alert("Name can't be blank")
+        }else{
+            return true
+        }
     }
     const validatePhone = ()=>{
         const phoneRegex = /[0-9]{10}/;
@@ -46,20 +54,29 @@ export default function LoginModel() {
             return true
         }
     }
-    const handleSignUp = async ()=>{
-        if(validatePhone() && validateEmail() && validatePassword()){
+    const handleSignUp = async (e)=>{
+        if(validateName() && validatePhone() && validateEmail() && validatePassword()){
             const data = await fetch('https://techsaraz.in/admission-cart/api/login/register.php', {
             method: 'post',
             headers: {'Content-Type':'application/json'},
             body:  JSON.stringify({
                 "phone":phone,
                 "email":email,
-                "password":password
+                "password":password,
+                "full_name":firstName
                 })
            });
-            const jsonData = data.json()
-            console.log(jsonData)
-            alert("You have successfully registered.")
+            const jsonData = await data.json()
+            // console.log(jsonData.success)
+            if(jsonData.success===0){
+                alert(jsonData.message)
+            }else{
+                dispatch(updateFirstName({first_Name:firstName}))
+                e.target.parentElement.parentElement.parentElement.childNodes[0].classList.remove("moveslider")
+                e.target.parentElement.parentElement.parentElement.childNodes[2].classList.remove("form-section-move")
+                localStorage.setItem('name', JSON.stringify(firstName))
+                alert(jsonData.message)
+            }
         }
     }
     const validateLogin = ()=>{
@@ -92,14 +109,12 @@ export default function LoginModel() {
         sliderElement.classList.add("moveslider")
         let formElement = e.target.parentElement.parentElement.childNodes[2]
         formElement.classList.add("form-section-move")
-        //setSignin(false)
     }
     const togelLoginClass = (e)=>{
         let sliderElement = e.target.parentElement.parentElement.childNodes[0]
         sliderElement.classList.remove("moveslider")
         let formElement = e.target.parentElement.parentElement.childNodes[2]
         formElement.classList.remove("form-section-move")
-        //setSignin(false)
     }
     
     return (
@@ -121,11 +136,12 @@ export default function LoginModel() {
                 </div>
             </div> 
             <div className="signup-box">
+                <input type="txt" className="name ele" placeholder="Your Name" onChange={(e)=>setFirstName(e.target.value)}/>
                 <input type="tel" className="name ele" placeholder="Enter your Phone Number" onChange={(e)=>setPhone(e.target.value)}/>
                 <input type="email" className="email ele" placeholder="youremail@email.com" onChange={(e)=>setEmail(e.target.value)}/>
                 <input type="password" className="password ele" placeholder="password" onChange={(e)=>setPassword(e.target.value)}/>
                 <input type="password" className="password ele" placeholder="Confirm password" onChange={(e)=>setConfirmPassword(e.target.value)}/>
-                <button className="clkbtn" onClick={()=>handleSignUp()}>Signup</button>
+                <button className="clkbtn" onClick={(e)=>handleSignUp(e)}>Signup</button>
             </div>
         </div>
     </div> :
