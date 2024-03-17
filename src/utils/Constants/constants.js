@@ -26,7 +26,10 @@
  import catTamilNadu from '../../images/feed-collagedekho-image/Best_CAT_Coaching_Institutes_in_Tamil_Nadu.avif'
  import lowFees from '../../images/feed-collagedekho-image/MBA_Colleges_in_India_with_Low_Fees_1.avif'
  import connectUs from '../../images/payments-image/img-banner-connect-us.05ec2c9e.svg'
- const constants = {
+const constants = {
+    apiEndPoint: {
+         UPLOAD_FILE:"https://techsaraz.in/admission-cart/api/fileupload/upload.php"
+     },
     tabList:{
         COURSES_NAME:'Courses',
         COLLEGES_NAME:'Colleges',

@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import constants from '../../utils/Constants/constants';
 import '../../css/document-collagedekho.css';
 import '../../css/document-responsive.css';
 import Sidebar from './Sidebar';
+import axios from 'axios';
 
 export default function Document() {
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    useEffect(() => {
+console.log(selectedFiles[0])
+    }, [selectedFiles])
+    const handleUpload = () => {
+    const data = new FormData();
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      data.append("file[]", selectedFiles[i]);
+    }
+
+    let url = constants.apiEndPoint.UPLOAD_FILE+"?dir=upload";
+
+    axios
+      .post(url, data, {
+        // receive two parameter endpoint url ,form data
+      })
+      .then((res) => {
+        // then print response status
+        console.log(res)
+        
+      },error=>{
+        console.log(error);
+      });
+        
+    }
   return (
     <>
         <section className="profile-page">
@@ -20,9 +47,7 @@ export default function Document() {
                 {/* <!-- Tab 2 --> */}
                 <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier"/>
                 <label for="tab2">Admission Proof</label>
-                {/* <!-- Tab 3 --> */}
-                <input type="radio" name="tabset" id="tab3" aria-controls="dunkles"/>
-                <label for="tab3">Insurance Application</label>
+                
                 
                 <div className="tab-panels">
                   <section id="Basic-Documents" className="tab-panel">
@@ -44,15 +69,28 @@ export default function Document() {
                         <h5>Documents</h5>
                         <div className="upload-wraper">
                             <div className="upload">
-                                <div className="upload-i-text">
+                                                  <div className="upload-i-text">
+                                                       <input
+                type="file"
+                className="form-control"
+                                                          name="file"
+                                                          
+                onChange={(e) => setSelectedFiles(e.target.files)}
+              />
                                     <i className="fa-solid fa-upload"></i>
-                                    <span>Upload</span>
+                                    <span onClick={() => handleUpload()}>Upload</span>
                                 </div>
                                 <h6>10th Certificate</h6>
                                 <p className="document-p">File should be max 2mb and jpg, jpeg, png, pdf</p>
                             </div>
                             <div className="upload">
-                                <div className="upload-i-text">
+                                                  <div className="upload-i-text">
+                                                      <input
+                type="file"
+                className="form-control"
+                name="file"
+                onChange={(e) => setSelectedFiles([...selectedFiles,{name:e.target.files[0].name,size:e.target.files[0]}])}
+              />
                                     <i className="fa-solid fa-upload"></i>
                                     <span>Upload</span>
                                 </div>
