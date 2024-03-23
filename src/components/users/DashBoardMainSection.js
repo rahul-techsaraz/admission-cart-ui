@@ -58,7 +58,7 @@ export default function DashBoardMainSection() {
                 
 
 
-                <div className="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
+                {/* <div className="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
                     <div className="img-box">
                         <div className="col-xl-9">
                         <div className="imgbox-p-button">
@@ -77,7 +77,7 @@ export default function DashBoardMainSection() {
                     </div>
                 </div>
              </div>
-                </div>
+                </div> */}
 
 
                 <div className="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
@@ -89,7 +89,7 @@ export default function DashBoardMainSection() {
                             <p className="imgbox-p">A scientific assessment method that can analyze your aptitude, capabilities, personality, and interests and suggest the best-fit career options for you.</p>
                         </div>
                         <div className="click">
-                            <span className="schedule-a-Call">Predict Your Career<i className="fa-solid fa-angle-right"></i></span>
+                            <Link to={'/aptitude_test'}><span className="schedule-a-Call" >Predict Your Career<i className="fa-solid fa-angle-right"></i></span></Link>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ export default function DashBoardMainSection() {
                 </div>
 
 
-                <div className="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
+                {/* <div className="col-sm-12 col-md-6 col-xl-6 col-xxl-6">
                     <div className="img-box">
                         <div className="col-xl-9">
                         <div className="imgbox-p-button">
@@ -122,7 +122,7 @@ export default function DashBoardMainSection() {
                     </div>
                 </div>
                        </div>
-                </div>
+                </div> */}
              </div>
             </div>
 

@@ -33,6 +33,8 @@ import Payment from "../components/users/Payment";
 import Insurance from "../components/users/Insurance";
 import Account from "../components/users/Account";
 import PsychometricTest from "../components/PsychometricTest";
+import Quiz from "../components/Quiz";
+import ProtectedRouter from "./ProtectedRouter";
 
   export const appRouter = createBrowserRouter([
     {
@@ -46,6 +48,14 @@ import PsychometricTest from "../components/PsychometricTest";
           ),
         },
         {
+          path: 'aptitude_test',
+          element:<PsychometricTest />,
+        },
+        {
+          path: "quiz",
+          element:<Quiz />
+        },
+        {
           path: "about",
           element: <AboutMainPage/>,
         },
@@ -55,7 +65,7 @@ import PsychometricTest from "../components/PsychometricTest";
         },
         {
           path: "/user/dashboard",
-          element: <UserDashBoard />,
+          element: <ProtectedRouter><UserDashBoard /></ProtectedRouter>,
          
           children: [
             {
@@ -130,6 +140,7 @@ import PsychometricTest from "../components/PsychometricTest";
           path: '/exam_list',
           element:<ExamListing />
         }
+        
       ],
       errorElement: (<>
       <Header />

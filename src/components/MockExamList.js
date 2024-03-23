@@ -1,6 +1,5 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-const responsive = {
+import CustomSwiper from "../utils/Constants/custom-components/CustomSwiper";
+/*const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 4,
@@ -16,7 +15,7 @@ const responsive = {
       items: 2,
       slidesToSlide: 1 // optional, default to 1.
     }
-  };
+  };*/
   const itemsName = ['UP Scholarships Last.1..','UP Scholarships Last.1..2','UP Scholarships Last.1..3','UP Scholarships Last.1..4','UP Scholarships Last.1..45']
 const MockExamList = () => {
     return(
@@ -26,7 +25,7 @@ const MockExamList = () => {
                     
                 <div class="">
                     <div class="">
-                    <Carousel
+                    {/* <Carousel
         responsive={responsive}
         autoPlay={false}
         swipeable={true}
@@ -43,7 +42,22 @@ const MockExamList = () => {
             </div>
           );
         })}
-        </Carousel>
+        </Carousel> */}
+        <div class="implink-slider-bx">
+            <p><CustomSwiper noOfSlidesPerView={4}>
+              {itemsName.map(items=>(
+                <swiper-slide>{items}</swiper-slide>
+            ))}</CustomSwiper></p>
+            </div>
+        {/* <Swiper space-between={10} slides-per-view={4} navigation={true}>
+        {itemsName.map(imageUrl=>(
+          <SwiperSlide key={imageUrl}>
+              <div class="implink-slider-bx">
+            <p>{imageUrl}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+        </Swiper> */}
                    
                         {/* <div class="swiper-slide">
                           <div class="implink-slider-bx">

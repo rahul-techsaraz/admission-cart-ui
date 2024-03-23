@@ -1,25 +1,27 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { toggelAfterLoginModel } from '../../features/commonSlice'
+import { Link, useNavigate } from 'react-router-dom'
+import { toggelAfterLoginModel, updateauthenticateUser } from '../../features/commonSlice'
 
 export default function AfterLoginModel() {
     const dispatch = useDispatch()
-    const {name} = useSelector((state) => state.common)
-    useEffect(()=>{
-        console.log(name)
-    },[])
+    const {fullName} = useSelector((state) => state.common)
+    const navigate = useNavigate()
+    // useEffect(()=>{
+    //     console.log(name)
+    // },[])
     
     const handelSignout = ()=>{
         dispatch(toggelAfterLoginModel({flag:false}))
-        localStorage.removeItem('token')
+        dispatch(updateauthenticateUser({flag:false}))
+        localStorage.removeItem('loginResponse')
     }
   return (
     <>
         <section className="popup">
             <div className="logo-name">
-                <div className="logo">J</div>
-                <label for="name" className="name">Hi, {name}</label>
+                <div className="logo">{fullName.charAt(0).toUpperCase()}</div>
+                <label for="name" className="name">Hi, {fullName}</label>
             </div>
             <div className="all-list">
                 <div className="my-collage">

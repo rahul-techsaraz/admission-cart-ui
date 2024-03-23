@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import user2 from '../../images/sign-up-image/users-2.png';
 import nationalFLag from '../../images/sign-up-image/national-flag.png';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { toggelLoginModel, updateFirstName } from '../../features/commonSlice';
-import '../../css/collagedekho.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { toggelLoginModel, toggelAfterLoginModel, updateFirstName, updateauthenticateUser } from '../../features/commonSlice';
+import '../../css/collagedekho.css';
+import constants from '../../utils/Constants/constants';
+import httpFetch from '../../fetch/useFetch';
+
 
 
 export default function LoginModel() {
-    const [loginModelToggle, setLoginModelToggle] = useState(true)
     const [firstName, setFirstName] = useState('')
     const [loginPhone, setLoginPhone] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
@@ -17,6 +19,7 @@ export default function LoginModel() {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const dispatch = useDispatch();
+    const {openLoginModel, openAfterLoginModel} = useSelector(state=>state.common)
     // const handleModel = () => {
     //     dispatch(toggelLoginModel({flag:false}))
 
@@ -71,10 +74,9 @@ export default function LoginModel() {
             if(jsonData.success===0){
                 alert(jsonData.message)
             }else{
-                dispatch(updateFirstName({first_Name:firstName}))
                 e.target.parentElement.parentElement.parentElement.childNodes[0].classList.remove("moveslider")
                 e.target.parentElement.parentElement.parentElement.childNodes[2].classList.remove("form-section-move")
-                localStorage.setItem('name', JSON.stringify(firstName))
+                // localStorage.setItem('name', JSON.stringify("firstName", firstName))
                 alert(jsonData.message)
             }
         }
@@ -86,22 +88,25 @@ export default function LoginModel() {
             return true;
         }
     }
+    
     const handleLogin = async ()=>{
         if(validateLogin()){
-            const data = await fetch('https://techsaraz.in/admission-cart/api/login/login.php', {
-            method: 'post',
-            headers: {'Content-Type':'application/json'},
-            body:  JSON.stringify({
+            const loginPayload = {
                 "phone":loginPhone,
                 "password":loginPassword
-                })
-           });
-           const jsonData = await data.json()
-           //console.log(jsonData.token)
-           if(jsonData.token.length!==0){
-            setLoginModelToggle(false)
-           }
-           localStorage.setItem('token', JSON.stringify(jsonData.token))
+                }
+                const jsonData = await httpFetch(constants.apiEndPoint.USER_LOGIN,constants.apiMethod.POST,constants.apiHeader.HEADER,loginPayload)
+                if(jsonData.success!==0){
+                    dispatch(toggelLoginModel({flag:false}))
+                    dispatch(toggelAfterLoginModel({flag:true}))
+                    dispatch(updateauthenticateUser({flag:true}))
+                    const obj = {email:jsonData.email,full_name:jsonData.full_name,phone:jsonData.phone,token:jsonData.token}
+                    localStorage.setItem('loginResponse', JSON.stringify(obj))
+                    dispatch(updateFirstName({first_Name:jsonData.full_name}))
+                }else{
+                    alert("Invalid Phone or Password")
+                }
+           
         }
     }
     const togelSignupClass = (e)=>{
@@ -120,7 +125,7 @@ export default function LoginModel() {
     return (
       
     <>
-    {loginModelToggle===true? <div className="login-main-box">
+    {openLoginModel && <div className="login-main-box">
         <div className="slider"></div>
         <div className="btn">
             <button className="login" onClick={(e)=>togelLoginClass(e)}>Login</button>
@@ -144,53 +149,7 @@ export default function LoginModel() {
                 <button className="clkbtn" onClick={(e)=>handleSignUp(e)}>Signup</button>
             </div>
         </div>
-    </div> :
-    <section className="popup">
-        <div className="logo-name">
-        <div className="logo">J</div>
-            <label for="name" className="name">Hi, Jayanta Kumar Mondal</label>
-        </div>
-        <div className="all-list">
-            <div className="my-collage">
-                <div className="my-collage-box">
-                    <Link>
-                        <i className="fa-solid fa-building-columns"></i><span className="My-Collages">My Collages</span>
-                    </Link>
-                </div>
-            </div>
-
-            <div className="my-collage">
-                <div className="my-collage-box">
-                    <Link>
-                        <i className="fa-regular fa-circle-user"></i><span className="My-Collages">My Profile</span>
-                    </Link>
-                </div>
-            </div>
-
-            <div className="my-collage">
-                <div className="my-collage-box">
-                    <Link>
-                        <i className="fa-regular fa-credit-card"></i><span className="My-Collages">Payments</span>
-                    </Link>
-                </div>
-            </div>
-
-            <div className="my-collage">
-                <div className="my-collage-box">
-                    <Link>
-                        <i className="fa-solid fa-screwdriver-wrench"></i><span className="My-Collages">Account Settings</span>
-                    </Link>
-                </div>
-            </div>
-            <div className="my-collage">
-                <div className="my-collage-box-log-out">
-                    <Link>
-                        <i className="fa-solid fa-right-from-bracket"></i><span className="My-Collages">Sign Out</span>
-                    </Link>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
     }
     </>
   )

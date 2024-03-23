@@ -10,18 +10,22 @@ import './css/style.css'
 // import './css/collagedekho.css'
 
 import Header from './components/header/Header';
-
 import NewsLetter from './components/footer/NewsLetter';
 import ContactUsPage from './page/ContactUsPage';
 import Footer from './components/footer/Footer';
 import router from './Routes/router';
-import { BrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { Await, BrowserRouter, Outlet, RouterProvider, useNavigate } from 'react-router-dom';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './state/store';
 import ErrorBoundary from './components/ErrorBoundary';
+import { useEffect } from 'react';
+import { toggelAfterLoginModel, toggelLoginModel, updateauthenticateUser } from './features/commonSlice';
+import constants from './utils/Constants/constants';
+import httpFetch from './fetch/useFetch'
+import {register} from "swiper/element/bundle"
 
 const AppLayout = () => {
- 
+  register()
 
   return (
  <div className="app">

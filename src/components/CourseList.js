@@ -1,3 +1,5 @@
+import CustomSwiper from "../utils/Constants/custom-components/CustomSwiper";
+
 const CourseList = () => {
     return(
         <>
@@ -5,6 +7,8 @@ const CourseList = () => {
         <div className="container">
             <div className="course-slider">
                 <div className="swiper-wrapper">
+                    <CustomSwiper noOfSlidesPerView={1}>
+                    <swiper-slide>
                     <div className="swiper-slide">
                         <div className="course-box text-start">
                             <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
@@ -14,7 +18,87 @@ const CourseList = () => {
                             <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
                         </div>
                     </div>
+                    </swiper-slide>
+                    <swiper-slide>
                     <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div className="swiper-slide">
+                        <div className="course-box text-start">
+                            <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
+                            <p className="course-name">MBA Media Management</p>
+                            <p className="course-numbering">1.</p>
+                            <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                            <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    </CustomSwiper>
+                    
+                    {/* <div className="swiper-slide">
                         <div className="course-box text-start">
                             <img src="images/scollarship-icon.svg" className="scollarship-icon" alt="" />
                             <p className="course-name">MBA Media Management</p>
@@ -76,7 +160,7 @@ const CourseList = () => {
                             <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
                             <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt=""/></a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

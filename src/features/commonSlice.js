@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    //openSignupModel: false,
+    authenticateUser: localStorage.getItem('loginResponse')? true : false,
+    lastLocation:'',
     openLoginModel: false,
     openAfterLoginModel: false,
     openDashBoardModel:false,
     activemenue:1,
-    name:JSON.parse(localStorage.getItem("name"))
+    fullName: (localStorage.getItem('loginResponse') ? JSON.parse(localStorage.getItem("loginResponse")).full_name : '')
  
 };
 
@@ -14,37 +15,40 @@ const commonSlice = createSlice({
   name: "common",
   initialState,
   reducers: {
-    // toggelSignupModel: (state,{payload}) => {
-    //       state.openSignupModel = payload.flag;
-    // }
     toggelAfterLoginModel: (state, {payload}) => {
       state.openAfterLoginModel = payload.flag;
     },
     toggelLoginModel: (state, {payload}) => {
       state.openLoginModel = payload.flag
-  },
-  toggelDashBoardModel: (state) => {
-          state.openDashBoardModel = !state.openDashBoardModel;
-      },
-  upDateActiveMenu: (state, action)=>{
-    //console.log(action)
-    state.activemenue = action.payload.index
-  },
-  updateFirstName: (state, {payload})=>{
-    console.log(payload)
-    state.name = payload.first_Name
-  }
-
+    },
+    toggelDashBoardModel: (state) => {
+      state.openDashBoardModel = !state.openDashBoardModel;
+    },
+    upDateActiveMenu: (state, action)=>{
+      state.activemenue = action.payload.index
+    },
+    updateFirstName: (state, {payload})=>{
+      state.fullName = payload.first_Name
+    },
+    updateauthenticateUser: (state, {payload})=>{
+      state.authenticateUser = payload.flag
+    },
+    
+    updateLastLocation:(state, {payload})=>{
+      state.lastLocation = payload.location
+    }
   },
 });
 
 export const { 
-    // toggelSignupModel,
+    
     toggelAfterLoginModel,
     toggelLoginModel,
     toggelDashBoardModel,
     upDateActiveMenu,
-    updateFirstName
+    updateFirstName,
+    updateauthenticateUser,
+    updateLastLocation
  } = commonSlice.actions;
 
 export default commonSlice.reducer;
