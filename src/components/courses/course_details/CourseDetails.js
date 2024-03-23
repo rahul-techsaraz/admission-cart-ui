@@ -5,6 +5,7 @@ import studentIcon from '../../../images/student-icon.svg';
 import bookMarkIcon from '../../../images/bookmark-icon.svg';
 import questionIcon from '../../../images/question-icon.svg';
 import CourseDetailsBanner from './CourseDetailsBanner';
+import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
 
 
 
@@ -157,38 +158,52 @@ export default function CourseDetails() {
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper">
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
+                                    <CustomSwiper noOfSlidesPerView={1}>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>        
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>        
+                                        </swiper-slide>
+                                    </CustomSwiper>
+                                    
+                                    
+                                    
+                                    
 
 
                                 </div>
@@ -213,38 +228,52 @@ export default function CourseDetails() {
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper">
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <div className="clg-slider-box position-relative">
-                                            <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
-                                            <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                            <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                            <a href="#" className="apply-btn position-absolute">Apply</a>
-                                        </div>
-                                    </div>
+                                    <CustomSwiper noOfSlidesPerView={1}>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>        
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>        
+                                        </swiper-slide>
+                                        <swiper-slide>
+                                            <div className="swiper-slide">
+                                                <div className="clg-slider-box position-relative">
+                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
+                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
+                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                </div>
+                                            </div>        
+                                        </swiper-slide>
+                                    </CustomSwiper>
+                                    
+                                    
+                                    
+                                    
 
 
                                 </div>

@@ -3,6 +3,7 @@ import person2 from '../images/testi-user-img2.png';
 import person3 from '../images/testi-user-img3.png';
 import rightArrow from '../images/arrow-right-icon.svg';
 import leftArrow from '../images/arrow-left-icon.svg'
+import CustomSwiper from '../utils/Constants/custom-components/CustomSwiper';
 const testimonialPersonDetails = [
     {
         name:'Dolorsit Psumamet',
@@ -45,38 +46,23 @@ const Testimonial = () => {
                     <div className="testimonial-slider-wrapper position-relative mt-3">
                         <div className="swiper testimonial-slider">
                             <div className="swiper-wrapper">
-                                    {testimonialPersonDetails.map(details => (
-                                <div className="swiper-slide">
-                                  <div className="testimonial-slider-box3">
-                                        <div className="testimonials-box">
-                                        <div className="testi-content-box">
-                                            <p>{details.description}</p>
+                                <CustomSwiper noOfSlidesPerView={1}>
+                                {testimonialPersonDetails.map(details => (
+                                    <swiper-slide>
+                                        <div className="swiper-slide">
+                                            <div className="testimonial-slider-box3">
+                                                <div className="testimonials-box">
+                                                    <div className="testi-content-box">
+                                                        <p>{details.description}</p>
+                                                    </div>
+                                                    <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
+                                                    <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
-                                        <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
-                                     </div>
-
-                                     <div className="testimonials-box">
-                                        <div className="testi-content-box">
-                                            <p>{details.description}</p>
-                                        </div>
-                                        <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
-                                        <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
-                                     </div>
-
-                                     <div className="testimonials-box">
-                                        <div className="testi-content-box">
-                                            <p>{details.description}</p>
-                                        </div>
-                                        <img src={details.imageUrl} className="testi-user-img mx-auto d-block" alt="user img" />
-                                        <p className="testi-user-info text-center">{details.name} <span className="d-block">{details.designation}</span></p>
-                                     </div>
-                                    </div>
-                                </div>
-
-                                    ))}
-                                    
-
+                                    </swiper-slide>
+                                ))}
+                                </CustomSwiper>
                             </div>
                         </div>
 

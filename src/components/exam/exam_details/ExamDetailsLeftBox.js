@@ -14,6 +14,7 @@ import undrawImage from '../../../images/undraw_img.png';
 import examStep3 from '../../../images/exam-step3info-img1.png';
 import examStep3Info from '../../../images/exam-step3info-img2.png';
 import examStep4Info from '../../../images/exam-step3info-img3.png';
+import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper'
 
 
 
@@ -111,31 +112,45 @@ export default function ExamDetailsLeftBox() {
             <div className="swiper clg-slider">
               {/* <!-- Additional required wrapper --> */}
               <div className="swiper-wrapper">
+                <CustomSwiper>
+                  <swiper-slide>
+                    <div className="swiper-slide">
+                      <div className="clg-accepting-exam-slider-box position-relative">
+                        <p className="clg-accepting-name">Geetanjali Group of Colleges</p>
+                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
+                      </div>
+                    </div>
+                  </swiper-slide>
+                  <swiper-slide>
+                    <div className="swiper-slide">
+                      <div className="clg-accepting-exam-slider-box position-relative">
+                        <p className="clg-accepting-name">DIT University</p>
+                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
+                      </div>
+                    </div>    
+                  </swiper-slide>
+                  <swiper-slide>
+                    <div className="swiper-slide">
+                      <div className="clg-accepting-exam-slider-box position-relative">
+                        <p className="clg-accepting-name">Haridwar University</p>
+                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
+                      </div>
+                    </div>    
+                  </swiper-slide>
+                  <swiper-slide>
+                    <div className="swiper-slide">
+                      <div className="clg-accepting-exam-slider-box position-relative">
+                        <p className="clg-accepting-name">Geetanjali Group of Colleges</p>
+                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
+                      </div>
+                    </div>    
+                  </swiper-slide>
+                </CustomSwiper>
                 {/* <!-- Slides --> */}
-                <div className="swiper-slide">
-                  <div className="clg-accepting-exam-slider-box position-relative">
-                    <p className="clg-accepting-name">Geetanjali Group of Colleges</p>
-                    <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="clg-accepting-exam-slider-box position-relative">
-                    <p className="clg-accepting-name">DIT University</p>
-                    <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="clg-accepting-exam-slider-box position-relative">
-                    <p className="clg-accepting-name">Haridwar University</p>
-                    <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="clg-accepting-exam-slider-box position-relative">
-                    <p className="clg-accepting-name">Geetanjali Group of Colleges</p>
-                    <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                  </div>
-                </div>
+                
+                
+                
+                
               </div>
             </div>
             {/* <!-- If we need navigation buttons --> */}

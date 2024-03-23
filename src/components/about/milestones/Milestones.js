@@ -1,5 +1,6 @@
 import arrowLeftIconImg from "../../../images/arrow-left-icon.svg";
 import arrowRightIconImg from "../../../images/arrow-right-icon.svg";
+import CustomSwiper from "../../../utils/Constants/custom-components/CustomSwiper";
 export const Milestones = ()=>{
 
     return (
@@ -18,62 +19,88 @@ export const Milestones = ()=>{
                             {/* <!-- Additional required wrapper --> */}
                             <div class="swiper-wrapper">
                                 {/* <!-- Slides --> */}
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2015</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2016</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2017</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2018</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2019</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2020</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2021</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="milestone-box text-start">
-                                        <span class="milestone-dot"></span>
-                                        <h2 class="milestone-year">2022</h2>
-                                        <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
-                                    </div>
-                                </div>
+                                <CustomSwiper noOfSlidesPerView={1}>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2015</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2016</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2017</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2018</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2019</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2020</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2021</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-slide">
+                                            <div class="milestone-box text-start">
+                                                <span class="milestone-dot"></span>
+                                                <h2 class="milestone-year">2022</h2>
+                                                <p class="milestone-para"><span class="d-block">It was Founded</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, </p>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                </CustomSwiper>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 
                             </div>
                         </div>

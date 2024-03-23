@@ -26,9 +26,50 @@
  import catTamilNadu from '../../images/feed-collagedekho-image/Best_CAT_Coaching_Institutes_in_Tamil_Nadu.avif'
  import lowFees from '../../images/feed-collagedekho-image/MBA_Colleges_in_India_with_Low_Fees_1.avif'
  import connectUs from '../../images/payments-image/img-banner-connect-us.05ec2c9e.svg'
+ import PsychometricTestimg1 from '../../images/psychometric-test-img1.png'
+ import PsychometricTestimg2 from '../../images/psychometric-test-img2.jpg'
+ import PsychometricTestimg3 from '../../images/psychometric-test-img3.png'
+ import timeLineImg1 from '../../images/timeline/timeline-img1.png'
+ import timeLineImg2 from '../../images/timeline/timeline-img2.png'
+ import timeLineImg3 from '../../images/timeline/timeline-img3.png'
+ import timeLineImg4 from '../../images/timeline/timeline-img4.png'
+ import testiUserImg1 from '../../images/testi-user-img1.png'
+ import testiUserImg2 from '../../images/testi-user-img2.png'
+ import testiUserImg3 from '../../images/testi-user-img3.png'
+ import arrowLeftIcon from '../../images/arrow-left-icon.svg'
+ import arrowRightIcon from '../../images/arrow-right-icon.svg'
+ import alarmClockIcon from '../../images/quiz-image/icons8-alarm-clock-30.png'
 const constants = {
     apiEndPoint: {
-         UPLOAD_FILE:"https://techsaraz.in/admission-cart/api/fileupload/upload.php"
+         UPLOAD_FILE:"https://techsaraz.in/admission-cart/api/fileupload/upload.php",
+         USER_SIGNUP:"https://techsaraz.in//admission-cart/api/login/register.php",
+         USER_LOGIN:"https://techsaraz.in//admission-cart/api/login/login.php",
+         USER_AUTHORISATION:"https://techsaraz.in//admission-cart/api/login/user-info.php",
+         USER_DETAILS_GET_ALL_USER:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_ADD_or_UPDATE_USER_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_DELETE_USER_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_ADD_OR_UPDATE_USER_Educational_Qualification_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_DELETE_USER_Educational_Qualification_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_GET_ALL_USER_Educational_Qualification_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_ADD_OR_UPDATE_USER_User_Preferences_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_DELETE_USER_User_Preferences_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_GET_ALL_USER_User_Preferences_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_ADD_OR_UPDATE_USER_Basic_Document_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_DELETE_USER_Basic_Document_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_GET_ALL_USER_Basic_Document_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_ADD_OR_UPDATE_USER_Admission_Document_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_DELETE_USER_Admission_Document_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+         USER_DETAILS_GET_ALL_USER_Admission_Document_DETAILS_Only_Registered_Users:"https://techsaraz.in/admission-cart/api/user.php",
+
+     },
+     apiMethod:{
+        GET:'get',
+        POST:'post',
+        PUT:'put',
+        DELETE:'delete',
+     },
+     apiHeader:{
+        HEADER: {'Content-Type':'application/json'}
      },
     tabList:{
         COURSES_NAME:'Courses',
@@ -86,16 +127,25 @@ const constants = {
          
          
      ],
-     images:{users:{logo:logo, chat:chat, shortlist:shortlist,
-        form:form, categories:categories, checkMark:checkMark,
-        counsellor:counsellor, noDataImg:noDataImg, buLogo:buLogo,
-        callNowBanner:callNowBanner, reward:reward,imgBannerUpload:imgBannerUpload,
-        rankUpto1000:rankUpto1000, lowRank:lowRank, cutOffScore:cutOffScore,
-        goodScore:goodScore, topMbaMumbai:topMbaMumbai, topMbaPune:topMbaPune,
-        normalisation:normalisation, cutoffJBIMS:cutoffJBIMS, cutoffPUMBA:cutoffPUMBA,
-        passingMarks:passingMarks, formCorrection:formCorrection,
-        mcaGujarat:mcaGujarat, mahbacetai:mahbacetai, catTamilNadu:catTamilNadu,
-        lowFees:lowFees, connectUs:connectUs}
+    images:{
+        users:{
+            logo:logo, chat:chat, shortlist:shortlist,
+            form:form, categories:categories, checkMark:checkMark,
+            counsellor:counsellor, noDataImg:noDataImg, buLogo:buLogo,
+            callNowBanner:callNowBanner, reward:reward,imgBannerUpload:imgBannerUpload,
+            rankUpto1000:rankUpto1000, lowRank:lowRank, cutOffScore:cutOffScore,
+            goodScore:goodScore, topMbaMumbai:topMbaMumbai, topMbaPune:topMbaPune,
+            normalisation:normalisation, cutoffJBIMS:cutoffJBIMS, cutoffPUMBA:cutoffPUMBA,
+            passingMarks:passingMarks, formCorrection:formCorrection,
+            mcaGujarat:mcaGujarat, mahbacetai:mahbacetai, catTamilNadu:catTamilNadu,
+            lowFees:lowFees, connectUs:connectUs
+        },
+        PsychometricTest:{
+            PsychometricTestimg1:PsychometricTestimg1, PsychometricTestimg2:PsychometricTestimg2,
+            PsychometricTestimg3:PsychometricTestimg3, timeLineImg1:timeLineImg1, timeLineImg2:timeLineImg2,
+            timeLineImg3:timeLineImg3, timeLineImg4:timeLineImg4, testiUserImg1:testiUserImg1, testiUserImg2:testiUserImg2,
+            testiUserImg3:testiUserImg3, arrowLeftIcon:arrowLeftIcon, arrowRightIcon:arrowRightIcon, alarmClockIcon:alarmClockIcon
+        }
     },
     userDashBoardSidebarMenu:[
         {
