@@ -143,7 +143,7 @@ export default function PsychometricTest() {
                             {/* <!-- Additional required wrapper --> */}
                             <div class="swiper-wrapper">
                                 {/* <!-- Slides --> */}
-                                <CustomSwiper>
+                                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                     <swiper-slide>
                                         <div class="swiper-slide">
                                             <div class="testimonials-box">

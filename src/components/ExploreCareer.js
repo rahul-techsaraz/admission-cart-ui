@@ -16,7 +16,7 @@ const ExploreCareer = () => {
                     <div className="career-slider-wrapper position-relative">
                         <div className="swiper career-slider">
                             <div className="swiper-wrapper">
-                                <CustomSwiper noOfSlidesPerView={1}>
+                                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                     <swiper-slide>
                                         <div className="swiper-slide">
                                             <div className="career-box-flex-box">

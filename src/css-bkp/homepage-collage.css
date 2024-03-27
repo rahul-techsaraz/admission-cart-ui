@@ -685,8 +685,7 @@
     -webkit-transition: 0.3s;
     transition: 0.3s;
     z-index: 9;
-    max-height: 100%;
-    height: 393px;
+    max-height: 393px;
     overflow-x: hidden;
     display: -ms-flexbox;
     display: flex;
@@ -719,8 +718,7 @@
     color: var(--color-white);
   }
   .shop-mega-menu > ul {
-    /* width: calc(100% / 2); */
-    width: 100%;
+    width: calc(100% / 4);
     padding: 15px;
     float: left;
     max-height: 100%;
@@ -750,8 +748,7 @@
   }
   .shop-category > li:hover .shop-mega-menu,
   .shop-category > li.active .shop-mega-menu.hover {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
   }
 
 /* firstletter-name start */

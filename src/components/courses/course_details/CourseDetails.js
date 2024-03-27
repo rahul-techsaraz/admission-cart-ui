@@ -228,7 +228,7 @@ export default function CourseDetails() {
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper">
-                                    <CustomSwiper noOfSlidesPerView={1}>
+                                    <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">

@@ -12,7 +12,7 @@ export default function TopCollegesAccesptingExam() {
             <h2 className="section-heading2 grey text-center mb-5">Top Management Colleges in Karnataka</h2>
             <div className="swiper management-clg-slider">
               <div className="swiper-wrapper">
-                <CustomSwiper noOfSlidesPerView={1}>
+                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                   <swiper-slide>
                     <div className="swiper-slide">
                       <div className="clg-accepting-exam-slider-box position-relative">

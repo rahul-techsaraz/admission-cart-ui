@@ -11,7 +11,7 @@ export default function ExamDetails() {
   <div className="container">
           <div className="row">
             {/* exam_details_rightcol */}
-            <ExamDetailsRightCol />
+            {/* <ExamDetailsRightCol /> */}
             {/* exam_details_leftBox */}
             <ExamDetailsLeftBox />
           </div>

@@ -46,7 +46,7 @@ const Testimonial = () => {
                     <div className="testimonial-slider-wrapper position-relative mt-3">
                         <div className="swiper testimonial-slider">
                             <div className="swiper-wrapper">
-                                <CustomSwiper noOfSlidesPerView={1}>
+                                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                 {testimonialPersonDetails.map(details => (
                                     <swiper-slide>
                                         <div className="swiper-slide">

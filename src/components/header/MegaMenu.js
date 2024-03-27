@@ -27,9 +27,9 @@ console.log(menuData)
                                         <div className="shop-mega-menu hover">
                                             {menuItems?.data.map((subMenuItems, index) => (
                                                  <ul>
-                                                    <h6><span>{subMenuItems.heading}</span></h6>
+                                                    <h6>{subMenuItems.heading}</h6>
                                                     {subMenuItems?.subMenu.map((menu, index) => (
-                                                        <Link to={menu.path+addDash(menu.name)}><li><span>{menu.name}</span></li></Link>
+                                                        <Link to={menu.path+addDash(menu.name)} style={{justifyContent:""}}><li>{menu.name}</li></Link>
                                                     ))}
                            
                         </ul>
@@ -51,6 +51,7 @@ console.log(menuData)
 
 
 </div>
+
         </>
     )
 }
