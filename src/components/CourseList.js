@@ -7,7 +7,7 @@ const CourseList = () => {
         <div className="container">
             <div className="course-slider">
                 <div className="swiper-wrapper">
-                    <CustomSwiper noOfSlidesPerView={1}>
+                    <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                     <swiper-slide>
                     <div className="swiper-slide">
                         <div className="course-box text-start">

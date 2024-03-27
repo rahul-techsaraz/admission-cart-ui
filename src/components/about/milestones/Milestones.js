@@ -19,7 +19,7 @@ export const Milestones = ()=>{
                             {/* <!-- Additional required wrapper --> */}
                             <div class="swiper-wrapper">
                                 {/* <!-- Slides --> */}
-                                <CustomSwiper noOfSlidesPerView={1}>
+                                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                     <swiper-slide>
                                         <div class="swiper-slide">
                                             <div class="milestone-box text-start">

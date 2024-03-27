@@ -83,7 +83,7 @@ export default function ExamHighlights() {
               </table>
             </div>
             <div className="text-start mt-5">
-              <Link className="course-details-readmore-btn btn">Read More</Link>
+              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
           </div>
   )

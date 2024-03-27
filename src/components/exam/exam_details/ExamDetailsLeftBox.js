@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ExamDetailsUpdate from './ExamDetailsUpdate'
 import ExamHighlights from './ExamHighlights'
@@ -15,6 +15,7 @@ import examStep3 from '../../../images/exam-step3info-img1.png';
 import examStep3Info from '../../../images/exam-step3info-img2.png';
 import examStep4Info from '../../../images/exam-step3info-img3.png';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper'
+import constants from '../../../utils/Constants/constants'
 
 
 
@@ -24,6 +25,13 @@ import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwipe
 
 
 export default function ExamDetailsLeftBox() {
+  const [linkIndex, setLinkIndex] = useState(0)
+  const [pData, setPData] = useState(constants.examDetailsList[0].pTagData)
+  const updateActive = (p, index)=>{
+    setLinkIndex(index)
+    setPData(p)
+    //console.log(p)
+  }
   return (
    <div className="col-md-9">
         <div id="exam_details_leftBox" className="exam-details-leftBox">
@@ -31,7 +39,7 @@ export default function ExamDetailsLeftBox() {
           <div className="exam-details-left-innerpara mb-5 ps-5">
             <p className="exam-details-para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor.</p>
             <div className="text-start mt-5">
-              <Link className="course-details-readmore-btn btn">Read More</Link>
+              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
           </div>
           <div className="course-details-alterImgbox d-flex align-items-center pb-5">
@@ -45,13 +53,13 @@ export default function ExamDetailsLeftBox() {
               <img src={cdImage} alt="" />
             </div>
           </div>
-          <div className="exam-details-latestupdate-sec mt-5">
+          {/* <div className="exam-details-latestupdate-sec mt-5">
             <h2 className="section-heading2 grey text-center mb-4">JEE Main 2024 Latest Updates</h2>
             <ExamDetailsUpdate />
             <div className="text-start mt-5">
               <Link className="course-details-readmore-btn btn">View More</Link>
             </div>
-          </div>
+          </div> */}
           <ExamHighlights />
          <ExamSlider />
           <div className="pt-4"></div>
@@ -64,7 +72,7 @@ export default function ExamDetailsLeftBox() {
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
             <p className="exam-details-para1">The National Testing Agency (NTA) was founded as a leading, specialized, independent, and self-sufficient testing agency in order to administer entrance exams for admission to higher educational institutions. Being an autonomous body, NTA will increase examination transparency. The dates for the competitive tests will vary, giving students the flexibility to select the times that work best for them.</p>
             <div className="text-start mt-5">
-              <Link className="course-details-readmore-btn btn">Read More</Link>
+              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
           </div>
           <div className="similar-exam-ylw-box yellow-bg py-5">
@@ -98,7 +106,7 @@ export default function ExamDetailsLeftBox() {
             </div>
           </div>
           <div className="text-center mb-5">
-            <Link className="course-details-readmore-btn btn">Read More</Link>
+            {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
           </div>
           <div className="counselling-date-box">
             <h2 className="counselling-date-box-heading">JEE Main 2024 Counselling Dates</h2>
@@ -112,7 +120,7 @@ export default function ExamDetailsLeftBox() {
             <div className="swiper clg-slider">
               {/* <!-- Additional required wrapper --> */}
               <div className="swiper-wrapper">
-                <CustomSwiper>
+                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                   <swiper-slide>
                     <div className="swiper-slide">
                       <div className="clg-accepting-exam-slider-box position-relative">
@@ -170,7 +178,7 @@ export default function ExamDetailsLeftBox() {
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
             <p className="exam-details-para1">NTA will release the JEE Main Eligibility Criteria 2024 along with the official brochure at jeemain.nta.nic.in. JEE Main 2024 eligibility criteria will include information on the basic requirements that a candidate must meet in order to be eligible for the exam.</p>
             <div className="text-start mt-5">
-              <Link className="course-details-readmore-btn btn">Read More</Link>
+              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
           </div>
           <div className="exam-3step-sec">
@@ -219,7 +227,7 @@ export default function ExamDetailsLeftBox() {
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 1: Registration & Application Form Fill-up</h1>
                     <p className="exam-registration-infopara">Candidates can visit the official website of NTA and apply for JEE Main 2024 by filling out the registration form and submitting the required details like name, date of birth, a valid phone number, email ID etc.</p>
-                    <Link className="course-details-readmore-btn btn">Read More</Link>
+                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                   </div>
                 </div>
                 <div className="row mb-5">
@@ -229,7 +237,7 @@ export default function ExamDetailsLeftBox() {
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 2: Upload the Necessary Documents</h1>
                     <p className="exam-registration-infopara">While filling out the registration form for JEE Main 2024, candidates will have to upload a passport-size photograph and signature as per the dimensions mentioned in the table below. </p>
-                    <Link className="course-details-readmore-btn btn">Read More</Link>
+                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                   </div>
                 </div>
                 <div className="row mb-5">
@@ -239,7 +247,7 @@ export default function ExamDetailsLeftBox() {
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 3: Pay the JEE Main 2024 Application Fee</h1>
                     <p className="exam-registration-infopara">Candidates are required to successfully fill out the JEE Main Application Form 2024 and pay the required fees according to reservations. Payment can be done in online mode through Debit/Credit Cards</p>
-                    <Link className="course-details-readmore-btn btn">Read More</Link>
+                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                   </div>
                 </div>
               </div>
@@ -251,44 +259,52 @@ export default function ExamDetailsLeftBox() {
               <div className="row">
                 <div className="col-md-5 pe-0">
                   <div className="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2 active" id="v-pills-home-tab" data-bs-toggle="pill" href="javascript:void(0)" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    {constants.examDetailsList.map((value, index)=>(
+                      <Link onClick={()=>updateActive(value.pTagData, index)} className={index===linkIndex ? value.linkClass : "nav-link mb-3 d-flex align-items-stretch gap-2"} id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                        <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
+                          <img src={contractIcon} alt="" />
+                        </span>
+                        <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main 2024 Advanced City Intimation Slip</span>
+                      </Link>  
+                    ))}
+                    {/* <Link className="nav-link mb-3 d-flex align-items-stretch gap-2 active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                       <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                         <img src={contractIcon} alt="" />
                       </span>
                       <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main 2024 Advanced City Intimation Slip</span>
                     </Link>
-                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" href="javascript:void(0)" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                       <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                         <img src={contractIcon} alt="" />
                       </span>
                       <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main Admit card 2024</span>
                     </Link>
-                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" href="javascript:void(0)" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                       <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                         <img src={contractIcon} alt=""/>
                       </span>
                       <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main Exam Centers 2024</span>
                     </Link>
-                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" href="javascript:void(0)" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
                       <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                         <img src={contractIcon} alt="" />
                       </span>
                       <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main Exam Pattern 2024</span>
                     </Link>
-                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" href="javascript:void(0)" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                    <Link className="nav-link mb-3 d-flex align-items-stretch gap-2" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
                       <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                         <img src={contractIcon} alt="" />
                       </span>
                       <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main 2024 Syllabus</span>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
                 <div className="col-md-7 ps-0">
                   <div className="tab-content exam-tab-content" id="v-pills-tabContent">
                     <div className="tab-pane fade rounded bg-white show active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                      <p className="m-0">The JEE Main Admit Card 2024 will be released separately for the January and April sessions. The JEE Main Hall Ticket 2024 download link will be made available at jeemain.nta.nic.in. Only those who successfully register for the NTA JEE Main 2024 Exam will be issued the admit card. To obtain the JEE Main 2024 Hall Ticket, students must utilize their JEE Main 2024 login credentials - application form number and password. <br /> JEE Main 2024 Admit Card will contain information about the national-level entrance test such as the JEE Main test centre address, JEE Main 2024 exam date and time, personal information, guidelines, and more. Candidates must carry their JEE Main Admit Card 2024, as well as a piece of valid ID evidence to the JEE test centre. It must be noted that students shall not be allowed to enter the test venue unless they have a valid JEE Main 2024 Hall Ticket. </p>
+                      <p className="m-0">{pData}</p>
                     </div>
-                    <div className="tab-pane fade rounded bg-white p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    {/* <div className="tab-pane fade rounded bg-white p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                       <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div className="tab-pane fade rounded bg-white p-5" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -297,14 +313,17 @@ export default function ExamDetailsLeftBox() {
                     <div className="tab-pane fade rounded bg-white p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                       <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
+                    <div className="tab-pane fade rounded bg-white p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                      <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div> */}
                   </div>
                 </div>
               </div>
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-12">
                   <Link className="course-details-readmore-btn btn">Read More</Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

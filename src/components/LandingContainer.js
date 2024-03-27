@@ -37,7 +37,7 @@ const LandingContainer = () => {
                              </SwiperSlide>
                         ))}
                         </Swiper> */}
-                        <CustomSwiper noOfSlidesPerView={1}>
+                        <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                             {tarndingBanner.map(bannerUrl=>(
                                 <swiper-slide>
                                     <div className="swiper-slide banner1" style={{backgroundImage: `url(${bannerUrl})`}}>

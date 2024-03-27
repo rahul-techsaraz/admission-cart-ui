@@ -44,7 +44,7 @@ const MockExamList = () => {
         })}
         </Carousel> */}
         <div class="implink-slider-bx">
-            <p><CustomSwiper noOfSlidesPerView={4}>
+            <p><CustomSwiper noOfSlidesPerView={4} isBreakPoint={true}>
               {itemsName.map(items=>(
                 <swiper-slide>{items}</swiper-slide>
             ))}</CustomSwiper></p>

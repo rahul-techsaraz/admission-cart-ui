@@ -11,7 +11,7 @@ const TrandingSection  = () => {
                         <h2 className="text-white text-center text-lg-start mb-5 mb-lg-0 position-relative z-1">Trending Courses</h2>
                     </div>
                     
-                                    <CustomSwiper noOfSlidesPerView={1}>
+                                    <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                     <div className="col-12 col-md-9 col-lg-5 mx-auto ms-lg-auto">
                         <div className="trending-slider-wrapper position-relative">
                             <div className="swiper trending-course-slider bg-white">

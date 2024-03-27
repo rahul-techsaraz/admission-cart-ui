@@ -30,7 +30,7 @@ export default function CollegeOverView() {
                         <div className="whatsNew-slider-wrapper position-relative mt-4 mb-5">
                            <div className="swiper whatsNew-slider swiper-initialized swiper-horizontal swiper-backface-hidden">
                               <div className="swiper-wrapper" id="swiper-wrapper-37bc362fb3516451" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-554px, 0px, 0px); transition-delay: 0ms;">
-                                 <CustomSwiper>
+                                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                     <swiper-slide>
                                        <div className="swiper-slide" role="group" aria-label="2 / 5" data-swiper-slide-index="1" style="width: 262px; margin-right: 15px;">
                                           <div className="whatsNew-inner-box">
