@@ -46,7 +46,7 @@ const constants = {
         USER_LOGIN: "https://techsaraz.in//admission-cart/api/login/login.php",
         USER_AUTHORISATION: "https://techsaraz.in//admission-cart/api/login/user-info.php",
         USER_DETAILS_GET_ALL_USER: "https://techsaraz.in/admission-cart/api/user.php",
-        USER_DETAILS_ADD_or_UPDATE_USER_DETAILS_Only_Registered_Users: "https://techsaraz.in/admission-cart/api/user.php",
+        USER_DETAILS_GET_ALL_USER_TO_VERIFY: "https://corsproxy.io/?https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails&email="
     },
     apiMethod: {
         GET: 'get',

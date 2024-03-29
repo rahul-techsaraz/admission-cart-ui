@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { megaMenuData } from "../../data/header/megaMenuData";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const MegaMenu = ({ menuData }) => {
+    const [liIndex, setLiIndex]=useState(0)
     useEffect(() => {
 console.log(menuData)
     }, [])
@@ -22,14 +23,15 @@ console.log(menuData)
         <div className="shop-menu">
                             <ul className="shop-category">
                                 {menuData.map((menuItems, index) => (
-                                    <li className={(menuItems?.active ? 'active' : '') || index === 0 ? 'active':''} key={`${menuItems.categoryName}+${index}`}>
+                                    // <li className={(menuItems?.active ? 'active' : '') || index === 0 ? 'active':''} key={`${menuItems.categoryName}+${index}`}>
+                                        <li className={liIndex===index ? 'active':''} onMouseEnter={()=>setLiIndex(index)} key={`${menuItems.categoryName}+${index}`}>
                                          {menuItems.categoryName !== '' && <Link key={`${menuItems.categoryName}+${index}`}>{menuItems.categoryName}</Link>}
                                         <div className="shop-mega-menu hover">
                                             {menuItems?.data.map((subMenuItems, index) => (
                                                  <ul>
                                                     <h6>{subMenuItems.heading}</h6>
                                                     {subMenuItems?.subMenu.map((menu, index) => (
-                                                        <Link to={menu.path+addDash(menu.name)} style={{justifyContent:""}}><li>{menu.name}</li></Link>
+                                                        <Link to={JSON.stringify(menu).toLowerCase().includes('View All'.toLowerCase()) ? menu.path : menu.path+addDash(menu.name)} style={{justifyContent:""}}><li>{menu.name}</li></Link>
                                                     ))}
                            
                         </ul>
