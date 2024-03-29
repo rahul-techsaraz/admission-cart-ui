@@ -7,7 +7,7 @@ const ProtectedRouter = ({children})=>{
     const dispatch = useDispatch()
     const{authenticateUser}= useSelector((state)=>state.common)
     let location = useLocation()
-    console.log(authenticateUser)
+    // console.log(authenticateUser)
     if(!authenticateUser){
         dispatch((updateLastLocation({location})))
         return <Navigate to="/" state={{from:location}} replace/>
