@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.popup{
+    width: 300px;
+    max-width: 300px;
+    min-height: 400px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #828282;
+    position: absolute;
+    top: 16.5%;
+    right: 0;
+    /* transform: translateX(-50%); */
+    z-index: 99999;   
+    background-color: rgb(250, 248, 242);
+}
+.logo-name{
+    width: 100%;
+    height: 120px;
+    background-color: #FED626;
+    padding: 30px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.logo{
+    width: 70px;
+    height: 60px;
+    border-radius: 50%;
+    background-color:#5BE4A8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #000;
+}
+.name{
+    font-size: 20px;
+    font-weight: bold;
+}
+.all-list{
+    width: 100%;
+    padding: 0 20px;
+}
+.my-collage{
+    width: 100%;
+    border-bottom: 1px solid #828282;
+    padding: 15px 0;
+    cursor: pointer;
+}
+.my-collage i{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f2e3;
+    border-radius: 50%;
+    box-shadow: 1px 2px 3px #828282;
+    text-decoration: none;
+}
+.my-collage-box a i:last-child{
+    background-color: #FED626;
+}
+.My-Collages{
+    font-weight: 600;
+}
+.my-collage:last-child{
+    border-bottom: none;
+}
+.my-collage-box a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 20px;
+    color: #5a5a5a;
+}
+.my-collage-box-log-out a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 20px;
+    color: #5a5a5a;
+}
+.my-collage-box-log-out a i{
+    background-color: #FED626;
+}

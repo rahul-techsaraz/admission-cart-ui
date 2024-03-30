@@ -1,0 +1,153 @@
+@media screen and (max-width: 1024px){
+    .contain{
+        display: none;
+    }
+    .text-h5-button h5{
+        max-width: 410px;
+    }
+    /* .side-bar{
+        gap: 0;
+    } */
+}
+
+
+/* 912px start */
+@media screen and (max-width: 912px){
+    .contain{
+        display: none;
+    }
+    .left-box{
+        width: 100%;
+        padding-bottom: 0;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .text-image{
+        flex-direction: column;
+        text-align: center;
+    }
+    .box-down-img{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+    .text-h5-button{
+        width: 100%;
+        padding-top: 20px;
+    }
+    .order-text{
+        order: 3;
+    }
+    .text-h5-button h5{
+        margin: auto;
+    }
+    .box-down-img{
+        width: 50%;
+    }
+    .btn{
+        margin-top: 20px;
+    }
+    .button-box{
+        display: flex;
+        justify-content: center;
+      }
+}
+
+
+/* 520 start */
+
+@media screen and (max-width: 540px){
+    .all-collage{
+        padding: 0 10px;
+    }
+    .colg-img img{
+        max-width: 100px;
+    }
+    .img-colg-name-child{
+        column-gap: 10px;
+    }
+}
+/* 430px start */
+
+@media screen and (max-width: 430px){
+    
+    .firstletter-name{
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .name h1{
+        max-width: 300px;
+    }
+    .contain{
+        display: none;
+    }
+    .left-box{
+        width: 100%;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .all-collage{
+        padding: 0 10px;
+    }
+    .colg-img img{
+        max-width: 100px;
+    }
+    .img-colg-name-child{
+        column-gap: 10px;
+    }
+}
+
+
+/* 375 start */
+
+@media screen and (max-width: 375px){
+
+    .firstletter-name{
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .contain{
+        display: none;
+    }
+    .left-box{
+        width: 100%;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .order-text{
+        order: 3;
+    }
+    .all-collage{
+        padding: 0 10px;
+    }
+    .colg-img img{
+        max-width: 100px;
+    }
+    .img-colg-name-child{
+        column-gap: 10px;
+    }
+}
+
+/* 280pxs start */
+
+@media screen and (max-width: 280px){
+    .left-box{
+        width: 100%;
+    }
+    .side-bar{
+        gap: 0;
+    }
+    .img-colg-name-child{
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+}
