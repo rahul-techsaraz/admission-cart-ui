@@ -46,7 +46,10 @@ const constants = {
         USER_LOGIN: "https://techsaraz.in//admission-cart/api/login/login.php",
         USER_AUTHORISATION: "https://techsaraz.in//admission-cart/api/login/user-info.php",
         USER_DETAILS_GET_ALL_USER: "https://techsaraz.in/admission-cart/api/user.php",
-        USER_DETAILS_GET_ALL_USER_TO_VERIFY: "https://corsproxy.io/?https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails&email="
+        USER_DETAILS_GET_ALL_USER_TO_VERIFY: "https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails&email=",
+        USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY: "https://techsaraz.in/admission-cart/api/user.php?requestType=educationalQualification&email=",
+        USER_DETAILS_SAVE_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails",
+        USER_EDUCATIONAL_QUALIFICATION_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=educationalQualification&email=",
     },
     apiMethod: {
         GET: 'get',

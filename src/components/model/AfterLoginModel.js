@@ -5,10 +5,10 @@ import { toggelAfterLoginModel, updateauthenticateUser } from '../../features/co
 
 export default function AfterLoginModel() {
     const dispatch = useDispatch()
-    const {fullName} = useSelector((state) => state.common)
+    const {userInfo} = useSelector((state) => state.userSlice)
     const navigate = useNavigate()
     // useEffect(()=>{
-    //     console.log(name)
+    //     console.log(userInfo)
     // },[])
     
     const handelSignout = ()=>{
@@ -20,8 +20,8 @@ export default function AfterLoginModel() {
     <>
         <section className="popup">
             <div className="logo-name">
-                <div className="logo">{fullName.charAt(0).toUpperCase()}</div>
-                <label for="name" className="name">Hi, {fullName}</label>
+                <div className="logo">{userInfo?.full_name.charAt(0).toUpperCase()}</div>
+                <label for="name" className="name">Hi, {userInfo?.full_name}</label>
             </div>
             <div className="all-list">
                 <div className="my-collage">
