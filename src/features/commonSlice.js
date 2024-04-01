@@ -7,7 +7,7 @@ const initialState = {
     openAfterLoginModel: false,
     openDashBoardModel:false,
     activemenue:1,
-    fullName: (localStorage.getItem('loginResponse') ? JSON.parse(localStorage.getItem("loginResponse")).full_name : '')
+    
  
 };
 
@@ -27,13 +27,9 @@ const commonSlice = createSlice({
     upDateActiveMenu: (state, action)=>{
       state.activemenue = action.payload.index
     },
-    updateFirstName: (state, {payload})=>{
-      state.fullName = payload.first_Name
-    },
     updateauthenticateUser: (state, {payload})=>{
       state.authenticateUser = payload.flag
     },
-    
     updateLastLocation:(state, {payload})=>{
       state.lastLocation = payload.location
     }
@@ -46,7 +42,6 @@ export const {
     toggelLoginModel,
     toggelDashBoardModel,
     upDateActiveMenu,
-    updateFirstName,
     updateauthenticateUser,
     updateLastLocation
  } = commonSlice.actions;

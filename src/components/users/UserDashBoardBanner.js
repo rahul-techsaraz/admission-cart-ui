@@ -5,17 +5,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { upDateActiveMenu } from '../../features/commonSlice'
 
 export default function UserDashBoardBanner() {
-  const {fullName} = useSelector((state)=>state.common)
+  const {userInfo} = useSelector((state)=>state.userSlice)
   const dispatch = useDispatch()
   return (
     <section className="main">
         <div className="container">
       <div className="firstletter-name">
            <div className="firstletter">
-            <h1>{fullName.charAt(0).toUpperCase()}</h1>
+            <h1>{userInfo?.full_name.charAt(0).toUpperCase()}</h1>
            </div>
            <div className="name">
-            <h1> Welcome, {fullName}</h1>
+            <h1> Welcome, {userInfo?.full_name}</h1>
             <p className="profile">Manage your Profile</p>
             <p className="admission">Track your Admission Journey</p>
            </div>
