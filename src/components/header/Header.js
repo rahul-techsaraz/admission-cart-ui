@@ -1,4 +1,5 @@
 import userImage from '../../images/user-icon.svg'
+import logo from '../../images/logo.png'
 import { useEffect, useState } from "react";
 import { Link, useNavigate  } from "react-router-dom";
 import MegaMenu from "./MegaMenu";
@@ -88,7 +89,9 @@ useEffect(()=>{
         <div className="container">
             <nav className="navbar">
                 <section className="navbar-left">
-                  <Link to="/"><span  className="brand" >LOGO</span></Link>
+                  <Link to="/">
+                    <img src={logo} alt="logo" className='img-fluid' />
+                  </Link>
                    <div className="burger" id="burger">
                       <span className="burger-line"></span>
                       <span className="burger-line"></span>
