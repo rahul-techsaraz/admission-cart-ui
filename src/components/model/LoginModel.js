@@ -3,10 +3,11 @@ import user2 from '../../images/sign-up-image/users-2.png';
 import nationalFLag from '../../images/sign-up-image/national-flag.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggelLoginModel, toggelAfterLoginModel, updateFirstName, updateauthenticateUser } from '../../features/commonSlice';
+import { toggelLoginModel, toggelAfterLoginModel, updateauthenticateUser } from '../../features/commonSlice';
 import '../../css/collagedekho.css';
 import constants from '../../utils/Constants/constants';
 import httpFetch from '../../fetch/useFetch';
+import { updateUserInfo } from '../../features/userSlice';
 
 
 
@@ -70,13 +71,11 @@ export default function LoginModel() {
                 })
            });
             const jsonData = await data.json()
-            // console.log(jsonData.success)
             if(jsonData.success===0){
                 alert(jsonData.message)
             }else{
                 e.target.parentElement.parentElement.parentElement.childNodes[0].classList.remove("moveslider")
                 e.target.parentElement.parentElement.parentElement.childNodes[2].classList.remove("form-section-move")
-                // localStorage.setItem('name', JSON.stringify("firstName", firstName))
                 alert(jsonData.message)
             }
         }
@@ -102,7 +101,7 @@ export default function LoginModel() {
                     dispatch(updateauthenticateUser({flag:true}))
                     const obj = {email:jsonData.email,full_name:jsonData.full_name,phone:jsonData.phone,token:jsonData.token}
                     localStorage.setItem('loginResponse', JSON.stringify(obj))
-                    dispatch(updateFirstName({first_Name:jsonData.full_name}))
+                    dispatch(updateUserInfo({userData:obj}))
                 }else{
                     alert("Invalid Phone or Password")
                 }
