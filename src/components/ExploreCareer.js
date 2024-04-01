@@ -16,7 +16,7 @@ const ExploreCareer = () => {
                     <div className="career-slider-wrapper position-relative">
                         <div className="swiper career-slider">
                             <div className="swiper-wrapper">
-                                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                                <CustomSwiper noOfSlidesPerView={4} isBreakPoint={false}>
                                     <swiper-slide>
                                         <div className="swiper-slide">
                                             <div className="career-box-flex-box">
@@ -197,12 +197,12 @@ const ExploreCareer = () => {
                             </div>
                         </div>
 
-                        <div className="swiper-button-prev career-button-prev">
+                        {/* <div className="swiper-button-prev career-button-prev">
                             <img src={leftArrow} alt="" />
                         </div>
                         <div className="swiper-button-next career-button-next">
                             <img src={rightArrow} alt="" />
-                        </div>
+                        </div> */}
                         
         
                     </div>

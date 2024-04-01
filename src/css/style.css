@@ -1470,6 +1470,7 @@ p.course-para {
   background: #000;
   height: 69px;
   color: #fff;
+  margin: 0;
 }
 .conversation-img{
   width: 700px;
@@ -1500,6 +1501,9 @@ p.course-para {
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
+}
+.contact-info-section h2 svg{
+  margin-right: 5px;
 }
 .contact-info-section p{
   font-size: 15px;
@@ -4336,10 +4340,10 @@ p.clg-stream-name {
   height: 400px;
   background-color: ghostwhite;
 }
-.container{
+/* .container{
   width: 85%;
   margin: auto;
-}
+} */
 .arrow-icon{
   padding-top: 20px;
   font-size: 25px;
@@ -4456,7 +4460,7 @@ a{
     padding: 0;
     color: #575757;
 }
-.submit-btn{
+/* .submit-btn{
   border: 0;
   font-size: 12px;
   cursor: pointer;
@@ -4466,7 +4470,7 @@ a{
   width: 30px;
   padding: 0;
   color: #575757;
-}
+} */
 
 
 
@@ -4478,10 +4482,10 @@ a{
   display: flex;
   align-items: center;
 }
-.container{
+/* .container{
   width: 80%;
   margin: auto; 
-}
+} */
 
 .page-time{
   display: flex;

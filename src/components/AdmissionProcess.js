@@ -1,3 +1,4 @@
+import arrowRightIcon from '../images/arrow-right-icon.svg';
 const AdmissionProcess = () => {
     return(
         <section className="admission-process-section">
@@ -8,7 +9,7 @@ const AdmissionProcess = () => {
                     <p>Get help for your search, shortlist, application, preparation, admission and placement requirements!</p>
                 </div>
                 <a href="" className="admission-process-btn d-inline-flex align-self-stretch">
-                    <img src="images/arrow-right-icon.svg" className="arrow-right-icon" alt="" />
+                    <img src={arrowRightIcon} className="arrow-right-icon" alt="" />
                 </a>
             </div>
         </div>

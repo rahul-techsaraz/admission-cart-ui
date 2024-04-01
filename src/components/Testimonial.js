@@ -35,7 +35,7 @@ const testimonialPersonDetails = [
 const Testimonial = () => {
     return(
         <>
-        <section className="testimonial-slider-section section-padding pt-4">
+        <section className="testimonial-slider-section section-padding">
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -46,7 +46,7 @@ const Testimonial = () => {
                     <div className="testimonial-slider-wrapper position-relative mt-3">
                         <div className="swiper testimonial-slider">
                             <div className="swiper-wrapper">
-                                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                                <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                 {testimonialPersonDetails.map(details => (
                                     <swiper-slide>
                                         <div className="swiper-slide">
@@ -68,8 +68,8 @@ const Testimonial = () => {
 
                         <div className="swiper-pagination testimonial-pagination"></div>
 
-                        <div className="swiper-button-prev testimonials-button-prev"><img src={leftArrow} alt="" /></div>
-                        <div className="swiper-button-next testimonials-button-next"><img src={rightArrow} alt="" /></div>
+                        {/* <div className="swiper-button-prev testimonials-button-prev"><img src={leftArrow} alt="" /></div>
+                        <div className="swiper-button-next testimonials-button-next"><img src={rightArrow} alt="" /></div> */}
                         
         
                     </div>
