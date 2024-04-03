@@ -85,7 +85,8 @@ export default function CollegeDetails() {
                         <div class="whatsNew-slider-wrapper position-relative mt-4 mb-5">
                            <div class="swiper whatsNew-slider">
                               <div class="swiper-wrapper">
-                                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                                 <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}
+                                 >
                                     <swiper-slide>
                                        <div class="swiper-slide">
                                           <div class="whatsNew-inner-box">
