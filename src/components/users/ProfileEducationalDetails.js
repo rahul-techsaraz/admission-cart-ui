@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 import CustomSelectBox from '../../utils/Constants/custom-components/CustomSelectBox'
 import { updateQualificationInfo } from '../../features/userSlice'
 
-
 export default function ProfileEducationalDetails() {
     const [show, setShow] = useState(true)
     const [toggleButton, setToggleButton] = useState(true)
@@ -22,37 +21,114 @@ export default function ProfileEducationalDetails() {
     const dispatch = useDispatch()
     const [showDetails, setShowDetails] = useState(false)
     const {userQualificationInfo, userInfo } = useSelector((state)=> state.userSlice)
+    const [index, setIndex] = useState(0)
+    const [isEdit, setIsEdit] = useState(false)
 
-    useEffect(()=>{
-        console.log(className)
-    },[className])
-    const handleEdit = async ()=>{
+    const toFetch = async ()=>{
+        try{
         const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
         if(response.data.length > 0){
-            setToggleButton(false)
+                dispatch(updateQualificationInfo({qualificationInfo:response.data}))
+                setToggleButton(false)
+                setShowDetails(true)
+            }
         }
+        catch(err){
+            alert("Something went wrong")
+        }
+    }
+
+    useEffect(()=>{
+        toFetch();
+        console.log(userQualificationInfo)
+    },[])
+    const handleAddDetails = ()=>{
+        setToggleButton(true)
         setShow(false)
+        setIsEdit(false)
+        setClassName('')
+        setBoard('')
+        setSchool('')
+        setPassingYear('')
+        setMarksType('')
+        setMarksPercentage('')
+        setStream('')
+    }
+    const handleEdit = async (i)=>{
+        try{
+            const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
+            if(response.data.length > 0){
+                dispatch(updateQualificationInfo({qualificationInfo:response.data}))
+                setClassName(userQualificationInfo[i].class_name)
+                setBoard(userQualificationInfo[i].board_name)
+                setSchool(userQualificationInfo[i].school_name)
+                setPassingYear(userQualificationInfo[i].passing_year)
+                setMarksType(userQualificationInfo[i].marks_type)
+                setMarksPercentage(userQualificationInfo[i].marks_percentage)
+                setStream(userQualificationInfo[i].stream)
+                setToggleButton(false)
+                setIndex(i)
+                setIsEdit(true)
+            }
+            setShow(false)
+        }
+        catch(err){
+            alert("something went wrong")
+        }
     }
     const handleSave = async ()=>{
+        if(dataCheck()){
+            try{
+                const payload = {
+                    requestType: "educationalQualification",
+                    email: userInfo.email,
+                    class_name: className,
+                    board_name: board,
+                    school_name: school,
+                    passing_year: passingYear,
+                    stream: stream,
+                    marks_type: marksType,
+                    marks_percentage: marksPercentage
+                }
+                const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE, constants.apiMethod.POST,constants.apiHeader.HEADER, payload)
+                if(response.status==="success"){
+                    const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
+                    if(response.data!==false){
+                        dispatch(updateQualificationInfo({qualificationInfo:response.data}))
+                    }
+                    setShow(true)
+                    setShowDetails(true)
+                    setIsEdit(false)
+                }
+            }
+            catch(err){
+                alert("Something went Wrong")
+            }
+        }
+        else{
+            setDisable(true)
+        }
+        
+    }
+    const handleUpdate = async ()=>{
         try{
             const payload = {
-                requestType: "educationalQualification",
-                email: userInfo.email,
-                class_name: className,
-                board_name: board,
-                school_name: school,
-                passing_year: passingYear,
-                stream: stream,
-                marks_type: marksType,
-                marks_percentage: marksPercentage
+                "requestType": "educationalQualification",
+                "email": userInfo.email,
+                "class_name": className,
+                "board_name": board,
+                "school_name": school,
+                "passing_year": passingYear,
+                "stream": stream,
+                "marks_type": marksType,
+                "marks_percentage": marksPercentage
             }
-            // console.log(payload)
-            const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE, constants.apiMethod.POST,constants.apiHeader.HEADER, payload)
-            // console.log(response)
+            const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE, constants.apiMethod.PUT,constants.apiHeader.HEADER, payload)
             if(response.status==="success"){
                 const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
-                // console.log(response)
+                console.log(response)
                 if(response.data!==false){
+                    dispatch(updateQualificationInfo({qualificationInfo:response.data}))
                     setClassName(response.data.class_name)
                     setBoard(response.data.board_name)
                     setSchool(response.data.school_name)
@@ -60,44 +136,42 @@ export default function ProfileEducationalDetails() {
                     setMarksType(response.data.marks_type)
                     setMarksPercentage(response.data.marks_percentage)
                     setStream(response.data.stream)
-                    dispatch(updateQualificationInfo({qualificationInfo:response.data}))
                 }
                 setShow(true)
                 setShowDetails(true)
+                setIsEdit(false)
             }
         }
         catch(err){
-            console.log(err)
+            alert("Something went Wrong")
         }
-        
     }
-    const handleUpdate = async ()=>{
-        const payload = {
-            "requestType": "educationalQualification",
-            "email": userInfo.email,
-            "class_name": className,
-            "board_name": board,
-            "school_name": school,
-            "passing_year": passingYear,
-            "stream": stream,
-            "marks_type": marksType,
-            "marks_percentage": marksPercentage
-        }
-        const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE, constants.apiMethod.PUT,constants.apiHeader.HEADER, payload)
-        if(response.status==="success"){
-            const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
-            if(response.data!==false){
-                setClassName(response.data.class_name)
-                setBoard(response.data.board_name)
-                setSchool(response.data.school_name)
-                setPassingYear(response.data.passing_year)
-                setMarksType(response.data.marks_type)
-                setMarksPercentage(response.data.marks_percentage)
-                setStream(response.data.stream)
-                dispatch(updateQualificationInfo({qualificationInfo:response.data}))
+    const handleDelete = async (i)=>{
+        try{
+            const payload = {
+                "requestType": "educationalQualification",
+                "email": userInfo.email,
+                "class_name": userQualificationInfo[i].class_name,
             }
-            setShow(true)
-            setShowDetails(true)
+            const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE, constants.apiMethod.DELETE,constants.apiHeader.HEADER, payload)
+            if(response.status === "success"){
+                const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
+                    if(response.data!==false){
+                        setClassName(response.data.class_name)
+                        setBoard(response.data.board_name)
+                        setSchool(response.data.school_name)
+                        setPassingYear(response.data.passing_year)
+                        setMarksType(response.data.marks_type)
+                        setMarksPercentage(response.data.marks_percentage)
+                        setStream(response.data.stream)
+                        dispatch(updateQualificationInfo({qualificationInfo:response.data}))
+                    }
+                    setShow(true)
+                    setShowDetails(true) 
+            }
+        }
+        catch(err){
+            alert("Something went Wrong")
         }
     }
     const validate = ()=>{
@@ -105,6 +179,15 @@ export default function ProfileEducationalDetails() {
             setDisable(false)
         }else{
             setDisable(true)
+        }
+    }
+    const dataCheck = ()=>{
+        if(JSON.stringify(userQualificationInfo).includes(className)){
+            alert("Data for selected Class aready exist")
+            return false
+        }
+        else{
+            return true
         }
     }
     useEffect(()=>{
@@ -118,28 +201,37 @@ export default function ProfileEducationalDetails() {
                 <div className="education-details-all-text">
                     <div className="education-detials-h3-i">
                         <h3>Education Details</h3>
-                        <Link><button className="besic-detials-button-save" onClick={()=>handleEdit()}>Add Details</button></Link>
+                        <Link><button className="besic-detials-button-save" onClick={()=>handleAddDetails()}>Add Details</button></Link>
                     </div>
                     <div style={{display:showDetails ? 'block' : 'none'}}>
-                    <h4 className="education-h4">{userQualificationInfo.class_name}</h4>
-                    <div className="educationl-details-wraper">
-                    <div className="full-name">Board
-                        <h3 className="full-name-h3">{userQualificationInfo.board_name}</h3>
-                    </div>
-                    <div className="dob">School
-                        <h3 className="do-b">{userQualificationInfo.school_name}</h3>
-                    </div>
-                    <div className="social-category">Passing Year
-                        <h3 className="social">{userQualificationInfo.passing_year}</h3>
-                    </div>
+                        {userQualificationInfo.map((data, index)=>
+                            <>
+                                <div className='preferences-h3-i' style={{display:'flex', columnGap:"30px", justifyContent:'flex-start', marginTop:'30px'}}>
+                                    <h4 className="education-h4">{data.class_name}</h4>
+                                    <Link><i className="fa-solid fa-pen-fancy" onClick={()=>handleEdit(index)}></i></Link>
+                                    <Link><button className="besic-detials-button-save" onClick={()=>handleDelete(index)}>Delete</button></Link>
+                                </div>
+                                <div className="educationl-details-wraper" style={{borderBottom: "1px solid #00ff91"}}>
+                                    <div className="full-name">Board
+                                        <h3 className="full-name-h3">{data.board_name}</h3>
+                                    </div>
+                                    <div className="dob">School
+                                        <h3 className="do-b">{data.school_name}</h3>
+                                    </div>
+                                    <div className="social-category">Passing Year
+                                        <h3 className="social">{data.passing_year}</h3>
+                                    </div>
 
-                    <div className="gender">Marks Type
-                        <h3 className="gender-h3">{userQualificationInfo.marks_type}</h3>
-                    </div>
-                    <div className="marital-status">Percentage/ CGPA
-                        <h3 className="marital-h3">{userQualificationInfo.marks_percentage}</h3>
-                    </div>
-                    </div>
+                                    <div className="gender">Marks Type
+                                        <h3 className="gender-h3">{data.marks_type}</h3>
+                                    </div>
+                                    <div className="marital-status">Percentage/ CGPA
+                                        <h3 className="marital-h3">{data.marks_percentage}</h3>
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                        
                     </div>
                 </div>
             </div>
@@ -157,14 +249,14 @@ export default function ProfileEducationalDetails() {
                         arialInvalid="false"
                         onChange={(e)=>setClassName(e.target.value)}
                         style={{fontWeight:"600"}}
-                        values={['Educational Standared', 'Class X', 'Class XII','Graduation', 'Diploma', 'Others']}
+                        values={isEdit === false ? ['Educational Standared', 'Class X', 'Class XII','Graduation', 'Diploma', 'Others'] : [userQualificationInfo[index].class_name]}
                     />
                     <div className="educationl-details-wraper">
                         <CustomInputTextBox 
                         inputType="text"
                         divlable="Board"
                         inputLabel="Board"
-                        placeHolder={userQualificationInfo.board_name}
+                        placeHolder={isEdit === false ? "Board" : userQualificationInfo[index].board_name}
                         onChange={(e)=>setBoard(e.target.value)}
                         style={{fontWeight:"600"}}
                         />
@@ -172,7 +264,7 @@ export default function ProfileEducationalDetails() {
                         inputType="text"
                         divlable="School"
                         inputLabel="School"
-                        placeHolder={userQualificationInfo.school_name}
+                        placeHolder={isEdit === false ? "School" : userQualificationInfo[index].school_name}
                         onChange={(e)=>setSchool(e.target.value)}
                         style={{fontWeight:"600"}}
                         />
@@ -180,7 +272,7 @@ export default function ProfileEducationalDetails() {
                         inputType="text"
                         divlable="Passing Year"
                         inputLabel="Passing Year"
-                        placeHolder={userQualificationInfo.passing_year}
+                        placeHolder={isEdit === false ? "Passing Year" : userQualificationInfo[index].passing_year}
                         onChange={(e)=>setPassingYear(e.target.value)}
                         style={{fontWeight:"600"}}
                         />
@@ -188,7 +280,7 @@ export default function ProfileEducationalDetails() {
                         inputType="text"
                         divlable="Marks Type"
                         inputLabel="Marks Type"
-                        placeHolder={userQualificationInfo.marks_type}
+                        placeHolder={isEdit === false ? "Marks Type" : userQualificationInfo[index].marks_type}
                         onChange={(e)=>setMarksType(e.target.value)}
                         style={{fontWeight:"600"}}
                         />
@@ -196,7 +288,7 @@ export default function ProfileEducationalDetails() {
                         inputType="text"
                         divlable="Percentage/ CGPA"
                         inputLabel="Percentage/CGPA"
-                        placeHolder={userQualificationInfo.marks_percentage}
+                        placeHolder={isEdit === false ? "Percentage/CGPA" : userQualificationInfo[index].marks_percentage}
                         onChange={(e)=>setMarksPercentage(e.target.value)}
                         style={{fontWeight:"600"}}
                         />
@@ -204,7 +296,7 @@ export default function ProfileEducationalDetails() {
                         inputType="text"
                         divlable="Stream"
                         inputLabel="Stream"
-                        placeHolder={userQualificationInfo.stream}
+                        placeHolder={isEdit === false ? "Stream" : userQualificationInfo[index].stream}
                         onChange={(e)=>setStream(e.target.value)}
                         style={{fontWeight:"600"}}
                         />
@@ -213,9 +305,9 @@ export default function ProfileEducationalDetails() {
                 <div className="besic-detials-all-text-hide-button-parent">
                     <button className="besic-detials-all-text-hide-button1" onClick={()=>setShow(true)}>Cancle</button>
                     {toggleButton ?
-                        <button className="besic-detials-button-save" disabled={disable ? true : false} onClick={()=>handleSave()}>Save</button> 
+                        <button className="besic-detials-button-save" disabled={disable ? true : false} onClick={()=>handleSave()} style={disable ? {backgroundColor:"lightgray"} : {}}>Save</button> 
                         :
-                        <button className="besic-detials-button-save" onClick={()=>handleUpdate()}>Update</button>
+                        <button className="besic-detials-button-save" disabled={disable ? true : false} onClick={()=>handleUpdate()} style={disable ? {backgroundColor:"lightgray"} : {}}>Update</button>
                     }
                 </div>
             </div>

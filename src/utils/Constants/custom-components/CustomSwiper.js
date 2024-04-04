@@ -29,10 +29,10 @@ export default function CustomSwiper({noOfSlidesPerView, children, isBreakPoint}
     register();
   return (
     <>
-    {/* {isBreakPoint ? (<swiper-container slides-per-view={noOfSlidesPerView} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
-    <swiper-container slides-per-view={noOfSlidesPerView} space-between={20} navigation={true}>{children}</swiper-container>} */}
-    {isBreakPoint ? (<swiper-container slides-per-view={noOfSlidesPerView} slidesPerView={'auto'} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
-    <swiper-container slides-per-view={noOfSlidesPerView} slidesPerView={'auto'} space-between={20} navigation={true}>{children}</swiper-container>}
+    {isBreakPoint ? (<swiper-container slides-per-view={noOfSlidesPerView} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
+    <swiper-container slides-per-view={noOfSlidesPerView} space-between={20} navigation={true}>{children}</swiper-container>}
+    {/* {isBreakPoint ? (<swiper-container slides-per-view={noOfSlidesPerView} slidesPerView={'auto'} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
+    <swiper-container slides-per-view={noOfSlidesPerView} slidesPerView={'auto'} space-between={20} navigation={true}>{children}</swiper-container>} */}
         
     </>
   )

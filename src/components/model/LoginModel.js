@@ -95,6 +95,7 @@ export default function LoginModel() {
                 "password":loginPassword
                 }
                 const jsonData = await httpFetch(constants.apiEndPoint.USER_LOGIN,constants.apiMethod.POST,constants.apiHeader.HEADER,loginPayload)
+                console.log(jsonData)
                 if(jsonData.success!==0){
                     dispatch(toggelLoginModel({flag:false}))
                     dispatch(toggelAfterLoginModel({flag:true}))

@@ -85,7 +85,7 @@ export default function CollegeDetails() {
                         <div class="whatsNew-slider-wrapper position-relative mt-4 mb-5">
                            <div class="swiper whatsNew-slider">
                               <div class="swiper-wrapper">
-                                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                                 <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                     <swiper-slide>
                                        <div class="swiper-slide">
                                           <div class="whatsNew-inner-box">
@@ -398,7 +398,7 @@ export default function CollegeDetails() {
                         <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
                         <div class="swiper clg-facilities-slider">
                            <div class="swiper-wrapper">
-                              <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="clg-facilities-box position-relative">
@@ -495,7 +495,7 @@ export default function CollegeDetails() {
                         <h2 class="section-heading2 grey text-center mb-5">Successful Alumni</h2>
                         <div class="swiper successfull-almni-slider">
                            <div class="swiper-wrapper">
-                              <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="successfull-almni-box d-flex">
@@ -608,7 +608,7 @@ export default function CollegeDetails() {
                      <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                         <div class="swiper faculty-slider-slider">
                            <div class="swiper-wrapper">
-                              <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
@@ -1254,7 +1254,7 @@ export default function CollegeDetails() {
                            <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                               <div class="swiper course-offered-slider pb-5">
                                  <div class="swiper-wrapper">
-                                    <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                                    <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                        <swiper-slide>
                                           <div class="swiper-slide">
                                              <div class="card">
@@ -1581,7 +1581,7 @@ export default function CollegeDetails() {
                         </div>
                         <div class="swiper recommended-clg-slider pb-5">
                             <div class="swiper-wrapper">
-                              <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                           <div class="clg-slider-box position-relative">

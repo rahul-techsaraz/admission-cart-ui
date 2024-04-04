@@ -109,9 +109,9 @@ export default function ProfileBasicDetails() {
     useEffect(()=>{
         validate()
     },[fullName, dob, socialCategory, gender, maritalStatus, physicallyChallanged, city, state])
-    useEffect(()=>{
-        console.log(userInfo)
-    },[userInfo])
+    // useEffect(()=>{
+    //     console.log(userInfo)
+    // },[userInfo])
   return (
     
     <>
