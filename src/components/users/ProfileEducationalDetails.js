@@ -27,6 +27,7 @@ export default function ProfileEducationalDetails() {
     const toFetch = async ()=>{
         try{
         const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
+        console.log(response)
         if(response.data.length > 0){
                 dispatch(updateQualificationInfo({qualificationInfo:response.data}))
                 setToggleButton(false)
@@ -129,13 +130,6 @@ export default function ProfileEducationalDetails() {
                 console.log(response)
                 if(response.data!==false){
                     dispatch(updateQualificationInfo({qualificationInfo:response.data}))
-                    setClassName(response.data.class_name)
-                    setBoard(response.data.board_name)
-                    setSchool(response.data.school_name)
-                    setPassingYear(response.data.passing_year)
-                    setMarksType(response.data.marks_type)
-                    setMarksPercentage(response.data.marks_percentage)
-                    setStream(response.data.stream)
                 }
                 setShow(true)
                 setShowDetails(true)
@@ -157,13 +151,6 @@ export default function ProfileEducationalDetails() {
             if(response.status === "success"){
                 const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
                     if(response.data!==false){
-                        setClassName(response.data.class_name)
-                        setBoard(response.data.board_name)
-                        setSchool(response.data.school_name)
-                        setPassingYear(response.data.passing_year)
-                        setMarksType(response.data.marks_type)
-                        setMarksPercentage(response.data.marks_percentage)
-                        setStream(response.data.stream)
                         dispatch(updateQualificationInfo({qualificationInfo:response.data}))
                     }
                     setShow(true)
@@ -188,6 +175,15 @@ export default function ProfileEducationalDetails() {
         }
         else{
             return true
+        }
+    }
+    const checkClassName = (e)=>{
+        if(JSON.stringify(userQualificationInfo).includes(e.target.value)){
+            setDisable(true)
+            alert("Data for selected Class aready exist")
+        }
+        else{
+            setClassName(e.target.value)
         }
     }
     useEffect(()=>{
@@ -247,7 +243,7 @@ export default function ProfileEducationalDetails() {
                         divlable="Educational Standared" 
                         name="test"
                         arialInvalid="false"
-                        onChange={(e)=>setClassName(e.target.value)}
+                        onChange={(e)=>isEdit ? setClassName(e.target.value) : checkClassName(e)}
                         style={{fontWeight:"600"}}
                         values={isEdit === false ? ['Educational Standared', 'Class X', 'Class XII','Graduation', 'Diploma', 'Others'] : [userQualificationInfo[index].class_name]}
                     />
