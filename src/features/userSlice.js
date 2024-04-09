@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     userInfo : localStorage.getItem('loginResponse') ? JSON.parse(localStorage.getItem("loginResponse")) : {},
     userQualificationInfo : [],
+    userCollegePreferences : {},
 };
 
 const userSlice = createSlice({
@@ -13,14 +14,18 @@ const userSlice = createSlice({
             state.userInfo = payload.userData
         },
         updateQualificationInfo : (state, {payload}) => {
-            console.log(payload.qualificationInfo)
+            //console.log(payload.qualificationInfo)
             state.userQualificationInfo = payload.qualificationInfo
+        },
+        updateUserCollegePreferences : (state, {payload}) => {
+            state.userCollegePreferences = payload.collegePreferences
         }
     }
 })
 export const{
     updateUserInfo,
     updateQualificationInfo,
+    updateUserCollegePreferences
 }=userSlice.actions;
 
 export default userSlice.reducer;
