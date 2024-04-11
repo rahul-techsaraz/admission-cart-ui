@@ -7,9 +7,23 @@ import axios from 'axios';
 
 export default function Document() {
     const [selectedFiles, setSelectedFiles] = useState([]);
-    useEffect(() => {
-console.log(selectedFiles[0])
-    }, [selectedFiles])
+    const allowedFileTypes = ['jpg','jpeg','png','pdf']
+    // useEffect(() => {
+    //   console.log(selectedFiles[0])
+    // },[selectedFiles])
+    const validateSelectedFiles = (e)=>{
+      const fileType = e.target.files[0].type.split('/')
+      if(!allowedFileTypes.includes(fileType[1])){
+        alert("Selected File Type is not Supported")
+        return false
+      }else if(e.target.files[0].size > 2097152){
+        alert("Selected File Size exceeds the limite")
+        return false
+      }else{
+        setSelectedFiles(e.target.files)
+        return true
+      }
+    }
     const handleUpload = () => {
     const data = new FormData();
 
@@ -69,54 +83,46 @@ console.log(selectedFiles[0])
                         <h5>Documents</h5>
                         <div className="upload-wraper">
                             <div className="upload">
-                                                  <div className="upload-i-text">
-                                                       <input
-                type="file"
-                className="form-control"
-                                                          name="file"
-                                                          
-                onChange={(e) => setSelectedFiles(e.target.files)}
-              />
-                                    <i className="fa-solid fa-upload"></i>
-                                    <span onClick={() => handleUpload()}>Upload</span>
-                                </div>
+                              <div className="upload-i-text">
+                                <input type="file" className="form-control" name="file" onChange={(e) => validateSelectedFiles(e)}/>
+                                <i className="fa-solid fa-upload"></i>
+                                <span onClick={() => handleUpload()}>Upload</span>
+                              </div>
                                 <h6>10th Certificate</h6>
                                 <p className="document-p">File should be max 2mb and jpg, jpeg, png, pdf</p>
                             </div>
                             <div className="upload">
-                                                  <div className="upload-i-text">
-                                                      <input
-                type="file"
-                className="form-control"
-                name="file"
-                onChange={(e) => setSelectedFiles([...selectedFiles,{name:e.target.files[0].name,size:e.target.files[0]}])}
-              />
-                                    <i className="fa-solid fa-upload"></i>
-                                    <span>Upload</span>
-                                </div>
+                              <div className="upload-i-text">
+                                <input type="file" className="form-control" name="file" onChange={(e) => validateSelectedFiles(e)}/>
+                                <i className="fa-solid fa-upload"></i>
+                                <span onClick={()=> handleUpload()}>Upload</span>
+                              </div>
                                 <h6>12th Certificate</h6>
                                 <p className="document-p">File should be max 2mb and jpg, jpeg, png, pdf</p>
                             </div>
                             <div className="upload">
                                 <div className="upload-i-text">
-                                    <i className="fa-solid fa-upload"></i>
-                                    <span>Upload</span>
+                                  <input type="file" className="form-control" name="file" onChange={(e) => validateSelectedFiles(e)}/>
+                                  <i className="fa-solid fa-upload"></i>
+                                  <span onClick={()=> handleUpload()}>Upload</span>
                                 </div>
                                 <h6>Graduation Certificate</h6>
                                 <p className="document-p">File should be max 2mb and jpg, jpeg, png, pdf</p>
                             </div>
                             <div className="upload">
                                 <div className="upload-i-text">
-                                    <i className="fa-solid fa-upload"></i>
-                                    <span>Upload</span>
+                                  <input type="file" className="form-control" name="file" onChange={(e) => validateSelectedFiles(e)}/>
+                                  <i className="fa-solid fa-upload"></i>
+                                  <span onClick={()=> handleUpload()}>Upload</span>
                                 </div>
                                 <h6>Aadhaar Card</h6>
                                 <p className="document-p">File should be max 2mb and jpg, jpeg, png, pdf</p>
                             </div>
                             <div className="upload">
                                 <div className="upload-i-text">
-                                    <i className="fa-solid fa-upload"></i>
-                                    <span>Upload</span>
+                                  <input type="file" className="form-control" name="file" onChange={(e) => validateSelectedFiles(e)}/>
+                                  <i className="fa-solid fa-upload"></i>
+                                  <span onClick={()=> handleUpload()}>Upload</span>
                                 </div>
                                 <h6>PAN Card</h6>
                                 <p className="document-p">File should be max 2mb and jpg, jpeg, png, pdf</p>

@@ -230,9 +230,9 @@ export default function ProfileBasicDetails() {
                 <div className="besic-detials-all-text-hide-button-parent">
                     <button className="besic-detials-all-text-hide-button1" onClick={()=>setShow(true)}>Cancle</button>
                     {toggleButton===true?
-                        <button className="besic-detials-button-save" disabled={disable === true ? true : false} onClick={()=>handleSave()}>Save</button> 
+                        <button className="besic-detials-button-save" disabled={disable === true ? true : false} onClick={()=>handleSave()} style={disable ? {backgroundColor:"lightgray"} : {}}>Save</button> 
                         :
-                        <button className="besic-detials-button-save" onClick={()=>handleUpdate()}>Update</button>
+                        <button className="besic-detials-button-save" disabled={disable === true ? true : false} onClick={()=>handleUpdate()} style={disable ? {backgroundColor:"lightgray"} : {}}>Update</button>
                     }
                 </div>
             </ProfileTheme>

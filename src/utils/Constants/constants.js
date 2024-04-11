@@ -48,8 +48,10 @@ const constants = {
         USER_DETAILS_GET_ALL_USER: "https://techsaraz.in/admission-cart/api/user.php",
         USER_DETAILS_GET_ALL_USER_TO_VERIFY: "https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails&email=",
         USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY: "https://techsaraz.in/admission-cart/api/user.php?requestType=educationalQualification&email=",
+        USER_PREFERENCE_TO_VERIFY: "https://techsaraz.in/admission-cart/api/user.php?requestType=collegePreferences&email=",
         USER_DETAILS_SAVE_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails",
         USER_EDUCATIONAL_QUALIFICATION_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=educationalQualification",
+        USER_PREFERENCE_SAVE_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=collegePreferences",
     },
     apiMethod: {
         GET: 'get',
