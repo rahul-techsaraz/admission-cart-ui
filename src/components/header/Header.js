@@ -70,22 +70,28 @@ useEffect(()=>{
         <header className="header">
         <div className="h7_header-top d-none d-md-block">
             <div className="container">
-                        <ul className="h7_header-top-list">
-                            <li><span href="tel:8812356877787 "><i className="fa fa-phone" aria-hidden="true"></i> (88) 123 568 777 87 </span></li>
-                            <li><span href="mailto:info@xyz-text.com "><i className="fa fa-envelope-o" aria-hidden="true"></i> info@xyz-text.com</span></li>
-                        </ul>
-                    </div>
-                    <div className="col-lg-4 col-md-3">
-                        <div className="h7_header-top-social">
-                            <ul className="d-flex align-items-center justify-content-end">
-                                <li><span><i className="fa fa-facebook" aria-hidden="true"></i></span></li>
-                                <li><span><i className="fa fa-instagram" aria-hidden="true"></i></span></li>
-                                <li><span><i className="fa fa-youtube-play" aria-hidden="true"></i></span></li>
-                                <li><span><i className="fa fa-twitter" aria-hidden="true"></i></span></li>
+                    <div className="row">
+                        <div className="col-lg-8 col-md-9">
+                            <ul className="h7_header-top-list">
+                                <li><span href="tel:8812356877787 "><i className="fa fa-phone" aria-hidden="true"></i> (88) 123 568 777 87 </span></li>
+                                <li><span href="mailto:info@xyz-text.com "><i className="fa fa-envelope-o" aria-hidden="true"></i> info@xyz-text.com</span></li>
                             </ul>
                         </div>
+                        <div className="col-lg-4 col-md-3">
+                            <div className="h7_header-top-social">
+                                <ul className="d-flex align-items-center justify-content-end">
+                                    <li><span><i className="fa fa-facebook" aria-hidden="true"></i></span></li>
+                                    <li><span><i className="fa fa-instagram" aria-hidden="true"></i></span></li>
+                                    <li><span><i className="fa fa-youtube-play" aria-hidden="true"></i></span></li>
+                                    <li><span><i className="fa fa-twitter" aria-hidden="true"></i></span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+            </div>
+                    
+        </div>
         <div className="container">
             <nav className="navbar">
                 <section className="navbar-left">
@@ -120,7 +126,7 @@ useEffect(()=>{
                 </section>
                 <section className="navbar-right">
                     <span  className="menu-block"><img src="images/search-icon.svg" alt="" /></span>
-                    <button className="menu-blck" onClick={() => handleModel()} onMouseLeave={()=>handleModelLeave()}><img src={userImage} alt="" /></button>
+                    <button className="menu-block" onClick={() => handleModel()} onMouseLeave={()=>handleModelLeave()}><img src={userImage} alt="" /></button>
                 </section>
             </nav>
         </div>
