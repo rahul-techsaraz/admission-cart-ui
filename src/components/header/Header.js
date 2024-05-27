@@ -77,6 +77,7 @@ useEffect(()=>{
                                 <li><span href="mailto:info@xyz-text.com "><i className="fa fa-envelope-o" aria-hidden="true"></i> info@xyz-text.com</span></li>
                             </ul>
                         </div>
+                        
                         <div className="col-lg-4 col-md-3">
                             <div className="h7_header-top-social">
                                 <ul className="d-flex align-items-center justify-content-end">
