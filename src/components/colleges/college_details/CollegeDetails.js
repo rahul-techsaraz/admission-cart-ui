@@ -82,63 +82,60 @@ export default function CollegeDetails() {
                            </ul>
                            <a href="#" class="whatsNew-readmore-btn mt-4 d-inline-block">Read More</a>
                         </div>
-                        <div class="whatsNew-slider-wrapper position-relative mt-4 mb-5">
+                        <div class="whatsNew-slider-wrapper mt-4 mb-5">
                            <div class="swiper whatsNew-slider">
                               <div class="swiper-wrapper">
-                                 <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
-                                    <swiper-slide>
-                                       <div class="swiper-slide">
-                                          <div class="whatsNew-inner-box">
-                                             <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                             <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                 <main className="slider-main-container position-relative">
+                                    <CustomSwiper navigationNext={".swiper-button-next"} navigationPrev={".swiper-button-prev"} noOfSlidesPerView={3} isBreakPoint={false}>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="whatsNew-inner-box">
+                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                             </div>
                                           </div>
-                                       </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                       <div class="swiper-slide">
-                                          <div class="whatsNew-inner-box">
-                                             <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                             <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
-                                          </div>
-                                       </div>      
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                       <div class="swiper-slide">
-                                          <div class="whatsNew-inner-box">
-                                             <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                             <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
-                                          </div>
-                                       </div>      
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                       <div class="swiper-slide">
-                                          <div class="whatsNew-inner-box">
-                                             <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                             <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
-                                          </div>
-                                       </div>      
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                       <div class="swiper-slide">
-                                          <div class="whatsNew-inner-box">
-                                             <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                             <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
-                                          </div>
-                                       </div>      
-                                    </swiper-slide>
-                                 </CustomSwiper>
-                                 
-                                 
-                                 
-                                 
-                                 
+                                       </swiper-slide>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="whatsNew-inner-box">
+                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                             </div>
+                                          </div>      
+                                       </swiper-slide>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="whatsNew-inner-box">
+                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                             </div>
+                                          </div>      
+                                       </swiper-slide>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="whatsNew-inner-box">
+                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                             </div>
+                                          </div>      
+                                       </swiper-slide>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="whatsNew-inner-box">
+                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                             </div>
+                                          </div>      
+                                       </swiper-slide>
+                                    </CustomSwiper>
+                                    <div class="swiper-button-prev">
+                                       <img src={arrowLeftIcon} alt="" />
+                                    </div>
+                                    <div class="swiper-button-next">
+                                       <img src={arrowRightIcon} alt="" />
+                                    </div>
+                                 </main>
                               </div>
-                           </div>
-                           <div class="swiper-button-prev whatsNew-button-prev">
-                              <img src={arrowLeftIcon} alt="" />
-                           </div>
-                           <div class="swiper-button-next whatsNew-button-next">
-                              <img src={arrowRightIcon} alt="" />
                            </div>
                         </div>
                      </div>

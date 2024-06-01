@@ -813,6 +813,7 @@ ul.mega_menu {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  position: absolute;
 }
 .banner-button-prev img,
 .banner-button-next img{
@@ -862,13 +863,13 @@ ul.mega_menu {
 .course-slider-section{
   overflow-x: hidden;
 }
-.course-slider .swiper-slide:nth-child(odd){
+.course-slider swiper-container swiper-slide:nth-child(odd){
   background-color: var(--color-yellow);
 }
-.course-slider .swiper-slide:nth-child(even){
+.course-slider swiper-container swiper-slide:nth-child(even){
   background-color: var(--color-green);
 }
-.course-slider .swiper-slide{
+.course-slider swiper-container swiper-slide{
   border-radius: 30px 30px 30px 0px;
 }
 .course-box {
@@ -1082,7 +1083,8 @@ p.course-para {
 .courseOffer-button-prev,
 .courseOffer-button-next,
 .whatsNew-button-prev,
-.whatsNew-button-next{
+.whatsNew-button-next,
+.whatsNew-nav-btn{
   background: var(--color-green);
   width: 45px;
   height: 45px;
@@ -1123,7 +1125,9 @@ p.course-para {
 .courseOffer-button-prev img,
 .courseOffer-button-next img,
 .whatsNew-button-prev img,
-.whatsNew-button-next img {
+.whatsNew-button-next img,
+.swiper-button-prev img,
+.swiper-button-next img {
   width: 20px;
   filter: invert(1);
 }
@@ -1140,9 +1144,12 @@ p.course-para {
   /* border: 7px solid transparent; */
   border-bottom: 7px solid transparent;
   border-top: 7px solid var(--color-green);
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
   background: #FFF;
-  padding: 20px 20px 0;
-  margin: 50px 20px;
+  margin: 50px 0;
+  overflow: hidden;
 }
 .career-box:hover{
   border-radius: 0px 50px 0px 0px;
@@ -1150,8 +1157,11 @@ p.course-para {
   background: #FFF;
   box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25);
 }
+.career-boxInner{
+  padding: 20px 20px 0;
+}
 .career-upperbx {
-  min-height: 180px;
+  min-height: 140px;
 }
 .chat-icon{
   width: 60px;
@@ -3389,6 +3399,71 @@ ul.exam-imp-list {
 .whatsNew-button-prev,
 .whatsNew-button-next {
   top: 60%;
+}
+.whatsNew-nav-btn{
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  /* user-select: none;
+  -webkit-user-select: none; */
+  cursor: pointer;
+  padding: 2px;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.swiper-button-prev{
+  position: absolute;
+  top: 40%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-button-next{
+  position: absolute;
+  top: 40%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.courselist-button-prev{
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.courselist-button-next{
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .clg-banner-greenbox{

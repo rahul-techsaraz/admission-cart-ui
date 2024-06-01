@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {register} from "swiper/element/bundle"
 
 const responsive = 
@@ -25,15 +25,15 @@ const responsive =
     }
   })
 
-export default function CustomSwiper({noOfSlidesPerView, children, isBreakPoint}) {
+export default function CustomSwiper({noOfSlidesPerView, children, isBreakPoint, navigationNext, navigationPrev}) {
     register();
+    // useEffect(()=>{
+    //   console.log(navigationNext, navigationPrev)
+    // },[])
   return (
     <>
-    {isBreakPoint ? (<swiper-container slides-per-view={noOfSlidesPerView} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
-    <swiper-container slides-per-view={noOfSlidesPerView} space-between={20} navigation={true}>{children}</swiper-container>}
-    {/* {isBreakPoint ? (<swiper-container slides-per-view={noOfSlidesPerView} slidesPerView={'auto'} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
-    <swiper-container slides-per-view={noOfSlidesPerView} slidesPerView={'auto'} space-between={20} navigation={true}>{children}</swiper-container>} */}
-        
+    {isBreakPoint ? (<swiper-container navigation-next-el={navigationNext} navigation-prev-el={navigationPrev} slides-per-view={noOfSlidesPerView} space-between={20} navigation={true} breakpoints={responsive}>{children}</swiper-container>) : 
+    <swiper-container navigation-next-el={navigationNext} navigation-prev-el={navigationPrev} slides-per-view={noOfSlidesPerView} space-between={20} navigation={true}>{children}</swiper-container>}
     </>
   )
 }
