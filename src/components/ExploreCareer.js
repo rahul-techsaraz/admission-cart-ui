@@ -16,8 +16,8 @@ const ExploreCareer = () => {
                 <div className="col-12">
                     <div className="career-slider-wrapper position-relative">
                         <div className="swiper career-slider">
-                            <div className="swiper-wrapper">
-                                <CustomSwiper noOfSlidesPerView={4} isBreakPoint={true}>
+                            <div className="swiper-wrapper position-reltive">
+                                <CustomSwiper navigationNext={".career-button-next"} navigationPrev={".career-button-prev"} noOfSlidesPerView={3} isBreakPoint={false}>
                                     <swiper-slide>
                                         <div className="swiper-slide">
                                             <div className="career-box-flex-box">
@@ -208,25 +208,14 @@ const ExploreCareer = () => {
                                         </div>
                                     </swiper-slide>
                                 </CustomSwiper>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-
+                            </div>
+                            <div className="swiper-button-prev career-button-prev">
+                                <img src={leftArrow} alt="" />
+                            </div>
+                            <div className="swiper-button-next career-button-next">
+                                <img src={rightArrow} alt="" />
                             </div>
                         </div>
-
-                        {/* <div className="swiper-button-prev career-button-prev">
-                            <img src={leftArrow} alt="" />
-                        </div>
-                        <div className="swiper-button-next career-button-next">
-                            <img src={rightArrow} alt="" />
-                        </div> */}
-                        
-        
                     </div>
                 </div>
             </div>

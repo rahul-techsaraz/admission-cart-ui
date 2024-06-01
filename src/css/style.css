@@ -813,6 +813,7 @@ ul.mega_menu {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  position: absolute;
 }
 .banner-button-prev img,
 .banner-button-next img{
@@ -1082,7 +1083,8 @@ p.course-para {
 .courseOffer-button-prev,
 .courseOffer-button-next,
 .whatsNew-button-prev,
-.whatsNew-button-next{
+.whatsNew-button-next,
+.whatsNew-nav-btn{
   background: var(--color-green);
   width: 45px;
   height: 45px;
@@ -1123,7 +1125,9 @@ p.course-para {
 .courseOffer-button-prev img,
 .courseOffer-button-next img,
 .whatsNew-button-prev img,
-.whatsNew-button-next img {
+.whatsNew-button-next img,
+.swiper-button-prev img,
+.swiper-button-next img {
   width: 20px;
   filter: invert(1);
 }
@@ -3395,6 +3399,71 @@ ul.exam-imp-list {
 .whatsNew-button-prev,
 .whatsNew-button-next {
   top: 60%;
+}
+.whatsNew-nav-btn{
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  /* user-select: none;
+  -webkit-user-select: none; */
+  cursor: pointer;
+  padding: 2px;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.swiper-button-prev{
+  position: absolute;
+  top: 40%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-button-next{
+  position: absolute;
+  top: 40%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.courselist-button-prev{
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.courselist-button-next{
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .clg-banner-greenbox{

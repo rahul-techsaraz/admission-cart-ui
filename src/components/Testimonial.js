@@ -45,8 +45,8 @@ const Testimonial = () => {
                 <div className="col-12">
                     <div className="testimonial-slider-wrapper position-relative mt-3">
                         <div className="swiper testimonial-slider">
-                            <div className="swiper-wrapper">
-                                <CustomSwiper noOfSlidesPerView={3} isBreakPoint={true}>
+                            <div className="swiper-wrapper position-relative">
+                                <CustomSwiper navigationNext={".testimonials-button-next"} navigationPrev={".testimonials-button-prev"} noOfSlidesPerView={3} isBreakPoint={false}>
                                 {testimonialPersonDetails.map(details => (
                                     <swiper-slide>
                                         <div className="swiper-slide">
@@ -64,14 +64,15 @@ const Testimonial = () => {
                                 ))}
                                 </CustomSwiper>
                             </div>
+                            <div className="swiper-button-prev testimonials-button-prev">
+                                <img src={leftArrow} alt="" />
+                            </div>
+                            <div className="swiper-button-next testimonials-button-next">
+                                <img src={rightArrow} alt="" />
+                            </div>
                         </div>
 
                         <div className="swiper-pagination testimonial-pagination"></div>
-
-                        {/* <div className="swiper-button-prev testimonials-button-prev"><img src={leftArrow} alt="" /></div>
-                        <div className="swiper-button-next testimonials-button-next"><img src={rightArrow} alt="" /></div> */}
-                        
-        
                     </div>
                 </div>
             </div>
