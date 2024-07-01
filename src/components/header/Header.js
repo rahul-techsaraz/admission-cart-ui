@@ -58,7 +58,7 @@ useEffect(()=>{
         }
     }
     const handleModelLeave= ()=>{
-        dispatch(toggelAfterLoginModel({flag:false}))
+        // dispatch(toggelAfterLoginModel({flag:false}))
     }
  
    
@@ -81,10 +81,10 @@ useEffect(()=>{
                         <div className="col-lg-4 col-md-3">
                             <div className="h7_header-top-social">
                                 <ul className="d-flex align-items-center justify-content-end">
-                                    <li><span><i className="fa fa-facebook" aria-hidden="true"></i></span></li>
-                                    <li><span><i className="fa fa-instagram" aria-hidden="true"></i></span></li>
-                                    <li><span><i className="fa fa-youtube-play" aria-hidden="true"></i></span></li>
-                                    <li><span><i className="fa fa-twitter" aria-hidden="true"></i></span></li>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>

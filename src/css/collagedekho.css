@@ -14,7 +14,7 @@
     border-radius: 5px;
     box-shadow: 3px 3px 5px #828282;
     position: absolute;
-    top: 16.5%;
+    top: 15.5%;
     right: 0;
     /* transform: translateX(-50%); */
     z-index: 99999;   
@@ -55,6 +55,11 @@
     padding: 15px 0;
     cursor: pointer;
 }
+.my-collage-box-log-out{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 .my-collage i{
     width: 35px;
     height: 35px;
@@ -81,6 +86,7 @@
     text-decoration: none;
     gap: 20px;
     color: #5a5a5a;
+    justify-content: start;
 }
 .my-collage-box-log-out a{
     display: flex;
