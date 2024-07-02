@@ -764,7 +764,8 @@ ul.mega_menu {
   background-size: 100%;
   background-position: right center;
   background-repeat: no-repeat;
-  height: 650px;
+  /* height: 650px; */
+  height: 560px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -4670,3 +4671,296 @@ a{
   font-size: 16px;
 }
 /* quiz end */
+
+/* left sidebar default css */
+
+.side-bar ul li a {
+  color: #000;
+  padding: 5px 5px;
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+/* left sidebar default css */
+
+/* side bar style start */
+
+.side-bar{
+  width: 100%;
+  position: relative;
+  padding-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+.side-navbar{
+    width: 250px;
+    position: sticky;
+    height: auto;
+    background-color: #FED626;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 3px 10px #828282;
+    padding: 10px 0px;
+    border-radius: 8px;
+    animation-name: up-down;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition:all .3s;
+    overflow: hidden;
+}
+.side-bar ul{
+  padding: 0 20px 0 10px;
+  position: relative;
+}
+.side-bar ul li{
+    transition: .3s ease;
+    cursor: pointer;
+    margin: 5px 0;
+}
+/* .side-bar ul li a{
+    color: #000;
+    padding: 5px 5px;
+    width: 100%;
+    font-size: 14px;
+    overflow: hidden;
+    display: flex;
+  gap: 10px;
+  align-items: center;
+} */
+.side-bar ul li a:hover{
+  background: linear-gradient(0deg, rgba(252,172,0,1) 1%, rgba(254,214,38,1) 23%, rgba(255,255,255,1) 93%, rgba(255,255,255,1) 100%);
+  border-radius: 50px;
+  transition: .3s ease;
+  color: #000000;
+  font-weight: 600;
+  box-shadow: 0 3px 5px #707070;
+}
+circle{
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  top: 70%;
+  left: 0%;
+  animation: animate 1s linear infinite;
+}
+@keyframes animate{
+  from{
+    width: 0;
+    height: 0;
+    opacity: .31;
+  }
+  to{
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+
+.side-bar ul li a i{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fcac00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.active{
+  background: linear-gradient(0deg, rgba(252,172,0,1) 1%, rgba(254,214,38,1) 23%, rgba(255,255,255,1) 93%, rgba(255,255,255,1) 100%);
+  border-radius: 50px;
+  transition: .3s ease;
+  color: #000000;
+  font-weight: 600;
+  box-shadow: 0 3px 5px #707070;
+}
+label #bars
+{
+    background: linear-gradient(145deg, #1e2024, #23272b);
+    color: #ff014e;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 25px; 
+    position: fixed;
+}
+label #cancel{
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 25px;
+  background: #ffffff;
+  position: fixed;
+}
+#check{
+  display: none;
+}
+.counsellors-i{
+    color: #04a55c;
+}
+
+
+
+
+@media screen and (max-width: 911px){
+  .side-navbar{
+    width: 110px;
+    height: 565px;
+    overflow-y: scroll;
+    box-shadow: none;
+    
+  }
+  .side-bar ul{
+    padding: 0px 10px 0px 10px;
+  }
+  ::-webkit-scrollbar{
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color: #828282;
+    border-radius:100px;
+  }
+
+  .side-bar ul li{
+    margin: 5px 0;
+  }
+  .side-bar ul li a{
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 600;
+    gap: 2px;
+  }
+  .side-bar ul li a:hover {
+    background: transparent;
+    border-radius: 0;
+    color: #000000;
+    box-shadow: none;
+  }
+  .side-bar ul li a i{
+    font-size: 16px;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+.active{
+    background: transparent;
+    border-radius: 0;
+    transition: .3s ease;
+    /* color: #000000; */
+    font-weight: 600;
+    box-shadow:none;
+    color: #6ee6b2;
+  }
+  .fa-face-smile{
+    box-shadow: 5px 5px 25px #ffffff;
+    border: 2px solid #04a55c;
+    color: #04a55c;
+    background: #828282;
+  }
+  .counsellors-text{
+    color: #04a55c;
+    font-weight: 900;
+    /* font-size: 15px; */
+  }
+}
+
+/* 430px start */
+
+@media (max-width: 430px){
+  
+  label #bars{
+    display: block;
+    margin-top: -65px;
+    position: absolute;
+    z-index: 9999;
+    color: #fcac00;
+    right: 0;
+} 
+.side-bar ul li a i{
+  display: none;
+}
+.side-bar ul li a{
+  font-size: 17px;
+  color: aliceblue;
+}
+.side-bar ul li a:hover{
+  text-decoration: underline;
+  color: #fcac00;
+}
+.side-navbar{
+    width: 100%;
+    height: auto;
+    /* overflow-y: scroll; */
+    box-shadow: none;
+    position: absolute;
+    z-index: 9;
+    overflow: visible;
+    background: transparent
+}
+#check:checked ~ ul{
+    left: 0;
+}
+#check:checked ~ label #bars{
+    display: none;
+}
+#check:checked ~ label #cancel{
+    display: block;
+    margin-top: -65px;
+}
+.side-navbar ul{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+  transition: .5s all;
+  z-index:-11;
+}
+}
+
+/* 430 end */
+
+@media (max-width: 375px){
+  label #bars, label #cancel{
+     width: 50px;
+     height: 50px;
+     line-height: 50px;
+     font-size: 25px;
+  }
+  .side-bar ul li a{
+    font-size: 15px;
+  }
+}
+
+/* side bar style end */
+

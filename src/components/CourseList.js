@@ -12,7 +12,7 @@ const CourseList = () => {
                     <div className="swiper-wrapper position-relative">
                         <CustomSwiper navigationNext={".courselist-button-next"} navigationPrev={".courselist-button-prev"} noOfSlidesPerView={5} isBreakPoint={true} centeredSlides={true}>
                             <swiper-slide>
-                                <div className="swiper-slide">
+                                <div className="swiper-slide position-relative">
                                     <div className="course-box text-start">
                                         <img src={scollarship} className="scollarship-icon" alt="" />
                                         <p className="course-name">MBA Media Management</p>
