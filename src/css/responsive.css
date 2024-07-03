@@ -253,6 +253,14 @@
         padding: 25px 15px;
     }
 
+    /* j code */
+    .bookmark-badge-leftbox{
+        padding-bottom: 10px;
+    }
+    .courses-details-rightcol{
+        margin-bottom: 40px;
+    }
+
 }
 
 

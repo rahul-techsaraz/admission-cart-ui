@@ -6,6 +6,7 @@ import bookMarkIcon from '../../../images/bookmark-icon.svg';
 import questionIcon from '../../../images/question-icon.svg';
 import CourseDetailsBanner from './CourseDetailsBanner';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
+import sliderlogo from '../../../images/clg-slider-logo.png';
 
 
 
@@ -157,12 +158,12 @@ export default function CourseDetails() {
                                 <h2>Top Engineering colleges in India</h2>
                             </div>
                             <div className="swiper clg-slider">
-                                <div className="swiper-wrapper">
+                                <div className="swiper-wrapper position-relative">
                                     <CustomSwiper noOfSlidesPerView={1}>
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src= {sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -172,7 +173,7 @@ export default function CourseDetails() {
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -182,7 +183,7 @@ export default function CourseDetails() {
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -192,7 +193,7 @@ export default function CourseDetails() {
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -200,6 +201,12 @@ export default function CourseDetails() {
                                             </div>        
                                         </swiper-slide>
                                     </CustomSwiper>
+                                    <div className="swiper-button-prev clg-button-prev">
+                                <img src="images/arrow-left-icon.svg" alt="" />
+                            </div>
+                            <div className="swiper-button-next clg-button-next">
+                                <img src="images/arrow-right-icon.svg" alt="" />
+                            </div>
                                     
                                     
                                     
@@ -209,17 +216,17 @@ export default function CourseDetails() {
                                 </div>
                             </div>
 
-                            <div className="swiper-button-prev clg-button-prev">
+                            {/* <div className="swiper-button-prev clg-button-prev">
                                 <img src="images/arrow-left-icon.svg" alt="" />
                             </div>
                             <div className="swiper-button-next clg-button-next">
                                 <img src="images/arrow-right-icon.svg" alt="" />
-                            </div>
+                            </div> */}
                             
             
                         </div>
 
-                        <div className="clg-slider-wrapper position-relative">
+                        <div className="clg-slider-wrapper">
                             <div className="tick-heading d-flex align-items-center mb-4">
                                 <span className="tick-heading-icon d-inline-flex">
                                     <img src="images/grey-tick.svg" alt="" />
@@ -227,12 +234,12 @@ export default function CourseDetails() {
                                 <h2>Top Engineering colleges in West Bengal</h2>
                             </div>
                             <div className="swiper clg-slider">
-                                <div className="swiper-wrapper">
+                                <div className="swiper-wrapper position-relative">
                                     <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -242,7 +249,7 @@ export default function CourseDetails() {
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -252,7 +259,7 @@ export default function CourseDetails() {
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -262,7 +269,7 @@ export default function CourseDetails() {
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
-                                                    <img src="images/clg-slider-logo.png" className="clg-slider-logo" alt="" />
+                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
                                                     <a href="#" className="apply-btn position-absolute">Apply</a>
@@ -270,6 +277,13 @@ export default function CourseDetails() {
                                             </div>        
                                         </swiper-slide>
                                     </CustomSwiper>
+
+                                    <div className="swiper-button-prev clg-button-prev">
+                                <img src="images/arrow-left-icon.svg" alt="" />
+                            </div>
+                            <div className="swiper-button-next clg-button-next">
+                                <img src="images/arrow-right-icon.svg" alt="" />
+                            </div>
                                     
                                     
                                     
@@ -279,12 +293,12 @@ export default function CourseDetails() {
                                 </div>
                             </div>
 
-                            <div className="swiper-button-prev clg-button-prev">
+                            {/* <div className="swiper-button-prev clg-button-prev">
                                 <img src="images/arrow-left-icon.svg" alt="" />
                             </div>
                             <div className="swiper-button-next clg-button-next">
                                 <img src="images/arrow-right-icon.svg" alt="" />
-                            </div>
+                            </div> */}
 
                         </div>
                     

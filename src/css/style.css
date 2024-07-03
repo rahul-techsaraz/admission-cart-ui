@@ -1659,6 +1659,9 @@ select.form-select {
   line-height: normal;
   text-transform: capitalize;
   color: var(--color-black);
+  /* j type */
+  background: transparent;
+  box-shadow: none;
 }
 .abouttxt-small{
   color: var(--color-green);
@@ -2611,6 +2614,7 @@ ul.exam-imp-list {
   left: 0;
   right: 0;
   width: fit-content;
+  position: relative !important;
 }
 
 .courses-details-rightcol{
