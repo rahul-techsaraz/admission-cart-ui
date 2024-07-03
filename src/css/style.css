@@ -312,6 +312,16 @@ li {
   align-items: center;
   flex: 0 0 17%;
 }
+
+.navbar-left a{
+   width: 200px;
+}
+.burger{
+  order: -1;
+}
+
+
+
 .navbar-center {
   display: flex;
 }

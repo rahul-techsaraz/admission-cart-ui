@@ -5,7 +5,7 @@ const responsive =
   JSON.stringify({
     3000:{
       slidesPerView: 5,
-      spaceBetween: 50
+      spaceBetween: 50,
     },
     1024:{
       slidesPerView: 4,
@@ -22,7 +22,11 @@ const responsive =
     460:{
       slidesPerView: 1,
       spaceBetween: 20,
-    }
+    },
+    // 420:{
+    //   slidesPerView: 2,
+    //   spaceBetween: 20,
+    // }
   })
 
 export default function CustomSwiper({noOfSlidesPerView, children, isBreakPoint, navigationNext, navigationPrev}) {

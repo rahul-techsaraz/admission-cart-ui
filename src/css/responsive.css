@@ -103,6 +103,9 @@
     .stats .counter {
         font-size: 46px;
     }
+    a{
+        justify-content: start;
+    }
     
 }   /* end 991px */
 

@@ -3,10 +3,10 @@ import './css/document-responsive.css'
 import './css/homepage-collage.css'
 import './css/homepage-responsive.css'
 import './css/model.css'
-import './css/responsive.css'
 import './css/signin-collagedekho.css'
 import './css/signin-responsive.css'
 import './css/style.css'
+import './css/responsive.css'
 // import './css/collagedekho.css'
 
 import Header from './components/header/Header';

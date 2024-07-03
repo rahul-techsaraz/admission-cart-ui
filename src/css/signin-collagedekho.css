@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --font-poppin: "Poppins", sans-serif;
     --color-yellow: #FED626;
     --color-green: #5BE4A8;
@@ -20,7 +20,6 @@
     --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
   
-    /* menu style */
     --white-100: hsl(206, 5%, 100%);
     --white-200: hsl(206, 5%, 90%);
     --white-300: hsl(206, 5%, 80%);
@@ -63,7 +62,7 @@
     overflow-x: hidden;
     min-height: 100%;
     font-family: var(--font-poppin);
-  }
+  } */
 
   /*  */
 

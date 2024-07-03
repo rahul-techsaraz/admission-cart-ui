@@ -179,13 +179,13 @@ li {
   line-height: 42px;
 }
 /***end***/
-.header {
+/* .header {
   width: 100%;
   height: auto;
   z-index: 99;
   margin: 0 auto;
   position: relative;
-}
+} */
 
 .h7_header-top {
   background: var(--color-yellow);
