@@ -19,7 +19,7 @@ const TrandingSection  = () => {
                         <div className="trending-slider-wrapper position-relative">
                             <div className="swiper trending-course-slider bg-white">
                                 <div className="swiper-wrapper">
-                                    <CustomSwiper navigationNext={".trending-button-next"} navigationPrev={".trending-button-prev"} noOfSlidesPerView={1} isBreakPoint={false}>
+                                    <CustomSwiper navigationNext={".trending-button-next"} navigationPrev={".trending-button-prev"} noOfSlidesPerView={1} isBreakPoint={true}>
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="course-box text-start">
