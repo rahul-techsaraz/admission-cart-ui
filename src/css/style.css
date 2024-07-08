@@ -1626,6 +1626,8 @@ select.form-select {
   color: var(--color-light-grey);
   font-size: 18px;
   font-weight: 400;
+  display: flex;
+  justify-content: start;
 }
 .company-footer-contact-list i{
   color: var(--color-green);
@@ -1958,6 +1960,21 @@ span.milestone-dot {
     width:100%;
     padding-bottom:0;
   }
+  .clg-info-greenbox-hdng{
+    font-size: 25px !important;
+  }
+  .clglisting-clglogo{
+    width: 70px !important;
+  }
+  .clg-info-greenbox-location{
+    font-size: 16px !important;
+  }
+  .clg-infobanner-section {
+    height: 200px;
+  }
+  .clginfo-greenbx-review-badge{
+    font-size: 12px !important;
+  }
   .timeline-section h1{
     font-size:40px;
     text-align:center;
@@ -1986,6 +2003,9 @@ span.milestone-dot {
     left:50px;
     right:inherit;
   }
+  .bookmark-badge-leftbox{
+    padding-bottom: 20px;
+}
 }
 
 
@@ -2033,6 +2053,7 @@ span.milestone-dot {
 	font-size: 14px;
 	display: flex;
 	align-items: center;
+  left: 0;
 }
 
 .filter-col .form-group label:before {
@@ -2483,6 +2504,7 @@ ul.exam-imp-list {
   font-weight: 600;
   line-height: normal;
   border-radius: 0;
+  /* border-radius: 30px 30px 30px 0px; */
 }
 .course-details-yearsyllabus{
   color: #404040;
@@ -3122,6 +3144,7 @@ ul.exam-imp-list {
   padding: 30px 5px 5px;
   width: 733px;
   margin: 0 auto;
+  max-width: 100%;
 }
 .counselling-date-box-heading{
   color: #404040;
@@ -3317,6 +3340,12 @@ ul.exam-imp-list {
       transform: translateY(-50%);
       opacity: 0;
   }
+  .clg-info-greenbox-hdng{
+    font-size: 28px;
+  }
+  .clg-info-greenbox-location{
+    font-size: 18px;
+  }
 }
 
 .nav-pills-custom .nav-link.active::before {
@@ -3338,7 +3367,7 @@ ul.exam-imp-list {
   background: #FBFBFB;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   margin-left: 3px;
-  height: 100%;
+  height: auto;
 }
 .exam-tab-content .tab-pane P{
   font-size: 16px;
@@ -3482,7 +3511,8 @@ ul.exam-imp-list {
 }
 
 .clg-banner-greenbox{
-  bottom: 25px;
+  /* bottom: 25px; */
+  top: 30px;
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -3490,6 +3520,7 @@ ul.exam-imp-list {
 .clg-banner-greenbox .clglisting-clglogo{
   width: fit-content;
   margin-bottom: 5px;
+  height: fit-content;
 }
 .clg-banner-greenbox .green-bg{
   border-radius: 14px;
@@ -3769,10 +3800,10 @@ p.clg-stream-name {
   line-height: 16px;
   color: var(--color-grey);
 }
-.clg-facilities-button-prev,
+/* .clg-facilities-button-prev,
 .clg-facilities-button-next {
   top: 75%;
-}
+} */
 .faculty-students-img{
   width: 500px;
 }
@@ -4212,6 +4243,22 @@ p.clg-stream-name {
 .card .details_btn_group .details_btn.active {
 	background: #5BE4A8;
 }
+
+/* j code */
+
+.padding-top{
+  padding-top: 20px;
+}
+/* .clg-infobanner-section img{
+  height: 40vh;
+} */
+/* .clg-info-greenbox-hdng{
+  font-size: 28px;
+}
+.clg-info-greenbox-location{
+  font-size: 18px;
+} */
+
 
 
 @media screen and (max-width: 399px) {
@@ -4841,7 +4888,9 @@ label #cancel{
     height: 565px;
     overflow-y: scroll;
     box-shadow: none;
-    
+  }
+  .clg-info-greenbox-hdng{
+    font-size: 28px;
   }
   .side-bar ul{
     padding: 0px 10px 0px 10px;
@@ -4884,10 +4933,10 @@ label #cancel{
     background: transparent;
     border-radius: 0;
     transition: .3s ease;
-    /* color: #000000; */
     font-weight: 600;
     box-shadow:none;
     color: #6ee6b2;
+    border-radius: 50px;
   }
   .fa-face-smile{
     box-shadow: 5px 5px 25px #ffffff;
@@ -4914,6 +4963,18 @@ label #cancel{
     color: #fcac00;
     right: 0;
 } 
+.clglisting-clglogo{
+  width: 60px;
+}
+.clg-info-greenbox-location {
+  font-size: 12px !important;
+}
+.clg-info-greenbox-hdng{
+  font-size: 16px !important;
+}
+.clg-banner-greenbox{
+  top: 5px;
+}
 .side-bar ul li a i{
   display: none;
 }
@@ -4977,4 +5038,6 @@ label #cancel{
 }
 
 /* side bar style end */
+
+
 

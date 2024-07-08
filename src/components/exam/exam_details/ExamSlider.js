@@ -9,7 +9,7 @@ export default function ExamSlider() {
             <h2 className="section-heading2 grey text-center mb-4">Colleges Accepting Exam JEE Main :</h2>
             <div className="swiper clg-slider">
                {/* Additional required wrapper */}
-              <div className="swiper-wrapper">
+              <div className="swiper-wrapper position-relative">
                 {/* <!-- Slides --> */}
                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                   <swiper-slide>
@@ -46,18 +46,24 @@ export default function ExamSlider() {
                   </swiper-slide>
                 </CustomSwiper>
                 
-                
-                
-                
-              </div>
-            </div>
-            {/* <!-- If we need navigation buttons --> */}
+                {/* <!-- If we need navigation buttons --> */}
             <div className="swiper-button-prev clg-button-prev">
               <img src={arrowLeft} alt="" />
             </div>
             <div className="swiper-button-next clg-button-next">
               <img src={arrowRight} alt="" />
             </div>
+                
+                
+              </div>
+            </div>
+            {/* <!-- If we need navigation buttons --> */}
+            {/* <div className="swiper-button-prev clg-button-prev">
+              <img src={arrowLeft} alt="" />
+            </div>
+            <div className="swiper-button-next clg-button-next">
+              <img src={arrowRight} alt="" />
+            </div> */}
           </div>
   )
 }

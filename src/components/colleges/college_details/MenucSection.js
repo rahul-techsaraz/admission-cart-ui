@@ -8,7 +8,7 @@ export default function MenucSection() {
      <section class="courses-details-section clg-info-filter-badge-section pt-2">
          <div class="container">
             <div class="row mb-5">
-               <div class="col-md-6">
+               <div class="col-lg-6 col-md-12">
                   <div class="bookmark-badge-leftbox d-flex gap-3">
                      <a href="#" class="border-0 shadow-none">Approved by UGC</a>
                      <a href="#" class="border-0 shadow-none">Private College</a>
@@ -16,8 +16,8 @@ export default function MenucSection() {
                      <a href="#" class="border-0 shadow-none">NIRF Ranking - 1</a>
                   </div>
                </div>
-               <div class="col-md-6">
-                  <div class="d-flex justify-content-end align-items-center">
+               <div class="col-lg-6 col-md-12">
+                  <div class="padding-top d-flex justify-content-end align-items-center">
                      <div class="bookmark-badge-leftbox d-flex gap-3 me-3">
                         <a href="#"><img src={bookMarkIcon} alt="" />Save</a>
                      </div>
@@ -30,7 +30,7 @@ export default function MenucSection() {
             </div>
             <div class="row">
                <div class="col-12">
-                  <div class="course-details-filtertab d-flex gap-3 mt-4">
+                  <div class="course-details-filtertab d-flex flex-wrap gap-3 mt-4">
                      <a href="#" class="active">College Info</a>
                      <a href="#" class="">News</a>
                      <a href="#" class="">Reviews (11)</a>

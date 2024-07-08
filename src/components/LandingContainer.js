@@ -46,7 +46,7 @@ const LandingContainer = () => {
                                                         <span className="d-block">From</span>
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
-                                                    <div className="banner-btn-grp text-center ps-md-3 mt-5">
+                                                    <div className="banner-btn-grp text-center ps-md-3 mt-3">
                                                         <a href="#" className="theme-btn black-btn me-4">Get Started</a>
                                                     </div>
                                                 </div>
