@@ -922,6 +922,7 @@ p.course-para {
   font-weight: 400;
   line-height: normal;
   color: var(--color-black);
+  max-width: 100%;
 }
 .course-readmore-btn img{
   width: 16px;

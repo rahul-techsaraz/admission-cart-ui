@@ -11,7 +11,7 @@ export const OurVission = ()=>{
                     <a href="#" class="leftdash-btn greendash">Read More</a>
                 </div>
                 <div class="col-md-3">
-                    <div class="position-relative ps-md-5">
+                    <div class="about-img-parent position-relative ps-md-5">
                         <img src={ourVissionImg} class="img-fluid about-img1" alt="" />
                     </div>
                 </div>

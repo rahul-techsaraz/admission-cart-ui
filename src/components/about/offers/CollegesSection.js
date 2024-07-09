@@ -3,7 +3,7 @@ import arrowRightImg from "../../../images/arrow-right-icon.svg";
 export const CollegeSection = ()=>{
 
     return (
-          <div class="col-md-3">
+          <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="offering-box text-center">
                         <img src={offeringImg} class="offer-icon" alt="" />
                         <h1 class="offer-heading">College Finder</h1>

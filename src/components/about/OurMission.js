@@ -6,7 +6,7 @@ export const OurMission = ()=>{
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-3">
-                    <div class="position-relative pe-md-5">
+                    <div class="about-img-parent position-relative pe-md-5">
                         <img src={OurMissionImg} class="img-fluid about-img1" alt=""/>
                     </div>
                 </div>
