@@ -119,7 +119,7 @@ export default function ExamDetailsLeftBox() {
             <h2 className="section-heading2 grey text-center mb-5">Top Engineering Colleges</h2>
             <div className="swiper clg-slider">
               {/* <!-- Additional required wrapper --> */}
-              <div className="swiper-wrapper">
+              <div className="swiper-wrapper position-relative">
                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                   <swiper-slide>
                     <div className="swiper-slide">
@@ -156,18 +156,24 @@ export default function ExamDetailsLeftBox() {
                 </CustomSwiper>
                 {/* <!-- Slides --> */}
                 
-                
-                
-                
-              </div>
-            </div>
-            {/* <!-- If we need navigation buttons --> */}
+                {/* <!-- If we need navigation buttons --> */}
             <div className="swiper-button-prev clg-button-prev">
               <img src={arrowLeft} alt="" />
             </div>
             <div className="swiper-button-next clg-button-next">
               <img src={arrowRight} alt="" />
             </div>
+                
+                
+              </div>
+            </div>
+            {/* <!-- If we need navigation buttons --> */}
+            {/* <div className="swiper-button-prev clg-button-prev">
+              <img src={arrowLeft} alt="" />
+            </div>
+            <div className="swiper-button-next clg-button-next">
+              <img src={arrowRight} alt="" />
+            </div> */}
           </div>
           <div className="tick-heading d-flex align-items-center mb-4">
             <span className="tick-heading-icon d-inline-flex">

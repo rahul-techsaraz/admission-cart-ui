@@ -6,7 +6,7 @@ export const OurMission = ()=>{
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-3">
-                    <div class="position-relative pe-md-5">
+                    <div class="about-img-parent position-relative pe-md-5">
                         <img src={OurMissionImg} class="img-fluid about-img1" alt=""/>
                     </div>
                 </div>
@@ -16,7 +16,7 @@ export const OurMission = ()=>{
                     <p class="imgText-para">Our mission is to continuously innovate the best ways to train the next generation of developers and to transform the the way tech education is delivered.</p>
                     <a href="#" class="leftdash-btn">Read More</a>
                 </div>
-                
+   
             </div>
         </div>
     </section>

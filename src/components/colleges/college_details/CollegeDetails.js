@@ -198,8 +198,8 @@ export default function CollegeDetails() {
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-start mt-5">
-                           <a href="#" class="course-details-readmore-btn btn">Read More</a>
+                        <div class="text-center mt-5 mb-5">
+                           <a href="#" class="theme-btn green-btn">Read More</a>
                         </div>
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
@@ -267,8 +267,8 @@ export default function CollegeDetails() {
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-start mt-5">
-                           <a href="#" class="course-details-readmore-btn btn">Read More</a>
+                        <div class="text-center mt-5">
+                           <a href="#" class="theme-btn green-btn">Read More</a>
                         </div>
                         <h5 class="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
                         <div class="exam-details-hightlights-table">
@@ -330,8 +330,8 @@ export default function CollegeDetails() {
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-start mt-5">
-                           <a href="#" class="course-details-readmore-btn btn">Read More</a>
+                        <div class="text-center mt-5 mb-5">
+                           <a href="#" class="theme-btn green-btn">Read More</a>
                         </div>
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
@@ -394,7 +394,7 @@ export default function CollegeDetails() {
                      <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
                         <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
                         <div class="swiper clg-facilities-slider">
-                           <div class="swiper-wrapper">
+                           <div class="swiper-wrapper position-relative">
                               <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
@@ -447,18 +447,23 @@ export default function CollegeDetails() {
                               </CustomSwiper>
                               
                               
-                              
-                              
-                              
-                              
-                           </div>
-                        </div>
-                        <div class="swiper-button-prev clg-facilities-button-prev">
+                              <div class="swiper-button-prev clg-facilities-button-prev">
                            <img src={arrowLeftIcon} alt="" />
                         </div>
                         <div class="swiper-button-next clg-facilities-button-next">
                            <img src={arrowRightIcon} alt="" />
                         </div>
+                              
+                              
+                              
+                           </div>
+                        </div>
+                        {/* <div class="swiper-button-prev clg-facilities-button-prev">
+                           <img src={arrowLeftIcon} alt="" />
+                        </div>
+                        <div class="swiper-button-next clg-facilities-button-next">
+                           <img src={arrowRightIcon} alt="" />
+                        </div> */}
                      </div>
                      <div class="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
                         <div class="course-details-alterImgbox-col2 position-relative">
@@ -491,7 +496,7 @@ export default function CollegeDetails() {
                      <div class="successfull-almni-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
                         <h2 class="section-heading2 grey text-center mb-5">Successful Alumni</h2>
                         <div class="swiper successfull-almni-slider">
-                           <div class="swiper-wrapper">
+                           <div class="swiper-wrapper position-relative">
                               <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
@@ -581,17 +586,22 @@ export default function CollegeDetails() {
                               
                               
                               
-                              
+                              <div class="swiper-button-prev">
+                           <img src={arrowLeftIcon} alt="" />
+                        </div>
+                        <div class="swiper-button-next">
+                           <img src={arrowRightIcon} alt="" />
+                        </div>
                               
                               
                            </div>
                         </div>
-                        <div class="swiper-button-prev clg-facilities-button-prev">
+                        {/* <div class="swiper-button-prev clg-facilities-button-prev">
                            <img src={arrowLeftIcon} alt="" />
                         </div>
                         <div class="swiper-button-next clg-facilities-button-next">
                            <img src={arrowRightIcon} alt="" />
-                        </div>
+                        </div> */}
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
                         <span class="tick-heading-icon d-inline-flex">

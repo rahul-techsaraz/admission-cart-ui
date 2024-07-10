@@ -11,7 +11,7 @@ export default function TopCollegesAccesptingExam() {
     <div className="management-clg-state-slider-wrapper position-relative green-bg px-4 py-5 mt-5 mb-5">
             <h2 className="section-heading2 grey text-center mb-5">Top Management Colleges in Karnataka</h2>
             <div className="swiper management-clg-slider">
-              <div className="swiper-wrapper">
+              <div className="swiper-wrapper position-relative">
                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                   <swiper-slide>
                     <div className="swiper-slide">
@@ -55,17 +55,22 @@ export default function TopCollegesAccesptingExam() {
                   </swiper-slide>
                 </CustomSwiper>
                 
-                
-                
-                
-              </div>
-            </div>
             <div className="swiper-button-prev clg-button-prev green-bg">
               <img src={arrowLeft} alt="" />
             </div>
             <div className="swiper-button-next clg-button-next green-bg">
               <img src={arrowRight} alt="" />
             </div>
+                
+                
+              </div>
+            </div>
+            {/* <div className="swiper-button-prev clg-button-prev green-bg">
+              <img src={arrowLeft} alt="" />
+            </div>
+            <div className="swiper-button-next clg-button-next green-bg">
+              <img src={arrowRight} alt="" />
+            </div> */}
           </div>
   )
 }

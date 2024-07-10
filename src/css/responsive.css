@@ -11,6 +11,11 @@
         width: fit-content;
         padding-left: 40px;
         margin: 0 auto !important;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .banner-button-prev{
         left: 20px;
@@ -122,7 +127,7 @@
         padding: 10px 20px;
     }
     .banner-slider .swiper-slide {
-        height: 300px;
+        height: auto;
         background-size: cover;
     }
     .banner-caption h1 {
@@ -260,6 +265,15 @@
     .courses-details-rightcol{
         margin-bottom: 40px;
     }
+    .bookmark-badge-leftbox{
+        padding-bottom: 20px;
+    }
+    .about-img1{
+        width: 50%;
+      }
+    .about-img-parent{
+        text-align: center;
+    }  
 
 }
 
@@ -280,6 +294,11 @@
     .page2{
         width: 100%;
     }
+    .banner-caption h1 {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    
 }
 
 /* 430 start */

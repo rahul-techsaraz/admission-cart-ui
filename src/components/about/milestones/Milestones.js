@@ -17,7 +17,7 @@ export const Milestones = ()=>{
                         <div class="swiper milestone-slider">
                             <div class="milestone-separator"></div>
                             {/* <!-- Additional required wrapper --> */}
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper position-relative">
                                 {/* <!-- Slides --> */}
                                 <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                                     <swiper-slide>
@@ -94,7 +94,13 @@ export const Milestones = ()=>{
                                     </swiper-slide>
                                 </CustomSwiper>
                                 
-                                
+                                 {/* <!-- If we need navigation buttons --> */}
+                        <div class="swiper-button-prev milestone-button-prev">
+                            <img src={arrowLeftIconImg} alt="" />
+                        </div>
+                        <div class="swiper-button-next milestone-button-next">
+                            <img src={arrowRightIconImg} alt="" />
+                        </div>
                                 
                                 
                                 
@@ -106,12 +112,12 @@ export const Milestones = ()=>{
                         </div>
 
                         {/* <!-- If we need navigation buttons --> */}
-                        <div class="swiper-button-prev milestone-button-prev">
+                        {/* <div class="swiper-button-prev milestone-button-prev">
                             <img src={arrowLeftIconImg} alt="" />
                         </div>
                         <div class="swiper-button-next milestone-button-next">
                             <img src={arrowRightIconImg} alt="" />
-                        </div>
+                        </div> */}
                         
         
                     </div>
