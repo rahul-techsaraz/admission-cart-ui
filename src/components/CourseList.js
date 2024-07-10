@@ -2,15 +2,39 @@ import CustomSwiper from "../utils/Constants/custom-components/CustomSwiper";
 import rightArrow from '../images/arrow-right-icon.svg';
 import leftArrow from '../images/arrow-left-icon.svg';
 import scollarship from '../images/scholarship-icon.svg'
+import { swiperResponsive } from "../utils/Constants/swiperResponsive";
+import { Link } from "react-router-dom";
 
 const CourseList = () => {
+    const responsive = {
+        1400:{
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
+        1024:{
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
+        768:{
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+        640:{
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        460:{
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+      };
     return(
         <>
         <section className="course-slider-section text-center section-padding">
             <div className="container">
                 <div className="course-slider">
                     <div className="swiper-wrapper position-relative">
-                        <CustomSwiper navigationNext={".courselist-button-next"} navigationPrev={".courselist-button-prev"} noOfSlidesPerView={5} isBreakPoint={true} centeredSlides={true}>
+                        <CustomSwiper navigationNext='.courselist-button-next' navigationPrev='.courselist-button-prev' noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                             <swiper-slide>
                                 <div className="swiper-slide position-relative">
                                     <div className="course-box text-start">
@@ -18,7 +42,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -29,7 +53,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -40,7 +64,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -51,7 +75,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -62,7 +86,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -73,7 +97,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -84,7 +108,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>
@@ -95,7 +119,7 @@ const CourseList = () => {
                                         <p className="course-name">MBA Media Management</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <a href="#" className="course-readmore-btn">Read More <img src="images/arrow-right-icon.svg" alt="" /></a>
+                                        <Link className="course-readmore-btn">Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>

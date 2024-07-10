@@ -4,6 +4,7 @@ import person3 from '../images/testi-user-img3.png';
 import rightArrow from '../images/arrow-right-icon.svg';
 import leftArrow from '../images/arrow-left-icon.svg'
 import CustomSwiper from '../utils/Constants/custom-components/CustomSwiper';
+import { swiperResponsive } from '../utils/Constants/swiperResponsive';
 const testimonialPersonDetails = [
     {
         name:'Dolorsit Psumamet',
@@ -33,6 +34,28 @@ const testimonialPersonDetails = [
 
 
 const Testimonial = () => {
+    const responsive = {
+        1400:{
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
+        1024:{
+            slidesPerView: 3,
+            spaceBetween: 50,
+        },
+        768:{
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+        640:{
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        460:{
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+    }
     return(
         <>
         <section className="testimonial-slider-section section-padding">
@@ -46,9 +69,9 @@ const Testimonial = () => {
                     <div className="testimonial-slider-wrapper position-relative mt-3">
                         <div className="swiper testimonial-slider">
                             <div className="swiper-wrapper position-relative">
-                                <CustomSwiper navigationNext={".testimonials-button-next"} navigationPrev={".testimonials-button-prev"} noOfSlidesPerView={3} isBreakPoint={true}>
-                                {testimonialPersonDetails.map(details => (
-                                    <swiper-slide>
+                                <CustomSwiper navigationNext={".testimonials-button-next"} navigationPrev={".testimonials-button-prev"} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                {testimonialPersonDetails.map((details, index) => (
+                                    <swiper-slide key={index}>
                                         <div className="swiper-slide">
                                             <div className="testimonial-slider-box3">
                                                 <div className="testimonials-box">

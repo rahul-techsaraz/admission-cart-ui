@@ -1447,42 +1447,42 @@ const constants = {
         {
             lableName: "My Test Performance",
             path: "/performence",
-            firstSpanClassName: "perfomence-i",
+            firstSpanClassName: "profile-icon",
             itagClassName: "fa-chart-pie",
             secondSpanClassName: "perfomence-text"
         },
         {
             lableName: "Collages",
             path: "/collages",
-            firstSpanClassName: "collages-i",
+            firstSpanClassName: "profile-icon",
             itagClassName: "fa-building-columns",
             secondSpanClassName: "collages-text"
         },
         {
             lableName: "Career",
             path: "/career",
-            firstSpanClassName: "career-i",
+            firstSpanClassName: "profile-icon",
             itagClassName: "fa-compass",
             secondSpanClassName: "career-text"
         },
         {
             lableName: "Document",
             path: "/document",
-            firstSpanClassName: "document-i",
+            firstSpanClassName: "profile-icon",
             itagClassName: "fa-id-card",
             secondSpanClassName: "document-text"
         },
         {
             lableName: "Counsellors",
             path: "/counsellor",
-            firstSpanClassName: "counsellors-i",
+            firstSpanClassName: "profile-icon",
             itagClassName: "fa-face-smile",
             secondSpanClassName: "counsellors-text"
         },
         {
             lableName: "Account Settings",
             path: "/account",
-            firstSpanClassName: "account-i",
+            firstSpanClassName: "profile-icon",
             itagClassName: "fa-gear",
             secondSpanClassName: "account-text"
         }

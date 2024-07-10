@@ -47,6 +47,8 @@ import companyLogo4 from '../../../images/company-logo4.png';
 import relatedNews from '../../../images/related-news-img.png';
 import clgLogo3 from '../../../images/clg-logo3.png';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
+import { Link } from 'react-router-dom';
+import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 
 
 
@@ -54,6 +56,50 @@ import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwipe
 
 
 export default function CollegeDetails() {
+   const responsive = {
+      1400:{
+          slidesPerView: 3,
+          spaceBetween: 50,
+      },
+      1024:{
+          slidesPerView: 3,
+          spaceBetween: 50,
+      },
+      768:{
+          slidesPerView: 2,
+          spaceBetween: 40,
+      },
+      640:{
+          slidesPerView: 1,
+          spaceBetween: 20,
+      },
+      460:{
+          slidesPerView: 1,
+          spaceBetween: 20,
+      },
+  }
+  const responsive1 = {
+   1400:{
+       slidesPerView: 2,
+       spaceBetween: 50,
+   },
+   1024:{
+       slidesPerView: 2,
+       spaceBetween: 50,
+   },
+   768:{
+       slidesPerView: 2,
+       spaceBetween: 40,
+   },
+   640:{
+       slidesPerView: 1,
+       spaceBetween: 20,
+   },
+   460:{
+       slidesPerView: 1,
+       spaceBetween: 20,
+   },
+}
   return (
       <>
           <CollegeBannerSection />
@@ -80,18 +126,18 @@ export default function CollegeDetails() {
                               <li>The CAT 2023 exam will be held on Nov 26, 2023.</li>
                               <li>MBA-PGPX R2 applications are open and the last date to apply is Oct 30, 2023.</li>
                            </ul>
-                           <a href="#" class="whatsNew-readmore-btn mt-4 d-inline-block">Read More</a>
+                           <Link class="whatsNew-readmore-btn mt-4 d-inline-block">Read More</Link>
                         </div>
                         <div class="whatsNew-slider-wrapper mt-4 mb-5">
                            <div class="swiper whatsNew-slider">
                               <div class="swiper-wrapper">
                                  <main className="slider-main-container position-relative">
-                                    <CustomSwiper navigationNext={".swiper-button-next"} navigationPrev={".swiper-button-prev"} noOfSlidesPerView={3} isBreakPoint={false}>
+                                    <CustomSwiper navigationNext={".whatsNew-button-next"} navigationPrev={".whatsNew-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                        <swiper-slide>
                                           <div class="swiper-slide">
                                              <div class="whatsNew-inner-box">
                                                 <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
                                              </div>
                                           </div>
                                        </swiper-slide>
@@ -99,7 +145,7 @@ export default function CollegeDetails() {
                                           <div class="swiper-slide">
                                              <div class="whatsNew-inner-box">
                                                 <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
                                              </div>
                                           </div>      
                                        </swiper-slide>
@@ -107,7 +153,7 @@ export default function CollegeDetails() {
                                           <div class="swiper-slide">
                                              <div class="whatsNew-inner-box">
                                                 <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
                                              </div>
                                           </div>      
                                        </swiper-slide>
@@ -115,7 +161,7 @@ export default function CollegeDetails() {
                                           <div class="swiper-slide">
                                              <div class="whatsNew-inner-box">
                                                 <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
                                              </div>
                                           </div>      
                                        </swiper-slide>
@@ -123,15 +169,15 @@ export default function CollegeDetails() {
                                           <div class="swiper-slide">
                                              <div class="whatsNew-inner-box">
                                                 <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <a href="#" class="whatsNew-readmore-btn">Read More</a></p>
+                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
                                              </div>
                                           </div>      
                                        </swiper-slide>
                                     </CustomSwiper>
-                                    <div class="swiper-button-prev">
+                                    <div class="swiper-button-prev whatsNew-button-prev">
                                        <img src={arrowLeftIcon} alt="" />
                                     </div>
-                                    <div class="swiper-button-next">
+                                    <div class="swiper-button-next whatsNew-button-next ">
                                        <img src={arrowRightIcon} alt="" />
                                     </div>
                                  </main>
@@ -143,14 +189,14 @@ export default function CollegeDetails() {
                         <h2 class="imgText-heading mb-4">Indian Institute of Technology Overview</h2>
                         <p class="imgText-para">It is an engineering and technology school in Chennai (formerly Madras) in southern India. Recognized as an Institute of National Importance by the Government of India, it is regarded as one of the finest engineering institutions in India. Founded in 1959...</p>
                         <div class="text-center">
-                           <a href="#" class="theme-btn green-btn">Read More</a>
+                           <Link class="theme-btn green-btn">Read More</Link>
                         </div>
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
                         <h2 class="imgText-heading mb-4">IIT Chennai Highlights 2023</h2>
                         <p class="imgText-para">It is an engineering and technology school in Chennai (formerly Madras) in southern India. Recognized as an Institute of National Importance by the Government of India, it is regarded as one of the finest engineering institutions in India. Founded in 1959...</p>
                         <div class="text-center">
-                           <a href="#" class="theme-btn green-btn">Get Started Now</a>
+                           <Link class="theme-btn green-btn">Get Started Now</Link>
                         </div>
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
@@ -178,28 +224,28 @@ export default function CollegeDetails() {
                                  <tr>
                                     <td>B.Tech <span class="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><a href="#" class="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                                  <tr>
                                     <td>B.CA <span class="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><a href="#" class="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                                  <tr>
                                     <td>B.Tech <span class="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><a href="#" class="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                                  <tr>
                                     <td>B.CA <span class="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><a href="#" class="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-center mt-5 mb-5">
-                           <a href="#" class="theme-btn green-btn">Read More</a>
+                        <div class="text-start mt-5">
+                           <Link class="course-details-readmore-btn btn">Read More</Link>
                         </div>
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
@@ -267,8 +313,8 @@ export default function CollegeDetails() {
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-center mt-5">
-                           <a href="#" class="theme-btn green-btn">Read More</a>
+                        <div class="text-start mt-5">
+                           <Link class="course-details-readmore-btn btn">Read More</Link>
                         </div>
                         <h5 class="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
                         <div class="exam-details-hightlights-table">
@@ -330,8 +376,8 @@ export default function CollegeDetails() {
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-center mt-5 mb-5">
-                           <a href="#" class="theme-btn green-btn">Read More</a>
+                        <div class="text-start mt-5">
+                           <Link class="course-details-readmore-btn btn">Read More</Link>
                         </div>
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
@@ -343,7 +389,7 @@ export default function CollegeDetails() {
                      <div class="clg-location-infograybx">
                         <p>IIT Chennai University admission for 2023 is currently open. The university is accepting applications through its official website. Interested candidates can apply online as well as visit the campus to apply in the offline mode. </p>
                         <div class="text-start mt-3">
-                           <a href="#" class="course-details-readmore-btn btn text-white">Read More</a>
+                           <Link class="course-details-readmore-btn btn text-white">Read More</Link>
                         </div>
                      </div>
                      <div class="course-details-left-innerBox my-5 text-center">
@@ -385,7 +431,7 @@ export default function CollegeDetails() {
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
                            <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
-                           <a href="#" class="theme-btn white-btn">Apply For Education Loan</a>
+                           <Link class="theme-btn white-btn">Apply For Education Loan</Link>
                         </div>
                         <div class="course-details-alterImgbox-col2 position-relative">
                            <img src={cdIcon} alt="" />
@@ -395,7 +441,7 @@ export default function CollegeDetails() {
                         <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
                         <div class="swiper clg-facilities-slider">
                            <div class="swiper-wrapper position-relative">
-                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
+                              <CustomSwiper navigationNext={".clg-facilities-button-next"} navigationPrev={".clg-facilities-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="clg-facilities-box position-relative">
@@ -445,25 +491,14 @@ export default function CollegeDetails() {
                                     </div>
                                  </swiper-slide>
                               </CustomSwiper>
-                              
-                              
                               <div class="swiper-button-prev clg-facilities-button-prev">
-                           <img src={arrowLeftIcon} alt="" />
-                        </div>
-                        <div class="swiper-button-next clg-facilities-button-next">
-                           <img src={arrowRightIcon} alt="" />
-                        </div>
-                              
-                              
-                              
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-facilities-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>
                            </div>
                         </div>
-                        {/* <div class="swiper-button-prev clg-facilities-button-prev">
-                           <img src={arrowLeftIcon} alt="" />
-                        </div>
-                        <div class="swiper-button-next clg-facilities-button-next">
-                           <img src={arrowRightIcon} alt="" />
-                        </div> */}
                      </div>
                      <div class="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
                         <div class="course-details-alterImgbox-col2 position-relative">
@@ -472,7 +507,7 @@ export default function CollegeDetails() {
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Are you feeling lost and unsure about what <span>career path to take after completing 12th standard?</span></h2>
                            <p>Say goodbye to confusion and hello to a bright future!</p>
-                           <a href="#" class="theme-btn white-btn">Take the  free test now</a>
+                           <Link class="theme-btn white-btn">Take the  free test now</Link>
                         </div>
                      </div>
                      <div class="py-5 mt-4">
@@ -489,7 +524,7 @@ export default function CollegeDetails() {
                               <h1 class="exam-center-calenderTxt">Goodbye doubts! 
                                  Say hello to our experts
                               </h1>
-                              <a href="#" class="theme-btn black-btn">Ask A Question</a>
+                              <Link class="theme-btn black-btn">Ask A Question</Link>
                            </div>
                         </div>
                      </div>
@@ -497,7 +532,7 @@ export default function CollegeDetails() {
                         <h2 class="section-heading2 grey text-center mb-5">Successful Alumni</h2>
                         <div class="swiper successfull-almni-slider">
                            <div class="swiper-wrapper position-relative">
-                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
+                              <CustomSwiper navigationNext={".clg-alumni-button-next"} navigationPrev={".clg-alumni-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="successfull-almni-box d-flex">
@@ -583,25 +618,14 @@ export default function CollegeDetails() {
                                     </div>      
                                  </swiper-slide>
                               </CustomSwiper>
-                              
-                              
-                              
-                              <div class="swiper-button-prev">
-                           <img src={arrowLeftIcon} alt="" />
-                        </div>
-                        <div class="swiper-button-next">
-                           <img src={arrowRightIcon} alt="" />
-                        </div>
-                              
-                              
+                              <div class="swiper-button-prev clg-alumni-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-alumni-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>
                            </div>
                         </div>
-                        {/* <div class="swiper-button-prev clg-facilities-button-prev">
-                           <img src={arrowLeftIcon} alt="" />
-                        </div>
-                        <div class="swiper-button-next clg-facilities-button-next">
-                           <img src={arrowRightIcon} alt="" />
-                        </div> */}
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
                         <span class="tick-heading-icon d-inline-flex">
@@ -615,7 +639,7 @@ export default function CollegeDetails() {
                      <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                         <div class="swiper faculty-slider-slider">
                            <div class="swiper-wrapper">
-                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
+                              <CustomSwiper navigationNext={'.clg-faculty-button-next'} navigationPrev={'.clg-faculty-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
@@ -683,20 +707,15 @@ export default function CollegeDetails() {
                                     </div>
                                  </swiper-slide>
                               </CustomSwiper>
-                              
-                              
-                              
-                              
-                              
-                              
+                              <div class="swiper-button-prev clg-faculty-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-faculty-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>      
                            </div>
                         </div>
-                        <div class="swiper-button-prev clg-facilities-button-prev">
-                           <img src={arrowLeftIcon} alt="" />
-                        </div>
-                        <div class="swiper-button-next clg-facilities-button-next">
-                           <img src={arrowRightIcon} alt="" />
-                        </div>
+                        
                      </div>
                      <div class="row justify-content-center mb-5">
                         <div class="col-9">
@@ -705,7 +724,7 @@ export default function CollegeDetails() {
                               <h2 class="mb-4"><span class="d-block">Get details on</span> Fee, Cut off marks, Admission Process for session 2023.</h2>
                               <div class="d-flex justify-content-center gap-3 align-items-center download-btn-sec">
                                  <p>Download brochure</p>
-                                 <a href="#" class="theme-btn black-btn">Ask A Question</a>
+                                 <Link class="theme-btn black-btn">Ask A Question</Link>
                               </div>
                            </div>
                         </div>
@@ -780,7 +799,7 @@ export default function CollegeDetails() {
                               <p class="write-review-title">Help other aspirants by sharing your review of this college</p>
                            </div>
                            <div class="col-4">
-                              <a href="#" class="write-review-btn d-inline-block">Write a Review</a>
+                              <Link class="write-review-btn d-inline-block">Write a Review</Link>
                            </div>
                         </div>
                         <div class="row mt-4">
@@ -890,7 +909,7 @@ export default function CollegeDetails() {
                                           <h4 class="reviewOverview-txt">Overview</h4>
                                           <p class="postreview-content">
                                              The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                             <a href="#" class="read-review-link">Read Full Review</a>
+                                             <Link class="read-review-link">Read Full Review</Link>
                                           </p>
                                           <div class="d-flex justify-content-between align-items-center mt-5">
                                              <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -946,7 +965,7 @@ export default function CollegeDetails() {
                                           <h4 class="reviewOverview-txt">Overview</h4>
                                           <p class="postreview-content">
                                              The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                             <a href="#" class="read-review-link">Read Full Review</a>
+                                             <Link class="read-review-link">Read Full Review</Link>
                                           </p>
                                           <div class="d-flex justify-content-between align-items-center mt-5">
                                              <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -1002,7 +1021,7 @@ export default function CollegeDetails() {
                                           <h4 class="reviewOverview-txt">Overview</h4>
                                           <p class="postreview-content">
                                              The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                             <a href="#" class="read-review-link">Read Full Review</a>
+                                             <Link class="read-review-link">Read Full Review</Link>
                                           </p>
                                           <div class="d-flex justify-content-between align-items-center mt-5">
                                              <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -1058,7 +1077,7 @@ export default function CollegeDetails() {
                                           <h4 class="reviewOverview-txt">Overview</h4>
                                           <p class="postreview-content">
                                              The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                             <a href="#" class="read-review-link">Read Full Review</a>
+                                             <Link class="read-review-link">Read Full Review</Link>
                                           </p>
                                           <div class="d-flex justify-content-between align-items-center mt-5">
                                              <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -1116,7 +1135,7 @@ export default function CollegeDetails() {
                                        <h4 class="reviewOverview-txt">Overview</h4>
                                        <p class="postreview-content">
                                           The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                          <a href="#" class="read-review-link">Read Full Review</a>
+                                          <Link class="read-review-link">Read Full Review</Link>
                                        </p>
                                        <div class="d-flex justify-content-between align-items-center mt-5">
                                           <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -1172,7 +1191,7 @@ export default function CollegeDetails() {
                                        <h4 class="reviewOverview-txt">Overview</h4>
                                        <p class="postreview-content">
                                           The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                          <a href="#" class="read-review-link">Read Full Review</a>
+                                          <Link class="read-review-link">Read Full Review</Link>
                                        </p>
                                        <div class="d-flex justify-content-between align-items-center mt-5">
                                           <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -1230,7 +1249,7 @@ export default function CollegeDetails() {
                                        <h4 class="reviewOverview-txt">Overview</h4>
                                        <p class="postreview-content">
                                           The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
-                                          <a href="#" class="read-review-link">Read Full Review</a>
+                                          <Link class="read-review-link">Read Full Review</Link>
                                        </p>
                                        <div class="d-flex justify-content-between align-items-center mt-5">
                                           <p class="postreview-date">Reviewed on 18 Aug 2023</p>
@@ -1245,7 +1264,7 @@ export default function CollegeDetails() {
                               </div>
                               
                               <div>
-                                 <a href="#" class="readallreview-gray-btn d-block text-center">Read All Reviews</a>
+                                 <Link class="readallreview-gray-btn d-block text-center">Read All Reviews</Link>
                               </div>
                            </div>
                         </div>
@@ -1261,7 +1280,7 @@ export default function CollegeDetails() {
                            <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                               <div class="swiper course-offered-slider pb-5">
                                  <div class="swiper-wrapper">
-                                    <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
+                                    <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
                                        <swiper-slide>
                                           <div class="swiper-slide">
                                              <div class="card">
@@ -1297,13 +1316,13 @@ export default function CollegeDetails() {
                                                 <div class="details_tab">
                                                    <ul class="nav nav-tabs" role="tablist">
                                                       <li class="nav-item">
-                                                         <a class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</a>
+                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
                                                       </li>
                                                       <li class="nav-item">
-                                                         <a class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</a>
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
                                                       </li>
                                                       <li class="nav-item">
-                                                         <a class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</a>
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
                                                       </li>
                                                    </ul>
                                                    <div class="tab-content">
@@ -1393,13 +1412,13 @@ export default function CollegeDetails() {
                                                 <div class="details_tab">
                                                    <ul class="nav nav-tabs" role="tablist">
                                                       <li class="nav-item">
-                                                         <a class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</a>
+                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
                                                       </li>
                                                       <li class="nav-item">
-                                                         <a class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</a>
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
                                                       </li>
                                                       <li class="nav-item">
-                                                         <a class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</a>
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
                                                       </li>
                                                    </ul>
                                                    <div class="tab-content">
@@ -1489,13 +1508,13 @@ export default function CollegeDetails() {
                                                 <div class="details_tab">
                                                    <ul class="nav nav-tabs" role="tablist">
                                                       <li class="nav-item">
-                                                         <a class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</a>
+                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
                                                       </li>
                                                       <li class="nav-item">
-                                                         <a class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</a>
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
                                                       </li>
                                                       <li class="nav-item">
-                                                         <a class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</a>
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
                                                       </li>
                                                    </ul>
                                                    <div class="tab-content">
@@ -1551,17 +1570,13 @@ export default function CollegeDetails() {
                                           </div>
                                        </swiper-slide>
                                     </CustomSwiper>
-                                    
-                                    
-                                    
-
+                                    <div class="swiper-button-prev courseOffer-button-prev">
+                                       <img src={arrowLeftIcon} alt="" />
+                                    </div>
+                                    <div class="swiper-button-next courseOffer-button-next">
+                                       <img src={arrowRightIcon} alt="" />
+                                    </div>
                                  </div>
-                              </div>
-                              <div class="swiper-button-prev courseOffer-button-prev">
-                                 <img src={arrowLeftIcon} alt="" />
-                              </div>
-                              <div class="swiper-button-next courseOffer-button-next">
-                                 <img src={arrowRightIcon} alt="" />
                               </div>
                            </div>
                         </div>
@@ -1570,7 +1585,7 @@ export default function CollegeDetails() {
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Still have questions about <span>IIT Chennai University?</span></h2>
                            <p>Ask us and get personalized</p>
-                           <a href="#" class="theme-btn white-btn">Ask A Question</a>
+                           <Link class="theme-btn white-btn">Ask A Question</Link>
                         </div>
                         <div class="course-details-alterImgbox-col2 position-relative">
                            <img src={askQuesImage} alt="" />
@@ -1587,8 +1602,8 @@ export default function CollegeDetails() {
                             <h2>Recommended Colleges</h2>
                         </div>
                         <div class="swiper recommended-clg-slider pb-5">
-                            <div class="swiper-wrapper">
-                              <CustomSwiper noOfSlidesPerView={3} isBreakPoint={false}>
+                            <div class="swiper-wrapper position-relative">
+                              <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                           <div class="clg-slider-box position-relative">
@@ -1618,7 +1633,7 @@ export default function CollegeDetails() {
                                                 </p>
                                              </div>
 
-                                             <a href="#" class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></a>
+                                             <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
                                           </div>
                                     </div>
                                  </swiper-slide>
@@ -1651,7 +1666,7 @@ export default function CollegeDetails() {
                                              </p>
                                           </div>
 
-                                          <a href="#" class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></a>
+                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
                                        </div>
                                  </div>
                                  </swiper-slide>
@@ -1684,7 +1699,7 @@ export default function CollegeDetails() {
                                              </p>
                                           </div>
 
-                                          <a href="#" class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></a>
+                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
                                        </div>
                                     </div>
                                  </swiper-slide>
@@ -1717,32 +1732,20 @@ export default function CollegeDetails() {
                                              </p>
                                           </div>
 
-                                          <a href="#" class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></a>
+                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
                                        </div>
                                     </div>
                                  </swiper-slide>
                               </CustomSwiper>
-                                
-                                
-                             
-                          
-
-
-                            </div>
+                              <div class="swiper-button-prev clg-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>
+                           </div>
                         </div>
-
-                        <div class="swiper-button-prev clg-button-prev">
-                            <img src={arrowLeftIcon} alt="" />
-                        </div>
-                        <div class="swiper-button-next clg-button-next">
-                            <img src={arrowRightIcon} alt="" />
-                        </div>
-
-                    </div>
-
-
-
-
+                     </div>
                   </div>
                </div>
                <div class="col-md-4">
@@ -1760,7 +1763,7 @@ export default function CollegeDetails() {
                            </ul>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Videos</h2>
@@ -1771,7 +1774,7 @@ export default function CollegeDetails() {
                            </ul>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Placement</h2>
@@ -1794,7 +1797,7 @@ export default function CollegeDetails() {
                            </ul>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Scholarship</h2>
@@ -1819,7 +1822,7 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Top Courses</h2>
@@ -1864,14 +1867,14 @@ export default function CollegeDetails() {
                            </ul>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Related News</h2>
                         <div class="courses-details-rightcol-gridcontent">
                            <div class="d-inline-flex gap-2 my-3">
-                              <a href="#" class="latest-news-badge">Latest</a>
-                              <a href="#" class="popular-news-badge">Popular</a>
+                              <Link class="latest-news-badge">Latest</Link>
+                              <Link class="popular-news-badge">Popular</Link>
                            </div>
                            <ul class="courses-details-rightcol-listing">
                               <li class="d-flex">
@@ -1879,7 +1882,7 @@ export default function CollegeDetails() {
                                     <img src={relatedNews} alt="" />
                                  </div>
                                  <div class="related-news-postinfo">
-                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <a href="#">Read More</a> </p>
+                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
                                     <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
                                  </div>
                               </li>
@@ -1888,7 +1891,7 @@ export default function CollegeDetails() {
                                     <img src={relatedNews} alt="" />
                                  </div>
                                  <div class="related-news-postinfo">
-                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <a href="#">Read More</a> </p>
+                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
                                     <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
                                  </div>
                               </li>
@@ -1897,14 +1900,14 @@ export default function CollegeDetails() {
                                     <img src={relatedNews} alt="" />
                                  </div>
                                  <div class="related-news-postinfo">
-                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <a href="#">Read More</a> </p>
+                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
                                     <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
                                  </div>
                               </li>
                            </ul>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Notification</h2>
@@ -1917,7 +1920,7 @@ export default function CollegeDetails() {
                            </ul>
                         </div>
                      </div>
-                     <a href="#" class="courses-details-rightcol-viewall-btn">View All</a>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                   </aside>
                </div>

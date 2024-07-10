@@ -7,6 +7,11 @@ import questionIcon from '../../../images/question-icon.svg';
 import CourseDetailsBanner from './CourseDetailsBanner';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
 import sliderlogo from '../../../images/clg-slider-logo.png';
+import leftArrow from '../../../images/arrow-left-icon.svg';
+import rightArrow from '../../../images/arrow-right-icon.svg';
+import relatedNews from '../../../images/related-news-img.png';
+import greyTick from '../../../images/grey-tick.svg'
+import cd from '../../../images/cd-img1.png'
 
 
 
@@ -20,23 +25,23 @@ export default function CourseDetails() {
             <div class="row">
                 <div class="col-md-6">
                     <div class="bookmark-badge-leftbox d-flex gap-3">
-                        <a href="#"><img src={questionIcon} alt="" />Save</a>
-                        <a href="#"><img src={questionIcon} alt="" />Ask</a>
+                        <Link><img src={questionIcon} alt="" />Save</Link>
+                        <Link><img src={questionIcon} alt="" />Ask</Link>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="bookmark-badge-rightbox d-flex gap-3 justify-content-end">
-                        <a href="#" class="yellow-bg"><img src={finderIcon} alt="" />Try Our College Finder</a>
-                        <a href="#" class="green-bg"><img src={studentIcon} alt="" />Check Eligibility</a>
+                        <Link class="yellow-bg"><img src={finderIcon} alt="" />Try Our College Finder</Link>
+                        <Link class="green-bg"><img src={studentIcon} alt="" />Check Eligibility</Link>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="course-details-filtertab d-flex gap-3 mt-4">
-                        <a href="#" class="active">College Info</a>
-                        <a href="#" class="">News</a>
-                        <a href="#" class="">Popular colleges</a>
+                        <Link class="active">College Info</Link>
+                        <Link class="">News</Link>
+                        <Link class="">Popular colleges</Link>
                     </div>
                 </div>
             </div>
@@ -52,7 +57,7 @@ export default function CourseDetails() {
                                 <h2 className="imgText-heading mb-4">About B.Tech - Biochemical Engineering</h2>
                                 <p className="imgText-para">B.Tech in Biochemical Engineering is a programme that covers various subjects related to the chemical process, production and development of biochemical products. This branch of engineering comprises of various aspects of biology, technology and engineering in order to come up with groundbreaking research to help improve the quality of human lifestyle.</p>
                                 <div className="text-center">
-                                    <a href="#" className="theme-btn green-btn">Read More</a>
+                                    <Link className="theme-btn green-btn">Read More</Link>
                                 </div>
                             </div>
                         
@@ -66,7 +71,7 @@ export default function CourseDetails() {
                                     <li>The candidates must have a minimum of 45% of marks in className 12</li>
                                 </ul>
                                 <div className="text-start mt-5">
-                                    <a href="#" className="course-details-readmore-btn btn">Read More</a>
+                                    <Link className="course-details-readmore-btn btn">Read More</Link>
                                 </div>
                             </div>
 
@@ -87,7 +92,7 @@ export default function CourseDetails() {
                                     <li>The candidates must have a minimum of 45% of marks in className 12</li>
                                 </ul>
                                 <div className="text-start mt-5">
-                                    <a href="#" className="course-details-readmore-btn btn">Read More</a>
+                                    <Link className="course-details-readmore-btn btn">Read More</Link>
                                 </div>
                             </div>
 
@@ -108,7 +113,7 @@ export default function CourseDetails() {
                                     <li>Product Technician</li>
                                 </ul>
                                 <div className="text-start mt-5">
-                                    <a href="#" className="course-details-readmore-btn btn">Read More</a>
+                                    <Link className="course-details-readmore-btn btn">Read More</Link>
                                 </div>
                             </div>
                             
@@ -118,55 +123,55 @@ export default function CourseDetails() {
                             <div className="course-details-alterImgbox-col1 green-bg">
                                 <h2 className="text-white">Can’t find right <span>Guidance?</span></h2>
                                 <p>No Problem! Speak to our experts safely from your home.</p>
-                                <a href="#" className="theme-btn white-btn">Request a Call Back</a>
+                                <Link className="theme-btn white-btn">Request a Call Back</Link>
                             </div>
                             <div className="course-details-alterImgbox-col2 position-relative">
-                                <img src="images/cd-img1.png" alt="" />
+                                <img src={cd} alt="" />
                             </div>
                         </div>
                     
                         <div className="course-details-alterbox">
                             <h2>Don't Miss Anything!</h2>
                             <p>Subscribe now and get latest updates on college news, exam and much more.</p>
-                            <a href="#" className="theme-btn green-btn">Subscribe Now</a>
+                            <Link className="theme-btn green-btn">Subscribe Now</Link>
                         </div>
                     
                         <div className="course-details-alterbox greybg">
                             <h2>So, How do you <span>secure your job?</span></h2>
                             <p>Master employable skills under the mentorship of industry experts to become job ready.</p>
-                            <a href="#" className="theme-btn yellow-btn">Job Assured</a>
+                            <Link className="theme-btn yellow-btn">Job Assured</Link>
                         </div>
 
                         <div className="course-details-alterbox">
                             <h2>Still have questions about<br /> 
                                 B. Tech - Biochemical Engineering?</h2>
                             <p>Ask us and get personalized response free of cost.</p>
-                            <a href="#" className="theme-btn green-btn">Ask A Question</a>
+                            <Link className="theme-btn green-btn">Ask A Question</Link>
                         </div>
 
                         <div className="course-details-alterbox greybg">
                             <h2>Will you get admission in  <span className="d-block">B. Tech - Biochemical Engineering</span></h2>
                             <p>Goodbye doubts! Say hello to our experts</p>
-                            <a href="#" className="theme-btn yellow-btn">Job Assured</a>
+                            <Link className="theme-btn yellow-btn">Job Assured</Link>
                         </div>
 
                         <div className="clg-slider-wrapper position-relative">
                             <div className="tick-heading d-flex align-items-center mb-4">
                                 <span className="tick-heading-icon d-inline-flex">
-                                    <img src="images/grey-tick.svg" alt="" />
+                                    <img src={greyTick} alt="" />
                                 </span>
                                 <h2>Top Engineering colleges in India</h2>
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper position-relative">
-                                    <CustomSwiper noOfSlidesPerView={1}>
+                                    <CustomSwiper navigationNext={'.ind-clg-button-next'} navigationPrev={'.ind-clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={false}>
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
                                                     <img src= {sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>
                                         </swiper-slide>
@@ -176,7 +181,7 @@ export default function CourseDetails() {
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>
                                         </swiper-slide>
@@ -186,7 +191,7 @@ export default function CourseDetails() {
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>        
                                         </swiper-slide>
@@ -196,16 +201,16 @@ export default function CourseDetails() {
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>        
                                         </swiper-slide>
                                     </CustomSwiper>
-                                    <div className="swiper-button-prev clg-button-prev">
-                                <img src="images/arrow-left-icon.svg" alt="" />
+                                    <div className="swiper-button-prev ind-clg-button-prev">
+                                <img src={leftArrow} alt="" />
                             </div>
-                            <div className="swiper-button-next clg-button-next">
-                                <img src="images/arrow-right-icon.svg" alt="" />
+                            <div className="swiper-button-next ind-clg-button-next">
+                                <img src={rightArrow} alt="" />
                             </div>
                                     
                                     
@@ -217,10 +222,10 @@ export default function CourseDetails() {
                             </div>
 
                             {/* <div className="swiper-button-prev clg-button-prev">
-                                <img src="images/arrow-left-icon.svg" alt="" />
+                                <img src="images/Linkrrow-left-icon.svg" alt="" />
                             </div>
                             <div className="swiper-button-next clg-button-next">
-                                <img src="images/arrow-right-icon.svg" alt="" />
+                                <img src="images/Linkrrow-right-icon.svg" alt="" />
                             </div> */}
                             
             
@@ -229,20 +234,20 @@ export default function CourseDetails() {
                         <div className="clg-slider-wrapper">
                             <div className="tick-heading d-flex align-items-center mb-4">
                                 <span className="tick-heading-icon d-inline-flex">
-                                    <img src="images/grey-tick.svg" alt="" />
+                                    <img src={greyTick} alt="" />
                                 </span>
                                 <h2>Top Engineering colleges in West Bengal</h2>
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper position-relative">
-                                    <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                                    <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={false}>
                                         <swiper-slide>
                                             <div className="swiper-slide">
                                                 <div className="clg-slider-box position-relative">
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>
                                         </swiper-slide>
@@ -252,7 +257,7 @@ export default function CourseDetails() {
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>        
                                         </swiper-slide>
@@ -262,7 +267,7 @@ export default function CourseDetails() {
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>        
                                         </swiper-slide>
@@ -272,17 +277,17 @@ export default function CourseDetails() {
                                                     <img src={sliderlogo} className="clg-slider-logo" alt="" />
                                                     <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
                                                     <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <a href="#" className="apply-btn position-absolute">Apply</a>
+                                                    <Link className="apply-btn position-absolute">Apply</Link>
                                                 </div>
                                             </div>        
                                         </swiper-slide>
                                     </CustomSwiper>
 
                                     <div className="swiper-button-prev clg-button-prev">
-                                <img src="images/arrow-left-icon.svg" alt="" />
+                                <img src={leftArrow} alt="" />
                             </div>
                             <div className="swiper-button-next clg-button-next">
-                                <img src="images/arrow-right-icon.svg" alt="" />
+                                <img src={rightArrow} alt="" />
                             </div>
                                     
                                     
@@ -294,10 +299,10 @@ export default function CourseDetails() {
                             </div>
 
                             {/* <div className="swiper-button-prev clg-button-prev">
-                                <img src="images/arrow-left-icon.svg" alt="" />
+                                <img src="images/Linkrrow-left-icon.svg" alt="" />
                             </div>
                             <div className="swiper-button-next clg-button-next">
-                                <img src="images/arrow-right-icon.svg" alt="" />
+                                <img src="images/Linkrrow-right-icon.svg" alt="" />
                             </div> */}
 
                         </div>
@@ -317,7 +322,7 @@ export default function CourseDetails() {
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" className="courses-details-rightcol-viewall-btn">View All</a>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
 
 
                         <div className="courses-details-rightcol-grid mt-5">
@@ -331,40 +336,40 @@ export default function CourseDetails() {
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" className="courses-details-rightcol-viewall-btn">View All</a>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
 
                         <div className="courses-details-rightcol-grid mt-5">
                             <h2 className="courses-details-rightcol-grid-title">Related News</h2>
                             <div className="courses-details-rightcol-gridcontent">
                                 <div className="d-inline-flex gap-2 my-3">
-                                    <a href="#" className="latest-news-badge">Latest</a>
-                                    <a href="#" className="popular-news-badge">Popular</a>
+                                    <Link className="latest-news-badge">Latest</Link>
+                                    <Link className="popular-news-badge">Popular</Link>
                                 </div>
                                 <ul className="courses-details-rightcol-listing">
                                     <li className="d-flex">
                                         <div className="related-news-postimg">
-                                            <img src="images/related-news-img.png" alt="" />
+                                            <img src={relatedNews} alt="" />
                                         </div>
                                         <div className="related-news-postinfo">
-                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <a href="#">Read More</a> </p>
+                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
                                             <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
                                         </div>
                                     </li>
                                     <li className="d-flex">
                                         <div className="related-news-postimg">
-                                            <img src="images/related-news-img.png" alt="" />
+                                            <img src={relatedNews} alt="" />
                                         </div>
                                         <div className="related-news-postinfo">
-                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <a href="#">Read More</a> </p>
+                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
                                             <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
                                         </div>
                                     </li>
                                     <li className="d-flex">
                                         <div className="related-news-postimg">
-                                            <img src="images/related-news-img.png" alt="" />
+                                            <img src={relatedNews} alt="" />
                                         </div>
                                         <div className="related-news-postinfo">
-                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <a href="#">Read More</a> </p>
+                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
                                             <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
                                         </div>
                                     </li>
@@ -372,7 +377,7 @@ export default function CourseDetails() {
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" className="courses-details-rightcol-viewall-btn">View All</a>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
 
 
                         <div className="courses-details-rightcol-grid mt-5">
@@ -387,7 +392,7 @@ export default function CourseDetails() {
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" className="courses-details-rightcol-viewall-btn">View All</a>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
 
 
 
@@ -456,7 +461,7 @@ export default function CourseDetails() {
                             </div>
                           </div>
 
-                          <a href="#" className="theme-btn black-btn mt-5">Request for a Callback</a>
+                          <Link className="theme-btn black-btn mt-5">Request for a Callback</Link>
                       
                       </div>
                 </div>

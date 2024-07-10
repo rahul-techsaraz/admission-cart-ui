@@ -1088,34 +1088,34 @@ p.course-para {
 }
 .trending-slider-wrapper .swiper-button-prev,
 .trending-slider-wrapper .swiper-button-next,
-.clg-button-prev,
+/* .clg-button-prev,
 .clg-button-next,
 .clg-facilities-button-prev,
 .clg-facilities-button-next,
 .courseOffer-button-prev,
 .courseOffer-button-next,
 .whatsNew-button-prev,
-.whatsNew-button-next,
+.whatsNew-button-next, */
 .whatsNew-nav-btn{
   background: var(--color-green);
   width: 45px;
   height: 45px;
   border-radius: 50%;
 }
-.trending-slider-wrapper .swiper-button-prev,
+/* .trending-slider-wrapper .swiper-button-prev,
 .clg-button-prev,
 .clg-facilities-button-prev,
 .courseOffer-button-prev,
 .whatsNew-button-prev{
   left: -20px;
-}
-.trending-slider-wrapper .swiper-button-next,
+} */
+/* .trending-slider-wrapper .swiper-button-next,
 .clg-button-next,
 .clg-facilities-button-next,
 .courseOffer-button-next,
 .whatsNew-button-next{
   right: -20px;
-}
+} */
 .trending-slider-wrapper .swiper-button-prev:after,
 .trending-slider-wrapper .swiper-button-next:after,
 .clg-button-prev:after,
@@ -3441,10 +3441,10 @@ ul.exam-imp-list {
   font-weight: 400;
   line-height: 22px;
 }
-.whatsNew-button-prev,
+/* .whatsNew-button-prev,
 .whatsNew-button-next {
   top: 60%;
-}
+} */
 .whatsNew-nav-btn{
   position: absolute;
   top: 50%;
@@ -3458,7 +3458,20 @@ ul.exam-imp-list {
   height: 45px;
   border-radius: 50%;
 }
-.swiper-button-prev{
+.swiper-button-prev,
+.banner-button-prev,
+.implink-button-prev,
+.courselist-button-prev,
+.trending-button-prev,
+.career-button-prev,
+.testimonials-button-prev,
+.clg-button-prev,
+.ind-clg-button-prev,
+.clg-facilities-button-prev,
+.whatsNew-button-prev,
+.clg-alumni-button-prev,
+.clg-faculty-button-prev,
+.courseOffer-button-prev{
   position: absolute;
   top: 40%;
   z-index: 20;
@@ -3471,7 +3484,20 @@ ul.exam-imp-list {
   justify-content: center;
   align-items: center;
 }
-.swiper-button-next{
+.swiper-button-next,
+.banner-button-next,
+.implink-button-next,
+.courselist-button-next,
+.trending-button-next,
+.career-button-next,
+.testimonials-button-next,
+.clg-button-next,
+.ind-clg-button-next,
+.clg-facilities-button-next,
+.whatsNew-button-next,
+.clg-alumni-button-next,
+.clg-faculty-button-next,
+.courseOffer-button-next{
   position: absolute;
   top: 40%;
   z-index: 20;
@@ -3484,33 +3510,16 @@ ul.exam-imp-list {
   justify-content: center;
   align-items: center;
 }
-.courselist-button-prev{
-  position: absolute;
-  top: 50%;
-  z-index: 20;
-  background: var(--color-green);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  left: -20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.implink-button-next,
+.implink-button-prev{
+  top: -80%;
 }
-.courselist-button-next{
-  position: absolute;
-  top: 50%;
-  z-index: 20;
-  background: var(--color-green);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  right: -20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.banner-button-prev{
+  left:10px!important;
 }
-
+.banner-button-next{
+  right:10px !important;
+}
 .clg-banner-greenbox{
   /* bottom: 25px; */
   top: 30px;
@@ -3528,7 +3537,6 @@ ul.exam-imp-list {
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   padding: 10px 20px;
 }
-
 .clg-info-greenbox-hdng{
   font-size: 36px;
   font-style: normal;
@@ -5040,5 +5048,6 @@ label #cancel{
 
 /* side bar style end */
 
-
-
+.profile-icon{
+  color: #04a55c;
+}

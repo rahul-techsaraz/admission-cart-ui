@@ -4,13 +4,9 @@ import sliderBanner3 from '../images/slider/banner3.jpg';
 import sliderBanner4 from '../images/slider/banner4.jpg';
 import rightArrow from '../images/arrow-right-icon.svg';
 import leftArrow from '../images/arrow-left-icon.svg';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 import CustomSwiper from '../utils/Constants/custom-components/CustomSwiper';
-// import {register} from "swiper/element/bundle"
-// register();
+import { Link } from 'react-router-dom';
+
 const tarndingBanner = [sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4]
 const LandingContainer = () => {
     return (
@@ -20,24 +16,7 @@ const LandingContainer = () => {
                     <div className="banner-slider-wrapper position-relative">
                         <div className="swiper banner-slider">
                             <div className="swiper-wrapper swiper-container position-relative">
-                                {/* <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                        {tarndingBanner.map(bannerUrl => (
-                             <SwiperSlide key={bannerUrl}>
-                             <div className="swiper-slide banner1" style={{backgroundImage: `url(${bannerUrl})`}}>
-                                     <div className="banner-caption">
-                                         <h1 className="text-center">
-                                             <span className="d-block">From</span>
-                                             College Admissions to <strong className="d-block">Being Job Ready</strong>
-                                         </h1>
-                                         <div className="banner-btn-grp text-center ps-md-3 mt-5">
-                                             <a href="#" className="theme-btn black-btn me-4">Get Started</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </SwiperSlide>
-                        ))}
-                        </Swiper> */}
-                                <CustomSwiper navigationNext={".banner-button-next"} navigationPrev={".banner-button-prev"} noOfSlidesPerView={1} isBreakPoint={false}>
+                                <CustomSwiper navigationNext='.banner-button-next' navigationPrev='.banner-button-prev' noOfSlidesPerView={1} isBreakPoint={false}>
                                     {tarndingBanner.map(bannerUrl => (
                                         <swiper-slide>
                                             <div className="swiper-slide banner1" style={{ backgroundImage: `url(${bannerUrl})` }}>
@@ -46,8 +25,8 @@ const LandingContainer = () => {
                                                         <span className="d-block">From</span>
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
-                                                    <div className="banner-btn-grp text-center ps-md-3 mt-3">
-                                                        <a href="#" className="theme-btn black-btn me-4">Get Started</a>
+                                                    <div className="banner-btn-grp text-center mt-5">
+                                                        <Link className="theme-btn black-btn">Get Started</Link>
                                                     </div>
                                                 </div>
                                             </div>

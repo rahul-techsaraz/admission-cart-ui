@@ -27,8 +27,6 @@ const Header = () => {
     }
 useEffect(()=>{
     if(!localStorage.getItem("loginResponse")){
-        dispatch(toggelLoginModel({flag:true}))
-        dispatch(toggelAfterLoginModel({flag:false}))
         dispatch(updateauthenticateUser({flag:false}))
     }else{
         authorise()  
@@ -47,14 +45,12 @@ useEffect(()=>{
     const { openAfterLoginModel, openLoginModel } = useSelector(state => state.common)
     //Dispatch Actions
     const handleModel = () => {
-        if(localStorage.getItem("loginResponse") && openAfterLoginModel === false){
-            dispatch(toggelAfterLoginModel({flag:true}))
-            dispatch(toggelLoginModel({flag:false}))
-        }else if(localStorage.getItem("loginResponse") && openAfterLoginModel === true){
+        if(!localStorage.getItem("loginResponse")){
+            dispatch(toggelLoginModel({flag:true}))
             dispatch(toggelAfterLoginModel({flag:false}))
         }else{
-            dispatch(toggelAfterLoginModel({flag:false}))
-            dispatch(toggelLoginModel({flag:true}))
+            dispatch(toggelLoginModel({flag:false}))
+            dispatch(toggelAfterLoginModel({flag:true}))
         }
     }
     const handleModelLeave= ()=>{
