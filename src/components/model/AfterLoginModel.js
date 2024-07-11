@@ -7,14 +7,16 @@ export default function AfterLoginModel() {
     const dispatch = useDispatch()
     const {userInfo} = useSelector((state) => state.userSlice)
     const navigate = useNavigate()
-    // useEffect(()=>{
-    //     console.log(userInfo)
-    // },[])
+    
     
     const handelSignout = ()=>{
         dispatch(toggelAfterLoginModel({flag:false}))
         dispatch(updateauthenticateUser({flag:false}))
         localStorage.removeItem('loginResponse')
+    }
+
+    const handelClick = ()=>{
+        dispatch(toggelAfterLoginModel({flag:false}))
     }
   return (
     <>
@@ -25,25 +27,25 @@ export default function AfterLoginModel() {
             </div>
             <div className="all-list">
                 <div className="my-collage">
-                    <div className="my-collage-box">
+                    <div className="my-collage-box" onClick={()=>handelClick()}>
                         <Link to={"/user/dashboard/collages"}><i className="fa-solid fa-building-columns"></i><span className="My-Collages">My Collages</span></Link>
                     </div>
                 </div>
 
                 <div className="my-collage">
-                    <div className="my-collage-box">
+                    <div className="my-collage-box" onClick={()=>handelClick()}>
                         <Link to={"/user/dashboard/profile"}><i className="fa-regular fa-circle-user"></i><span className="My-Collages">My Profile</span></Link>
                     </div>
                 </div>
 
                 <div className="my-collage">
-                    <div className="my-collage-box">
+                    <div className="my-collage-box" onClick={()=>handelClick()}>
                         <Link to={"/user/dashboard/payment"}><i className="fa-regular fa-credit-card"></i><span className="My-Collages">Payments</span></Link>
                     </div>
                 </div>
 
                 <div className="my-collage">
-                    <div className="my-collage-box">
+                    <div className="my-collage-box" onClick={()=>handelClick()}>
                         <Link to={"/user/dashboard/account"}><i className="fa-solid fa-screwdriver-wrench"></i><span className="My-Collages">Account Settings</span>                        </Link>
                     </div>
                 </div>

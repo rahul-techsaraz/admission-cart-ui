@@ -30,7 +30,7 @@ export default function Document() {
     for (let i = 0; i < selectedFiles.length; i++) {
       data.append("file[]", selectedFiles[i]);
     }
-
+    console.log(data);
     let url = constants.apiEndPoint.UPLOAD_FILE+"?dir=upload";
 
     axios

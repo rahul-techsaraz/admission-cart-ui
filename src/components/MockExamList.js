@@ -1,104 +1,54 @@
 import CustomSwiper from "../utils/Constants/custom-components/CustomSwiper";
-/*const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-      slidesToSlide: 4 // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 768 },
-      items: 4,
-      slidesToSlide: 3 // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 767, min: 464 },
-      items: 2,
-      slidesToSlide: 1 // optional, default to 1.
-    }
-  };*/
+import rightArrow from '../images/arrow-right-icon.svg';
+import leftArrow from '../images/arrow-left-icon.svg'
+import { swiperResponsive } from "../utils/Constants/swiperResponsive";
+const responsive = {
+  1400:{
+      slidesPerView: 5,
+      spaceBetween: 50,
+  },
+  1024:{
+      slidesPerView: 4,
+      spaceBetween: 50,
+  },
+  768:{
+      slidesPerView: 3,
+      spaceBetween: 40,
+  },
+  640:{
+      slidesPerView: 2,
+      spaceBetween: 20,
+  },
+  460:{
+      slidesPerView: 2,
+      spaceBetween: 20,
+  },
+};
   const itemsName = ['UP Scholarships Last.1..','UP Scholarships Last.1..2','UP Scholarships Last.1..3','UP Scholarships Last.1..4','UP Scholarships Last.1..45']
 const MockExamList = () => {
     return(
         <section class="">
-        <div class="container">
+          <div class="container">
             <div class="">
-                    
+              <div class="">
                 <div class="">
-                    <div class="">
-                    {/* <Carousel
-        responsive={responsive}
-        autoPlay={false}
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        infinite={true}
-        partialVisible={false}
-        dotListClass="custom-dot-list-style"
-      >
-         {itemsName.map((imageUrl, index) => {
-          return (
-            <div class="implink-slider-bx">
-            <p>{imageUrl}</p>
-            </div>
-          );
-        })}
-        </Carousel> */}
-        <div class="implink-slider-bx">
-            <p><CustomSwiper noOfSlidesPerView={4} isBreakPoint={true}>
-              {itemsName.map(items=>(
-                <swiper-slide>{items}</swiper-slide>
-            ))}</CustomSwiper></p>
-            </div>
-        {/* <Swiper space-between={10} slides-per-view={4} navigation={true}>
-        {itemsName.map(imageUrl=>(
-          <SwiperSlide key={imageUrl}>
-              <div class="implink-slider-bx">
-            <p>{imageUrl}</p>
-            </div>
-          </SwiperSlide>
-        ))}
-        </Swiper> */}
-                   
-                        {/* <div class="swiper-slide">
-                          <div class="implink-slider-bx">
-                              <p>UP Scholarships Last...</p>
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="implink-slider-bx">
-                              <p>Common Application Form...</p>
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="implink-slider-bx">
-                              <p>JEE Main 2024 Exam D... </p>
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="implink-slider-bx">
-                              <p>NEET 2024 Exam Date...</p>
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="implink-slider-bx">
-                              <p>Free CAT Mock Test 2023</p>
-                          </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="implink-slider-bx">
-                              <p>Free CAT Mock Test 2023</p>
-                          </div>
-                        </div> */}
+                  <div class="implink-slider-bx position-relative">
+                    <p><CustomSwiper navigationNext={'.implink-button-next'} navigationPrev={".implink-button-prev"} noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                    {itemsName.map(items=>(
+                      <swiper-slide>{items}</swiper-slide>
+                    ))}</CustomSwiper></p>
+                    <div class="swiper-button-prev implink-button-prev">
+                      <img src={leftArrow} alt="" />
                     </div>
+                    <div class="swiper-button-next implink-button-next">
+                      <img src={rightArrow} alt="" />
+                    </div>
+                  </div>
                 </div>
-          
-                {/* <div class="swiper-button-prev implink-button-prev"></div>
-                <div class="swiper-button-next implink-button-next"></div> */}
-                
+              </div>
             </div>
-        </div>
-    </section>
-
+          </div>
+        </section>
     )
 }
 export default MockExamList
