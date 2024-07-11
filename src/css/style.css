@@ -769,19 +769,21 @@ ul.mega_menu {
 /* menu end */
 
 
-
-.banner-slider .swiper-slide {
+/* .swiper-slide */
+.banner-slider, .swiper-slide{
   background-size: 100%;
   background-position: right center;
   background-repeat: no-repeat;
   /* height: 650px; */
-  height: 560px;
+  /* height: 560px; */
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 .banner-caption {
   width: fit-content;
+  padding: 55px 0;
+  /* padding-bottom: 55px; */
 }
 .banner1 .banner-caption {
   margin: 0 auto;
@@ -965,9 +967,7 @@ p.course-para {
 
 /* career-process-section
 ============================== */
-.process-list{
 
-}
 .process-list li{
   width: 16%;
   padding: 0 0 40px;
@@ -1312,9 +1312,7 @@ p.course-para {
   font-weight: 400;
   line-height: normal;
 }
-.latest-blogpost-date{
 
-}
 .upcoming-blog-col{
   box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25);
 }
@@ -1463,9 +1461,7 @@ p.course-para {
 .testimonials-button-next:after{
   display: none;
 }
-.testimonial-pagination .swiper-pagination-bullet-active{
 
-}
 
 /* newsletter-section
 ========================== */
@@ -1568,9 +1564,7 @@ select.form-select {
   padding-bottom: 15px;
   height: auto;
 }
-.map-section{
 
-}
 
 
 /* Footer

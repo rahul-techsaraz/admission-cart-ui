@@ -13,10 +13,10 @@ const LandingContainer = () => {
         <>
             <section className="banner-section text-center mb-5">
                 <div className="banner-container">
-                    <div className="banner-slider-wrapper position-relative">
-                        <div className="swiper banner-slider">
+                    {/* <div className="banner-slider-wrapper position-relative">
+                        <div className="swiper banner-slider"> */}
                             <div className="swiper-wrapper swiper-container position-relative">
-                                <CustomSwiper navigationNext='.banner-button-next' navigationPrev='.banner-button-prev' noOfSlidesPerView={1} isBreakPoint={false}>
+                                <CustomSwiper navigationNext={'.banner-button-next'} navigationPrev={'.banner-button-prev'} noOfSlidesPerView={1} isBreakPoint={false}>
                                     {tarndingBanner.map(bannerUrl => (
                                         <swiper-slide>
                                             <div className="swiper-slide banner1" style={{ backgroundImage: `url(${bannerUrl})` }}>
@@ -40,8 +40,8 @@ const LandingContainer = () => {
                                     <img src={leftArrow} alt="" />
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        {/* </div>
+                    </div> */}
                 </div>
             </section>
         </>
