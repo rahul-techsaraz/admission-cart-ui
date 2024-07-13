@@ -77,10 +77,10 @@ useEffect(()=>{
                         <div className="col-lg-4 col-md-3">
                             <div className="h7_header-top-social">
                                 <ul className="d-flex align-items-center justify-content-end">
-                                <li><a href="#"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><Link><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></Link></li>
+                                <li><Link><i class="fa-brands fa-instagram" aria-hidden="true"></i></Link></li>
+                                <li><Link><i class="fa-brands fa-youtube" aria-hidden="true"></i></Link></li>
+                                <li><Link><i class="fa-brands fa-twitter" aria-hidden="true"></i></Link></li>
                                 </ul>
                             </div>
                         </div>

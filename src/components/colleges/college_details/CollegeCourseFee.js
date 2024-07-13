@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function CollegeCourseFee() {
   return (
@@ -69,7 +70,7 @@ export default function CollegeCourseFee() {
                            </table>
                         </div>
                         <div className="text-start mt-5">
-                           <a href="#" className="course-details-readmore-btn btn">Read More</a>
+                           <Link className="course-details-readmore-btn btn">Read More</Link>
                         </div>
                         <h5 className="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
                         <div className="exam-details-hightlights-table">
@@ -132,7 +133,7 @@ export default function CollegeCourseFee() {
                            </table>
                         </div>
                         <div className="text-start mt-5">
-                           <a href="#" className="course-details-readmore-btn btn">Read More</a>
+                           <Link className="course-details-readmore-btn btn">Read More</Link>
                         </div>
                      </div>
       </>

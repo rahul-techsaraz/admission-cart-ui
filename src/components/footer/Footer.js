@@ -27,12 +27,12 @@ const Footer = () => {
                         <path d="M0 2C0 0.895431 0.895431 0 2 0H68C69.1046 0 70 0.895431 70 2C70 3.10457 69.1046 4 68 4H2C0.895431 4 0 3.10457 0 2Z" fill="#5BE4A8"/>
                         </svg>
                        <ul className="courses-link-list">
-                          <li><a href="#">About</a></li>
-                          <li><a href="#">Pricing</a></li>
-                          <li><a href="#">News</a></li>
-                          <li><a href="#">Careers</a></li>
-                          <li><a href="#">Contact</a></li>
-                          <li><a href="#">Events</a></li>
+                          <li><Link>About</Link></li>
+                          <li><Link>Pricing</Link></li>
+                          <li><Link>News</Link></li>
+                          <li><Link>Careers</Link></li>
+                          <li><Link>Contact</Link></li>
+                          <li><Link>Events</Link></li>
                        </ul>
                     </div>
                  </div>
@@ -43,12 +43,12 @@ const Footer = () => {
                         <path d="M0 2C0 0.895431 0.895431 0 2 0H68C69.1046 0 70 0.895431 70 2C70 3.10457 69.1046 4 68 4H2C0.895431 4 0 3.10457 0 2Z" fill="#5BE4A8"/>
                         </svg>
                        <ul className="courses-link-list">
-                          <li><a href="#">Courses</a></li>
-                          <li><a href="#">Course Two</a></li>
-                          <li><a href="#">Single Course</a></li>
-                          <li><a href="#">Profile</a></li>
-                          <li><a href="#">Login/Register</a></li>
-                          <li><a href="#">My accounts</a></li>
+                          <li><Link>Courses</Link></li>
+                          <li><Link>Course Two</Link></li>
+                          <li><Link>Single Course</Link></li>
+                          <li><Link>Profile</Link></li>
+                          <li><Link>Login/Register</Link></li>
+                          <li><Link>My accounts</Link></li>
                        </ul>
                     </div>
                  </div>
@@ -73,10 +73,10 @@ const Footer = () => {
               <div className="row align-items-center">
                  <div className="col-md-6 col-sm-6">
                     <ul className="terms-privacy d-flex gap-4 mb-3 mb-md-0">
-                       <li><a href="#"><img src="images/facebook-icon.svg" alt="" /></a></li>
-                       <li><a href="#"><img src="images/instagram-icon.svg" alt="" /></a></li>
-                       <li><a href="#"><img src="images/youtube-icon.svg" alt="" /></a></li>
-                       <li><a href="#"><img src="images/twitter-icon.svg" alt="" /></a></li>
+                       <li><Link><img src="images/facebook-icon.svg" alt="" /></Link></li>
+                       <li><Link><img src="images/instagram-icon.svg" alt="" /></Link></li>
+                       <li><Link><img src="images/youtube-icon.svg" alt="" /></Link></li>
+                       <li><Link><img src="images/twitter-icon.svg" alt="" /></Link></li>
                     </ul>
                  </div>
                  <div className="col-md-6 col-sm-6 text-center text-md-end">

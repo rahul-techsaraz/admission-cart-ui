@@ -1,6 +1,7 @@
 import circleImage from '../images/circle-img.svg';
 import polyGoneImage1 from '../images/polygonimg1.png';
 import dotsImage from '../images/dots-img.svg';
+import { Link } from 'react-router-dom';
 
 
 const AbroadSuccessStory = () => {
@@ -12,7 +13,7 @@ const AbroadSuccessStory = () => {
                 <div className="col-lg-7">
                     <h1 className="imgText-heading">Lorem Ipsum: Your Trusted Guide For Study Abroad Success</h1>
                     <p className="imgText-para">So, you have decided to study abroad. As you embark on this life-changing journey, We will be your trusted advisor guiding you towards your destination. Studying in a foreign country is appealing, promising and a wonderful experience. Nevertheless, securing that coveted spot in your dream university demands tenacity and careful planning.</p>
-                    <a href="#" className="theme-btn black-btn">Get Started Now</a>
+                    <Link className="theme-btn black-btn">Get Started Now</Link>
                 </div>
                 <div className="col-lg-5">
                     <div className="position-relative">

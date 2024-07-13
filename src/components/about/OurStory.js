@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import ourStoryImg from "../../images/story-img.png"
 export const OurStory = ()=>{
 
@@ -15,7 +16,7 @@ export const OurStory = ()=>{
                     <h1 class="imgText-heading">Our Story</h1>
 
                     <p class="imgText-para">Our team of global study experts and student mentors guide you at every step of the way - From choosing the right university to helping you with your application and financing counselling to lining up job interviews, We invests heavily in your success.</p>
-                    <a href="#" class="leftdash-btn">Read More</a>
+                    <Link class="leftdash-btn">Read More</Link>
                 </div>
                 
             </div>
