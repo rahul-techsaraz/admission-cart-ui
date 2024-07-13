@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import OurMissionImg from "../../images/mission-img.png";
 export const OurMission = ()=>{
 
@@ -14,7 +15,7 @@ export const OurMission = ()=>{
                     <h1 class="imgText-heading">Our Mission</h1>
 
                     <p class="imgText-para">Our mission is to continuously innovate the best ways to train the next generation of developers and to transform the the way tech education is delivered.</p>
-                    <a href="#" class="leftdash-btn">Read More</a>
+                    <Link class="leftdash-btn">Read More</Link>
                 </div>
    
             </div>

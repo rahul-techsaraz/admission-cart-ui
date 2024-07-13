@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function CollegeHighlights() {
   return (
@@ -22,28 +23,28 @@ export default function CollegeHighlights() {
                                  <tr>
                                     <td>B.Tech <span className="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td className="position-relative"><a href="#" className="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td className="position-relative"><Link className="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                                  <tr>
                                     <td>B.CA <span className="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td className="position-relative"><a href="#" className="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td className="position-relative"><Link className="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                                  <tr>
                                     <td>B.Tech <span className="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td className="position-relative"><a href="#" className="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td className="position-relative"><Link className="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                                  <tr>
                                     <td>B.CA <span className="d-block">19 Courses</span></td>
                                     <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td className="position-relative"><a href="#" className="management-clg-applybtn clginfo-applybtn">Apply Now</a></td>
+                                    <td className="position-relative"><Link className="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
                                  </tr>
                               </tbody>
                            </table>
                         </div>
                         <div className="text-start mt-5">
-                           <a href="#" className="course-details-readmore-btn btn">Read More</a>
+                           <Link className="course-details-readmore-btn btn">Read More</Link>
                         </div>
                      </div>
       </>

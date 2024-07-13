@@ -11,7 +11,7 @@ export default function ExamSlider() {
                {/* Additional required wrapper */}
               <div className="swiper-wrapper position-relative">
                 {/* <!-- Slides --> */}
-                <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
+                <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={false}>
                   <swiper-slide>
                     <div className="swiper-slide">
                       <div className="clg-accepting-exam-slider-box position-relative">

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import aboutImg1 from '../../images/about-img1.png';
 export const AboutUs =()=>{
     return(
@@ -14,7 +15,7 @@ export const AboutUs =()=>{
                     <h1 class="imgText-heading">The Achievement of Perfection is our goal but Excellence is Guarantee!</h1>
 
                     <p class="imgText-para">Eaconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="#" class="theme-btn black-btn">Get Started Now</a>
+                    <Link class="theme-btn black-btn">Get Started Now</Link>
                 </div>
                 
             </div>

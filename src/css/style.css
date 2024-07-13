@@ -782,7 +782,7 @@ ul.mega_menu {
 }
 .banner-caption {
   width: fit-content;
-  padding: 55px 0;
+  padding: 123px 0;
   /* padding-bottom: 55px; */
 }
 .banner1 .banner-caption {
@@ -3260,11 +3260,11 @@ ul.exam-imp-list {
   margin: 0 auto;
 }
 .management-clg-state-slider-wrapper .clg-button-prev{
-  left: 35px;
+  /* left: 35px; */
   box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
 }
 .management-clg-state-slider-wrapper .clg-button-next{
-  right: 35px;
+  /* right: 35px; */
   box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
 }
 .management-clg-state-slider-wrapper .clg-accepting-exam-slider-box{
@@ -3477,6 +3477,7 @@ ul.exam-imp-list {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
 }
 .swiper-button-next,
 .banner-button-next,
@@ -3503,6 +3504,7 @@ ul.exam-imp-list {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
 }
 .implink-button-next,
 .implink-button-prev{
