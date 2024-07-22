@@ -29,9 +29,11 @@ const MockExamList = () => {
     return(
         <section class="">
           <div class="container">
-            <div class="">
+
+            {/* <div class="">
               <div class="">
-                <div class="">
+                <div class=""> */}
+
                   <div class="implink-slider-bx position-relative">
                     <p><CustomSwiper navigationNext={'.implink-button-next'} navigationPrev={".implink-button-prev"} noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                     {itemsName.map(items=>(
@@ -44,9 +46,11 @@ const MockExamList = () => {
                       <img src={rightArrow} alt="" />
                     </div>
                   </div>
-                </div>
+
+                {/* </div>
               </div>
-            </div>
+            </div> */}
+            
           </div>
         </section>
     )

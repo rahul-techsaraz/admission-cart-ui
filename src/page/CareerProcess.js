@@ -80,7 +80,7 @@ const CareerProcess = () => {
                 </li>
                 <li>
                     <div className="dashed-border position-relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="72" viewBox="0 0 220 72" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="100" viewBox="0 0 220 100" fill="none">
                             <path d="M0.999993 1.052C3.84898 11.8135 25.0029 69.8577 103.33 70.7715C118.566 70.9492 103.33 70.7715 118.566 70.9492C118.566 70.9492 193 75.3969 218.662 1.05199" stroke="black" strokeDasharray="8 8"/>
                         </svg>
                         <img src={campusIcon} className="d-block mx-auto" alt="" />

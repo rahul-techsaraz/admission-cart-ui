@@ -173,7 +173,7 @@ export default function ExamListing() {
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-12">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="applied-fliter-o d-flex align-items-center justify-content-between mb-4">
                                 <div class="applied-filter d-inline-flex align-items-center">
                                     <p class="filter-apply-txt m-0 me-3">Applied Filters</p>
                                     <span class="filter-applied-badge text-center">B.Tech. Bachelor of Technology</span>
@@ -190,7 +190,7 @@ export default function ExamListing() {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -237,7 +237,7 @@ export default function ExamListing() {
                                 <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -284,7 +284,7 @@ export default function ExamListing() {
                                 <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -331,7 +331,7 @@ export default function ExamListing() {
                                 <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -378,7 +378,7 @@ export default function ExamListing() {
                                 <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -425,7 +425,7 @@ export default function ExamListing() {
                                 <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">

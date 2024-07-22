@@ -233,10 +233,10 @@ const ExploreCareer = () => {
                                     </swiper-slide>
                                 </CustomSwiper>
                             </div>
-                            <div className="swiper-button-prev career-button-prev">
+                            <div className="swiper-button-prev">
                                 <img src={leftArrow} alt="" />
                             </div>
-                            <div className="swiper-button-next career-button-next">
+                            <div className="swiper-button-next">
                                 <img src={rightArrow} alt="" />
                             </div>
                         </div>
