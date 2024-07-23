@@ -64,7 +64,7 @@ export default function CourseListing() {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon1} alt="courseIcon1" />
@@ -75,7 +75,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon2} alt="courseIcon2" />
@@ -86,7 +86,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon3} alt="courseIcon3" />
@@ -97,7 +97,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon4} alt="courseIcon4" />
@@ -108,7 +108,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon5} alt="courseIcon5" />
@@ -119,7 +119,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon6} alt="courseIcon6" />
@@ -130,7 +130,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon7} alt="courseIcon7" />
@@ -141,7 +141,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon8} alt="courseIcon8" />
@@ -152,7 +152,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon9} alt="courseIcon9" />
@@ -163,7 +163,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon10} alt="courseIcon10" />
@@ -174,7 +174,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon11} alt="courseIcon11" />
@@ -185,7 +185,7 @@ export default function CourseListing() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon12} alt="courseIcon12" />

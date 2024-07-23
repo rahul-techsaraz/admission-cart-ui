@@ -427,7 +427,7 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div>
-                     <div class="course-details-alterImgbox d-flex align-items-center">
+                     {/* <div class="course-details-alterImgbox d-flex align-items-center">
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
                            <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
@@ -804,7 +804,7 @@ export default function CollegeDetails() {
                         </div>
                         <div class="row mt-4">
                            <div class="col-12">
-                              <div class="accomodation-review-row d-flex justify-content-between">
+                              <div class="accomodation-review-row d-flex flex-wrap justify-content-between">
                                  <div class="accomodation-box d-flex">
                                     <img src={scollarshipIcon} class="accomodation-icon me-2" alt="" />
                                     <div class="accomodation-review-count">
@@ -1592,8 +1592,6 @@ export default function CollegeDetails() {
                         </div>
                      </div>
 
-
-
                      <div class="clg-slider-wrapper position-relative">
                         <div class="tick-heading d-flex align-items-center mb-4">
                             <span class="tick-heading-icon d-inline-flex">
@@ -1745,7 +1743,7 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> */}
                   </div>
                </div>
                <div class="col-md-4">
@@ -1768,7 +1766,7 @@ export default function CollegeDetails() {
                      <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Videos</h2>
                         <div class="courses-details-rightcol-gridcontent">
-                           <ul class="d-flex flex-wrap justify-content-between">
+                           <ul class="d-flex flex-wrap justify-content-center">
                               <li class="border-0"><img src={clgInfoVideo1} alt="" /></li>
                               <li class="border-0"><img src={clgInfoVideo1} alt="" /></li>
                            </ul>
@@ -1924,7 +1922,1336 @@ export default function CollegeDetails() {
 
                   </aside>
                </div>
+            
             </div>
+            <div className='row'>
+               <div className='col-12'>
+              
+               <div class="course-details-alterImgbox d-flex align-items-center">
+                        <div class="course-details-alterImgbox-col1 green-bg">
+                           <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
+                           <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
+                           <Link class="theme-btn white-btn">Apply For Education Loan</Link>
+                        </div>
+                        <div class="course-details-alterImgbox-col2 position-relative">
+                           <img src={cdIcon} alt="" />
+                        </div>
+                     </div>
+                     <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                        <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
+                        <div class="swiper clg-facilities-slider">
+                           <div class="swiper-wrapper position-relative">
+                              <CustomSwiper navigationNext={".clg-facilities-button-next"} navigationPrev={".clg-facilities-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-facilities-box position-relative">
+                                          <img src={audienceIcon} alt="" />
+                                          <p>Auditorium</p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-facilities-box position-relative">
+                                          <img src={hostelIcon} alt="" />
+                                          <p>Boys Hostel</p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-facilities-box position-relative">
+                                          <img src={canteenIcon} alt="" />
+                                          <p>Canteen</p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-facilities-box position-relative">
+                                          <img src={audienceIcon} alt="" />
+                                          <p>Computer Lab</p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-facilities-box position-relative">
+                                          <img src={audienceIcon} alt="" />
+                                          <p>Counselling</p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-facilities-box position-relative">
+                                          <img src={audienceIcon} alt="" />
+                                          <p>Auditorium</p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                              </CustomSwiper>
+                              <div class="swiper-button-prev clg-facilities-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-facilities-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
+                        <div class="course-details-alterImgbox-col2 position-relative">
+                           <img src={cdIcon} alt="" />
+                        </div>
+                        <div class="course-details-alterImgbox-col1 green-bg">
+                           <h2 class="text-white">Are you feeling lost and unsure about what <span>career path to take after completing 12th standard?</span></h2>
+                           <p>Say goodbye to confusion and hello to a bright future!</p>
+                           <Link class="theme-btn white-btn">Take the  free test now</Link>
+                        </div>
+                     </div>
+                     <div class="py-5 mt-4">
+                        <div class="row align-items-center">
+                           <div class="col-md-5">
+                              <h1 class="exam-center-calenderTxt1 text-center">Will you get 
+                                 <span>Admission in IIT Chennai University?</span>
+                              </h1>
+                           </div>
+                           <div class="col-md-2 text-center">
+                              <img src={yellowCircleIcon} alt="" />
+                           </div>
+                           <div class="col-md-5 text-center">
+                              <h1 class="exam-center-calenderTxt">Goodbye doubts! 
+                                 Say hello to our experts
+                              </h1>
+                              <Link class="theme-btn black-btn">Ask A Question</Link>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="successfull-almni-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                        <h2 class="section-heading2 grey text-center mb-5">Successful Alumni</h2>
+                        <div class="swiper successfull-almni-slider">
+                           <div class="swiper-wrapper position-relative">
+                              <CustomSwiper navigationNext={".clg-alumni-button-next"} navigationPrev={".clg-alumni-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="successfull-almni-box d-flex">
+                                          <div class="successfull-almni-infobx text-start">
+                                             <p class="successfull-almni-name">Mr. Raju Venkatraman</p>
+                                             <p class="successfull-almni-qualif">1981/B. Tech/Chemical Engineering</p>
+                                             <p class="successfull-almni-designation">Managing Director and CEO @ MEDall Healthcare Pvt Ltd. </p>
+                                          </div>
+                                          <div class="successfull-almni-imgbx">
+                                             <img src={alumniManIcon1} alt="" />
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="successfull-almni-box d-flex">
+                                          <div class="successfull-almni-infobx text-start">
+                                             <p class="successfull-almni-name">Mr. Raju Venkatraman</p>
+                                             <p class="successfull-almni-qualif">1981/B. Tech/Chemical Engineering</p>
+                                             <p class="successfull-almni-designation">Managing Director and CEO @ MEDall Healthcare Pvt Ltd. </p>
+                                          </div>
+                                          <div class="successfull-almni-imgbx">
+                                             <img src={alumniManIcon2} alt="" />
+                                          </div>
+                                       </div>
+                                    </div>      
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="successfull-almni-box d-flex">
+                                          <div class="successfull-almni-infobx text-start">
+                                             <p class="successfull-almni-name">Mr. Raju Venkatraman</p>
+                                             <p class="successfull-almni-qualif">1981/B. Tech/Chemical Engineering</p>
+                                             <p class="successfull-almni-designation">Managing Director and CEO @ MEDall Healthcare Pvt Ltd. </p>
+                                          </div>
+                                          <div class="successfull-almni-imgbx">
+                                             <img src={alumniManIcon1} alt="" />
+                                          </div>
+                                       </div>
+                                    </div>      
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="successfull-almni-box d-flex">
+                                          <div class="successfull-almni-infobx text-start">
+                                             <p class="successfull-almni-name">Mr. Raju Venkatraman</p>
+                                             <p class="successfull-almni-qualif">1981/B. Tech/Chemical Engineering</p>
+                                             <p class="successfull-almni-designation">Managing Director and CEO @ MEDall Healthcare Pvt Ltd. </p>
+                                          </div>
+                                          <div class="successfull-almni-imgbx">
+                                             <img src={alumniManIcon2} alt="" />
+                                          </div>
+                                       </div>
+                                    </div>      
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="successfull-almni-box d-flex">
+                                          <div class="successfull-almni-infobx text-start">
+                                             <p class="successfull-almni-name">Mr. Raju Venkatraman</p>
+                                             <p class="successfull-almni-qualif">1981/B. Tech/Chemical Engineering</p>
+                                             <p class="successfull-almni-designation">Managing Director and CEO @ MEDall Healthcare Pvt Ltd. </p>
+                                          </div>
+                                          <div class="successfull-almni-imgbx">
+                                             <img src={alumniManIcon1} alt="" />
+                                          </div>
+                                       </div>
+                                    </div>      
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="successfull-almni-box d-flex">
+                                          <div class="successfull-almni-infobx text-start">
+                                             <p class="successfull-almni-name">Mr. Raju Venkatraman</p>
+                                             <p class="successfull-almni-qualif">1981/B. Tech/Chemical Engineering</p>
+                                             <p class="successfull-almni-designation">Managing Director and CEO @ MEDall Healthcare Pvt Ltd. </p>
+                                          </div>
+                                          <div class="successfull-almni-imgbx">
+                                             <img src={alumniManIcon2} alt="" />
+                                          </div>
+                                       </div>
+                                    </div>      
+                                 </swiper-slide>
+                              </CustomSwiper>
+                              <div class="swiper-button-prev clg-alumni-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-alumni-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tick-heading d-flex align-items-center mb-4">
+                        <span class="tick-heading-icon d-inline-flex">
+                        <img src={greyTickIcon} alt="" />
+                        </span>
+                        <h2>IIT Chennai University Faculty</h2>
+                     </div>
+                     <div class="mt-5">
+                        <img src={studentFaculty} class="faculty-students-img d-block mx-auto" alt="" />
+                     </div>
+                     <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
+                        <div class="swiper faculty-slider-slider">
+                           <div class="swiper-wrapper">
+                              <CustomSwiper navigationNext={'.clg-faculty-button-next'} navigationPrev={'.clg-faculty-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="faculty-slider-box">
+                                          <img src={facultImage1} alt="" />
+                                          <p>Prof.
+                                             Bhaskar Ramamurthi
+                                             Director
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="faculty-slider-box">
+                                          <img src={facultImage2} alt="" />
+                                          <p>Prof.
+                                             Bhaskar Ramamurthi
+                                             Director
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="faculty-slider-box">
+                                          <img src={facultImage3} alt="" />
+                                          <p>Prof.
+                                             Bhaskar Ramamurthi
+                                             Director
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="faculty-slider-box">
+                                          <img src={facultImage4} alt="" />
+                                          <p>Prof.
+                                             Bhaskar Ramamurthi
+                                             Director
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="faculty-slider-box">
+                                          <img src={facultImage1} alt="" />
+                                          <p>Prof.
+                                             Bhaskar Ramamurthi
+                                             Director
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="faculty-slider-box">
+                                          <img src={facultImage2} alt="" />
+                                          <p>Prof.
+                                             Bhaskar Ramamurthi
+                                             Director
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                              </CustomSwiper>
+                              <div class="swiper-button-prev clg-faculty-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-faculty-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>      
+                           </div>
+                        </div>
+                        
+                     </div>
+                     <div class="row justify-content-center mb-5">
+                        <div class="col-9">
+                           <div class="download-content-box text-center">
+                              <img src={downloadIcon} class="mb-4" alt="" />
+                              <h2 class="mb-4"><span class="d-block">Get details on</span> Fee, Cut off marks, Admission Process for session 2023.</h2>
+                              <div class="d-flex justify-content-center gap-3 align-items-center download-btn-sec">
+                                 <p>Download brochure</p>
+                                 <Link class="theme-btn black-btn">Ask A Question</Link>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="clg-specific-review-section mb-5">
+                        <div class="row mb-4">
+                           <div class="col-12">
+                              <div class="tick-heading d-flex align-items-center mb-4">
+                                 <span class="tick-heading-icon d-inline-flex">
+                                 <img src={greyTickIcon} alt="" />
+                                 </span>
+                                 <h2>IIT Chennai University Reviews</h2>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row justify-content-between">
+                           <div class="col-md-4">
+                              <div class="clg-verified-review-box text-center">
+                                 <p><img src={starFIcon} alt="" /> 4.6 <span>/5</span></p>
+                                 <p><img src={verifiedGreenIcon} alt="" />50 Verified Review</p>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="reviews-count-progresbar">
+                                 <div class="barWrapper d-flex align-items-center justify-content-end">
+                                    <div class="reviews-star-grp d-inline-flex me-3">
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                    </div>
+                                    <div class="progresss2">
+                                       <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" >   
+                                          <span  class="popOver" data-toggle="tooltip" data-placement="top" title="4-5"> </span>     
+                                       </div>
+                                    </div>
+                                    <p class="review-totaltxt ms-3">55</p>
+                                 </div>
+                                 <div class="barWrapper d-flex align-items-center justify-content-end">
+                                    <div class="reviews-star-grp d-inline-flex me-3">
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                    </div>
+                                    <div class="progresss2 ">
+                                       <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="10" aria-valuemax="100">
+                                          <span  class="popOver" data-toggle="tooltip" data-placement="top" title="3-4"> </span>  
+                                       </div>
+                                    </div>
+                                    <p class="review-totaltxt ms-3">44</p>
+                                 </div>
+                                 <div class="barWrapper d-flex align-items-center justify-content-end">
+                                    <div class="reviews-star-grp d-inline-flex me-3">
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                       <img src={starFIcon} alt="" />
+                                    </div>
+                                    <div class="progresss2">
+                                       <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                                          <span  class="popOver" data-toggle="tooltip" data-placement="top" title="1-3"> </span>  
+                                       </div>
+                                    </div>
+                                    <p class="review-totaltxt ms-3">22</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center mt-2">
+                           <div class="col-4">
+                              <p class="write-review-title">Help other aspirants by sharing your review of this college</p>
+                           </div>
+                           <div class="col-4">
+                              <Link class="write-review-btn d-inline-block">Write a Review</Link>
+                           </div>
+                        </div>
+                        <div class="row mt-4">
+                           <div class="col-12">
+                              <div class="accomodation-review-row d-flex flex-wrap justify-content-between">
+                                 <div class="accomodation-box d-flex">
+                                    <img src={scollarshipIcon} class="accomodation-icon me-2" alt="" />
+                                    <div class="accomodation-review-count">
+                                       <p class="accomodation-title">Academic</p>
+                                       <p class="accomodation-reviewtxt"><img src={starFIcon} alt="" /> 4.5</p>
+                                    </div>
+                                 </div>
+                                 <div class="accomodation-box d-flex">
+                                    <img src={scollarshipIcon} class="accomodation-icon me-2" alt="" />
+                                    <div class="accomodation-review-count">
+                                       <p class="accomodation-title">Infrastructure</p>
+                                       <p class="accomodation-reviewtxt"><img src={starFIcon} alt="" /> 4.5</p>
+                                    </div>
+                                 </div>
+                                 <div class="accomodation-box d-flex">
+                                    <img src={scollarshipIcon} class="accomodation-icon me-2" alt="" />
+                                    <div class="accomodation-review-count">
+                                       <p class="accomodation-title">Hostel</p>
+                                       <p class="accomodation-reviewtxt"><img src={starFIcon} alt="" /> 4.5</p>
+                                    </div>
+                                 </div>
+                                 <div class="accomodation-box d-flex">
+                                    <img src={scollarshipIcon} class="accomodation-icon me-2" alt="" />
+                                    <div class="accomodation-review-count">
+                                       <p class="accomodation-title">Faculty</p>
+                                       <p class="accomodation-reviewtxt"><img src={starFIcon} alt="" /> 4.5</p>
+                                    </div>
+                                 </div>
+                                 <div class="accomodation-box d-flex">
+                                    <img src={scollarshipIcon} class="accomodation-icon me-2" alt="" />
+                                    <div class="accomodation-review-count">
+                                       <p class="accomodation-title">Placement</p>
+                                       <p class="accomodation-reviewtxt"><img src={starFIcon} alt="" /> 4.5</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-12">
+                              <h5 class="mt-5 mb-4">What students say about IIT Chennai University - Indian Institute of Management</h5>
+                           </div>
+                           <div class="col-12">
+
+
+                              <ul class="nav nav-pills mb-3 review-tab-listing" id="pills-tab" role="tablist">
+                                 <li class="nav-item" role="presentation">
+                                    <button class="active position-relative" id="detailed-reviews-tab" data-bs-toggle="pill" data-bs-target="#detailed-reviews" type="button" role="tab" aria-controls="detailed-reviews" aria-selected="true">Detailed</button>
+                                 </li>
+                                 <li class="nav-item" role="presentation">
+                                    <button class="position-relative" id="latest-reviews-tab" data-bs-toggle="pill" data-bs-target="#latest-reviews" type="button" role="tab" aria-controls="latest-reviews" aria-selected="false">Latest</button>
+                                 </li>
+                                 <li class="nav-item" role="presentation">
+                                    <button class="position-relative" id="mosthelpful-reviews-tab" data-bs-toggle="pill" data-bs-target="#mosthelpful-reviews" type="button" role="tab" aria-controls="mosthelpful-reviews" aria-selected="false">Most Helpful</button>
+                                 </li>
+                              </ul>
+                              <div class="tab-content" id="pills-tabContent">
+                                 <div class="tab-pane fade show active" id="detailed-reviews" role="tabpanel" aria-labelledby="detailed-reviews-tab">
+                                       <div class="clg-specific-postreview-box mb-4">
+                                          <div class="row justify-content-between mb-4">
+                                             <div class="col-4">
+                                                <div class="d-flex">
+                                                   <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                      A
+                                                   </div>
+                                                   <div>
+                                                   <p class="reviewer-fullname">
+                                                      <span>7 years ago</span>
+                                                      Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                      <span>M.Tech/M.E Student</span>
+                                                   </p>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-4 text-end">
+                                                <div class="green-review-badge green-bg">
+                                                   <img src={starFIcon} class="me-2" alt="" />
+                                                   5/5
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Placements</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Infrastructure</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Faculty</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>4 Crowd & Campus Life</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>3 Value for Money</p>
+                                             </li>
+                                          </ul>
+                                          <h4 class="reviewOverview-txt">Overview</h4>
+                                          <p class="postreview-content">
+                                             The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                             <Link class="read-review-link">Read Full Review</Link>
+                                          </p>
+                                          <div class="d-flex justify-content-between align-items-center mt-5">
+                                             <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                             <div class="d-inline-flex">
+                                                <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                                <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="clg-specific-postreview-box mb-4">
+                                          <div class="row justify-content-between mb-4">
+                                             <div class="col-4">
+                                                <div class="d-flex">
+                                                   <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                      H
+                                                   </div>
+                                                   <p class="reviewer-fullname">
+                                                      <span>7 years ago</span>
+                                                      Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                      <span>M.Tech/M.E Student</span>
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="col-4 text-end">
+                                                <div class="green-review-badge green-bg">
+                                                   <img src={starFIcon} class="me-2" alt="" />
+                                                   5/5
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Placements</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Infrastructure</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Faculty</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>4 Crowd & Campus Life</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>3 Value for Money</p>
+                                             </li>
+                                          </ul>
+                                          <h4 class="reviewOverview-txt">Overview</h4>
+                                          <p class="postreview-content">
+                                             The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                             <Link class="read-review-link">Read Full Review</Link>
+                                          </p>
+                                          <div class="d-flex justify-content-between align-items-center mt-5">
+                                             <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                             <div class="d-inline-flex">
+                                                <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                                <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="clg-specific-postreview-box mb-4">
+                                          <div class="row justify-content-between mb-4">
+                                             <div class="col-4">
+                                                <div class="d-flex">
+                                                   <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                      T
+                                                   </div>
+                                                   <p class="reviewer-fullname">
+                                                      <span>7 years ago</span>
+                                                      Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                      <span>M.Tech/M.E Student</span>
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="col-4 text-end">
+                                                <div class="green-review-badge green-bg">
+                                                   <img src={starFIcon} class="me-2" alt="" />
+                                                   5/5
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Placements</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Infrastructure</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Faculty</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>4 Crowd & Campus Life</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>3 Value for Money</p>
+                                             </li>
+                                          </ul>
+                                          <h4 class="reviewOverview-txt">Overview</h4>
+                                          <p class="postreview-content">
+                                             The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                             <Link class="read-review-link">Read Full Review</Link>
+                                          </p>
+                                          <div class="d-flex justify-content-between align-items-center mt-5">
+                                             <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                             <div class="d-inline-flex">
+                                                <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                                <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="clg-specific-postreview-box mb-4">
+                                          <div class="row justify-content-between mb-4">
+                                             <div class="col-4">
+                                                <div class="d-flex">
+                                                   <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                      S
+                                                   </div>
+                                                   <p class="reviewer-fullname">
+                                                      <span>7 years ago</span>
+                                                      Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                      <span>M.Tech/M.E Student</span>
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="col-4 text-end">
+                                                <div class="green-review-badge green-bg">
+                                                   <img src={starFIcon} class="me-2" alt="" />
+                                                   5/5
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Placements</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Infrastructure</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>5 Faculty</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>4 Crowd & Campus Life</p>
+                                             </li>
+                                             <li>
+                                                <img src={starFIcon} alt="" />
+                                                <p>3 Value for Money</p>
+                                             </li>
+                                          </ul>
+                                          <h4 class="reviewOverview-txt">Overview</h4>
+                                          <p class="postreview-content">
+                                             The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                             <Link class="read-review-link">Read Full Review</Link>
+                                          </p>
+                                          <div class="d-flex justify-content-between align-items-center mt-5">
+                                             <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                             <div class="d-inline-flex">
+                                                <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                                <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane fade" id="latest-reviews" role="tabpanel" aria-labelledby="latest-reviews-tab">
+                                    <div class="clg-specific-postreview-box mb-4">
+                                       <div class="row justify-content-between mb-4">
+                                          <div class="col-4">
+                                             <div class="d-flex">
+                                                <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                   A
+                                                </div>
+                                                <p class="reviewer-fullname">
+                                                   <span>7 years ago</span>
+                                                   Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                   <span>M.Tech/M.E Student</span>
+                                                </p>
+                                             </div>
+                                          </div>
+                                          <div class="col-4 text-end">
+                                             <div class="green-review-badge green-bg">
+                                                <img src={starFIcon} class="me-2" alt="" />
+                                                5/5
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Placements</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Infrastructure</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Faculty</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>4 Crowd & Campus Life</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>3 Value for Money</p>
+                                          </li>
+                                       </ul>
+                                       <h4 class="reviewOverview-txt">Overview</h4>
+                                       <p class="postreview-content">
+                                          The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                          <Link class="read-review-link">Read Full Review</Link>
+                                       </p>
+                                       <div class="d-flex justify-content-between align-items-center mt-5">
+                                          <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                          <div class="d-inline-flex">
+                                             <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                             <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clg-specific-postreview-box mb-4">
+                                       <div class="row justify-content-between mb-4">
+                                          <div class="col-4">
+                                             <div class="d-flex">
+                                                <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                   H
+                                                </div>
+                                                <p class="reviewer-fullname">
+                                                   <span>7 years ago</span>
+                                                   Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                   <span>M.Tech/M.E Student</span>
+                                                </p>
+                                             </div>
+                                          </div>
+                                          <div class="col-4 text-end">
+                                             <div class="green-review-badge green-bg">
+                                                <img src={starFIcon} class="me-2" alt="" />
+                                                5/5
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Placements</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Infrastructure</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Faculty</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>4 Crowd & Campus Life</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>3 Value for Money</p>
+                                          </li>
+                                       </ul>
+                                       <h4 class="reviewOverview-txt">Overview</h4>
+                                       <p class="postreview-content">
+                                          The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                          <Link class="read-review-link">Read Full Review</Link>
+                                       </p>
+                                       <div class="d-flex justify-content-between align-items-center mt-5">
+                                          <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                          <div class="d-inline-flex">
+                                             <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                             <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="tab-pane fade" id="mosthelpful-reviews" role="tabpanel" aria-labelledby="mosthelpful-reviews-tab">
+                                    <div class="clg-specific-postreview-box mb-4">
+                                       <div class="row justify-content-between mb-4">
+                                          <div class="col-4">
+                                             <div class="d-flex">
+                                                <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
+                                                   A
+                                                </div>
+                                                <p class="reviewer-fullname">
+                                                   <span>7 years ago</span>
+                                                   Abhijeet Dhal <img src={verifiedGreenIcon} alt="" />
+                                                   <span>M.Tech/M.E Student</span>
+                                                </p>
+                                             </div>
+                                          </div>
+                                          <div class="col-4 text-end">
+                                             <div class="green-review-badge green-bg">
+                                                <img src={starFIcon} class="me-2" alt="" />
+                                                5/5
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <ul class="reviews-core-items d-flex flex-wrap gap-2">
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Placements</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Infrastructure</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>5 Faculty</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>4 Crowd & Campus Life</p>
+                                          </li>
+                                          <li>
+                                             <img src={starFIcon} alt="" />
+                                             <p>3 Value for Money</p>
+                                          </li>
+                                       </ul>
+                                       <h4 class="reviewOverview-txt">Overview</h4>
+                                       <p class="postreview-content">
+                                          The infrastructure and opportunities in IIT Madras is one of the best in India. Being situated in one of the metropolis of India (Chennai) certainly add to its benefit. Chennai is also known as a important automobiles, manufacturing, IT and transportation hub. Campus is a beautiful wooded area in...
+                                          <Link class="read-review-link">Read Full Review</Link>
+                                       </p>
+                                       <div class="d-flex justify-content-between align-items-center mt-5">
+                                          <p class="postreview-date">Reviewed on 18 Aug 2023</p>
+                                          <div class="d-inline-flex">
+                                             <span class="like-thumb-bx yellow-bg">4 <img src={likeThumbIcon} alt="" /></span>
+                                             <span class="like-thumb-bx dislike-thumb-bx">0 <img src={dislikeThumbIcon} alt="" /></span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+                              
+                              <div>
+                                 <Link class="readallreview-gray-btn d-block text-center">Read All Reviews</Link>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tick-heading d-flex align-items-center mb-4 mt-5">
+                        <span class="tick-heading-icon d-inline-flex">
+                        <img src={greyTickIcon} alt="" />
+                        </span>
+                        <h2>IIT Chennai Courses Offered</h2>
+                     </div>
+                     <div class="row">
+                        <div class="col-12">
+                           <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
+                              <div class="swiper course-offered-slider pb-5">
+                                 <div class="swiper-wrapper">
+                                    <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="card">
+                                                <div class="top_review d-flex justify-content-end align-items-center">
+                                                   <p class="review_count mb-0 me-2">724 Reviews</p>
+                                                   <p class="rating mb-0 me-2">4.5</p>
+                                                   <p class="like mb-0">
+                                                      <img src={heartIcon} srcset={`${heartIcon} 1X , ${heartIcon2X} 2X`} alt="Heart" width="18" height="17" />
+                                                   </p>
+                                                </div>
+                                                <div class="details">
+                                                   <p class="details_name mb-0">Bachelor of Technology [B.Tech]</p>
+                                                   <p class="details_price mb-0">₹ 200,500 <span>1st Yr Fees</span></p>
+                                                   <p class="details_review mb-0 d-flex align-items-center">
+                                                      4.5/724 Reviews
+                                                      <span class="ms-2">
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={blankStarIcon} srcset={`${blankStarIcon} 1X , ${blankStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      </span>
+                                                   </p>
+                                                   <p class="details_rating mb-0">Rated #3 out of 131 by The Week in Engineering</p>
+                                                   <div class="badge_group">
+                                                      <div class="badge rounded-0 text-center text-uppercase">4 YEARS</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">DEGREE</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">ON CAMPUS</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">GRADUATION</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">FULL TIME</div>
+                                                   </div>
+                                                </div>
+                                                <div class="details_tab">
+                                                   <ul class="nav nav-tabs" role="tablist">
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
+                                                      </li>
+                                                   </ul>
+                                                   <div class="tab-content">
+                                                      <div id="specialization" class="container tab-pane active">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                      <div id="cutoff" class="container tab-pane fade">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                      <div id="examsAccepted" class="container tab-pane fade">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="details_btn_group">
+                                                   <div class="row">
+                                                      <div class="col-6 pe-1">
+                                                         <button type="button" class="details_btn text-center w-100">
+                                                            Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="22" height="18" />
+                                                         </button>
+                                                      </div>
+                                                      <div class="col-6 ps-1">
+                                                         <button type="button" class="details_btn text-center w-100">
+                                                            Admission Predictor <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="18" height="14" />
+                                                         </button>
+                                                      </div>
+                                                      <div class="col-6 pe-1">
+                                                         <button type="button" class="details_btn active text-center w-100">
+                                                            Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" />
+                                                         </button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </swiper-slide>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="card">
+                                                <div class="top_review d-flex justify-content-end align-items-center">
+                                                   <p class="review_count mb-0 me-2">724 Reviews</p>
+                                                   <p class="rating mb-0 me-2">4.5</p>
+                                                   <p class="like mb-0">
+                                                      <img src={heartIcon} srcset={`${heartIcon} 1X , ${heartIcon2X} 2X`} alt="Heart" width="18" height="17" />
+                                                   </p>
+                                                </div>
+                                                <div class="details">
+                                                   <p class="details_name mb-0">Bachelor of Technology [B.Tech]</p>
+                                                   <p class="details_price mb-0">₹ 200,500 <span>1st Yr Fees</span></p>
+                                                   <p class="details_review mb-0 d-flex align-items-center">
+                                                      4.5/724 Reviews
+                                                      <span class="ms-2">
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={blankStarIcon} srcset={`${blankStarIcon} 1X , ${blankStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      </span>
+                                                   </p>
+                                                   <p class="details_rating mb-0">Rated #3 out of 131 by The Week in Engineering</p>
+                                                   <div class="badge_group">
+                                                      <div class="badge rounded-0 text-center text-uppercase">4 YEARS</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">DEGREE</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">ON CAMPUS</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">GRADUATION</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">FULL TIME</div>
+                                                   </div>
+                                                </div>
+                                                <div class="details_tab">
+                                                   <ul class="nav nav-tabs" role="tablist">
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
+                                                      </li>
+                                                   </ul>
+                                                   <div class="tab-content">
+                                                      <div id="specialization" class="container tab-pane active">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                      <div id="cutoff" class="container tab-pane fade">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                      <div id="examsAccepted" class="container tab-pane fade">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="details_btn_group">
+                                                   <div class="row">
+                                                      <div class="col-6 pe-1">
+                                                         <button type="button" class="details_btn text-center w-100">
+                                                            Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="22" height="18" />
+                                                         </button>
+                                                      </div>
+                                                      <div class="col-6 ps-1">
+                                                         <button type="button" class="details_btn text-center w-100">
+                                                            Admission Predictor <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="18" height="14" />
+                                                         </button>
+                                                      </div>
+                                                      <div class="col-6 pe-1">
+                                                         <button type="button" class="details_btn active text-center w-100">
+                                                            Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" />
+                                                         </button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </swiper-slide>
+                                       <swiper-slide>
+                                          <div class="swiper-slide">
+                                             <div class="card">
+                                                <div class="top_review d-flex justify-content-end align-items-center">
+                                                   <p class="review_count mb-0 me-2">724 Reviews</p>
+                                                   <p class="rating mb-0 me-2">4.5</p>
+                                                   <p class="like mb-0">
+                                                      <img src={heartIcon} srcset={`${heartIcon} 1X , ${heartIcon2X} 2X`} alt="Heart" width="18" height="17" />
+                                                   </p>
+                                                </div>
+                                                <div class="details">
+                                                   <p class="details_name mb-0">Bachelor of Technology [B.Tech]</p>
+                                                   <p class="details_price mb-0">₹ 200,500 <span>1st Yr Fees</span></p>
+                                                   <p class="details_review mb-0 d-flex align-items-center">
+                                                      4.5/724 Reviews
+                                                      <span class="ms-2">
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      <img src={blankStarIcon} srcset={`${blankStarIcon} 1X , ${blankStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
+                                                      </span>
+                                                   </p>
+                                                   <p class="details_rating mb-0">Rated #3 out of 131 by The Week in Engineering</p>
+                                                   <div class="badge_group">
+                                                      <div class="badge rounded-0 text-center text-uppercase">4 YEARS</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">DEGREE</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">ON CAMPUS</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">GRADUATION</div>
+                                                      <div class="badge rounded-0 text-center text-uppercase">FULL TIME</div>
+                                                   </div>
+                                                </div>
+                                                <div class="details_tab">
+                                                   <ul class="nav nav-tabs" role="tablist">
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
+                                                      </li>
+                                                      <li class="nav-item">
+                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
+                                                      </li>
+                                                   </ul>
+                                                   <div class="tab-content">
+                                                      <div id="specialization" class="container tab-pane active">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                      <div id="cutoff" class="container tab-pane fade">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                      <div id="examsAccepted" class="container tab-pane fade">
+                                                         <ul>
+                                                            <li>Computer Science and Engineering</li>
+                                                            <li>Aerospace Engineering</li>
+                                                            <li>Electrical Engineering</li>
+                                                            <li>Mechanical Engineering</li>
+                                                            <li>+6 More</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="details_btn_group">
+                                                   <div class="row">
+                                                      <div class="col-6 pe-1">
+                                                         <button type="button" class="details_btn text-center w-100">
+                                                            Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2X`} alt="Button Icon" width="22" height="18" />
+                                                         </button>
+                                                      </div>
+                                                      <div class="col-6 ps-1">
+                                                         <button type="button" class="details_btn text-center w-100">
+                                                            Admission Predictor <img src={iconTwoImage} srcset={`${iconTwoImage} 1X, ${iconTwoImage2X} 2X`} alt="Button Icon" width="18" height="14" />
+                                                         </button>
+                                                      </div>
+                                                      <div class="col-6 pe-1">
+                                                         <button type="button" class="details_btn active text-center w-100">
+                                                            Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" />
+                                                         </button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </swiper-slide>
+                                    </CustomSwiper>
+                                    <div class="swiper-button-prev courseOffer-button-prev">
+                                       <img src={arrowLeftIcon} alt="" />
+                                    </div>
+                                    <div class="swiper-button-next courseOffer-button-next">
+                                       <img src={arrowRightIcon} alt="" />
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="course-details-alterImgbox d-flex align-items-center">
+                        <div class="course-details-alterImgbox-col1 green-bg">
+                           <h2 class="text-white">Still have questions about <span>IIT Chennai University?</span></h2>
+                           <p>Ask us and get personalized</p>
+                           <Link class="theme-btn white-btn">Ask A Question</Link>
+                        </div>
+                        <div class="course-details-alterImgbox-col2 position-relative">
+                           <img src={askQuesImage} alt="" />
+                        </div>
+                     </div>
+
+                     <div class="clg-slider-wrapper position-relative">
+                        <div class="tick-heading d-flex align-items-center mb-4">
+                            <span class="tick-heading-icon d-inline-flex">
+                                <img src={greyTickIcon} alt="" />
+                            </span>
+                            <h2>Recommended Colleges</h2>
+                        </div>
+                        <div class="swiper recommended-clg-slider pb-5">
+                            <div class="swiper-wrapper position-relative">
+                              <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                          <div class="clg-slider-box position-relative">
+                                             <div class="recommended-clg-sliderbx">
+                                                <div class="d-flex justify-content-between">
+                                                   <img src={logoSliderImage} class="clg-slider-logo" alt="" />
+                                                   <div class="recommended-clg-rating text-center">
+                                                      <p class="mb-0">4.8</p>
+                                                      <span class="d-flex align-items-center justify-content-center gap-1">
+                                                         <img src={starFIcon} alt="" />
+                                                         <img src={starFIcon} alt="" />
+                                                         <img src={starFIcon} alt="" />
+                                                         <img src={starFIcon} alt="" />
+                                                         <img src={starFIcon} alt="" />
+                                                      </span>
+                                                   </div>
+                                                </div>
+                                                <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
+                                                <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
+                                                <p class="course-offer-badge d-flex justify-content-between align-items-center">
+                                                   <span>Courses Offered</span>
+                                                   <span class="text-end">4 courses</span>
+                                                </p>
+                                                <p class="total-price-range d-flex justify-content-between align-items-center">
+                                                   <span>Total Fees Range</span>
+                                                   <span class="text-end">₹12.5 L - 24.5 L</span>
+                                                </p>
+                                             </div>
+
+                                             <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
+                                          </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-slider-box position-relative">
+                                          <div class="recommended-clg-sliderbx">
+                                             <div class="d-flex justify-content-between">
+                                                <img src={logoSliderImage} class="clg-slider-logo" alt="" />
+                                                <div class="recommended-clg-rating text-center">
+                                                   <p class="mb-0">4.8</p>
+                                                   <span class="d-flex align-items-center justify-content-center gap-1">
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                   </span>
+                                                </div>
+                                             </div>
+                                             <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
+                                             <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
+                                             <p class="course-offer-badge d-flex justify-content-between align-items-center">
+                                                <span>Courses Offered</span>
+                                                <span class="text-end">4 courses</span>
+                                             </p>
+                                             <p class="total-price-range d-flex justify-content-between align-items-center">
+                                                <span>Total Fees Range</span>
+                                                <span class="text-end">₹12.5 L - 24.5 L</span>
+                                             </p>
+                                          </div>
+
+                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
+                                       </div>
+                                 </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-slider-box position-relative">
+                                          <div class="recommended-clg-sliderbx">
+                                             <div class="d-flex justify-content-between">
+                                                <img src={logoSliderImage} class="clg-slider-logo" alt="" />
+                                                <div class="recommended-clg-rating text-center">
+                                                   <p class="mb-0">4.8</p>
+                                                   <span class="d-flex align-items-center justify-content-center gap-1">
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                   </span>
+                                                </div>
+                                             </div>
+                                             <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
+                                             <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
+                                             <p class="course-offer-badge d-flex justify-content-between align-items-center">
+                                                <span>Courses Offered</span>
+                                                <span class="text-end">4 courses</span>
+                                             </p>
+                                             <p class="total-price-range d-flex justify-content-between align-items-center">
+                                                <span>Total Fees Range</span>
+                                                <span class="text-end">₹12.5 L - 24.5 L</span>
+                                             </p>
+                                          </div>
+
+                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                                 <swiper-slide>
+                                    <div class="swiper-slide">
+                                       <div class="clg-slider-box position-relative">
+                                          <div class="recommended-clg-sliderbx">
+                                             <div class="d-flex justify-content-between">
+                                                <img src={logoSliderImage} class="clg-slider-logo" alt="" />
+                                                <div class="recommended-clg-rating text-center">
+                                                   <p class="mb-0">4.8</p>
+                                                   <span class="d-flex align-items-center justify-content-center gap-1">
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                      <img src={starFIcon} alt="" />
+                                                   </span>
+                                                </div>
+                                             </div>
+                                             <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
+                                             <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
+                                             <p class="course-offer-badge d-flex justify-content-between align-items-center">
+                                                <span>Courses Offered</span>
+                                                <span class="text-end">4 courses</span>
+                                             </p>
+                                             <p class="total-price-range d-flex justify-content-between align-items-center">
+                                                <span>Total Fees Range</span>
+                                                <span class="text-end">₹12.5 L - 24.5 L</span>
+                                             </p>
+                                          </div>
+
+                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
+                                       </div>
+                                    </div>
+                                 </swiper-slide>
+                              </CustomSwiper>
+                              <div class="swiper-button-prev clg-button-prev">
+                                 <img src={arrowLeftIcon} alt="" />
+                              </div>
+                              <div class="swiper-button-next clg-button-next">
+                                 <img src={arrowRightIcon} alt="" />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+
+
+                     
+               </div>
+             </div>
          </div>
       </section>
       </>
