@@ -414,12 +414,13 @@
 
       /*  */
 
-      .courseOffer-button-prev{
+      .courseOffer-button-prev, .career-button-prev{
         left: -10px;
       }
-      .courseOffer-button-next{
+      .courseOffer-button-next, .career-button-next{
         right: -10px;
       }
+      
     
 }
 
