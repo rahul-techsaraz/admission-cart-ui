@@ -21,7 +21,7 @@ const NewsLetter = () => {
                                 <input type="email" class="form-control newsletter-input" id="email" placeholder="Email address" />
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn newsletter-btn w-100">Confirm identity</button>
+                                <button type="submit" class=" newsletter-btn w-100">Confirm identity</button>
                             </div>
                             
                         </div>

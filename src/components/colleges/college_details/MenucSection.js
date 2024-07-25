@@ -31,7 +31,7 @@ export default function MenucSection() {
             </div>
             <div class="row">
                <div class="col-12">
-                  <div class="course-details-filtertab d-flex gap-3 mt-4">
+                  <div class="course-details-filtertab d-flex flex-wrap gap-3 mt-4">
                      <Link class="active">College Info</Link>
                      <Link class="">News</Link>
                      <Link class="">Reviews (11)</Link>

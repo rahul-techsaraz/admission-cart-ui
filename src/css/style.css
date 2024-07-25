@@ -238,7 +238,8 @@ li {
   top: 50%;
   transform: translateY(-50%);
   width: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: rgba(0, 0, 0, 0.2);
   height: 16px;
   content: "";
   z-index: 1;
@@ -253,6 +254,7 @@ li {
 }
 .h7_header-top-social ul {
   gap: 20px;
+  height: 35px;
 }
 .h7_header-top-social ul li span {
   color: #000;
@@ -773,7 +775,7 @@ ul.mega_menu {
 .banner-slider, .swiper-slide{
   background-size: 100%;
   background-position: right center;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   /* height: 650px; */
   /* height: 560px; */
   display: flex;
@@ -801,10 +803,12 @@ ul.mega_menu {
 
 .banner-caption h1{
   color: #000;
-  font-size: 50px;
+  font-size: 45px;
+  /* font-size: 40px; */
   font-style: normal;
   font-weight: 300;
   line-height: 67px;
+  /* line-height: 55px; */
   text-transform: capitalize;
 }
 .banner-caption h1 span{
@@ -2049,6 +2053,8 @@ span.milestone-dot {
 	display: flex;
 	align-items: center;
   left: 0;
+  background: transparent;
+  padding: 0;
 }
 
 .filter-col .form-group label:before {
@@ -2127,6 +2133,7 @@ span.milestone-dot {
   font-weight: 500;
   line-height: 14px;
   margin-bottom: 25px;
+  max-width: 100%;
 }
 .calender-icon-circle{
   width: 38px;
@@ -2169,6 +2176,7 @@ ul.exam-imp-list {
   right: 0;
   color: var(--color-black);
   width: 180px;
+  max-width: 100%;
 }
 .exam-listing-box .register-btn img{
   margin-right: 2px;
@@ -3759,7 +3767,7 @@ p.clg-stream-name {
   border-bottom: 2px solid var(--color-green);
   background: #FFF;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
-  padding: 15px 10px;
+  padding: 15px 26px;
   text-align: center;
   margin-top: 15px;
 }
@@ -3903,7 +3911,7 @@ p.clg-stream-name {
   font-weight: 400;
   line-height: 32px;
 }
-.reviews-count-progresbar .progress{
+.reviews-count-progresbar .progresss2{
   border-radius: 19px;
     background-color: #ddd;
     overflow: hidden;
@@ -4219,6 +4227,8 @@ p.clg-stream-name {
 }
 .card .details_tab .tab-content>.active {
 	background: #5BE4A8;
+  color: #000;
+  border-radius: 0;
 }
 .card .details_tab .tab-content .tab-pane {
 	padding: 1rem;
@@ -4554,7 +4564,7 @@ a{
   justify-content: center;
   font-size: 14px;
   color: #4F4F4F;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: 600;
 }
 
@@ -5046,4 +5056,21 @@ label #cancel{
 
 .profile-icon{
   color: #04a55c;
+}
+
+.filter-col{
+  margin-top: 30px;
+}
+.applied-filter{
+  margin-top: 30px;
+}
+.filter-col .form-group label{
+  display: block;
+}
+.applied-fliter-o{
+  gap: 20px;
+}
+
+.faculty-slider-box-img{
+  width: 100%;
 }

@@ -86,13 +86,20 @@ const Testimonial = () => {
                                     </swiper-slide>
                                 ))}
                                 </CustomSwiper>
-                            </div>
-                            <div className="swiper-button-prev testimonials-button-prev">
+
+                                <div className="swiper-button-prev testimonials-button-prev">
                                 <img src={leftArrow} alt="" />
                             </div>
                             <div className="swiper-button-next testimonials-button-next">
                                 <img src={rightArrow} alt="" />
                             </div>
+                            </div>
+                            {/* <div className="swiper-button-prev testimonials-button-prev">
+                                <img src={leftArrow} alt="" />
+                            </div>
+                            <div className="swiper-button-next testimonials-button-next">
+                                <img src={rightArrow} alt="" />
+                            </div> */}
                         </div>
 
                         <div className="swiper-pagination testimonial-pagination"></div>

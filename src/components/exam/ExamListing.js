@@ -174,7 +174,7 @@ export default function ExamListing() {
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-12">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="applied-fliter-o d-flex align-items-center justify-content-between mb-4">
                                 <div class="applied-filter d-inline-flex align-items-center">
                                     <p class="filter-apply-txt m-0 me-3">Applied Filters</p>
                                     <span class="filter-applied-badge text-center">B.Tech. Bachelor of Technology</span>
@@ -191,25 +191,35 @@ export default function ExamListing() {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
                                     <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="examCalenderImage" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Application Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
+                                    <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Exam Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <ul class="exam-imp-list">
                                         <li>
@@ -238,25 +248,35 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
-                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
-                                            <img src={examCalenderImage} alt="" />
+                                            <img src={examCalenderImage} alt="examCalenderImage" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Application Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
+                                    <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Exam Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <ul class="exam-imp-list">
                                         <li>
@@ -285,25 +305,35 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
-                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
-                                            <img src={examCalenderImage} alt="" />
+                                            <img src={examCalenderImage} alt="examCalenderImage" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Application Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
+                                    <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Exam Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <ul class="exam-imp-list">
                                         <li>
@@ -332,25 +362,35 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
-                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
-                                            <img src={examCalenderImage} alt="" />
+                                            <img src={examCalenderImage} alt="examCalenderImage" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Application Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
+                                    <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Exam Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <ul class="exam-imp-list">
                                         <li>
@@ -379,25 +419,35 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
-                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
-                                            <img src={examCalenderImage} alt="" />
+                                            <img src={examCalenderImage} alt="examCalenderImage" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Application Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
+                                    <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Exam Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <ul class="exam-imp-list">
                                         <li>
@@ -426,25 +476,35 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
-                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                        <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
-                                            <img src={examCalenderImage} alt="" />
+                                            <img src={examCalenderImage} alt="examCalenderImage" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Application Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
+                                    <div className='calender-icon-circle-parent'>
                                         <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                             <img src={examCalenderImage} alt="" />
                                         </span>
+                                        </div>
+
+                                        <div className='calender-h2-parent'>
                                         <h2 class="exam-dateinfo m-0">Exam Date
                                             <span class="date">08December, 2023 - 12January, 2024</span>
                                         </h2>
+                                        </div>
                                     </div>
                                     <ul class="exam-imp-list">
                                         <li>

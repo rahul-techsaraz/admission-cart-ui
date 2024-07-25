@@ -121,7 +121,7 @@ export default function CourseDetails() {
 
                         <div className="course-details-alterImgbox d-flex align-items-center">
                             <div className="course-details-alterImgbox-col1 green-bg">
-                                <h2 className="text-white">Can’t find right <span>Guidance?</span></h2>
+                                <h2 className="text-white">Can’t find right <span className='course-details-span'>Guidance?</span></h2>
                                 <p>No Problem! Speak to our experts safely from your home.</p>
                                 <Link className="theme-btn white-btn">Request a Call Back</Link>
                             </div>
