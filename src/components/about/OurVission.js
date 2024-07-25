@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ourVissionImg from "../../images/vission-img.png";
 
 export const OurVission = ()=>{
@@ -8,7 +9,7 @@ export const OurVission = ()=>{
                 <div class="col-md-6 text-end">
                     <h1 class="imgText-heading">Our Vision</h1>
                     <p class="imgText-para">Powering your global education dream. We support future leader from India in their quest to study at the best global schools. </p>
-                    <a href="#" class="leftdash-btn greendash">Read More</a>
+                    <Link class="leftdash-btn greendash">Read More</Link>
                 </div>
                 <div class="col-md-3">
                     <div class="about-img-parent position-relative ps-md-5">

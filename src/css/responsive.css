@@ -166,6 +166,15 @@
     .latest-news-badge{
         padding: 7px 20px;
     }
+    .write-review-btn{
+        padding: 8px 40px;
+    }
+    .accomodation-box{
+        width: 23%;
+    }
+    .accomodation-review-row{
+        row-gap: 20px;
+    }
     
 }   /* end 991px */
 
@@ -334,6 +343,20 @@
     .choice-place-col2{
         width: 100%;
     } 
+    .write-review-btn{
+        padding: 8px 20px;
+        font-size: 15px;
+    }
+    .accomodation-box {
+        width: 30%;
+      }
+      .accomodation-review-row{
+        justify-content: flex-start !important;
+        gap: 20px;
+    }
+    .newsletter-btn{
+        margin-top: 10px;
+    }
     /* .choice-place-col1 img{
         position: static;
     } */
@@ -423,6 +446,33 @@
       .exam-details-hightlights-table tr th p{
         font-size: 15px;
       }
+      .write-review-btn {
+        padding: 8px 19px;
+        font-size: 12px;
+      }
+      .accomodation-review-row{
+        justify-content: center !important;
+      }
+      .accomodation-review-row {
+        gap: 10px;
+      }
+      .accomodation-title{
+        font-size: 12px;
+      }
+      .accomodation-icon{
+        width: 27px;
+      }
+      .accomodation-reviewtxt{
+        font-size: 14px;
+      }
+      .accomodation-box {
+        width: 31%;
+        padding: 20px 10px;
+      }
+      
+
+
+
       /* .banner-slider, .swiper-slide{
         background-repeat: no-repeat;
       } */

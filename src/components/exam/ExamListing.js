@@ -7,6 +7,7 @@ import examAppFormImage from '../../images/app-form-icon.svg';
 import examElgiIconImage from '../../images/eligi-icon.svg';
 import examAdmitCardIconImage from '../../images/admit-card-icon.svg';
 import examRegisterIconImage from '../../images/register-icon.svg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -244,7 +245,7 @@ export default function ExamListing() {
                                     </ul>
 
                                 </div>
-                                <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
+                                <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -301,7 +302,7 @@ export default function ExamListing() {
                                     </ul>
 
                                 </div>
-                                <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
+                                <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -358,7 +359,7 @@ export default function ExamListing() {
                                     </ul>
 
                                 </div>
-                                <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
+                                <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -415,7 +416,7 @@ export default function ExamListing() {
                                     </ul>
 
                                 </div>
-                                <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
+                                <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -472,7 +473,7 @@ export default function ExamListing() {
                                     </ul>
 
                                 </div>
-                                <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
+                                <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -529,7 +530,7 @@ export default function ExamListing() {
                                     </ul>
 
                                 </div>
-                                <a href="#" class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</a>
+                                <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div>
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import arrowRightIcon from '../images/arrow-right-icon.svg';
 const DreamJobContainer = () => {
     return(
@@ -9,9 +10,9 @@ const DreamJobContainer = () => {
                     <h2>Get #Assured to land your dream job</h2>
                     <p>Master employable skills under the mentorship of industry experts to become job ready</p>
                 </div>
-                <a href="" className="admission-process-btn d-inline-flex align-self-stretch">
+                <Link className="admission-process-btn d-inline-flex align-self-stretch">
                     <img src={arrowRightIcon} className="arrow-right-icon" alt="" />
-                </a>
+                </Link>
             </div>
         </div>
     </section>

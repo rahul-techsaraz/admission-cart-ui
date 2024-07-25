@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import conversationImage from '../../images/conversation-img.png';
 import newsLetterImage from '../../images/newsletter-icon.svg'
 const NewsLetter = () => {
@@ -20,7 +21,7 @@ const NewsLetter = () => {
                                 <input type="email" class="form-control newsletter-input" id="email" placeholder="Email address" />
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn newsletter-btn w-100">Confirm identity</button>
+                                <button type="submit" class=" newsletter-btn w-100">Confirm identity</button>
                             </div>
                             
                         </div>
@@ -37,7 +38,7 @@ const NewsLetter = () => {
                     <div class="qa-forum">
                         <h1 class="qa-title">Q&A Forum</h1>
                         <p class="qa-para">If you have any questions on your mind or if you’re confused about the colleges/ careers/ courses/ exams you wish to pursue, just drop in a query & our experts will revert in no time with all the possible solutions.</p>
-                        <a href="#" class="theme-btn green-btn">Post Your Request</a>
+                        <Link class="theme-btn green-btn">Post Your Request</Link>
                     </div>
                 </div>
             </div>

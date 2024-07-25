@@ -41,7 +41,7 @@ const CareerProcess = () => {
                 </li>
                 <li>
                     <div className="dashed-border position-relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="276" viewBox="0 0 220 276" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="300" viewBox="0 0 220 300" fill="none">
                             <path d="M1 70.948C3.84898 60.1865 25.0029 2.1423 103.33 1.22852C118.566 1.05077 103.33 1.2285 118.566 1.05079C118.566 1.05079 193 -3.39693 218.662 70.948C218.962 71.8159 219.422 221.841 218.662 275.07" stroke="black" stroke-dasharray="8 8"/>
                         </svg>
                         <img src={guestList} className="d-block mx-auto" alt="" />

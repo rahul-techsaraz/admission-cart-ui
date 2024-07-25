@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import arrowRightIcon from '../images/arrow-right-icon.svg';
 const AdmissionProcess = () => {
     return(
@@ -8,9 +9,9 @@ const AdmissionProcess = () => {
                     <h2>End-to-end Admission Process Simplified</h2>
                     <p>Get help for your search, shortlist, application, preparation, admission and placement requirements!</p>
                 </div>
-                <a href="" className="admission-process-btn d-inline-flex align-self-stretch">
+                <Link className="admission-process-btn d-inline-flex align-self-stretch">
                     <img src={arrowRightIcon} className="arrow-right-icon" alt="" />
-                </a>
+                </Link>
             </div>
         </div>
     </section>

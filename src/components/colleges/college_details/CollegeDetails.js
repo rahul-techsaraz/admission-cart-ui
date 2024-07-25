@@ -2143,7 +2143,7 @@ export default function CollegeDetails() {
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
-                                          <img src={facultImage1} alt="" />
+                                          <img className='faculty-slider-box-img' src={facultImage1} alt="" />
                                           <p>Prof.
                                              Bhaskar Ramamurthi
                                              Director
@@ -2154,7 +2154,7 @@ export default function CollegeDetails() {
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
-                                          <img src={facultImage2} alt="" />
+                                          <img className='faculty-slider-box-img' src={facultImage2} alt="" />
                                           <p>Prof.
                                              Bhaskar Ramamurthi
                                              Director
@@ -2165,7 +2165,7 @@ export default function CollegeDetails() {
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
-                                          <img src={facultImage3} alt="" />
+                                          <img className='faculty-slider-box-img' src={facultImage3} alt="" />
                                           <p>Prof.
                                              Bhaskar Ramamurthi
                                              Director
@@ -2176,7 +2176,7 @@ export default function CollegeDetails() {
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
-                                          <img src={facultImage4} alt="" />
+                                          <img className='faculty-slider-box-img' src={facultImage4} alt="" />
                                           <p>Prof.
                                              Bhaskar Ramamurthi
                                              Director
@@ -2187,7 +2187,7 @@ export default function CollegeDetails() {
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
-                                          <img src={facultImage1} alt="" />
+                                          <img className='faculty-slider-box-img' src={facultImage1} alt="" />
                                           <p>Prof.
                                              Bhaskar Ramamurthi
                                              Director
@@ -2198,7 +2198,7 @@ export default function CollegeDetails() {
                                  <swiper-slide>
                                     <div class="swiper-slide">
                                        <div class="faculty-slider-box">
-                                          <img src={facultImage2} alt="" />
+                                          <img className='faculty-slider-box-img' src={facultImage2} alt="" />
                                           <p>Prof.
                                              Bhaskar Ramamurthi
                                              Director
@@ -2365,7 +2365,7 @@ export default function CollegeDetails() {
                                  <div class="tab-pane fade show active" id="detailed-reviews" role="tabpanel" aria-labelledby="detailed-reviews-tab">
                                        <div class="clg-specific-postreview-box mb-4">
                                           <div class="row justify-content-between mb-4">
-                                             <div class="col-4">
+                                             <div class="col-md-6 col-sm-8 col-lg-4">
                                                 <div class="d-flex">
                                                    <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
                                                       A
@@ -2423,7 +2423,7 @@ export default function CollegeDetails() {
                                        </div>
                                        <div class="clg-specific-postreview-box mb-4">
                                           <div class="row justify-content-between mb-4">
-                                             <div class="col-4">
+                                             <div class="col-md-6 col-sm-8 col-lg-4">
                                                 <div class="d-flex">
                                                    <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
                                                       H
@@ -2479,7 +2479,7 @@ export default function CollegeDetails() {
                                        </div>
                                        <div class="clg-specific-postreview-box mb-4">
                                           <div class="row justify-content-between mb-4">
-                                             <div class="col-4">
+                                             <div class="col-md-6 col-sm-8 col-lg-4">
                                                 <div class="d-flex">
                                                    <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
                                                       T
@@ -2535,7 +2535,7 @@ export default function CollegeDetails() {
                                        </div>
                                        <div class="clg-specific-postreview-box mb-4">
                                           <div class="row justify-content-between mb-4">
-                                             <div class="col-4">
+                                             <div class="col-md-6 col-sm-8 col-lg-4">
                                                 <div class="d-flex">
                                                    <div class="user-letter-circle d-inline-flex align-items-center justify-content-center me-2">
                                                       S
@@ -2859,11 +2859,11 @@ export default function CollegeDetails() {
                                                 </div>
                                                 <div class="details_btn_group">
                                                    <div class="row">
-                                                      <div class="col-6 pe-1">
+                                                      {/* <div class="col-6 pe-1">
                                                          <button type="button" class="details_btn text-center w-100">
                                                             Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="22" height="18" />
                                                          </button>
-                                                      </div>
+                                                      </div> */}
                                                       <div class="col-6 ps-1">
                                                          <button type="button" class="details_btn text-center w-100">
                                                             Admission Predictor <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="18" height="14" />
@@ -2955,11 +2955,11 @@ export default function CollegeDetails() {
                                                 </div>
                                                 <div class="details_btn_group">
                                                    <div class="row">
-                                                      <div class="col-6 pe-1">
+                                                      {/* <div class="col-6 pe-1">
                                                          <button type="button" class="details_btn text-center w-100">
                                                             Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="22" height="18" />
                                                          </button>
-                                                      </div>
+                                                      </div> */}
                                                       <div class="col-6 ps-1">
                                                          <button type="button" class="details_btn text-center w-100">
                                                             Admission Predictor <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="18" height="14" />
