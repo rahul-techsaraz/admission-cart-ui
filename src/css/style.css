@@ -3984,9 +3984,10 @@ p.clg-stream-name {
   background-color: white;
   padding: 10px;
   width: 180px;
+  border-radius: 0;
 }
 .review-tab-listing li button.active{
-  background-color: var(--color-green);
+  background: var(--color-green);
 }
 .review-tab-listing li:first-child button{
   border-top-left-radius: 20px;

@@ -357,9 +357,19 @@
     .newsletter-btn{
         margin-top: 10px;
     }
-    /* .choice-place-col1 img{
-        position: static;
-    } */
+    .course-details-alterImgbox-col1 h2 {
+        font-size: 25px;
+      }
+      .course-details-alterImgbox-col1 h2{
+        line-height: 35px;
+      }
+      .course-details-alterImgbox-col1 p{
+        font-size: 17px;
+      }
+
+
+
+    
    
 
 }
@@ -414,11 +424,16 @@
 
       /*  */
 
-      .courseOffer-button-prev, .career-button-prev{
+      .courseOffer-button-prev, .career-button-prev, .clg-faculty-button-prev{
         left: -10px;
       }
-      .courseOffer-button-next, .career-button-next{
+      .courseOffer-button-next, .career-button-next, .clg-faculty-button-next{
         right: -10px;
+      }
+
+      .user-letter-circle{
+        width: 60px;
+        height: 60px;
       }
       
     
