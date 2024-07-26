@@ -33,7 +33,7 @@ export default function ExamDetailsLeftBox() {
     //console.log(p)
   }
   return (
-   <div className="col-md-9">
+   <div className="col-md-12">
         <div id="exam_details_leftBox" className="exam-details-leftBox">
           <h2 className="exam-details-yellow-heading mb-4 d-inline-block">JEE Main Exam 2024</h2>
           <div className="exam-details-left-innerpara mb-5 ps-5">

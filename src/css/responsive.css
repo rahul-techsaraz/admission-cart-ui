@@ -2,6 +2,18 @@
     .banner-caption{
         padding: 55px 0;
     }
+    .course-list-leftbox{
+        width: 130px;
+    }
+    .course-list-rightbox {
+        padding: 0 20px;
+      }
+      .course-list-rightbox h2{
+        font-size: 20px;
+      }
+      .course-list-rightbox p{
+        font-size: 20px;
+      }
 }
 @media screen and (max-width: 1024px){
     .banner-caption h1{
@@ -103,10 +115,10 @@
         width: 70px;
         height: 70px;
     } */
-    .career-button-prev img, .career-button-next img,
+    /* .career-button-prev img, .career-button-next img,
     .testimonials-button-prev img, .testimonials-button-next img{
         width: 30px;
-    }
+    } */
     .dots-img1 {
         bottom: inherit;
         right: 25px;
@@ -175,6 +187,19 @@
     .accomodation-review-row{
         row-gap: 20px;
     }
+
+    .course-list-leftbox{
+        width: 140px;
+    }
+    .course-list-rightbox {
+        padding: 0 50px;
+      }
+      .course-list-rightbox h2{
+        font-size: 24px;
+      }
+      .course-list-rightbox p{
+        font-size: 22px;
+      }
     
 }   /* end 991px */
 
@@ -200,10 +225,6 @@
     }
     .banner-caption h1 span {
         font-size: 20px;
-    }
-    .course-box {
-        /* padding: 30px 15px 0; */
-        padding: 30px 30px 0;
     }
     p.course-para {
         padding-left: 0;
@@ -381,6 +402,9 @@
       .banner-caption{
         height: 220px;
       }
+      .banner-btn-grp{
+        margin-top: 1rem !important;
+      }
 }
 
 @media screen and (max-width: 576px){
@@ -435,7 +459,12 @@
         width: 60px;
         height: 60px;
       }
-      
+      .clg-accepting-exam-slider-box{
+        padding: 55px 40px;
+      }
+      .clg-accepting-exam-slider-box{
+        padding: 20px 40px;
+      }
     
 }
 
