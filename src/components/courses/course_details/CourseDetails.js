@@ -118,8 +118,100 @@ export default function CourseDetails() {
                             </div>
                             
                         </div>
+                    
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <aside id="courses_details_rightcol" className="courses-details-rightcol">
+                        <div className="courses-details-rightcol-grid">
+                            <h2 className="courses-details-rightcol-grid-title">Popular Courses</h2>
+                            <div className="courses-details-rightcol-gridcontent">
+                                <ul className="courses-details-rightcol-listing">
+                                    <li>Biotechnology Engineering</li>
+                                    <li>B.Tech Information Technology</li>
+                                    <li>Biotechnology Engineering</li>
+                                    <li>Industrial Design</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
 
-                        <div className="course-details-alterImgbox d-flex align-items-center">
+
+                        <div className="courses-details-rightcol-grid mt-5">
+                            <h2 className="courses-details-rightcol-grid-title">Top B Tech Biochemical Engineering Colleges in India</h2>
+                            <div className="courses-details-rightcol-gridcontent">
+                                <ul className="courses-details-rightcol-listing">
+                                    <li>Geetanjali Group of Colleges</li>
+                                    <li>Indian Institute of Management Ahmedabad</li>
+                                    <li>Biotechnology Engineering</li>
+                                    <li>Industrial Design</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
+
+                        <div className="courses-details-rightcol-grid mt-5">
+                            <h2 className="courses-details-rightcol-grid-title">Related News</h2>
+                            <div className="courses-details-rightcol-gridcontent">
+                                <div className="d-inline-flex gap-2 my-3">
+                                    <Link className="latest-news-badge">Latest</Link>
+                                    <Link className="popular-news-badge">Popular</Link>
+                                </div>
+                                <ul className="courses-details-rightcol-listing">
+                                    <li className="d-flex">
+                                        <div className="related-news-postimg">
+                                            <img src={relatedNews} alt="" />
+                                        </div>
+                                        <div className="related-news-postinfo">
+                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
+                                            <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
+                                        </div>
+                                    </li>
+                                    <li className="d-flex">
+                                        <div className="related-news-postimg">
+                                            <img src={relatedNews} alt="" />
+                                        </div>
+                                        <div className="related-news-postinfo">
+                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
+                                            <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
+                                        </div>
+                                    </li>
+                                    <li className="d-flex">
+                                        <div className="related-news-postimg">
+                                            <img src={relatedNews} alt="" />
+                                        </div>
+                                        <div className="related-news-postinfo">
+                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
+                                            <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
+
+
+                        <div className="courses-details-rightcol-grid mt-5">
+                            <h2 className="courses-details-rightcol-grid-title">Popular Full Forms</h2>
+                            <div className="courses-details-rightcol-gridcontent">
+                                <ul className="courses-details-rightcol-listing">
+                                    <li>SSC CGL Full Form</li>
+                                    <li>CTET Full Form</li>
+                                    <li>NEET Full Form</li>
+                                    <li>CAT Full Form</li>
+                                    <li>HSC Full Form</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
+
+
+
+                    </aside>
+                </div>
+                <div className='col-12'>
+                <div className="course-details-alterImgbox d-flex align-items-center">
                             <div className="course-details-alterImgbox-col1 green-bg">
                                 <h2 className="text-white">Can’t find right <span className='course-details-span'>Guidance?</span></h2>
                                 <p>No Problem! Speak to our experts safely from your home.</p>
@@ -306,99 +398,10 @@ export default function CourseDetails() {
                             </div> */}
 
                         </div>
-                    
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <aside id="courses_details_rightcol" className="courses-details-rightcol">
-                        <div className="courses-details-rightcol-grid">
-                            <h2 className="courses-details-rightcol-grid-title">Popular Courses</h2>
-                            <div className="courses-details-rightcol-gridcontent">
-                                <ul className="courses-details-rightcol-listing">
-                                    <li>Biotechnology Engineering</li>
-                                    <li>B.Tech Information Technology</li>
-                                    <li>Biotechnology Engineering</li>
-                                    <li>Industrial Design</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
-
-
-                        <div className="courses-details-rightcol-grid mt-5">
-                            <h2 className="courses-details-rightcol-grid-title">Top B Tech Biochemical Engineering Colleges in India</h2>
-                            <div className="courses-details-rightcol-gridcontent">
-                                <ul className="courses-details-rightcol-listing">
-                                    <li>Geetanjali Group of Colleges</li>
-                                    <li>Indian Institute of Management Ahmedabad</li>
-                                    <li>Biotechnology Engineering</li>
-                                    <li>Industrial Design</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
-
-                        <div className="courses-details-rightcol-grid mt-5">
-                            <h2 className="courses-details-rightcol-grid-title">Related News</h2>
-                            <div className="courses-details-rightcol-gridcontent">
-                                <div className="d-inline-flex gap-2 my-3">
-                                    <Link className="latest-news-badge">Latest</Link>
-                                    <Link className="popular-news-badge">Popular</Link>
-                                </div>
-                                <ul className="courses-details-rightcol-listing">
-                                    <li className="d-flex">
-                                        <div className="related-news-postimg">
-                                            <img src={relatedNews} alt="" />
-                                        </div>
-                                        <div className="related-news-postinfo">
-                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
-                                            <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
-                                        </div>
-                                    </li>
-                                    <li className="d-flex">
-                                        <div className="related-news-postimg">
-                                            <img src={relatedNews} alt="" />
-                                        </div>
-                                        <div className="related-news-postinfo">
-                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
-                                            <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
-                                        </div>
-                                    </li>
-                                    <li className="d-flex">
-                                        <div className="related-news-postimg">
-                                            <img src={relatedNews} alt="" />
-                                        </div>
-                                        <div className="related-news-postinfo">
-                                            <p className="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
-                                            <p className="related-news-postdate">Sept 20, 2023 | By: Someone</p>
-                                        </div>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
-
-
-                        <div className="courses-details-rightcol-grid mt-5">
-                            <h2 className="courses-details-rightcol-grid-title">Popular Full Forms</h2>
-                            <div className="courses-details-rightcol-gridcontent">
-                                <ul className="courses-details-rightcol-listing">
-                                    <li>SSC CGL Full Form</li>
-                                    <li>CTET Full Form</li>
-                                    <li>NEET Full Form</li>
-                                    <li>CAT Full Form</li>
-                                    <li>HSC Full Form</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <Link className="courses-details-rightcol-viewall-btn">View All</Link>
-
-
-
-                    </aside>
                 </div>
             </div>
+
+
         </div>
     </section>
 

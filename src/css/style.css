@@ -1086,6 +1086,7 @@ p.course-para {
 }
 .trending-course-box .course-box {
   padding: 30px 45px 0;
+  background: #fff;
 }
 .trending-course-box .course-readmore-btn{
   background-color: var(--color-green);
@@ -1686,6 +1687,7 @@ select.form-select {
 
 .milestone-slider{
   height: 435px;
+  /* height: 300px; */
   padding: 0 80px;
 }
 .milestone-separator{
@@ -2604,7 +2606,7 @@ ul.exam-imp-list {
   border-radius: 10px;
   border: 2px solid var(--color-green);
   background: #FFF;
-  padding: 20px;
+  padding: 20px 30px;
 }
 .clg-slider-logo{
   height: 45px;
@@ -2635,11 +2637,12 @@ ul.exam-imp-list {
   font-style: normal;
   font-weight: 500;
   line-height: 19px; 
-  margin: auto;
+  margin:5px auto;
   left: 0;
   right: 0;
   width: fit-content;
   position: relative !important;
+  top: 10px;
 }
 
 .courses-details-rightcol{
@@ -3074,7 +3077,7 @@ ul.exam-imp-list {
   border-bottom: 2px solid var(--color-green);
   background: #FFF;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
-  padding: 55px 20px;
+  padding: 55px 30px;
   height: 220px;
   display: flex;
   flex-direction: column;
@@ -3276,7 +3279,7 @@ ul.exam-imp-list {
   box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
 }
 .management-clg-state-slider-wrapper .clg-accepting-exam-slider-box{
-  padding: 20px;
+  padding: 20px 30px;
   height: 250px;
   flex-direction: column;
   justify-content: flex-start;
@@ -3301,6 +3304,7 @@ ul.exam-imp-list {
   position: absolute;
   bottom: 0;
   right: 0;
+  border: 1px solid white;
 }
 
 .nav-pills-custom .nav-link {
@@ -3984,9 +3988,10 @@ p.clg-stream-name {
   background-color: white;
   padding: 10px;
   width: 180px;
+  border-radius: 0;
 }
 .review-tab-listing li button.active{
-  background-color: var(--color-green);
+  background: var(--color-green);
 }
 .review-tab-listing li:first-child button{
   border-top-left-radius: 20px;
@@ -5073,4 +5078,8 @@ label #cancel{
 
 .faculty-slider-box-img{
   width: 100%;
+}
+
+#v-pills-home{
+  background: #fff;
 }
