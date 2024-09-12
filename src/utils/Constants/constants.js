@@ -52,6 +52,9 @@ const constants = {
         USER_DETAILS_SAVE_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=userDetails",
         USER_EDUCATIONAL_QUALIFICATION_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=educationalQualification",
         USER_PREFERENCE_SAVE_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=collegePreferences",
+        USER_DOCUMENT_SAVE_UPDATE: "https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument",
+        USER_DOCUMENT_GET_ALL_DOCUMENT: " https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument&email=",
+        DOCUMENT_PATH: "https://techsaraz.in/admission-cart/api/fileupload/",
     },
     apiMethod: {
         GET: 'get',
