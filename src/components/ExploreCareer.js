@@ -6,6 +6,7 @@ import { swiperResponsive } from '../utils/Constants/swiperResponsive';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import constants from "../utils/Constants/constants";
 
 const ExploreCareer = () => {
     const{allCollegeData}= useSelector(state=>state.common)
@@ -53,7 +54,7 @@ const ExploreCareer = () => {
                                         <div className="swiper-slide">
                                             <div className="career-box-flex-box">
                                                 <div className="career-box text-start">
-                                                    <img src={exploreThumbImg} className="explore-ThumbImg" alt="" />
+                                                    <img src={constants.imageAbsolutePath + college.college_thumbnail} className="explore-ThumbImg" alt="" />
                                                     <div className="career-boxInner">
                                                         <div className="d-flex justify-content-center career-upperbx">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none" className="chat-icon">
