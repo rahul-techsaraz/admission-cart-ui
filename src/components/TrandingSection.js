@@ -9,9 +9,9 @@ import { useEffect } from "react";
 
 const TrandingSection  = () => {
     const {allCourseData} = useSelector(state=>state.common)
-    useEffect(()=>{
-        console.log(allCourseData)
-    },[allCourseData])
+    // useEffect(()=>{
+    //     console.log(allCourseData)
+    // },[allCourseData])
     return(
         <>
          <section className="trending-course-section">
