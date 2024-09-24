@@ -33,7 +33,7 @@ const NewsLetter = () => {
                     <img src={conversationImage} class="d-block mx-auto conversation-img mt-5 pt-3" alt="" />
                 </div>
             </div>
-            <div class="row">
+            {/* <div class="row">
                 <div class="col-10 col-md-8 mx-auto">
                     <div class="qa-forum">
                         <h1 class="qa-title">Q&A Forum</h1>
@@ -41,7 +41,7 @@ const NewsLetter = () => {
                         <Link class="theme-btn green-btn">Post Your Request</Link>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     </section>
         </>

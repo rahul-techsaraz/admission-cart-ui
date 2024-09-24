@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchAllCollegeList, fetchAllCourseList, fetchAllExamList } from "../components/ReduxThunk/CommonThunk";
+import constants from "../utils/Constants/constants";
 
 const initialState = {
     authenticateUser: localStorage.getItem('loginResponse')? true : false,
@@ -7,7 +9,9 @@ const initialState = {
     openAfterLoginModel: false,
     openDashBoardModel:false,
     activemenue:1,
-    
+    allCollegeData:[],
+    allExamData:[],
+    allCourseData:[],
  
 };
 
@@ -34,6 +38,23 @@ const commonSlice = createSlice({
       state.lastLocation = payload.location
     }
   },
+  extraReducers:(builder)=>{
+    builder.addCase(fetchAllCollegeList.fulfilled, (state, { payload }) => {
+      if (payload.status === constants.apiResponseStatus.SUCCESS) {
+        state.allCollegeData = payload.data
+      }
+    })
+    builder.addCase(fetchAllCourseList.fulfilled, (state, { payload }) => {
+      if (payload.status === constants.apiResponseStatus.SUCCESS) {
+        state.allCourseData = payload.data.result
+      }
+    })
+    builder.addCase(fetchAllExamList.fulfilled, (state, { payload }) => {
+      if (payload.status === constants.apiResponseStatus.SUCCESS) {
+        state.allExamData = payload.data
+      }
+    })
+  }
 });
 
 export const { 
