@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import AboutUs from "../page/AboutUs"
 import AbroadSuccessStory from "../page/AbroadSuccessStory"
 import BlogSection from "../page/BlogSection"
@@ -14,26 +15,48 @@ import LandingContainer from "./LandingContainer"
 import MockExamList from "./MockExamList"
 import Testimonial from "./Testimonial"
 import TrandingSection from "./TrandingSection"
+import { useFetchAllCollege } from "./hooks/useFetchAllCollege"
+import { useFetchAllCourse } from "./hooks/useFetchAllCourse"
+import { useSelector } from "react-redux"
+import { useFetchAllExam } from "./hooks/useFetchAllExam"
 
 const DashBoard = () => {
+    const {fetchCollegeList} = useFetchAllCollege()
+    const {fetchCourseList} = useFetchAllCourse()
+    const {fetchExamList} = useFetchAllExam()
+    const {allCollegeData,allExamData,allCourseData} = useSelector(state=>state.common)
+    useEffect(()=>{
+        fetchCollegeList()
+        fetchCourseList()
+        fetchExamList()
+    },[])
+    // useEffect(()=>{
+    //     console.log(allCollegeData)
+    // },[allCollegeData])
+    // useEffect(()=>{
+    //     console.log(allExamData)
+    // },[allExamData])
+    // useEffect(()=>{
+    //     console.log(allCourseData)
+    // },[allCourseData])
     return (
         <>
          <LandingContainer />
-     <MockExamList />
-     <CourseList />
-     <AdmissionProcess />
-     <CareerProcess />
-     <ChoiceSection />
-     <TrandingSection />
-    <DreamJobContainer />
-    <CareerStep />
-   <ExploreCoursesPage />
-    <ExploreCareer />
-    <AbroadSuccessStory />
-    <AboutUs />
-    <BlogSection />
-    <DataCounter />
-    <Testimonial />
+     {/* <MockExamList /> */}
+        <CourseList />
+        <AdmissionProcess />
+        <CareerProcess />
+        <ChoiceSection />
+        <TrandingSection />
+        <DreamJobContainer />
+        <CareerStep />
+        <ExploreCoursesPage />
+        <ExploreCareer />
+        <AbroadSuccessStory />
+        <AboutUs />
+        <BlogSection />
+        <DataCounter />
+        <Testimonial />
         </>
     )
 }

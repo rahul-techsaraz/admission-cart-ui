@@ -55,6 +55,9 @@ const constants = {
         USER_DOCUMENT_SAVE_UPDATE: "https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument",
         USER_DOCUMENT_GET_ALL_DOCUMENT: " https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument&email=",
         DOCUMENT_PATH: "https://techsaraz.in/admission-cart/api/fileupload/",
+        COLLEGE_LIST: 'https://techsaraz.in/admission-cart/api/colleges.php',
+        EXAM_LIST: 'https://techsaraz.in//admission-cart/api/exam.php',
+        COURSE_LIST: 'https://techsaraz.in//admission-cart/api/courses.php',
     },
     apiMethod: {
         GET: 'get',
@@ -65,6 +68,13 @@ const constants = {
     apiHeader: {
         HEADER: { 'Content-Type': 'application/json' }
     },
+    apiResponseStatus: {
+        SUCCESS: 'success',
+        WARNING: 'warning',
+        ERROR: 'error',
+        NOT_FOUND: 'NOT FOUND'
+      },
+      imageAbsolutePath: 'https://techsaraz.in/admission-cart/api/fileupload/',
     tabList: {
         COURSES_NAME: 'Courses',
         COLLEGES_NAME: 'Colleges',

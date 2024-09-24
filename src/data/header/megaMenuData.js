@@ -92,6 +92,7 @@ export const megaMenuData = [
             }
         ]
     },
+    // Course List
     {
         categoryName: 'Commerce and Banking',
         mainCategory:constants.tabList.COURSES_NAME,
@@ -114,6 +115,7 @@ export const megaMenuData = [
             }
         ]
     },
+    // Exam List
     {
         categoryName: 'Engineering and Architecture',
         mainCategory:constants.tabList.EXAM_LIST,
