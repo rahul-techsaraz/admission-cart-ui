@@ -32,9 +32,7 @@ const CourseList = () => {
             spaceBetween: 20,
         },
       };
-    //   useEffect(()=>{
-    //     console.log(allExamData)
-    //   },[allExamData])
+    
     return(
         <>
         <section className="course-slider-section text-center section-padding">
