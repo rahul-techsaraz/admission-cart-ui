@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import constants from "../utils/Constants/constants";
 
 const CourseList = () => {
-    const {allCollegeData} = useSelector(state=>state.common)
+    const {allExamData} = useSelector(state=>state.common)
     const responsive = {
         1400:{
             slidesPerView: 4,
@@ -33,8 +33,8 @@ const CourseList = () => {
         },
       };
     //   useEffect(()=>{
-    //     console.log(allCollegeData)
-    //   },[allCollegeData])
+    //     console.log(allExamData)
+    //   },[allExamData])
     return(
         <>
         <section className="course-slider-section text-center section-padding">
@@ -42,15 +42,15 @@ const CourseList = () => {
                 <div className="course-slider">
                     <div className="swiper-wrapper position-relative">
                         <CustomSwiper navigationNext='.courselist-button-next' navigationPrev='.courselist-button-prev' noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                            {allCollegeData.filter((data)=>data.ratings>=3).map((college)=>(
+                            {allExamData.map((exam)=>(
                                 <swiper-slide>
                                 <div className="swiper-slide position-relative">
                                     <div className="course-box text-start">
-                                        <img src={constants.imageAbsolutePath + college.college_logo} className="scollarship-icon" alt="" />
-                                        <p className="course-name">{college.college_name}</p>
+                                        <img src={scollarship} className="scollarship-icon" alt="" />
+                                        <p className="course-name">{exam.exam_name}</p>
                                         <p className="course-numbering">1.</p>
                                         <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                        <Link className="course-readmore-btn" to={`/colleges_details/${college.college_name}`}>Read More <img src={{rightArrow}} alt="" /></Link>
+                                        <Link className="course-readmore-btn" to={`/exam_details/${exam.exam_name}`}>Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div>
                             </swiper-slide>

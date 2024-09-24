@@ -11,7 +11,7 @@ const ChoiceSection = () => {
             <div className="choice-place-col2">
                <h2>Find top colleges of your choice at one place</h2>
                <p>1 single form and get access to 2500+ colleges across India. CAF saves your time, money and makes the college application process easier for you to apply to numerous colleges using one window.</p>
-               <Link className="theme-btn black-btn">Find Colleges</Link>
+               <Link className="theme-btn black-btn" to={'/colleges_list'}>Find Colleges</Link>
             </div>
         </div>
     </section>
