@@ -3,6 +3,7 @@ import { fetchAllCollegeList, fetchAllCourseList, fetchAllExamList } from "../co
 import constants from "../utils/Constants/constants";
 
 const initialState = {
+    isLoading: false,
     authenticateUser: localStorage.getItem('loginResponse')? true : false,
     lastLocation:'',
     openLoginModel: false,
@@ -12,6 +13,7 @@ const initialState = {
     allCollegeData:[],
     allExamData:[],
     allCourseData:[],
+
  
 };
 
@@ -43,16 +45,37 @@ const commonSlice = createSlice({
       if (payload.status === constants.apiResponseStatus.SUCCESS) {
         state.allCollegeData = payload.data
       }
+      state.isLoading = false
+    })
+    builder.addCase(fetchAllCollegeList.pending, (state, { payload }) => {
+      state.isLoading = true
+    })
+    builder.addCase(fetchAllCollegeList.rejected, (state, { payload }) => {
+      state.isLoading = false
     })
     builder.addCase(fetchAllCourseList.fulfilled, (state, { payload }) => {
       if (payload.status === constants.apiResponseStatus.SUCCESS) {
         state.allCourseData = payload.data.result
       }
+      state.isLoading = false
+    })
+    builder.addCase(fetchAllCourseList.pending, (state, { payload }) => {
+      state.isLoading = true
+    })
+    builder.addCase(fetchAllCourseList.rejected, (state, { payload }) => {
+      state.isLoading = false
     })
     builder.addCase(fetchAllExamList.fulfilled, (state, { payload }) => {
       if (payload.status === constants.apiResponseStatus.SUCCESS) {
         state.allExamData = payload.data
       }
+      state.isLoading = false
+    })
+    builder.addCase(fetchAllExamList.pending, (state, { payload }) => {
+      state.isLoading = true
+    })
+    builder.addCase(fetchAllExamList.rejected, (state, { payload }) => {
+      state.isLoading = false
     })
   }
 });
