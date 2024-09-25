@@ -23,20 +23,23 @@ import { toggelAfterLoginModel, toggelLoginModel, updateauthenticateUser } from 
 import constants from './utils/Constants/constants';
 import httpFetch from './fetch/useFetch'
 import {register} from "swiper/element/bundle"
+import Loader from './components/Loader/Loader';
 
 const AppLayout = () => {
+  const {isLoading} = useSelector(state=>state.common)
   register()
 
   return (
- <div className="app">
-          <Header />
-          <Outlet />
-          <NewsLetter />
-          <ContactUsPage />
-          <Footer />
-        </div>
-     
-       
+    <>
+      {isLoading && <Loader />}
+      <div className="app">
+        <Header />
+        <Outlet />
+        <NewsLetter />
+        <ContactUsPage />
+        <Footer />
+      </div>
+    </>
   );
 };
 
