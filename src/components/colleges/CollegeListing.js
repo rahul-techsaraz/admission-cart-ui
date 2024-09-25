@@ -4,7 +4,10 @@ import CollegeFaq from './CollegeFaq'
 import collegeImage1 from '../../images/clg-img1.jpg';
 import collegeLogo from '../../images/clg-logo3.png';
 import collegeWishList from '../../images/wishlist-checked-icon.svg';
+import { useSelector } from 'react-redux';
+import CollegeCard from './college_details/CollegeCard';
 export default function CollegeListing() {
+    const {allCollegeData} = useSelector(state=>state.common)
   return (
       <>
           <CollegeBanner />
@@ -171,8 +174,10 @@ export default function CollegeListing() {
                             </div>
                         </div>
                     </div>
+                    
                     <div className="row">
-                        <div className="col-lg-6">
+                        <CollegeCard allCollegeData={allCollegeData}/>
+                        {/* <div className="col-lg-6">
                             <div className="clg-listing-box">
                                 <div className="clg-listing-inner-upbx position-relative">
                                     <img src={collegeImage1} alt="collegeImage1" />
@@ -367,7 +372,7 @@ export default function CollegeListing() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>
