@@ -8,12 +8,15 @@ import examElgiIconImage from '../../images/eligi-icon.svg';
 import examAdmitCardIconImage from '../../images/admit-card-icon.svg';
 import examRegisterIconImage from '../../images/register-icon.svg';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import ExamCard from './exam_details/ExamCard';
 
 
 
 
 
 export default function ExamListing() {
+    const {allExamData} = useSelector(state=>state.common)
     return (
         <>
             <ExamBanner />
@@ -191,7 +194,8 @@ export default function ExamListing() {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6">
+                        <ExamCard />
+                        {/* <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -532,7 +536,7 @@ export default function ExamListing() {
                                 </div>
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

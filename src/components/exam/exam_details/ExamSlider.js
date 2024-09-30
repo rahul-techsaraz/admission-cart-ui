@@ -2,11 +2,13 @@ import React from 'react'
 import arrowLeft from '../../../images/arrow-left-icon.svg';
 import arrowRight from '../../../images/arrow-right-icon.svg';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
+import { useSelector } from 'react-redux';
 
 export default function ExamSlider() {
+  const {examDetailsById}=useSelector(state=>state.common)
   return (
     <div className="clg-accepting-slider-wrapper position-relative yellow-bg px-4 pt-5 mt-5 mb-5">
-            <h2 className="section-heading2 grey text-center mb-4">Colleges Accepting Exam JEE Main :</h2>
+            <h2 className="section-heading2 grey text-center mb-4">{'Colleges Accepting Exam ' + examDetailsById?.examBasicDetails?.exam_name} :</h2>
             <div className="swiper clg-slider">
                {/* Additional required wrapper */}
               <div className="swiper-wrapper position-relative">
