@@ -3,12 +3,11 @@ import collegeImage1 from '../../../images/clg-img1.jpg';
 import collegeLogo from '../../../images/clg-logo3.png';
 import collegeWishList from '../../../images/wishlist-checked-icon.svg';
 import constants from '../../../utils/Constants/constants';
-// import collegeImage1 from '../../images/clg-img1.jpg';
-// import collegeLogo from '../../images/clg-logo3.png';
-// import collegeWishList from '../../images/wishlist-checked-icon.svg';
+import { Link } from 'react-router-dom';
+
 
 export default function CollegeCard({allCollegeData}) {
-    console.log(allCollegeData)
+    // console.log(allCollegeData)
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -17,7 +16,9 @@ export default function CollegeCard({allCollegeData}) {
   return (
     <>
         {allCollegeData.map((college)=>(
+            
             <div className="col-lg-6">
+                <Link to={`/colleges_details/${college.college_id}`}>
                     <div className="clg-listing-box">
                         <div className="clg-listing-inner-upbx position-relative" style={{width:"403.5px", height:'225px'}}>
                             <img src={constants.imageAbsolutePath+college.college_thumbnail} alt="college Thumbnail" style={{width:"100%", height:"100%", objectFit:"contain"}}/>
@@ -65,7 +66,9 @@ export default function CollegeCard({allCollegeData}) {
                             </div>
                         </div>
                     </div>
+                    </Link>
             </div>
+            
         ))}
     </>
   )

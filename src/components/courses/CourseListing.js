@@ -14,9 +14,13 @@ import courseIcon10 from '../../images/course/course-icon10.svg';
 import courseIcon11 from '../../images/course/course-icon11.svg';
 import courseIcon12 from '../../images/course/course-icon12.svg';
 import ApplyFilter from '../ApplyFilter';
+import CourseCard from './course_details/CourseCard';
+import { useSelector } from 'react-redux';
 
 
 export default function CourseListing() {
+    const {allCourseData} = useSelector(state=>state.common)
+    
     const yearsFilterOption = [
         { label: '1 Year', count: 4142 },
         {label:'2 Years', count:4142},
@@ -36,7 +40,7 @@ export default function CourseListing() {
     return (
         <>
             <CoursesBanner />
-            <CoursesTopSearch />
+            {/* <CoursesTopSearch /> */}
         <section className="course-listing-section">
         <div className="container">
             <div className="row">
@@ -59,12 +63,13 @@ export default function CourseListing() {
                     <div className="row">
                         <div className="col-12">
                             <div className="mb-4">
-                                <p className="totalSearch-courses">Total <span>750</span> Courses</p>
+                                <p className="totalSearch-courses">Total <span>{allCourseData.length}</span> Courses</p>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-6 col-md-12">
+                        <CourseCard/>
+                        {/* <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon1} alt="courseIcon1" />
@@ -195,7 +200,7 @@ export default function CourseListing() {
                                     <p>2345 University</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

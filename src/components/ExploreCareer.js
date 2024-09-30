@@ -32,9 +32,9 @@ const ExploreCareer = () => {
             spaceBetween: 20,
         },
     }
-    useEffect(()=>{
-        console.log(allCollegeData)
-    },[allCollegeData])
+    // useEffect(()=>{
+    //     console.log(allCollegeData)
+    // },[allCollegeData])
     return(
         <>
         <section className="career-slider-section text-center section-padding pt-4">

@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ExamLandingBanner from './ExamLandingBanner'
 import ExamDetailsRightCol from './ExamDetailsRightCol'
 import ExamDetailsLeftBox from './ExamDetailsLeftBox'
+import { useParams } from 'react-router-dom'
+import { useFetchExamById } from '../../hooks/useFetchExamById';
+
 
 export default function ExamDetails() {
+  const {exam_id} = useParams()
+  const {fetchExam} = useFetchExamById()
+  useEffect(()=>{
+    console.log("ExamDetails")
+    fetchExam(exam_id)
+  },[])
   return (
     <>
       <ExamLandingBanner />

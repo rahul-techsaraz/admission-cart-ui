@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CollegeBannerSection from './CollegeBannerSection'
 import MenucSection from './MenucSection';
 import whatsIcon from '../../../images/whatsnew-cal-icon.svg';
@@ -47,8 +47,10 @@ import companyLogo4 from '../../../images/company-logo4.png';
 import relatedNews from '../../../images/related-news-img.png';
 import clgLogo3 from '../../../images/clg-logo3.png';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
+import { useFetchCollegeById } from '../../hooks/useFetchCollegeById';
+import { useSelector } from 'react-redux';
 
 
 
@@ -56,6 +58,10 @@ import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 
 
 export default function CollegeDetails() {
+   const {college_id} = useParams()
+   console.log(college_id)
+   const {fetchCollege} = useFetchCollegeById()
+   const {collegeDetailsById} = useSelector(state=>state.common)
    const responsive = {
       1400:{
           slidesPerView: 3,
@@ -79,27 +85,35 @@ export default function CollegeDetails() {
       },
   }
   const responsive1 = {
-   1400:{
-       slidesPerView: 2,
-       spaceBetween: 50,
-   },
-   1024:{
-       slidesPerView: 2,
-       spaceBetween: 50,
-   },
-   768:{
-       slidesPerView: 2,
-       spaceBetween: 40,
-   },
-   640:{
-       slidesPerView: 1,
-       spaceBetween: 20,
-   },
-   460:{
-       slidesPerView: 1,
-       spaceBetween: 20,
-   },
-}
+      1400:{
+         slidesPerView: 2,
+         spaceBetween: 50,
+      },
+      1024:{
+         slidesPerView: 2,
+         spaceBetween: 50,
+      },
+      768:{
+         slidesPerView: 2,
+         spaceBetween: 40,
+      },
+      640:{
+         slidesPerView: 1,
+         spaceBetween: 20,
+      },
+      460:{
+         slidesPerView: 1,
+         spaceBetween: 20,
+      },
+   }
+
+   useEffect(()=>{
+      fetchCollege(college_id)
+   },[])
+
+   useEffect(()=>{
+      console.log(collegeDetailsById)
+   },[collegeDetailsById])
   return (
       <>
           <CollegeBannerSection />

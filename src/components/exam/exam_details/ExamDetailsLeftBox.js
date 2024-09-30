@@ -16,6 +16,7 @@ import examStep3Info from '../../../images/exam-step3info-img2.png';
 import examStep4Info from '../../../images/exam-step3info-img3.png';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper'
 import constants from '../../../utils/Constants/constants'
+import { useSelector } from 'react-redux'
 
 
 
@@ -27,6 +28,7 @@ import constants from '../../../utils/Constants/constants'
 export default function ExamDetailsLeftBox() {
   const [linkIndex, setLinkIndex] = useState(0)
   const [pData, setPData] = useState(constants.examDetailsList[0].pTagData)
+  const {examDetailsById}=useSelector(state=>state.common)
   const updateActive = (p, index)=>{
     setLinkIndex(index)
     setPData(p)
@@ -35,9 +37,9 @@ export default function ExamDetailsLeftBox() {
   return (
    <div className="col-md-12">
         <div id="exam_details_leftBox" className="exam-details-leftBox">
-          <h2 className="exam-details-yellow-heading mb-4 d-inline-block">JEE Main Exam 2024</h2>
+          <h2 className="exam-details-yellow-heading mb-4 d-inline-block">{examDetailsById?.examBasicDetails?.exam_name} {examDetailsById?.examBasicDetails?.exam_year}</h2>
           <div className="exam-details-left-innerpara mb-5 ps-5">
-            <p className="exam-details-para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor.</p>
+            <p className="exam-details-para1">{examDetailsById?.descriptionDetails?.exam_description}</p>
             <div className="text-start mt-5">
               {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
@@ -61,7 +63,7 @@ export default function ExamDetailsLeftBox() {
             </div>
           </div> */}
           <ExamHighlights />
-         <ExamSlider />
+         <ExamSlider examDetailsById={examDetailsById}/>
           <div className="pt-4"></div>
           <div className="tick-heading d-flex align-items-center mb-4">
             <span className="tick-heading-icon d-inline-flex">
