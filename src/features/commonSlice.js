@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllCollegeList, fetchAllCourseList, fetchAllExamList } from "../components/ReduxThunk/CommonThunk";
+import { fetchAllCollegeList, fetchAllCourseList, fetchAllExamList, fetchCollegeById, fetchCourseById, fetchExamById } from "../components/ReduxThunk/CommonThunk";
 import constants from "../utils/Constants/constants";
 
 const initialState = {
@@ -13,7 +13,9 @@ const initialState = {
     allCollegeData:[],
     allExamData:[],
     allCourseData:[],
-
+    collegeDetailsById : {},
+    examDetailsById : {},
+    courseDetailsById : {},
  
 };
 
@@ -75,6 +77,41 @@ const commonSlice = createSlice({
       state.isLoading = true
     })
     builder.addCase(fetchAllExamList.rejected, (state, { payload }) => {
+      state.isLoading = false
+    })
+    builder.addCase(fetchCollegeById.fulfilled, (state, { payload }) => {
+      if (payload.status === constants.apiResponseStatus.SUCCESS) {
+        state.collegeDetailsById = payload.data
+      }
+      state.isLoading = false
+    })
+    builder.addCase(fetchCollegeById.pending, (state, { payload }) => {
+      state.isLoading = true
+    })
+    builder.addCase(fetchCollegeById.rejected, (state, { payload }) => {
+      state.isLoading = false
+    })
+    builder.addCase(fetchCourseById.fulfilled, (state, { payload }) => {
+      if (payload.status === constants.apiResponseStatus.SUCCESS) {
+        state.courseDetailsById = payload.data
+      }
+      state.isLoading = false
+    })
+    builder.addCase(fetchCourseById.pending, (state, { payload }) => {
+      state.isLoading = true
+    })
+    builder.addCase(fetchCourseById.rejected, (state, { payload }) => {
+      state.isLoading = false
+    })
+    builder.addCase(fetchExamById.fulfilled, (state, { payload }) => {
+        console.log({payload})
+        state.examDetailsById = payload.data
+        state.isLoading = false
+    })
+    builder.addCase(fetchExamById.pending, (state, { payload }) => {
+      state.isLoading = true
+    })
+    builder.addCase(fetchExamById.rejected, (state, { payload }) => {
       state.isLoading = false
     })
   }

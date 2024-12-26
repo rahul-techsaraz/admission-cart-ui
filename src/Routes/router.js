@@ -121,15 +121,15 @@ import ProtectedRouter from "./ProtectedRouter";
           element:<CourseListing />
         },
         {
-          path: '/courses_details/:course_name',
+          path: '/courses_details/:course_id',
           element:<CourseDetails />
         },
         {
-          path: '/colleges_details/:college_name',
+          path: '/colleges_details/:college_id',
           element:<CollegeDetails />
         },
         {
-          path: '/exam_details/:exam_name',
+          path: '/exam_details/:exam_id',
           element:<ExamDetails />
         },
         {
@@ -150,4 +150,8 @@ import ProtectedRouter from "./ProtectedRouter";
       <Footer />
       </>),
     }
-  ]);
+  ],
+  {
+    basename: '/ui'
+  }
+);

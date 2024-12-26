@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom';
 import finderIcon from '../../../images/finder-icon.svg';
 import studentIcon from '../../../images/student-icon.svg';
 import bookMarkIcon from '../../../images/bookmark-icon.svg';
@@ -12,11 +12,20 @@ import rightArrow from '../../../images/arrow-right-icon.svg';
 import relatedNews from '../../../images/related-news-img.png';
 import greyTick from '../../../images/grey-tick.svg'
 import cd from '../../../images/cd-img1.png'
+import { useFetchCourseById } from '../../hooks/useFetchCourseById';
+import { useSelector } from 'react-redux';
 
 
 
 
 export default function CourseDetails() {
+    const {course_id} = useParams()
+    const {fetchCourse} = useFetchCourseById()
+    const {courseDetailsById} = useSelector(state=>state.common)
+    console.log(courseDetailsById)
+    useEffect(()=>{
+        fetchCourse(course_id)
+    },[])
   return (
       <>
           <CourseDetailsBanner />
@@ -25,8 +34,8 @@ export default function CourseDetails() {
             <div class="row">
                 <div class="col-md-6">
                     <div class="bookmark-badge-leftbox d-flex gap-3">
-                        <Link><img src={questionIcon} alt="" />Save</Link>
-                        <Link><img src={questionIcon} alt="" />Ask</Link>
+                        {/* <Link><img src={questionIcon} alt="" />Save</Link>
+                        <Link><img src={questionIcon} alt="" />Ask</Link> */}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -54,21 +63,20 @@ export default function CourseDetails() {
                     <div id="course_details_leftBox" className="course-details-leftBox">
                         <div className="course-details-leftBox-inner text-center">
                             <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">About B.Tech - Biochemical Engineering</h2>
-                                <p className="imgText-para">B.Tech in Biochemical Engineering is a programme that covers various subjects related to the chemical process, production and development of biochemical products. This branch of engineering comprises of various aspects of biology, technology and engineering in order to come up with groundbreaking research to help improve the quality of human lifestyle.</p>
+                                <h2 className="imgText-heading mb-4">{'About ' + courseDetailsById?.basicCourseDetails?.course_name}</h2>
+                                <p className="imgText-para">{courseDetailsById?.basicCourseDetails?.course_description}</p>
                                 <div className="text-center">
                                     <Link className="theme-btn green-btn">Read More</Link>
                                 </div>
                             </div>
                         
                             <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">B. Tech - Biochemical Engineering Eligibility Criteria</h2>
-                                <p className="imgText-para"><u><strong>The eligibility criteria for B. Tech Biochemical Engineering course can be checked below:</strong></u></p>
-                                <ul className="course-details-criteria-list d-flex flex-wrap">
-                                    <li>Educational Qualification</li>
-                                    <li>The candidates must have passed className 12</li>
-                                    <li>Minimum Qualifying Marks</li>
-                                    <li>The candidates must have a minimum of 45% of marks in className 12</li>
+                                <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Eligibility Criteria'}</h2>
+                                <p className="imgText-para"><u><strong>The eligibility criteria for {courseDetailsById?.basicCourseDetails?.course_name} course can be checked below:</strong></u></p>
+                                <ul className="course-details-criteria-list" style={{listStyleType:'disc'}}>
+                                    {courseDetailsById?.courseDetails?.eligiblity_criteria?.split(',').map((eligiblity)=>(
+                                        <li>{eligiblity}</li>
+                                    ))}
                                 </ul>
                                 <div className="text-start mt-5">
                                     <Link className="course-details-readmore-btn btn">Read More</Link>
@@ -76,8 +84,26 @@ export default function CourseDetails() {
                             </div>
 
                             <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">B. Tech - Biochemical Engineering Syllabus</h2>
-                                <p className="course-details-yearsyllabus text-start">First Year:</p>
+                                <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Syllabus'}</h2>
+                                {courseDetailsById?.syllabusDetails?.map((syllabus)=>(
+                                    syllabus?.semester_name !== '' ? 
+                                        <>
+                                            <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
+                                            <ul className="course-details-criteria-list d-flex flex-wrap">
+                                                <li>{syllabus?.semester_name}</li>
+                                                <li>{syllabus?.list_of_subject}</li>
+                                            </ul>
+                                        </> 
+                                        :
+                                        <>
+                                            <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
+                                            <ul className="course-details-criteria-list d-flex flex-wrap">
+                                                <li>{syllabus?.list_of_subject}</li>
+                                            </ul>
+                                        </>
+                                    
+                                ))}
+                                {/* <p className="course-details-yearsyllabus text-start">Year: </p>
                                 <ul className="course-details-criteria-list d-flex flex-wrap">
                                     <li>Educational Qualification</li>
                                     <li>The candidates must have passed className 12</li>
@@ -90,16 +116,16 @@ export default function CourseDetails() {
                                     <li>The candidates must have passed className 12</li>
                                     <li>Minimum Qualifying Marks</li>
                                     <li>The candidates must have a minimum of 45% of marks in className 12</li>
-                                </ul>
+                                </ul> */}
                                 <div className="text-start mt-5">
                                     <Link className="course-details-readmore-btn btn">Read More</Link>
                                 </div>
                             </div>
 
                             <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">About B.Tech - Biochemical Engineering</h2>
-                                <p className="imgText-para">Numerous jobs are available for students who pursue this branch of engineering. Biochemical Engineers are offered job roles in Oil Refineries, Water Treatment Plants, Pharmaceutical Companies, environmental agencies, research institutions, etc. Following are some of the popular profiles offered to Biochemical engineers:</p>
-                                <ul className="course-details-criteria-list2 text-start">
+                                <h2 className="imgText-heading mb-4">{'About ' + courseDetailsById?.basicCourseDetails?.course_name}</h2>
+                                <p className="imgText-para">{courseDetailsById?.basicCourseDetails?.course_description}</p>
+                                {/* <ul className="course-details-criteria-list2 text-start">
                                     <li>Chemical Administrator</li>
                                     <li>Technical Consultant</li>
                                     <li>Project Engineer</li>
@@ -111,7 +137,7 @@ export default function CourseDetails() {
                                     <li>Environmental Manager</li>
                                     <li>Quality Analyst</li>
                                     <li>Product Technician</li>
-                                </ul>
+                                </ul> */}
                                 <div className="text-start mt-5">
                                     <Link className="course-details-readmore-btn btn">Read More</Link>
                                 </div>
