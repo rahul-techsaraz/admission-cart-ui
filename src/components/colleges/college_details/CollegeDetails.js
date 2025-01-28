@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CollegeBannerSection from './CollegeBannerSection'
 import MenucSection from './MenucSection';
 import whatsIcon from '../../../images/whatsnew-cal-icon.svg';
@@ -46,11 +46,14 @@ import companyLogo3 from '../../../images/company-logo3.png';
 import companyLogo4 from '../../../images/company-logo4.png';
 import relatedNews from '../../../images/related-news-img.png';
 import clgLogo3 from '../../../images/clg-logo3.png';
+import avtar from '../../../images/profile-Avtar.jpg';
+import sandclassNameIcon from '../../../images/sandglass-icon.svg';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
 import { Link, useParams } from 'react-router-dom';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 import { useFetchCollegeById } from '../../hooks/useFetchCollegeById';
 import { useSelector } from 'react-redux';
+import constants from '../../../utils/Constants/constants';
 
 
 
@@ -58,10 +61,19 @@ import { useSelector } from 'react-redux';
 
 
 export default function CollegeDetails() {
+   const [readmore, setReadmore] = useState(
+      {
+         overview: false,
+         highlightDescription: false,
+         highlightCourses: false,
+         allCourses: false,
+      })
    const {college_id} = useParams()
-   console.log(college_id)
    const {fetchCollege} = useFetchCollegeById()
    const {collegeDetailsById} = useSelector(state=>state.common)
+   const {allCourseData, allCollegeData} = useSelector(state=>state.common)
+   // console.log(collegeDetailsById)
+   
    const responsive = {
       1400:{
           slidesPerView: 3,
@@ -83,14 +95,14 @@ export default function CollegeDetails() {
           slidesPerView: 1,
           spaceBetween: 20,
       },
-  }
-  const responsive1 = {
+   }
+   const responsive1 = {
       1400:{
-         slidesPerView: 2,
+         slidesPerView: 3,
          spaceBetween: 50,
       },
       1024:{
-         slidesPerView: 2,
+         slidesPerView: 3,
          spaceBetween: 50,
       },
       768:{
@@ -106,30 +118,50 @@ export default function CollegeDetails() {
          spaceBetween: 20,
       },
    }
-
+   const getCurrentYear = ()=>{
+      const d = new Date();
+      const year = d.getFullYear();
+      return year
+   }
+   const dataToMap = (data)=>{
+      if(readmore.highlightCourses){
+         return data
+      }else{
+         return data.filter((_,i)=> i<4 )
+      }
+   }
+   const getAllCourseDataById = ()=>{
+      const ids = collegeDetailsById.courseOfferedDetails.map((v)=> v.course_id)
+      const data = allCourseData.filter((v)=>ids.includes(v.course_id))
+      return data
+   }
+   const getAllCollegesDataByCity = ()=>{
+      const data = allCollegeData.filter((v)=>v.city === collegeDetailsById?.basicDetails?.city && v.college_name !== collegeDetailsById?.basicDetails?.college_name)
+      return data
+   }
+   useEffect(()=>{
+      getAllCollegesDataByCity()
+   },[collegeDetailsById])
    useEffect(()=>{
       fetchCollege(college_id)
-   },[])
-
-   useEffect(()=>{
-      console.log(collegeDetailsById)
-   },[collegeDetailsById])
+   },[college_id])
+   
   return (
       <>
           <CollegeBannerSection />
-          <MenucSection />
+          {/* <MenucSection /> */}
           <section class="exam-details-section pt-50">
          <div class="container">
             <div class="row">
-               <div class="col-md-8">
+               <div class="col-12">
                   <div class="colg-examinfo-leftcol">
-                     <div class="whatsNew-box mb-5">
+                     {/* <div class="whatsNew-box mb-5">
                         <div class="d-flex mb-4 ms-3">
                            <div class="whatsnew-cal-badge">
                               <img src={whatsIcon} alt="" />
                            </div>
                            <h1 class="whatsNew-heading ms-2">
-                              <span>IIT Chennai</span>
+                              <span>{collegeDetailsById?.basicDetails?.college_name}</span>
                               What’s New
                            </h1>
                         </div>
@@ -198,26 +230,26 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> */}
                      <div class="course-details-left-innerBox mb-5 text-center">
-                        <h2 class="imgText-heading mb-4">Indian Institute of Technology Overview</h2>
-                        <p class="imgText-para">It is an engineering and technology school in Chennai (formerly Madras) in southern India. Recognized as an Institute of National Importance by the Government of India, it is regarded as one of the finest engineering institutions in India. Founded in 1959...</p>
+                        <h2 class="imgText-heading mb-4">{collegeDetailsById?.basicDetails?.college_name} Overview</h2>
+                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_description.length > 100 && readmore.overview === false) ? collegeDetailsById?.descriptionDetails?.college_description.slice(0,100)+"..." : collegeDetailsById?.descriptionDetails?.college_description}</p>
                         <div class="text-center">
-                           <Link class="theme-btn green-btn">Read More</Link>
+                           <Link class="theme-btn green-btn" onClick={()=>setReadmore({...readmore, overview:!readmore.overview })}>{!readmore.overview ? 'Read More' : 'Read Less'}</Link>
                         </div>
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
-                        <h2 class="imgText-heading mb-4">IIT Chennai Highlights 2023</h2>
-                        <p class="imgText-para">It is an engineering and technology school in Chennai (formerly Madras) in southern India. Recognized as an Institute of National Importance by the Government of India, it is regarded as one of the finest engineering institutions in India. Founded in 1959...</p>
+                        <h2 class="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Highlights ${getCurrentYear()}`}</h2>
+                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 100 && readmore.highlightDescription === false) ? `${collegeDetailsById?.descriptionDetails?.college_highlights_description.slice(0,100)}...` : collegeDetailsById?.descriptionDetails?.college_highlights_description}</p>
                         <div class="text-center">
-                           <Link class="theme-btn green-btn">Get Started Now</Link>
+                           <Link class="theme-btn green-btn"onClick={()=>setReadmore({...readmore, highlightDescription:!readmore.highlightDescription})}>{!readmore.highlightDescription ? 'Read More' : 'Read Less'}</Link>
                         </div>
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
                         <span class="tick-heading-icon d-inline-flex">
                         <img src={greyTickIcon} alt="" />
                         </span>
-                        <h2>IIT Chennai Top Courses & Fees</h2>
+                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Top Courses & Fees`}</h2>
                      </div>
                      <div class="exam-details-hightlisghts-sec mt-5">
                         <div class="exam-details-hightlights-table">
@@ -235,39 +267,26 @@ export default function CollegeDetails() {
                                  </tr>
                               </thead>
                               <tbody>
-                                 <tr>
-                                    <td>B.Tech <span class="d-block">19 Courses</span></td>
-                                    <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.CA <span class="d-block">19 Courses</span></td>
-                                    <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.Tech <span class="d-block">19 Courses</span></td>
-                                    <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.CA <span class="d-block">19 Courses</span></td>
-                                    <td>₹ 1,27,000 - 1,37,000</td>
-                                    <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
-                                 </tr>
+                                 {Object.keys(collegeDetailsById).length>0 && dataToMap(collegeDetailsById?.highlightsDetails).map((college)=>(
+                                    <tr>
+                                       <td>{college?.course_name.split('-')[0].trim()} <span class="d-block">{college?.course_name.split('-')[1].trim()}</span></td>
+                                       <td>₹ {college?.fees_annually}</td>
+                                       <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
+                                    </tr>   
+                                 ))}
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-start mt-5">
-                           <Link class="course-details-readmore-btn btn">Read More</Link>
-                        </div>
+                        {(Object.keys(collegeDetailsById).length>0 && collegeDetailsById?.highlightsDetails.length>4) && <div class="text-start mt-5">
+                           <Link class="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, highlightCourses:!readmore.highlightCourses})}>{!readmore.highlightCourses ? 'Read More' : 'Read Less'}</Link>
+                        </div>}
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
-                        <h2 class="imgText-heading mb-4">IIT Chennai Courses & Fees</h2>
-                        <p class="imgText-para">IIT Chennai University courses cover streams like engineering, tourism, management, commerce, and, pharmacy. The college has diploma, undergraduate, and, postgraduate degrees in these fields. The BTech, MTech, BCA, B.Pharm, and, MBA courses are among the most-opted courses at the university. Further, the range for the Haridwar University Roorkee fee structure is between Rs 39,600 and Rs 1,37,000.</p>
+                        <h2 class="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Courses & Fees`}</h2>
+                        <p class="imgText-para">{collegeDetailsById?.descriptionDetails?.college_course_description}</p>
                      </div>
                      <div class="exam-details-hightlisghts-sec mt-5">
-                        <h5 class="mb-3"><strong>IIT Chennai University Fees and Course List</strong></h5>
+                        <h5 class="mb-3"><strong>{`${collegeDetailsById?.basicDetails?.college_name} Fees and Course List`}</strong></h5>
                         <div class="exam-details-hightlights-table">
                            <table class="table">
                               <thead>
@@ -284,53 +303,21 @@ export default function CollegeDetails() {
                                  </tr>
                               </thead>
                               <tbody>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
-                                 <tr>
-                                    <td>B.E/B.Tech</td>
-                                    <td>Rs 1,27,000</td>
-                                    <td>10+2: 45%</td>
-                                 </tr>
+                                 {Object.keys(collegeDetailsById).length>0 && dataToMap(collegeDetailsById?.courseOfferedDetails).map((course)=>(
+                                    <tr>
+                                       <td>{course?.course_name}</td>
+                                       <td>{`Rs ${course?.sub_course_fee}`}</td>
+                                       <td>10+2: 45%</td>
+                                    </tr>
+                                 ))}
                               </tbody>
                            </table>
                         </div>
-                        <div class="text-start mt-5">
-                           <Link class="course-details-readmore-btn btn">Read More</Link>
-                        </div>
-                        <h5 class="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
+                        {(Object.keys(collegeDetailsById).length > 0 && collegeDetailsById?.highlightsDetails.length > 4) && <div class="text-start mt-5">
+                           <Link class="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, allCourses:!readmore.allCourses})}>{!readmore.allCourses ? 'Read More' : 'Read Less'}</Link>
+                        </div>}
+                        
+                        {/* <h5 class="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
                         <div class="exam-details-hightlights-table">
                            <table class="table">
                               <thead>
@@ -392,13 +379,13 @@ export default function CollegeDetails() {
                         </div>
                         <div class="text-start mt-5">
                            <Link class="course-details-readmore-btn btn">Read More</Link>
-                        </div>
+                        </div> */}
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
                         <span class="tick-heading-icon d-inline-flex">
                         <img src={greyTickIcon} alt="" />
                         </span>
-                        <h2>IIT Chennai Admission 2023</h2>
+                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Admission ${getCurrentYear()}`}</h2>
                      </div>
                      <div class="clg-location-infograybx">
                         <p>IIT Chennai University admission for 2023 is currently open. The university is accepting applications through its official website. Interested candidates can apply online as well as visit the campus to apply in the offline mode. </p>
@@ -406,7 +393,7 @@ export default function CollegeDetails() {
                            <Link class="course-details-readmore-btn btn text-white">Read More</Link>
                         </div>
                      </div>
-                     <div class="course-details-left-innerBox my-5 text-center">
+                     {/* <div class="course-details-left-innerBox my-5 text-center">
                         <h2 class="imgText-heading mb-4">IIT Chennai Ranking</h2>
                         <p class="imgText-para">IIT Chennai University ranking for 2023 is 145 out of 246 in India as per India Today’s B.Tech Survey. Moreover, the university has also been ranked 64th in the engineering category by the Times of India Ranking Survey 2023. Various other rankings obtained by the university are mentioned below..</p>
                         <div class="row align-items-center today-ranking-info">
@@ -440,7 +427,7 @@ export default function CollegeDetails() {
                               </p>
                            </div>
                         </div>
-                     </div>
+                     </div> */}
                      {/* <div class="course-details-alterImgbox d-flex align-items-center">
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
@@ -1760,7 +1747,7 @@ export default function CollegeDetails() {
                      </div> */}
                   </div>
                </div>
-               <div class="col-md-4">
+               {/* <div class="col-md-4">
                   <aside id="courses_details_rightcol" class="courses-details-rightcol">
                      <div class="courses-details-rightcol-grid">
                         <h2 class="courses-details-rightcol-grid-title">Photos</h2>
@@ -1935,7 +1922,7 @@ export default function CollegeDetails() {
                      <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
                   </aside>
-               </div>
+               </div> */}
             
             </div>
             <div className='row'>
@@ -1945,13 +1932,13 @@ export default function CollegeDetails() {
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
                            <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
-                           <Link class="theme-btn white-btn">Apply For Education Loan</Link>
+                           <Link class="theme-btn white-btn">Ask Our Experts</Link>
                         </div>
                         <div class="course-details-alterImgbox-col2 position-relative">
                            <img src={cdIcon} alt="" />
                         </div>
                      </div>
-                     <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                     {/* <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
                         <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
                         <div class="swiper clg-facilities-slider">
                            <div class="swiper-wrapper position-relative">
@@ -2013,7 +2000,7 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> */}
                      <div class="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
                         <div class="course-details-alterImgbox-col2 position-relative">
                            <img src={cdIcon} alt="" />
@@ -2021,14 +2008,14 @@ export default function CollegeDetails() {
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Are you feeling lost and unsure about what <span>career path to take after completing 12th standard?</span></h2>
                            <p>Say goodbye to confusion and hello to a bright future!</p>
-                           <Link class="theme-btn white-btn">Take the  free test now</Link>
+                           <Link class="theme-btn white-btn">Ask Our Experts</Link>
                         </div>
                      </div>
                      <div class="py-5 mt-4">
                         <div class="row align-items-center">
                            <div class="col-md-5">
                               <h1 class="exam-center-calenderTxt1 text-center">Will you get 
-                                 <span>Admission in IIT Chennai University?</span>
+                                 <span>{` Admission in ${collegeDetailsById?.basicDetails?.college_name}`}</span>
                               </h1>
                            </div>
                            <div class="col-md-2 text-center">
@@ -2042,7 +2029,7 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div>
-                     <div class="successfull-almni-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                     {/* <div class="successfull-almni-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
                         <h2 class="section-heading2 grey text-center mb-5">Successful Alumni</h2>
                         <div class="swiper successfull-almni-slider">
                            <div class="swiper-wrapper position-relative">
@@ -2140,86 +2127,30 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> */}
                      <div class="tick-heading d-flex align-items-center mb-4">
                         <span class="tick-heading-icon d-inline-flex">
                         <img src={greyTickIcon} alt="" />
                         </span>
-                        <h2>IIT Chennai University Faculty</h2>
+                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Faculty`}</h2>
                      </div>
-                     <div class="mt-5">
+                     {/* <div class="mt-5">
                         <img src={studentFaculty} class="faculty-students-img d-block mx-auto" alt="" />
-                     </div>
+                     </div> */}
                      <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                         <div class="swiper faculty-slider-slider">
                            <div class="swiper-wrapper">
                               <CustomSwiper navigationNext={'.clg-faculty-button-next'} navigationPrev={'.clg-faculty-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="faculty-slider-box">
-                                          <img className='faculty-slider-box-img' src={facultImage1} alt="" />
-                                          <p>Prof.
-                                             Bhaskar Ramamurthi
-                                             Director
-                                          </p>
+                                 {Object.keys(collegeDetailsById).length>0 && collegeDetailsById?.facilitiesDetails?.faculty_name.split(',').map((faculty)=>(
+                                    <swiper-slide>
+                                       <div class="swiper-slide">
+                                          <div class="faculty-slider-box">
+                                             <img className='faculty-slider-box-img' src={avtar} alt="" />
+                                             <p>{`Prof. ${faculty.split('-')[0]}`}<br/><span>{`Dept. ${faculty.split('-')[1]}`}</span></p>
+                                          </div>
                                        </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="faculty-slider-box">
-                                          <img className='faculty-slider-box-img' src={facultImage2} alt="" />
-                                          <p>Prof.
-                                             Bhaskar Ramamurthi
-                                             Director
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="faculty-slider-box">
-                                          <img className='faculty-slider-box-img' src={facultImage3} alt="" />
-                                          <p>Prof.
-                                             Bhaskar Ramamurthi
-                                             Director
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="faculty-slider-box">
-                                          <img className='faculty-slider-box-img' src={facultImage4} alt="" />
-                                          <p>Prof.
-                                             Bhaskar Ramamurthi
-                                             Director
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="faculty-slider-box">
-                                          <img className='faculty-slider-box-img' src={facultImage1} alt="" />
-                                          <p>Prof.
-                                             Bhaskar Ramamurthi
-                                             Director
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="faculty-slider-box">
-                                          <img className='faculty-slider-box-img' src={facultImage2} alt="" />
-                                          <p>Prof.
-                                             Bhaskar Ramamurthi
-                                             Director
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
+                                    </swiper-slide>
+                                 ))}
                               </CustomSwiper>
                               <div class="swiper-button-prev clg-faculty-button-prev">
                                  <img src={arrowLeftIcon} alt="" />
@@ -2235,7 +2166,7 @@ export default function CollegeDetails() {
                         <div class="col-9">
                            <div class="download-content-box text-center">
                               <img src={downloadIcon} class="mb-4" alt="" />
-                              <h2 class="mb-4"><span class="d-block">Get details on</span> Fee, Cut off marks, Admission Process for session 2023.</h2>
+                              <h2 class="mb-4"><span class="d-block">Get details on</span> {`Fee, Cut off marks, Admission Process for session ${getCurrentYear()}.`}</h2>
                               <div class="d-flex justify-content-center gap-3 align-items-center download-btn-sec">
                                  <p>Download brochure</p>
                                  <Link class="theme-btn black-btn">Ask A Question</Link>
@@ -2243,7 +2174,7 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div>
-                     <div class="clg-specific-review-section mb-5">
+                     {/* <div class="clg-specific-review-section mb-5">
                         <div class="row mb-4">
                            <div class="col-12">
                               <div class="tick-heading d-flex align-items-center mb-4">
@@ -2784,12 +2715,12 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> */}
                      <div class="tick-heading d-flex align-items-center mb-4 mt-5">
                         <span class="tick-heading-icon d-inline-flex">
                         <img src={greyTickIcon} alt="" />
                         </span>
-                        <h2>IIT Chennai Courses Offered</h2>
+                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Courses Offered`}</h2>
                      </div>
                      <div class="row">
                         <div class="col-12">
@@ -2797,294 +2728,35 @@ export default function CollegeDetails() {
                               <div class="swiper course-offered-slider pb-5">
                                  <div class="swiper-wrapper">
                                     <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="card">
-                                                <div class="top_review d-flex justify-content-end align-items-center">
-                                                   <p class="review_count mb-0 me-2">724 Reviews</p>
-                                                   <p class="rating mb-0 me-2">4.5</p>
-                                                   <p class="like mb-0">
-                                                      <img src={heartIcon} srcset={`${heartIcon} 1X , ${heartIcon2X} 2X`} alt="Heart" width="18" height="17" />
-                                                   </p>
-                                                </div>
-                                                <div class="details">
-                                                   <p class="details_name mb-0">Bachelor of Technology [B.Tech]</p>
-                                                   <p class="details_price mb-0">₹ 200,500 <span>1st Yr Fees</span></p>
-                                                   <p class="details_review mb-0 d-flex align-items-center">
-                                                      4.5/724 Reviews
-                                                      <span class="ms-2">
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={blankStarIcon} srcset={`${blankStarIcon} 1X , ${blankStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      </span>
-                                                   </p>
-                                                   <p class="details_rating mb-0">Rated #3 out of 131 by The Week in Engineering</p>
-                                                   <div class="badge_group">
-                                                      <div class="badge rounded-0 text-center text-uppercase">4 YEARS</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">DEGREE</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">ON CAMPUS</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">GRADUATION</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">FULL TIME</div>
+                                       {Object.keys(collegeDetailsById).length>0 && getAllCourseDataById().map((course)=>(
+                                          <swiper-slide>
+                                             {/* <div className="col-md-4"> */}
+                                                <Link to={`/courses_details/${course.course_id}`}>
+                                                <div className="course-listing-box align-items-center mb-4">
+                                                   <div className="course-post-contentBx">
+                                                         <h2 className="course-title">{course.course_name}</h2>
+                                                         <p className="course-para">{course.course_description.length>100 ? `${course.course_description.slice(0, 100)}...` : course.course_description }</p>
+                                                         <Link className="course-moredetails-btn">More Details</Link>
+                                                         <div className="d-flex flex-wrap course-infowrapper">
+                                                            <div className="course-infobx d-inline-flex align-items-center">
+                                                               <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
+                                                                     <img src={sandclassNameIcon} alt=""/>
+                                                               </span>
+                                                               <p className="course-info-title">Average Duration <span>{course.course_duration} years</span></p>
+                                                            </div>
+                                                            <div className="course-infobx d-inline-flex align-items-center">
+                                                               <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
+                                                                     <img src={sandclassNameIcon} alt=""/>
+                                                               </span>
+                                                               <p className="course-info-title">Average Fees <span>{course.course_fee_min} K-{course.course_fee_max} L  INR</span></p>
+                                                            </div>
+                                                         </div>
                                                    </div>
                                                 </div>
-                                                <div class="details_tab">
-                                                   <ul class="nav nav-tabs" role="tablist">
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
-                                                      </li>
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
-                                                      </li>
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
-                                                      </li>
-                                                   </ul>
-                                                   <div class="tab-content">
-                                                      <div id="specialization" class="container tab-pane active">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                      <div id="cutoff" class="container tab-pane fade">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                      <div id="examsAccepted" class="container tab-pane fade">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <div class="details_btn_group">
-                                                   <div class="row">
-                                                      {/* <div class="col-6 pe-1">
-                                                         <button type="button" class="details_btn text-center w-100">
-                                                            Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="22" height="18" />
-                                                         </button>
-                                                      </div> */}
-                                                      <div class="col-6 ps-1">
-                                                         <button type="button" class="details_btn text-center w-100">
-                                                            Admission Predictor <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="18" height="14" />
-                                                         </button>
-                                                      </div>
-                                                      <div class="col-6 pe-1">
-                                                         <button type="button" class="details_btn active text-center w-100">
-                                                            Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" />
-                                                         </button>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </swiper-slide>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="card">
-                                                <div class="top_review d-flex justify-content-end align-items-center">
-                                                   <p class="review_count mb-0 me-2">724 Reviews</p>
-                                                   <p class="rating mb-0 me-2">4.5</p>
-                                                   <p class="like mb-0">
-                                                      <img src={heartIcon} srcset={`${heartIcon} 1X , ${heartIcon2X} 2X`} alt="Heart" width="18" height="17" />
-                                                   </p>
-                                                </div>
-                                                <div class="details">
-                                                   <p class="details_name mb-0">Bachelor of Technology [B.Tech]</p>
-                                                   <p class="details_price mb-0">₹ 200,500 <span>1st Yr Fees</span></p>
-                                                   <p class="details_review mb-0 d-flex align-items-center">
-                                                      4.5/724 Reviews
-                                                      <span class="ms-2">
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={blankStarIcon} srcset={`${blankStarIcon} 1X , ${blankStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      </span>
-                                                   </p>
-                                                   <p class="details_rating mb-0">Rated #3 out of 131 by The Week in Engineering</p>
-                                                   <div class="badge_group">
-                                                      <div class="badge rounded-0 text-center text-uppercase">4 YEARS</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">DEGREE</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">ON CAMPUS</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">GRADUATION</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">FULL TIME</div>
-                                                   </div>
-                                                </div>
-                                                <div class="details_tab">
-                                                   <ul class="nav nav-tabs" role="tablist">
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
-                                                      </li>
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
-                                                      </li>
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
-                                                      </li>
-                                                   </ul>
-                                                   <div class="tab-content">
-                                                      <div id="specialization" class="container tab-pane active">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                      <div id="cutoff" class="container tab-pane fade">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                      <div id="examsAccepted" class="container tab-pane fade">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <div class="details_btn_group">
-                                                   <div class="row">
-                                                      {/* <div class="col-6 pe-1">
-                                                         <button type="button" class="details_btn text-center w-100">
-                                                            Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="22" height="18" />
-                                                         </button>
-                                                      </div> */}
-                                                      <div class="col-6 ps-1">
-                                                         <button type="button" class="details_btn text-center w-100">
-                                                            Admission Predictor <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2x`} alt="Button Icon" width="18" height="14" />
-                                                         </button>
-                                                      </div>
-                                                      <div class="col-6 pe-1">
-                                                         <button type="button" class="details_btn active text-center w-100">
-                                                            Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" />
-                                                         </button>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </swiper-slide>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="card">
-                                                <div class="top_review d-flex justify-content-end align-items-center">
-                                                   <p class="review_count mb-0 me-2">724 Reviews</p>
-                                                   <p class="rating mb-0 me-2">4.5</p>
-                                                   <p class="like mb-0">
-                                                      <img src={heartIcon} srcset={`${heartIcon} 1X , ${heartIcon2X} 2X`} alt="Heart" width="18" height="17" />
-                                                   </p>
-                                                </div>
-                                                <div class="details">
-                                                   <p class="details_name mb-0">Bachelor of Technology [B.Tech]</p>
-                                                   <p class="details_price mb-0">₹ 200,500 <span>1st Yr Fees</span></p>
-                                                   <p class="details_review mb-0 d-flex align-items-center">
-                                                      4.5/724 Reviews
-                                                      <span class="ms-2">
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={filledStarIcon} srcset={`${filledStarIcon} 1X, ${filledStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      <img src={blankStarIcon} srcset={`${blankStarIcon} 1X , ${blankStarIcon2X} 2X`} alt="Rating Star" width="11" height="11" />
-                                                      </span>
-                                                   </p>
-                                                   <p class="details_rating mb-0">Rated #3 out of 131 by The Week in Engineering</p>
-                                                   <div class="badge_group">
-                                                      <div class="badge rounded-0 text-center text-uppercase">4 YEARS</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">DEGREE</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">ON CAMPUS</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">GRADUATION</div>
-                                                      <div class="badge rounded-0 text-center text-uppercase">FULL TIME</div>
-                                                   </div>
-                                                </div>
-                                                <div class="details_tab">
-                                                   <ul class="nav nav-tabs" role="tablist">
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link active" data-bs-toggle="tab" href="#specialization">Specialization</Link>
-                                                      </li>
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link" data-bs-toggle="tab" href="#cutoff">Cutoff</Link>
-                                                      </li>
-                                                      <li class="nav-item">
-                                                         <Link class="nav-link" data-bs-toggle="tab" href="#examsAccepted">Exams Accepted</Link>
-                                                      </li>
-                                                   </ul>
-                                                   <div class="tab-content">
-                                                      <div id="specialization" class="container tab-pane active">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                      <div id="cutoff" class="container tab-pane fade">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                      <div id="examsAccepted" class="container tab-pane fade">
-                                                         <ul>
-                                                            <li>Computer Science and Engineering</li>
-                                                            <li>Aerospace Engineering</li>
-                                                            <li>Electrical Engineering</li>
-                                                            <li>Mechanical Engineering</li>
-                                                            <li>+6 More</li>
-                                                         </ul>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <div class="details_btn_group">
-                                                   <div class="row">
-                                                      <div class="col-6 pe-1">
-                                                         <button type="button" class="details_btn text-center w-100">
-                                                            Compare <img src={iconOneImage} srcset={`${iconOneImage} 1X, ${iconOneImage2X} 2X`} alt="Button Icon" width="22" height="18" />
-                                                         </button>
-                                                      </div>
-                                                      <div class="col-6 ps-1">
-                                                         <button type="button" class="details_btn text-center w-100">
-                                                            Admission Predictor <img src={iconTwoImage} srcset={`${iconTwoImage} 1X, ${iconTwoImage2X} 2X`} alt="Button Icon" width="18" height="14" />
-                                                         </button>
-                                                      </div>
-                                                      <div class="col-6 pe-1">
-                                                         <button type="button" class="details_btn active text-center w-100">
-                                                            Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" />
-                                                         </button>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </swiper-slide>
+                                                </Link>
+                                             {/* </div> */}
+                                          </swiper-slide>
+                                       ))}
                                     </CustomSwiper>
                                     <div class="swiper-button-prev courseOffer-button-prev">
                                        <img src={arrowLeftIcon} alt="" />
@@ -3099,7 +2771,7 @@ export default function CollegeDetails() {
                      </div>
                      <div class="course-details-alterImgbox d-flex align-items-center">
                         <div class="course-details-alterImgbox-col1 green-bg">
-                           <h2 class="text-white">Still have questions about <span>IIT Chennai University?</span></h2>
+                           <h2 class="text-white">Still have questions about <span>{`${collegeDetailsById?.basicDetails?.college_name}?`}</span></h2>
                            <p>Ask us and get personalized</p>
                            <Link class="theme-btn white-btn">Ask A Question</Link>
                         </div>
@@ -3118,138 +2790,43 @@ export default function CollegeDetails() {
                         <div class="swiper recommended-clg-slider pb-5">
                             <div class="swiper-wrapper position-relative">
                               <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                          <div class="clg-slider-box position-relative">
-                                             <div class="recommended-clg-sliderbx">
-                                                <div class="d-flex justify-content-between">
-                                                   <img src={logoSliderImage} class="clg-slider-logo" alt="" />
-                                                   <div class="recommended-clg-rating text-center">
-                                                      <p class="mb-0">4.8</p>
-                                                      <span class="d-flex align-items-center justify-content-center gap-1">
-                                                         <img src={starFIcon} alt="" />
-                                                         <img src={starFIcon} alt="" />
-                                                         <img src={starFIcon} alt="" />
-                                                         <img src={starFIcon} alt="" />
-                                                         <img src={starFIcon} alt="" />
-                                                      </span>
+                                 {Object.keys(collegeDetailsById).length>0 && getAllCollegesDataByCity().map((college)=>(
+                                    <swiper-slide>
+                                       <Link to={`/colleges_details/${college.college_id}`}>
+                                          <div class="swiper-slide">
+                                                <div class="clg-slider-box position-relative">
+                                                   <div class="recommended-clg-sliderbx">
+                                                      <div class="d-flex justify-content-between">
+                                                         <img src={constants.imageAbsolutePath+college?.college_logo} class="clg-slider-logo" alt="" />
+                                                         <div class="recommended-clg-rating text-center">
+                                                            <p class="mb-0">{college?.ratings}</p>
+                                                            <span class="d-flex align-items-center justify-content-center gap-1">
+                                                               <img src={starFIcon} alt="" />
+                                                               <img src={starFIcon} alt="" />
+                                                               <img src={starFIcon} alt="" />
+                                                               <img src={starFIcon} alt="" />
+                                                               <img src={starFIcon} alt="" />
+                                                            </span>
+                                                         </div>
+                                                      </div>
+                                                      <p class="recommended-clg-name mb-2">{college.college_name}</p>
+                                                      <p class="recommended-clg-location">{college.state} <span>{college.city}</span></p>
+                                                      <p class="course-offer-badge d-flex justify-content-between align-items-center">
+                                                         <span>Courses Offered</span>
+                                                         <span class="text-end">{collegeDetailsById?.courseOfferedDetails.length}</span>
+                                                      </p>
+                                                      <p class="total-price-range d-flex justify-content-between align-items-center">
+                                                         <span>Total Fees Range</span>
+                                                         <span class="text-end">₹12.5 L - 24.5 L</span>
+                                                      </p>
                                                    </div>
-                                                </div>
-                                                <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
-                                                <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
-                                                <p class="course-offer-badge d-flex justify-content-between align-items-center">
-                                                   <span>Courses Offered</span>
-                                                   <span class="text-end">4 courses</span>
-                                                </p>
-                                                <p class="total-price-range d-flex justify-content-between align-items-center">
-                                                   <span>Total Fees Range</span>
-                                                   <span class="text-end">₹12.5 L - 24.5 L</span>
-                                                </p>
-                                             </div>
 
-                                             <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
-                                          </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-slider-box position-relative">
-                                          <div class="recommended-clg-sliderbx">
-                                             <div class="d-flex justify-content-between">
-                                                <img src={logoSliderImage} class="clg-slider-logo" alt="" />
-                                                <div class="recommended-clg-rating text-center">
-                                                   <p class="mb-0">4.8</p>
-                                                   <span class="d-flex align-items-center justify-content-center gap-1">
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                   </span>
+                                                   <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
                                                 </div>
-                                             </div>
-                                             <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
-                                             <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
-                                             <p class="course-offer-badge d-flex justify-content-between align-items-center">
-                                                <span>Courses Offered</span>
-                                                <span class="text-end">4 courses</span>
-                                             </p>
-                                             <p class="total-price-range d-flex justify-content-between align-items-center">
-                                                <span>Total Fees Range</span>
-                                                <span class="text-end">₹12.5 L - 24.5 L</span>
-                                             </p>
                                           </div>
-
-                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
-                                       </div>
-                                 </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-slider-box position-relative">
-                                          <div class="recommended-clg-sliderbx">
-                                             <div class="d-flex justify-content-between">
-                                                <img src={logoSliderImage} class="clg-slider-logo" alt="" />
-                                                <div class="recommended-clg-rating text-center">
-                                                   <p class="mb-0">4.8</p>
-                                                   <span class="d-flex align-items-center justify-content-center gap-1">
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                   </span>
-                                                </div>
-                                             </div>
-                                             <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
-                                             <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
-                                             <p class="course-offer-badge d-flex justify-content-between align-items-center">
-                                                <span>Courses Offered</span>
-                                                <span class="text-end">4 courses</span>
-                                             </p>
-                                             <p class="total-price-range d-flex justify-content-between align-items-center">
-                                                <span>Total Fees Range</span>
-                                                <span class="text-end">₹12.5 L - 24.5 L</span>
-                                             </p>
-                                          </div>
-
-                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-slider-box position-relative">
-                                          <div class="recommended-clg-sliderbx">
-                                             <div class="d-flex justify-content-between">
-                                                <img src={logoSliderImage} class="clg-slider-logo" alt="" />
-                                                <div class="recommended-clg-rating text-center">
-                                                   <p class="mb-0">4.8</p>
-                                                   <span class="d-flex align-items-center justify-content-center gap-1">
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                      <img src={starFIcon} alt="" />
-                                                   </span>
-                                                </div>
-                                             </div>
-                                             <p class="recommended-clg-name mb-2">IIM Bangalore - Indian Institute of Management</p>
-                                             <p class="recommended-clg-location">Bangalore <span>#2 NIRF</span></p>
-                                             <p class="course-offer-badge d-flex justify-content-between align-items-center">
-                                                <span>Courses Offered</span>
-                                                <span class="text-end">4 courses</span>
-                                             </p>
-                                             <p class="total-price-range d-flex justify-content-between align-items-center">
-                                                <span>Total Fees Range</span>
-                                                <span class="text-end">₹12.5 L - 24.5 L</span>
-                                             </p>
-                                          </div>
-
-                                          <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
+                                       </Link>
+                                    </swiper-slide>
+                                 ))}
                               </CustomSwiper>
                               <div class="swiper-button-prev clg-button-prev">
                                  <img src={arrowLeftIcon} alt="" />

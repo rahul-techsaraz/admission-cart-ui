@@ -1,7 +1,7 @@
 import userImage from '../../images/user-icon.svg'
 import logo from '../../images/logo.png'
 import { useEffect, useState } from "react";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useLocation, useNavigate  } from "react-router-dom";
 import MegaMenu from "./MegaMenu";
 import { tabName } from "../../data/header/TabData";
 import { megaMenuData } from "../../data/header/megaMenuData";
@@ -11,10 +11,23 @@ import LoginModel from "../model/LoginModel";
 import AfterLoginModel from "../model/AfterLoginModel";
 import constants from '../../utils/Constants/constants';
 import httpFetch from '../../fetch/useFetch';
+import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
+import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
+import { useFetchAllExam } from '../hooks/useFetchAllExam';
 const Header = () => {
-    const {authenticateUser, lastLocation} = useSelector((state)=>state.common)
+    const {fetchCollegeList} = useFetchAllCollege()
+    const {fetchCourseList} = useFetchAllCourse()
+    const {fetchExamList} = useFetchAllExam()
+    
+    useEffect(()=>{
+        fetchCollegeList()
+        fetchCourseList()
+        fetchExamList()
+    },[])
+    const {authenticateUser} = useSelector((state)=>state.common)
     const dispatch = useDispatch();
     const navigate = useNavigate()
+    const location = useLocation()
     const authorise = async ()=>{
         const custHeader = {...constants.apiHeader.HEADER, "Authorization" : JSON.parse(localStorage.getItem('loginResponse')).token}
         const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION,constants.apiMethod.GET,custHeader)
@@ -33,7 +46,7 @@ useEffect(()=>{
     }
 },[])
 useEffect(()=>{
-    if(!authenticateUser){
+    if(!authenticateUser && location.pathname.includes('profile')){
         navigate('/')
      }
     // else{

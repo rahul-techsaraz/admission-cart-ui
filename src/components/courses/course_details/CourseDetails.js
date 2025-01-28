@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import finderIcon from '../../../images/finder-icon.svg';
 import studentIcon from '../../../images/student-icon.svg';
@@ -14,67 +14,120 @@ import greyTick from '../../../images/grey-tick.svg'
 import cd from '../../../images/cd-img1.png'
 import { useFetchCourseById } from '../../hooks/useFetchCourseById';
 import { useSelector } from 'react-redux';
+import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
+import constants from '../../../utils/Constants/constants';
 
 
 
 
 export default function CourseDetails() {
+    const [readmore, setReadmore] = useState(
+    {
+        course_description: false,
+        course_eligibility_criteria_description: false,
+        syllabusDetails: false,
+        course_placement_description: false,
+    })
     const {course_id} = useParams()
     const {fetchCourse} = useFetchCourseById()
-    const {courseDetailsById} = useSelector(state=>state.common)
+    const {courseDetailsById, allCollegeData} = useSelector(state=>state.common)
     console.log(courseDetailsById)
+    console.log(allCollegeData)
+    const dataToMap = (data)=>{
+        if(readmore.syllabusDetails){
+           return data
+        }else{
+           return data.filter((_,i)=> i<4 )
+        }
+    }
+    const getCollegeByCourse = ()=>{
+        const data = allCollegeData.filter((v)=>v.category_name === courseDetailsById?.basicCourseDetails?.category_name)
+        console.log(data)
+        return data
+    }
+    const responsive = {
+        1400:{
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
+        1024:{
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
+        768:{
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+        640:{
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        460:{
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+     }
     useEffect(()=>{
         fetchCourse(course_id)
-    },[])
+    },[course_id])
   return (
       <>
-          <CourseDetailsBanner />
-          <section class="courses-details-section pt-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="bookmark-badge-leftbox d-flex gap-3">
-                        {/* <Link><img src={questionIcon} alt="" />Save</Link>
-                        <Link><img src={questionIcon} alt="" />Ask</Link> */}
+            <CourseDetailsBanner />
+            {/* <section class="courses-details-section pt-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="bookmark-badge-leftbox d-flex gap-3">
+                                <Link><img src={questionIcon} alt="" />Save</Link>
+                                <Link><img src={questionIcon} alt="" />Ask</Link>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bookmark-badge-rightbox d-flex gap-3 justify-content-end">
+                                <Link class="yellow-bg"><img src={finderIcon} alt="" />Try Our College Finder</Link>
+                                <Link class="green-bg"><img src={studentIcon} alt="" />Check Eligibility</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="course-details-filtertab d-flex gap-3 mt-4">
+                                <Link class="active">College Info</Link>
+                                <Link class="">News</Link>
+                                <Link class="">Popular colleges</Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="bookmark-badge-rightbox d-flex gap-3 justify-content-end">
-                        <Link class="yellow-bg"><img src={finderIcon} alt="" />Try Our College Finder</Link>
-                        <Link class="green-bg"><img src={studentIcon} alt="" />Check Eligibility</Link>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="course-details-filtertab d-flex gap-3 mt-4">
-                        <Link class="active">College Info</Link>
-                        <Link class="">News</Link>
-                        <Link class="">Popular colleges</Link>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-          <section className="courses-details-section pt-50">
+            </section> */}
+
+            <section className="courses-details-section pt-50">
         <div className="container">
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-12">
                     <div id="course_details_leftBox" className="course-details-leftBox">
                         <div className="course-details-leftBox-inner text-center">
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{'About ' + courseDetailsById?.basicCourseDetails?.course_name}</h2>
-                                <p className="imgText-para">{courseDetailsById?.basicCourseDetails?.course_description}</p>
-                                <div className="text-center">
-                                    <Link className="theme-btn green-btn">Read More</Link>
-                                </div>
+                                <p className="imgText-para">{(courseDetailsById?.basicCourseDetails?.course_description.length > 100 && readmore.course_description === false) ? `${courseDetailsById?.basicCourseDetails?.course_description.slice(0, 100)}...` : courseDetailsById?.basicCourseDetails?.course_description}</p>
+                                {courseDetailsById?.basicCourseDetails?.course_description.length > 100 && 
+                                    <div className="text-center">
+                                        <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_description:!readmore.course_description})}>{!readmore.course_description ? 'Read More' : 'Read Less'}</Link>
+                                    </div>
+                                }
                             </div>
                         
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Eligibility Criteria'}</h2>
+                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 100 && readmore.course_eligibility_criteria_description === false) ? `${courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.slice(0, 100)}...` : courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description}</p>
+                                {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 100 && 
+                                    <div className="text-center">
+                                        <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_eligibility_criteria_description:!readmore.course_eligibility_criteria_description})}>{!readmore.course_eligibility_criteria_description ? 'Read More' : 'Read Less'}</Link>
+                                    </div>
+                                }
                                 <p className="imgText-para"><u><strong>The eligibility criteria for {courseDetailsById?.basicCourseDetails?.course_name} course can be checked below:</strong></u></p>
                                 <ul className="course-details-criteria-list" style={{listStyleType:'disc'}}>
-                                    {courseDetailsById?.courseDetails?.eligiblity_criteria?.split(',').map((eligiblity)=>(
+                                    {Object.keys(courseDetailsById).length>0 && courseDetailsById?.courseDetails?.eligiblity_criteria?.split(',').map((eligiblity)=>(
                                         <li>{eligiblity}</li>
                                     ))}
                                 </ul>
@@ -85,7 +138,7 @@ export default function CourseDetails() {
 
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Syllabus'}</h2>
-                                {courseDetailsById?.syllabusDetails?.map((syllabus)=>(
+                                {Object.keys(courseDetailsById).length > 0 && dataToMap(courseDetailsById?.syllabusDetails).map((syllabus)=>(
                                     syllabus?.semester_name !== '' ? 
                                         <>
                                             <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
@@ -103,28 +156,17 @@ export default function CourseDetails() {
                                         </>
                                     
                                 ))}
-                                {/* <p className="course-details-yearsyllabus text-start">Year: </p>
-                                <ul className="course-details-criteria-list d-flex flex-wrap">
-                                    <li>Educational Qualification</li>
-                                    <li>The candidates must have passed className 12</li>
-                                    <li>Minimum Qualifying Marks</li>
-                                    <li>The candidates must have a minimum of 45% of marks in className 12</li>
-                                </ul>
-                                <p className="course-details-yearsyllabus text-start">Second Year:</p>
-                                <ul className="course-details-criteria-list d-flex flex-wrap">
-                                    <li>Educational Qualification</li>
-                                    <li>The candidates must have passed className 12</li>
-                                    <li>Minimum Qualifying Marks</li>
-                                    <li>The candidates must have a minimum of 45% of marks in className 12</li>
-                                </ul> */}
-                                <div className="text-start mt-5">
-                                    <Link className="course-details-readmore-btn btn">Read More</Link>
-                                </div>
+                                {Object.keys(courseDetailsById).length>0 && courseDetailsById?.syllabusDetails.length > 3 &&
+                                    <div className="text-start mt-5">
+                                        <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, syllabusDetails:!readmore.syllabusDetails})}>{!readmore.syllabusDetails ? 'Read More' : 'Read Less'}</Link>
+                                    </div>
+                                }
+                                
                             </div>
 
                             <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">{'About ' + courseDetailsById?.basicCourseDetails?.course_name}</h2>
-                                <p className="imgText-para">{courseDetailsById?.basicCourseDetails?.course_description}</p>
+                                <h2 className="imgText-heading mb-4">{`About ${courseDetailsById?.basicCourseDetails?.course_name} Placement`}</h2>
+                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_placement_description.length > 100 && readmore.course_placement_description === false) ? `${courseDetailsById?.descriptionDetails?.course_placement_description.slice(0, 100)}...` : courseDetailsById?.descriptionDetails?.course_placement_description}</p>
                                 {/* <ul className="course-details-criteria-list2 text-start">
                                     <li>Chemical Administrator</li>
                                     <li>Technical Consultant</li>
@@ -139,7 +181,7 @@ export default function CourseDetails() {
                                     <li>Product Technician</li>
                                 </ul> */}
                                 <div className="text-start mt-5">
-                                    <Link className="course-details-readmore-btn btn">Read More</Link>
+                                    <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, course_placement_description:!readmore.course_placement_description})}>{!readmore.course_placement_description ? 'Read More' : 'Read Less'}</Link>
                                 </div>
                             </div>
                             
@@ -147,7 +189,7 @@ export default function CourseDetails() {
                     
                     </div>
                 </div>
-                <div className="col-md-4">
+                {/* <div className="col-md-4">
                     <aside id="courses_details_rightcol" className="courses-details-rightcol">
                         <div className="courses-details-rightcol-grid">
                             <h2 className="courses-details-rightcol-grid-title">Popular Courses</h2>
@@ -235,7 +277,7 @@ export default function CourseDetails() {
 
 
                     </aside>
-                </div>
+                </div> */}
                 <div className='col-12'>
                 <div className="course-details-alterImgbox d-flex align-items-center">
                             <div className="course-details-alterImgbox-col1 green-bg">
@@ -282,47 +324,21 @@ export default function CourseDetails() {
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper position-relative">
-                                    <CustomSwiper navigationNext={'.ind-clg-button-next'} navigationPrev={'.ind-clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={false}>
-                                        <swiper-slide>
-                                            <div className="swiper-slide">
-                                                <div className="clg-slider-box position-relative">
-                                                    <img src= {sliderlogo} className="clg-slider-logo" alt="" />
-                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <Link className="apply-btn position-absolute">Apply</Link>
-                                                </div>
-                                            </div>
-                                        </swiper-slide>
-                                        <swiper-slide>
-                                            <div className="swiper-slide">
-                                                <div className="clg-slider-box position-relative">
-                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
-                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <Link className="apply-btn position-absolute">Apply</Link>
-                                                </div>
-                                            </div>
-                                        </swiper-slide>
-                                        <swiper-slide>
-                                            <div className="swiper-slide">
-                                                <div className="clg-slider-box position-relative">
-                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
-                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <Link className="apply-btn position-absolute">Apply</Link>
-                                                </div>
-                                            </div>        
-                                        </swiper-slide>
-                                        <swiper-slide>
-                                            <div className="swiper-slide">
-                                                <div className="clg-slider-box position-relative">
-                                                    <img src={sliderlogo} className="clg-slider-logo" alt="" />
-                                                    <p className="slider-clg-name">Santi Niketan Polytechnic Durgapur</p>
-                                                    <p className="slider-clg-location">Durgapur, West Bengal</p>
-                                                    <Link className="apply-btn position-absolute">Apply</Link>
-                                                </div>
-                                            </div>        
-                                        </swiper-slide>
+                                    <CustomSwiper navigationNext={'.ind-clg-button-next'} navigationPrev={'.ind-clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                        {
+                                            getCollegeByCourse().map((college)=>(
+                                                <swiper-slide>
+                                                    <div className="swiper-slide">
+                                                        <div className="clg-slider-box position-relative">
+                                                            <img src= {constants.imageAbsolutePath+college.college_thumbnail} className="clg-slider-logo" alt="" />
+                                                            <p className="slider-clg-name">{college.college_name}</p>
+                                                            <p className="slider-clg-location">{`${college.city}, ${college.state}`}</p>
+                                                            <Link className="apply-btn position-absolute" to={`/colleges_details/${college.college_id}`}>View Details</Link>
+                                                        </div>
+                                                    </div>
+                                                </swiper-slide>
+                                            ))
+                                        }
                                     </CustomSwiper>
                                     <div className="swiper-button-prev ind-clg-button-prev">
                                 <img src={leftArrow} alt="" />
@@ -349,7 +365,7 @@ export default function CourseDetails() {
             
                         </div>
 
-                        <div className="clg-slider-wrapper">
+                        {/* <div className="clg-slider-wrapper">
                             <div className="tick-heading d-flex align-items-center mb-4">
                                 <span className="tick-heading-icon d-inline-flex">
                                     <img src={greyTick} alt="" />
@@ -415,15 +431,7 @@ export default function CourseDetails() {
 
                                 </div>
                             </div>
-
-                            {/* <div className="swiper-button-prev clg-button-prev">
-                                <img src="images/Linkrrow-left-icon.svg" alt="" />
-                            </div>
-                            <div className="swiper-button-next clg-button-next">
-                                <img src="images/Linkrrow-right-icon.svg" alt="" />
-                            </div> */}
-
-                        </div>
+                        </div> */}
                 </div>
             </div>
 

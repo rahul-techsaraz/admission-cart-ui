@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CollegeBanner from './CollegeBanner'
 import CollegeFaq from './CollegeFaq'
 import collegeImage1 from '../../images/clg-img1.jpg';
@@ -6,7 +6,9 @@ import collegeLogo from '../../images/clg-logo3.png';
 import collegeWishList from '../../images/wishlist-checked-icon.svg';
 import { useSelector } from 'react-redux';
 import CollegeCard from './college_details/CollegeCard';
+import CustomPagination from '../../utils/Constants/custom-components/CustomPagination';
 export default function CollegeListing() {
+    const [collegeData, setCollegeData] = useState([])
     const {allCollegeData} = useSelector(state=>state.common)
   return (
       <>
@@ -14,7 +16,7 @@ export default function CollegeListing() {
           <section className="course-listing-section">
         <div className="container">
             <div className="row">
-                <div className="col-md-5 col-lg-3">
+                {/* <div className="col-md-5 col-lg-3">
                     <aside className="filter-col">
                         <div className="accordion" id="degree_accordion">
                             <div className="accordion-item border-0">
@@ -162,9 +164,9 @@ export default function CollegeListing() {
                         
                      </aside>
 
-                </div>
-                <div className="col-md-7 col-lg-9">
-                    <div className="row">
+                </div> */}
+                <div className="col-12">
+                    {/* <div className="row">
                         <div className="col-12">
                             <div className="mb-4">
                                 <div className="applied-filter d-inline-flex align-items-center">
@@ -173,10 +175,10 @@ export default function CollegeListing() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     
                     <div className="row">
-                        <CollegeCard allCollegeData={allCollegeData}/>
+                        <CollegeCard allCollegeData={collegeData}/>
                         {/* <div className="col-lg-6">
                             <div className="clg-listing-box">
                                 <div className="clg-listing-inner-upbx position-relative">
@@ -374,6 +376,9 @@ export default function CollegeListing() {
                             </div>
                         </div> */}
 
+                    </div>
+                    <div className='row'>
+                    <CustomPagination data={allCollegeData} itemsPerPage={6} currentItemsParent={setCollegeData}/>
                     </div>
                 </div>
                 
