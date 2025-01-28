@@ -19,16 +19,16 @@ export default function CollegeCard({allCollegeData}) {
                 <Link to={`/colleges_details/${college.college_id}`}>
                     <div className="clg-listing-box">
                         <div className="clg-listing-inner-upbx position-relative" style={{width:"403.5px", height:'225px'}}>
-                            <img src={constants.imageAbsolutePath+college.college_thumbnail} alt="college Thumbnail" style={{width:"100%", height:"100%", objectFit:"contain"}}/>
+                            {/* <img src={constants.imageAbsolutePath+college.college_thumbnail} alt="college Thumbnail" style={{width:"100%", height:"100%", objectFit:"contain"}}/> */}
                             <div>
-                                <span className="featured-badge">Featured</span>
-                                <span className="respond-grnte-badge">Respond Guaranteed</span>
+                                {/* <span className="featured-badge">Featured</span>
+                                <span className="respond-grnte-badge">Respond Guaranteed</span> */}
                                 <div className="clglisting-clglogo position-absolute" style={{width:"92px", height:'92px'}}>
                                     <img src={constants.imageAbsolutePath+college.college_logo} alt="college Logo" />
                                 </div>
-                                <div className="clg-whistlist-badge">
+                                {/* <div className="clg-whistlist-badge">
                                     <img src={collegeWishList} alt="collegeWishList" />
-                                </div>
+                                </div> */}
                                 <div className="position-absolute clg-rating-badge d-flex flex-column">
                                     <span className="clg-rating">{college.ratings}</span>
                                     <span className="clg-reviews-count">{getRandomInt(1, 100)}+ Reviews</span>
@@ -64,7 +64,7 @@ export default function CollegeCard({allCollegeData}) {
                             </div> */}
                         </div>
                     </div>
-                    </Link>
+                </Link>
             </div>
         ))}
         

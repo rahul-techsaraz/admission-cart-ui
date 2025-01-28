@@ -2,6 +2,7 @@ import leftArrow from '../images/arrow-left-icon.svg';
 import rightArrow from '../images/arrow-right-icon.svg';
 import CustomSwiper from '../utils/Constants/custom-components/CustomSwiper';
 import exploreThumbImg from '../images/course/course-post-img1.jpg';
+import scollarship from '../images/scholarship-icon.svg'
 import { swiperResponsive } from '../utils/Constants/swiperResponsive';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -9,27 +10,28 @@ import { useEffect } from 'react';
 import constants from "../utils/Constants/constants";
 
 const ExploreCareer = () => {
-    const{allCollegeData}= useSelector(state=>state.common)
+    const{allExamData}= useSelector(state=>state.common)
+    console.log(allExamData)
     const responsive = {
         1400:{
-            slidesPerView: 3,
-            spaceBetween: 50,
+            slidesPerView: 4,
+            spaceBetween: 10,
         },
         1024:{
-            slidesPerView: 3,
-            spaceBetween: 50,
+            slidesPerView: 4,
+            spaceBetween: 10,
         },
         768:{
-            slidesPerView: 2,
-            spaceBetween: 40,
+            slidesPerView: 3,
+            spaceBetween: 10,
         },
         640:{
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 10,
         },
         460:{
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 10,
         },
     }
     // useEffect(()=>{
@@ -41,17 +43,17 @@ const ExploreCareer = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <h1 className="section-heading text-center">Explore Careers</h1>
+                    <h1 className="section-heading text-center">Explore Exams</h1>
                     <p className="section-subheading">Explore your preferred streams to learn about the relevant colleges, exams and more!</p>
                 </div>
                 <div className="col-12">
                     <div className="career-slider-wrapper position-relative">
                         <div className="swiper career-slider">
                             <div className="swiper-wrapper position-reltive">
-                                <CustomSwiper navigationNext={".career-button-next"} navigationPrev={".career-button-prev"} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                    {allCollegeData.filter((data)=>data.ratings>=3).map((college)=>(
+                                <CustomSwiper navigationNext={".career-button-next"} navigationPrev={".career-button-prev"} noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                    {allExamData.map((exam)=>(
                                         <swiper-slide>
-                                        <div className="swiper-slide">
+                                        {/* <div className="swiper-slide">
                                             <div className="career-box-flex-box">
                                                 <div className="career-box text-start">
                                                     <img src={constants.imageAbsolutePath + college.college_thumbnail} className="explore-ThumbImg" alt="" />
@@ -74,6 +76,15 @@ const ExploreCareer = () => {
                                                         <Link className="career-readmore-btn text-center" to={`/colleges_details/${college.college_name}`}>Read More <img src={rightArrow} alt="" /></Link>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div> */}
+                                        <div className="swiper-slide position-relative">
+                                            <div className="course-box text-start">
+                                                <img src={scollarship} className="scollarship-icon" alt="" />
+                                                <p className="course-name">{exam.exam_name}</p>
+                                                <p className="course-numbering">{exam.category_name}</p>
+                                                <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
+                                                <Link className="course-readmore-btn" to={`/exam_details/${exam.exam_id}`}>Read More <img src={{rightArrow}} alt="" /></Link>
                                             </div>
                                         </div>
                                         </swiper-slide>

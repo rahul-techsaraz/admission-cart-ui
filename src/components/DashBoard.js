@@ -54,7 +54,7 @@ const DashBoard = () => {
         <ExploreCareer />
         <AbroadSuccessStory />
         <AboutUs />
-        <BlogSection />
+        {/* <BlogSection /> */}
         <DataCounter />
         <Testimonial />
         </>
