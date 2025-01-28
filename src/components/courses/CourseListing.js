@@ -44,7 +44,7 @@ export default function CourseListing() {
         <section className="course-listing-section">
         <div className="container">
             <div className="row">
-                <div className="col-md-3">
+                {/* <div className="col-md-3">
                     <aside className="filter-col">
                         <div className="accordion" id="duration_accordion">
                             <ApplyFilter  inputField={yearsFilterOption} isSearchBar={false} label="Duration" />
@@ -58,8 +58,8 @@ export default function CourseListing() {
                         
                      </aside>
 
-                </div>
-                <div className="col-md-9">
+                </div> */}
+                <div className="col-12">
                     <div className="row">
                         <div className="col-12">
                             <div className="mb-4">
@@ -67,7 +67,7 @@ export default function CourseListing() {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    {/* <div className="row"> */}
                         <CourseCard/>
                         {/* <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
@@ -202,7 +202,7 @@ export default function CourseListing() {
                             </div>
                         </div> */}
 
-                    </div>
+                    {/* </div> */}
                 </div>
                 
             </div>

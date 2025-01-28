@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import courseIcon1 from '../../../images/course/course-icon1.svg';
 import courseIcon2 from '../../../images/course/course-icon2.svg';
 import courseIcon3 from '../../../images/course/course-icon3.svg';
@@ -14,21 +14,29 @@ import courseIcon12 from '../../../images/course/course-icon12.svg';
 import sandclassNameIcon from '../../../images/sandglass-icon.svg';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import CustomPagination from '../../../utils/Constants/custom-components/CustomPagination';
 
-export default function CourseCard() {
+export default function CourseCard({data}) {
     const {allCourseData} = useSelector(state=>state.common)
+    const [courseData, setCourseData] = useState([])
     console.log(allCourseData)
     const courseImage = {
         image : '',
         course : '',
     }
+    useEffect(()=>{
+        if(data){
+            setCourseData(data)
+        }
+    },[data])
   return (
     <>
-        {allCourseData.map((course)=>(
+        <div className="row">
+        {courseData.map((course)=>(
             
-            <div className="col-md-6">
+            <div className="col-md-4">
                 <Link to={`/courses_details/${course.course_id}`}>
-                <div className="course-listing-box align-items-center mb-5" style={{height:'300px' }}>
+                <div className="course-listing-box align-items-center mb-4">
                     <div className="course-post-contentBx">
                         <h2 className="course-title">{course.course_name}</h2>
                         <p className="course-para">{course.course_description.slice(0, 100)}</p>
@@ -52,7 +60,10 @@ export default function CourseCard() {
                 </Link>
             </div>
         ))}
-        
+        </div>
+        <div className="row">
+            <CustomPagination data={allCourseData} itemsPerPage={6} currentItemsParent={setCourseData}/>
+        </div>
     </>
   )
 }

@@ -27,22 +27,37 @@ import { useSelector } from 'react-redux'
 
 export default function ExamDetailsLeftBox() {
   const [linkIndex, setLinkIndex] = useState(0)
+  const [readmore, setReadmore] = useState(
+    {
+      exam_description: false,
+      exam_conducting_body_description: false,
+      exam_important_dates_description: false,
+    })
   const [pData, setPData] = useState(constants.examDetailsList[0].pTagData)
-  const {examDetailsById}=useSelector(state=>state.common)
+  const {examDetailsById, allExamData}=useSelector(state=>state.common)
+  console.log(examDetailsById)
+  console.log(allExamData)
   const updateActive = (p, index)=>{
     setLinkIndex(index)
     setPData(p)
     //console.log(p)
+  }
+  const getAllExamByCategory = ()=>{
+    const data = allExamData.filter((v)=>v?.category_name === examDetailsById?.examBasicDetails?.category_name && v?.exam_name !== examDetailsById?.examBasicDetails?.exam_name)
+    return data
   }
   return (
    <div className="col-md-12">
         <div id="exam_details_leftBox" className="exam-details-leftBox">
           <h2 className="exam-details-yellow-heading mb-4 d-inline-block">{examDetailsById?.examBasicDetails?.exam_name} {examDetailsById?.examBasicDetails?.exam_year}</h2>
           <div className="exam-details-left-innerpara mb-5 ps-5">
-            <p className="exam-details-para1">{examDetailsById?.descriptionDetails?.exam_description}</p>
-            <div className="text-start mt-5">
-              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
-            </div>
+            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_description.length > 100 && readmore.exam_description === false) ? `${examDetailsById?.descriptionDetails?.exam_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_description}</p>
+            {examDetailsById?.descriptionDetails?.exam_description.length > 100 &&
+              <div className="text-start mt-5">
+                <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_description:!readmore.exam_description})}>{!readmore.exam_description ? 'Read More' : 'Read Less'}</Link>
+              </div>
+            }
+            
           </div>
           <div className="course-details-alterImgbox d-flex align-items-center pb-5">
             <div className="course-details-alterImgbox-col1 green-bg">
@@ -69,46 +84,52 @@ export default function ExamDetailsLeftBox() {
             <span className="tick-heading-icon d-inline-flex">
               <img src={greyTick} alt="" />
             </span>
-            <h2>JEE Main 2024 Conducting Body</h2>
+            <h2>{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Conducting Body`}</h2>
           </div>
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
-            <p className="exam-details-para1">The National Testing Agency (NTA) was founded as a leading, specialized, independent, and self-sufficient testing agency in order to administer entrance exams for admission to higher educational institutions. Being an autonomous body, NTA will increase examination transparency. The dates for the competitive tests will vary, giving students the flexibility to select the times that work best for them.</p>
-            <div className="text-start mt-5">
-              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
-            </div>
+            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_conducting_body_description.length > 100 && readmore.exam_conducting_body_description === false) ? `${examDetailsById?.descriptionDetails?.exam_conducting_body_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_conducting_body_description}</p>
+            {examDetailsById?.descriptionDetails?.exam_conducting_body_description.length > 100 &&
+              <div className="text-start mt-5">
+                <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_conducting_body_description:!readmore.exam_conducting_body_description})}>{!readmore.exam_conducting_body_description ? 'Read More' : 'Read Less'}</Link>
+              </div>
+            }
           </div>
           <div className="similar-exam-ylw-box yellow-bg py-5">
             <h2 className="section-heading2 text-center mb-5">Similar Exams</h2>
             <div className="d-flex justify-content-center flex-wrap gap-4">
-              <Link className="similar-exam-badge">BITSAT</Link>
+              {getAllExamByCategory().map((exam)=>(
+                <Link className="similar-exam-badge">{exam.exam_name}</Link>  
+              ))}
+              {/* <Link className="similar-exam-badge">BITSAT</Link>
               <Link className="similar-exam-badge">JEE Advanced</Link>
               <Link className="similar-exam-badge">NATA</Link>
-              <Link className="similar-exam-badge">SRMHCAT</Link>
+              <Link className="similar-exam-badge">SRMHCAT</Link> */}
             </div>
           </div>
           <div className="similar-exam-bottom-contentbox text-center mt-5">
-            <h2 className="section-heading2 text-center mb-2">JEE Main 2024 Important Dates</h2>
-            <p className="similar-exam-bottom-contentbox-para1 mb-5">JEE Main Admit Card 2024 and . Candidates must keep an eye on the important dates related to these events to stay updated and avoid missing out on any essential information. </p>
-            <h3 className="mb-3">JEE Main 2024 Exam Dates (January & April Sessions)</h3>
-            <p className="similar-exam-bottom-contentbox-para2">NTA has released the JEE Main 2024 exam dates for January and April sessions. Currently, only the exam dates are announced and the complete JEE Main 2024 schedule will be released soon. </p>
+            <h2 className="section-heading2 text-center mb-2">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Important Dates`}</h2>
+            <p className="similar-exam-bottom-contentbox-para1 mb-5">{(examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 100 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_important_dates_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_important_dates_description}</p>
+            <h3 className="mb-3">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates (January & April Sessions)` }</h3>
+            <p className="similar-exam-bottom-contentbox-para2">{(examDetailsById?.descriptionDetails?.exam_session_description.length > 100 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_session_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_session_description}</p>
           </div>
           <div className="py-5 mt-4">
             <div className="row align-items-center">
               <div className="col-12 col-md-5">
-                <h1 className="exam-center-calenderTxt text-center">JEE Main 2024 Exam Dates <span>January (Session 1)</span>
+                <h1 className="exam-center-calenderTxt text-center">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates`} <span>January (Session 1)</span>
                 </h1>
               </div>
               <div className="col-4 col-md-2">
                 <img src={yellowCircle} alt="" />
               </div>
               <div className="col-12 col-md-5">
-                <h1 className="exam-center-calenderTxt text-center">JEE Main 2024 Exam Dates <span>January (Session 1)</span>
+                <h1 className="exam-center-calenderTxt text-center">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates`} <span>January (Session 1)</span>
                 </h1>
               </div>
             </div>
           </div>
+          {examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 100 || examDetailsById?.descriptionDetails?.exam_session_description.length > 100}
           <div className="text-center mb-5">
-            {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
+            <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_important_dates_description:!readmore.exam_important_dates_description})}>{!readmore.exam_important_dates_description ? 'Read More' : 'Read Less'}</Link>
           </div>
           <div className="counselling-date-box">
             <h2 className="counselling-date-box-heading">JEE Main 2024 Counselling Dates</h2>

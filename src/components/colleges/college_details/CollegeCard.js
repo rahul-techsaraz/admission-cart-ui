@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import collegeImage1 from '../../../images/clg-img1.jpg';
 import collegeLogo from '../../../images/clg-logo3.png';
 import collegeWishList from '../../../images/wishlist-checked-icon.svg';
 import constants from '../../../utils/Constants/constants';
 import { Link } from 'react-router-dom';
 
-
 export default function CollegeCard({allCollegeData}) {
-    // console.log(allCollegeData)
+    console.log(allCollegeData)
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -16,8 +15,7 @@ export default function CollegeCard({allCollegeData}) {
   return (
     <>
         {allCollegeData.map((college)=>(
-            
-            <div className="col-lg-6">
+            <div className="col-lg-4">
                 <Link to={`/colleges_details/${college.college_id}`}>
                     <div className="clg-listing-box">
                         <div className="clg-listing-inner-upbx position-relative" style={{width:"403.5px", height:'225px'}}>
@@ -56,20 +54,20 @@ export default function CollegeCard({allCollegeData}) {
                                 <li className="">Placements:</li>
                                 <li>Average - Rs. 8 L.P.A/- Highest - Rs. 95.8 L.P.A/-</li>
                             </ul> */}
-                            <div className="d-flex flex-wrap clg-others-infobadge gap-2">
+                            {/* <div className="d-flex flex-wrap clg-others-infobadge gap-2">
                                 <span>Courses & Fees</span>
                                 <span>Reviews</span>
                                 <span>Eligibility</span>
                                 <span>Compare</span>
                                 <span>Gallery</span>
                                 <span>Contact</span>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     </Link>
             </div>
-            
         ))}
+        
     </>
   )
 }

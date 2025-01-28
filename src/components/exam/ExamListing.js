@@ -23,7 +23,7 @@ export default function ExamListing() {
          <section class="exam-listing-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                {/* <div class="col-md-3">
                     <aside class="filter-col">
                         <div class="accordion" id="streams_accordion">
                             <div class="accordion-item border-0">
@@ -173,9 +173,9 @@ export default function ExamListing() {
                         
                      </aside>
 
-                </div>
-                <div class="col-md-9">
-                    <div class="row">
+                </div> */}
+                <div class="col-12">
+                    {/* <div class="row">
                         <div class="col-12">
                             <div class="applied-fliter-o d-flex align-items-center justify-content-between mb-4">
                                 <div class="applied-filter d-inline-flex align-items-center">
@@ -192,7 +192,7 @@ export default function ExamListing() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div class="row">
                         <ExamCard />
                         {/* <div class="col-lg-4 col-md-6">
@@ -537,10 +537,8 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div> */}
-
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>   

@@ -21,15 +21,15 @@ import { useSelector } from "react-redux"
 import { useFetchAllExam } from "./hooks/useFetchAllExam"
 
 const DashBoard = () => {
-    const {fetchCollegeList} = useFetchAllCollege()
-    const {fetchCourseList} = useFetchAllCourse()
-    const {fetchExamList} = useFetchAllExam()
-    const {allCollegeData,allExamData,allCourseData} = useSelector(state=>state.common)
-    useEffect(()=>{
-        fetchCollegeList()
-        fetchCourseList()
-        fetchExamList()
-    },[])
+    // const {fetchCollegeList} = useFetchAllCollege()
+    // const {fetchCourseList} = useFetchAllCourse()
+    // const {fetchExamList} = useFetchAllExam()
+    
+    // useEffect(()=>{
+    //     fetchCollegeList()
+    //     fetchCourseList()
+    //     fetchExamList()
+    // },[])
     // useEffect(()=>{
     //     console.log(allCollegeData)
     // },[allCollegeData])

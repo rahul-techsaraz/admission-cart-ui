@@ -104,7 +104,6 @@ const commonSlice = createSlice({
       state.isLoading = false
     })
     builder.addCase(fetchExamById.fulfilled, (state, { payload }) => {
-        console.log({payload})
         state.examDetailsById = payload.data
         state.isLoading = false
     })
