@@ -886,11 +886,41 @@ ul.mega_menu {
 .course-slider swiper-container swiper-slide:nth-child(even){
   background-color: var(--color-green);
 }
+
+.course-slider swiper-container span.clg-rating:nth-child(even){
+  background-color: var(--color-yellow);
+}
+.course-slider swiper-container span.clg-rating:nth-child(odd){
+  background-color: var(--color-green);
+}
+
+/* .swiper-slide:nth-child(odd){
+  background-color: var(--color-yellow);
+}
+.swiper-slide:nth-child(even){
+  background-color: var(--color-green);
+} */
+
+
 .course-slider swiper-container swiper-slide{
   border-radius: 30px 30px 30px 0px;
 }
 .course-box {
-  padding: 30px 25px 0;
+  /* padding: 30px 25px 0; */
+  padding: 20px 20px 0;
+  border-radius: 0px 50px 0px 0px;
+  border: 7px solid #fff;
+  background: #FFF;
+  height: 100%;
+  position: relative;
+  height: 500px;
+  /* box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25); */
+}
+.course-box:hover{
+  border-radius: 0px 50px 0px 0px;
+    border: 7px solid var(--color-green);
+    background: #FFF;
+    /* box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25); */
 }
 .scollarship-icon{
   width: 43px;
@@ -918,6 +948,8 @@ p.course-para {
   border-radius: 30px 30px 0px 0px;
   /* background-color: var(--color-white); */
   margin: 0 auto;
+  border-top: 7px solid var(--color-green);
+  /* border: 7px solid var(--color-green); */
   text-align: center;
   display: block;
   width: 200px;
@@ -929,6 +961,13 @@ p.course-para {
   line-height: normal;
   color: var(--color-black);
   max-width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.course-box:hover .course-readmore-btn{
+  background-color: var(--color-green);
 }
 .course-readmore-btn img{
   width: 16px;
@@ -1641,6 +1680,7 @@ select.form-select {
 }
 .career-slider-wrapper {
   padding: 0 30px;
+  margin-top: 50px;
 }
 
 
@@ -3451,6 +3491,20 @@ ul.exam-imp-list {
 .whatsNew-button-next {
   top: 60%;
 } */
+
+.courselist-button-prev{
+  left: -50px !important;
+}
+.courselist-button-next{
+  right: -50px !important;
+}
+.black-btn:hover{
+  color: #0a58ca;
+}
+.dumy{
+  width: 100%;
+  height: 100%;
+}
 .whatsNew-nav-btn{
   position: absolute;
   top: 50%;
@@ -3467,7 +3521,7 @@ ul.exam-imp-list {
 .swiper-button-prev,
 .banner-button-prev,
 .implink-button-prev,
-.courselist-button-prev,
+/* .courselist-button-prev, */
 .trending-button-prev,
 .career-button-prev,
 .testimonials-button-prev,
@@ -3494,7 +3548,7 @@ ul.exam-imp-list {
 .swiper-button-next,
 .banner-button-next,
 .implink-button-next,
-.courselist-button-next,
+/* .courselist-button-next, */
 .trending-button-next,
 .career-button-next,
 .testimonials-button-next,
@@ -3590,10 +3644,19 @@ ul.exam-imp-list {
   color: var(--color-black);
 }
 .clg-listing-box {
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25); */
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 30px;
+}
+#box-height{
+  max-height: 420px;
+  height: 420px;
+  padding: 0 20px;
+}
+.clg-img-reviews-box{
+  display: flex;
+  justify-content: space-between;
 }
 
 .featured-badge,.respond-grnte-badge {
@@ -3640,6 +3703,7 @@ ul.exam-imp-list {
   bottom: -30px;
   left: 25px;
   padding: 15px;
+  margin-top: 20px;
 }
 .clg-whistlist-badge {
   position: absolute;
@@ -3653,9 +3717,26 @@ ul.exam-imp-list {
   right: 82px;
   bottom: -59px;
 }
+/* .course-slider .swiper-container .swiper-slide:nth-child(odd) >.clg-rating{
+  background-color: rgb(255, 0, 0);
+}
+.clg-rating:nth-child(odd) {
+  background-color: rgb(255, 0, 0);
+} */
+.clg-name-parents{
+  min-height: 70px;
+}
+.clg-name-parents h4{
+  font-size: 18px;
+}
 .clg-rating-badge .clg-rating{
   background: var(--color-yellow);
-  padding: 15px 20px 16px;
+  /* padding: 15px 20px 16px; */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0 0 27px 27px;
   font-size: 12px;
   font-style: normal;
@@ -3663,6 +3744,18 @@ ul.exam-imp-list {
   line-height: 14px;
   text-align: center;
   align-self: center;
+}
+.clg-list-approved-text{
+  display: block;
+}
+#clg-listing-inner-btmbx-box-padding{
+  padding: 25px 0px 25px 0;
+}
+.clg-list-type-text{
+  display: block;
+}
+.box-style{
+  display: block;
 }
 .clg-reviews-count{
   font-size: 12px;
@@ -3673,6 +3766,7 @@ ul.exam-imp-list {
 
 .clg-listing-inner-btmbx {
   padding: 75px 25px 25px;
+  text-align: left;
 }
 .clg-name {
   font-family: Poppins;
@@ -3681,6 +3775,7 @@ ul.exam-imp-list {
   font-weight: 600;
   line-height: normal;
   margin: 0;
+  min-height: 60px;
 }
 p.clg-location {
   font-size: 12px;
@@ -3691,6 +3786,7 @@ p.clg-location {
 }
 .clg-affi-info{
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 .clg-affi-info li{
   font-size: 12px;
