@@ -11,7 +11,7 @@ const tarndingBanner = [sliderBanner1, sliderBanner2, sliderBanner3, sliderBanne
 const LandingContainer = () => {
     return (
         <>
-            <section className="banner-section text-center mb-5">
+            <section className="banner-section text-center">
                 <div className="banner-container">
                     {/* <div className="banner-slider-wrapper position-relative">
                         <div className="swiper banner-slider"> */}

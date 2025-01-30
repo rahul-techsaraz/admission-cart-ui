@@ -56,33 +56,33 @@ const CourseList = () => {
                                         <Link className="course-readmore-btn" to={`/colleges_details/${college.college_id}`}>Read More <img src={{rightArrow}} alt="" /></Link>
                                     </div>
                                 </div> */}
-                                <div className="col-12">
-                                    <Link to={`/colleges_details/${college.college_id}`}>
+                                <div className="col-12" id="box-height">
+                                    <Link to={`/colleges_details/${college.college_id}`} className="box-style">
                                         <div className="clg-listing-box">
-                                            <div className="clg-listing-inner-upbx position-relative" style={{width:"403.5px", height:'225px'}}>
+                                            {/* <div className="clg-listing-inner-upbx position-relative" style={{width:"403.5px", height:'225px'}}> */}
                                                 {/* <img src={constants.imageAbsolutePath+college.college_thumbnail} alt="college Thumbnail" style={{width:"100%", height:"100%", objectFit:"contain"}}/> */}
-                                                <div>
+                                                <div className="clg-img-reviews-box">
                                                     {/* <span className="featured-badge">Featured</span>
                                                     <span className="respond-grnte-badge">Respond Guaranteed</span> */}
-                                                    <div className="clglisting-clglogo position-absolute" style={{width:"92px", height:'92px'}}>
+                                                    <div className="clglisting-clglogo" style={{width:"92px", height:'92px'}}>
                                                         <img src={constants.imageAbsolutePath+college.college_logo} alt="college Logo" />
                                                     </div>
                                                     {/* <div className="clg-whistlist-badge">
                                                         <img src={collegeWishList} alt="collegeWishList" />
                                                     </div> */}
-                                                    <div className="position-absolute clg-rating-badge d-flex flex-column">
+                                                    <div className="clg-rating-badge d-flex flex-column">
                                                         <span className="clg-rating">{college.ratings}</span>
                                                         <span className="clg-reviews-count">{getRandomInt(1, 100)}+ Reviews</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div className="clg-listing-inner-btmbx">
-                                                <h4 className="clg-name">{college.college_name}</h4>
+                                            {/* </div> */}
+                                            <div className="clg-listing-inner-btmbx" id="clg-listing-inner-btmbx-box-padding">
+                                                <div className="clg-name-parents"><h4 className="clg-name">{college.college_name}</h4></div>
                                                 <p className="clg-location">{college.city+", "+college.state}</p>
-                                                <ul className="clg-affi-info d-flex">
-                                                    <li>{'Approved by '+college.affiliate_by}</li>
-                                                    <li>{'Type '+college.college_type}</li>
-                                                    <li>NRF Ranking</li>
+                                                <ul className="clg-affi-info d-flex justify-content-between">
+                                                    <li><span className="clg-list-approved-text">Approved by</span>{college.affiliate_by}</li>
+                                                    <li><span className="clg-list-type-text">Type</span>{college.college_type}</li>
+                                                    {/* <li>NRF Ranking</li> */}
                                                 </ul>
                                                 <p className="clg-stream-name">{college.category_name}</p>
                                                 {/* <ul className="clg-admission-info-listitem d-flex flex-wrap">
@@ -105,6 +105,8 @@ const CourseList = () => {
                                                 </div> */}
                                             </div>
                                         </div>
+
+                                        
                                     </Link>
                                 </div>
                             </swiper-slide>
