@@ -79,12 +79,12 @@ const ExploreCareer = () => {
                                             </div>
                                         </div> */}
                                         <div className="swiper-slide position-relative">
-                                            <div className="course-box text-start">
-                                                <img src={scollarship} className="scollarship-icon" alt="" />
-                                                <p className="course-name">{exam.exam_name}</p>
-                                                <p className="course-numbering">{exam.category_name}</p>
-                                                <p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                                <Link className="course-readmore-btn" to={`/exam_details/${exam.exam_id}`}>Read More <img src={{rightArrow}} alt="" /></Link>
+                                            <div className="course-box text-start course-box-heigh-set">
+                                            <div className='course-box-img'><img src={scollarship} className="scollarship-icon" alt="" /></div>
+                                                <div className='course-box-p-parent'><p className="course-name">{exam.exam_name}</p></div>
+                                                <div className='course-box-p-parent2'><p className="course-numbering">{exam.category_name}</p></div>
+                                                <div className='course-box-p-parent3'><p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p></div>
+                                                <Link className="course-readmore-btn course-readmore-btn2" to={`/exam_details/${exam.exam_id}`}>Read More <img src={{rightArrow}} alt="" /></Link>
                                             </div>
                                         </div>
                                         </swiper-slide>

@@ -31,10 +31,10 @@ const TrandingSection  = () => {
                                             <div className="swiper-slide">
                                                 <div className="course-box text-start">
                                                     <img src={scollarship} className="scollarship-icon" alt="" />
-                                                    <p className="course-name mb-1">{course.course_name}<br /> Management</p>
+                                                    <div className="course-name-text"><p className="course-name mb-1">{course.course_name}<br /> Management</p></div>
                                                     <p className="course-numbering mb-2">01.</p>
                                                     <p className="course-para text-start p-0">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                                    <Link className="course-readmore-btn" to={`/courses_details/${course.course_name}`}>Read More <img src={rightArrow} alt="" /></Link>
+                                                    <Link className="course-readmore-btn course-readmore-btn-position" to={`/courses_details/${course.course_name}`}>Read More <img src={rightArrow} alt="" /></Link>
                                                 </div>
                                             </div>
                                         </swiper-slide>
