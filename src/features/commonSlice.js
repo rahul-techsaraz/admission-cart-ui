@@ -4,6 +4,7 @@ import constants from "../utils/Constants/constants";
 
 const initialState = {
     isLoading: false,
+    isPopup: false,
     authenticateUser: localStorage.getItem('loginResponse')? true : false,
     lastLocation:'',
     openLoginModel: false,
@@ -40,6 +41,9 @@ const commonSlice = createSlice({
     },
     updateLastLocation:(state, {payload})=>{
       state.lastLocation = payload.location
+    },
+    toggelPopup:(state, {payload})=>{
+      state.isPopup = payload.flag
     }
   },
   extraReducers:(builder)=>{
@@ -123,7 +127,8 @@ export const {
     toggelDashBoardModel,
     upDateActiveMenu,
     updateauthenticateUser,
-    updateLastLocation
+    updateLastLocation,
+    toggelPopup,
  } = commonSlice.actions;
 
 export default commonSlice.reducer;

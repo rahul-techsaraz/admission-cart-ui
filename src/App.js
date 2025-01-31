@@ -14,7 +14,7 @@ import NewsLetter from './components/footer/NewsLetter';
 import ContactUsPage from './page/ContactUsPage';
 import Footer from './components/footer/Footer';
 import router from './Routes/router';
-import { Await, BrowserRouter, Outlet, RouterProvider, useNavigate } from 'react-router-dom';
+import { Await, BrowserRouter, Outlet, RouterProvider, useLocation, useNavigate } from 'react-router-dom';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './state/store';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -24,17 +24,28 @@ import constants from './utils/Constants/constants';
 import httpFetch from './fetch/useFetch'
 import {register} from "swiper/element/bundle"
 import Loader from './components/Loader/Loader';
+import ScrollTop from './components/scroll/ScrollTop';
+import ChatBot from './components/chatBot/ChatBot';
+import ContactUsPopup from './components/contactUs/ContactUsPopup';
 
 const AppLayout = () => {
-  const {isLoading} = useSelector(state=>state.common)
+  const {isLoading, isPopup} = useSelector(state=>state.common)
+  const location = useLocation()
   register()
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[location.pathname])
 
   return (
     <>
       {isLoading && <Loader />}
-      <div className="app">
+      <div className="app position-relative">
         <Header />
         <Outlet />
+        <ScrollTop />
+        <ChatBot />
+        {isPopup && <ContactUsPopup />}
         <NewsLetter />
         <ContactUsPage />
         <Footer />

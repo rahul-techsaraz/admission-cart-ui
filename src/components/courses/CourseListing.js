@@ -41,7 +41,7 @@ export default function CourseListing() {
         <>
             <CoursesBanner />
             {/* <CoursesTopSearch /> */}
-        <section className="course-listing-section">
+        <section className="course-listing-section pt-50 pb-50">
         <div className="container">
             <div className="row">
                 {/* <div className="col-md-3">

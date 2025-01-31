@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ExamDetailsUpdate from './ExamDetailsUpdate'
 import ExamHighlights from './ExamHighlights'
@@ -33,8 +33,8 @@ export default function ExamDetailsLeftBox() {
       exam_conducting_body_description: false,
       exam_important_dates_description: false,
     })
-  const [pData, setPData] = useState(constants.examDetailsList[0].pTagData)
   const {examDetailsById, allExamData}=useSelector(state=>state.common)
+  const [pData, setPData] = useState(examDetailsById?.descriptionDetails?.exam_intimation_slip_description)
   console.log(examDetailsById)
   console.log(allExamData)
   const updateActive = (p, index)=>{
@@ -46,6 +46,23 @@ export default function ExamDetailsLeftBox() {
     const data = allExamData.filter((v)=>v?.category_name === examDetailsById?.examBasicDetails?.category_name && v?.exam_name !== examDetailsById?.examBasicDetails?.exam_name)
     return data
   }
+  const examDescriptionTabSetting = ()=>{
+    const obj = {
+      tagTitle: '',
+      pTagData : ''
+    }
+    const data = Object.keys(examDetailsById?.descriptionDetails).filter((v)=>{
+      return ["exam_intimation_slip_description",
+      "exam_admit_card_description",
+      "exam_center_description",
+      "exam_pattern_description",
+      "exam_syllabus_description",
+      ].includes(v)
+    }).map((p)=>({...obj, 'tagTitle':p, 'pTagData': examDetailsById.descriptionDetails[p]}))
+    return data
+  }
+  useEffect(()=>{
+  },[examDetailsById])
   return (
    <div className="col-md-12">
         <div id="exam_details_leftBox" className="exam-details-leftBox">
@@ -132,10 +149,10 @@ export default function ExamDetailsLeftBox() {
             <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_important_dates_description:!readmore.exam_important_dates_description})}>{!readmore.exam_important_dates_description ? 'Read More' : 'Read Less'}</Link>
           </div>
           <div className="counselling-date-box">
-            <h2 className="counselling-date-box-heading">JEE Main 2024 Counselling Dates</h2>
-            <p className="counselling-date-box-para">NTA has released the JEE Main 2024 exam dates for January and April sessions. Currently, only the exam dates are announced and the complete JEE Main 2024 schedule will be released soon. </p>
+            <h2 className="counselling-date-box-heading">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Counselling Dates`}</h2>
+            <p className="counselling-date-box-para">{examDetailsById?.descriptionDetails?.exam_counselling_description}</p>
             <div className="tobe-announce-bx yellow-bg">
-              <p className="text-center">To Be Announced</p>
+              <p className="text-center">{examDetailsById?.examDetails?.counselling_dates == '' ? 'To Be Announced' : examDetailsById?.examDetails?.counselling_dates}</p>
             </div>
           </div>
           <div className="clg-accepting-slider-wrapper position-relative yellow-bg px-4 pt-5 mt-5 mb-5">
@@ -202,10 +219,10 @@ export default function ExamDetailsLeftBox() {
             <span className="tick-heading-icon d-inline-flex">
               <img src={greyTick} alt="" />
             </span>
-            <h2>JEE Main Application Form 2024</h2>
+            <h2>{`${examDetailsById?.examBasicDetails?.exam_name} Application Form ${examDetailsById?.examBasicDetails?.exam_year}`}</h2>
           </div>
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
-            <p className="exam-details-para1">NTA will release the JEE Main Eligibility Criteria 2024 along with the official brochure at jeemain.nta.nic.in. JEE Main 2024 eligibility criteria will include information on the basic requirements that a candidate must meet in order to be eligible for the exam.</p>
+            <p className="exam-details-para1">{examDetailsById?.descriptionDetails?.exam_application_form_description}</p>
             <div className="text-start mt-5">
               {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
@@ -255,7 +272,7 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 1: Registration & Application Form Fill-up</h1>
-                    <p className="exam-registration-infopara">Candidates can visit the official website of NTA and apply for JEE Main 2024 by filling out the registration form and submitting the required details like name, date of birth, a valid phone number, email ID etc.</p>
+                    <p className="exam-registration-infopara">{examDetailsById?.descriptionDetails?.apllication_form_step1_description}</p>
                     {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                   </div>
                 </div>
@@ -265,7 +282,7 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 2: Upload the Necessary Documents</h1>
-                    <p className="exam-registration-infopara">While filling out the registration form for JEE Main 2024, candidates will have to upload a passport-size photograph and signature as per the dimensions mentioned in the table below. </p>
+                    <p className="exam-registration-infopara">{examDetailsById?.descriptionDetails?.apllication_form_step2_description}</p>
                     {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                   </div>
                 </div>
@@ -275,7 +292,7 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 3: Pay the JEE Main 2024 Application Fee</h1>
-                    <p className="exam-registration-infopara">Candidates are required to successfully fill out the JEE Main Application Form 2024 and pay the required fees according to reservations. Payment can be done in online mode through Debit/Credit Cards</p>
+                    <p className="exam-registration-infopara">{examDetailsById?.descriptionDetails?.apllication_form_step3_description}</p>
                     {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                   </div>
                 </div>
@@ -288,12 +305,12 @@ export default function ExamDetailsLeftBox() {
               <div className="row">
                 <div className="col-md-5 pe-0">
                   <div className="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    {constants.examDetailsList.map((value, index)=>(
-                      <Link onClick={()=>updateActive(value.pTagData, index)} className={index===linkIndex ? value.linkClass : "nav-link mb-3 d-flex align-items-stretch gap-2"} id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    {Object.keys(examDetailsById).length > 0 && examDescriptionTabSetting().map((value, index)=>(
+                      <Link onClick={()=>updateActive(value.pTagData, index)} className={index===linkIndex ? "nav-link mb-3 d-flex align-items-stretch gap-2 active" : "nav-link mb-3 d-flex align-items-stretch gap-2"} id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                         <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                           <img src={contractIcon} alt="" />
                         </span>
-                        <span className="exam-tab-txt d-inline-flex align-items-center ps-3">JEE Main 2024 Advanced City Intimation Slip</span>
+                        <span className="exam-tab-txt d-inline-flex align-items-center ps-3">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} ${value.tagTitle.split('_').slice(0,value.tagTitle.split('_').length).join(' ')}`}</span>
                       </Link>  
                     ))}
                     {/* <Link className="nav-link mb-3 d-flex align-items-stretch gap-2 active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
