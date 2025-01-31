@@ -76,7 +76,6 @@ useEffect(()=>{
             {openAfterLoginModel && <AfterLoginModel/>}
         {openLoginModel && <LoginModel/>}
             
-        <header className="header">
         <div className="h7_header-top d-none d-md-block">
             <div className="container">
                     <div className="row">
@@ -102,6 +101,7 @@ useEffect(()=>{
             </div>
                     
         </div>
+        <header className="header">
         <div className="container">
             <nav className="navbar">
                 <section className="navbar-left">
@@ -140,6 +140,7 @@ useEffect(()=>{
                 </section>
             </nav>
         </div>
+
     </header>
         </>
     )

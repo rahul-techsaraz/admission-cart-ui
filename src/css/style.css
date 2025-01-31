@@ -211,7 +211,10 @@ li {
   height: auto;
   z-index: 99;
   margin: 0 auto;
-  position: relative;
+  /* position: relative; */
+  position: sticky;
+  top: 0;
+  background: #fff;
 }
 
 .h7_header-top {
@@ -904,21 +907,26 @@ ul.mega_menu {
 
 .course-slider swiper-container swiper-slide{
   border-radius: 30px 30px 30px 0px;
+  box-shadow: 0 4px 4px #b1b1b1;
+  margin-bottom: 20px;
+}
+.course-box-heigh-set{
+  height: 480px;
+  border: 7px solid #fff;
 }
 .course-box {
   /* padding: 30px 25px 0; */
   padding: 20px 20px 0;
   border-radius: 0px 50px 0px 0px;
-  border: 7px solid #fff;
   background: #FFF;
-  height: 100%;
+  /* height: 100%; */
   position: relative;
-  height: 500px;
+  /* height: 500px; */
   /* box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25); */
 }
-.course-box:hover{
+.course-box-heigh-set{
   border-radius: 0px 50px 0px 0px;
-    border: 7px solid var(--color-green);
+    border: 3px solid var(--color-green);
     background: #FFF;
     /* box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25); */
 }
@@ -944,6 +952,21 @@ p.course-para {
   line-height: 20px;
   padding-left: 65px;
 }
+.course-readmore-btn2{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.course-name-text{
+  min-height: 85px;
+}
+/* .course-readmore-btn-position{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+} */
 .course-readmore-btn{
   border-radius: 30px 30px 0px 0px;
   /* background-color: var(--color-white); */
@@ -961,10 +984,6 @@ p.course-para {
   line-height: normal;
   color: var(--color-black);
   max-width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .course-box:hover .course-readmore-btn{
   background-color: var(--color-green);
@@ -3647,7 +3666,8 @@ ul.exam-imp-list {
   /* box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25); */
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  height: 100%;
 }
 #box-height{
   max-height: 420px;
@@ -3657,6 +3677,7 @@ ul.exam-imp-list {
 .clg-img-reviews-box{
   display: flex;
   justify-content: space-between;
+  height: 30%;
 }
 
 .featured-badge,.respond-grnte-badge {
@@ -3699,7 +3720,8 @@ ul.exam-imp-list {
 .clglisting-clglogo{
   border-radius: 14px;
   background-color: var(--color-white);
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25); */
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.25);
   bottom: -30px;
   left: 25px;
   padding: 15px;
@@ -3727,7 +3749,7 @@ ul.exam-imp-list {
   min-height: 70px;
 }
 .clg-name-parents h4{
-  font-size: 18px;
+  font-size: 22px;
 }
 .clg-rating-badge .clg-rating{
   background: var(--color-yellow);
@@ -3744,26 +3766,41 @@ ul.exam-imp-list {
   line-height: 14px;
   text-align: center;
   align-self: center;
+  border: 1px solid #fff;
+  border-top: 0;
+  box-shadow: 1px 2px 4px #afa7a7;
 }
 .clg-list-approved-text{
   display: block;
+  font-size: 14px;
+  font-weight: 600;
 }
 #clg-listing-inner-btmbx-box-padding{
-  padding: 25px 0px 25px 0;
+  padding: 20px 0px 10px 0;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .clg-list-type-text{
   display: block;
+  font-size: 14px;
+  font-weight: 600;
 }
 .box-style{
   display: block;
+  height: 100%;
 }
 .clg-reviews-count{
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+  padding-top: 5px;
 }
-
+#swiper-wrapper-134328442ae12103c{
+  padding: 0 0 10px 0;
+}
 .clg-listing-inner-btmbx {
   padding: 75px 25px 25px;
   text-align: left;
@@ -3778,21 +3815,35 @@ ul.exam-imp-list {
   min-height: 60px;
 }
 p.clg-location {
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   margin: 0;
+  min-height: 40px;
 }
 .clg-affi-info{
   margin-bottom: 20px;
   margin-top: 10px;
 }
 .clg-affi-info li{
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  min-height: 50px;
+}
+.course-box-img{
+  height: 10%;
+}
+.course-box-p-parent2{
+  min-height: 25%;
+}
+.course-box-p-parent3{
+  min-height: 15%;
+}
+.course-box-p-parent{
+  min-height: 15%;
 }
 .clg-affi-info li+li{
   margin-left: 10px;
@@ -3803,6 +3854,7 @@ p.clg-stream-name {
   font-weight: 400;
   line-height: normal;
   margin-bottom: 17px;
+  text-align: center;
 }
 .clg-admission-info-listitem li{
   font-size: 12px;
