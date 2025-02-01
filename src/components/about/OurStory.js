@@ -16,7 +16,7 @@ export const OurStory = ()=>{
                     <h1 class="imgText-heading">Our Story</h1>
 
                     <p class="imgText-para">Our team of global study experts and student mentors guide you at every step of the way - From choosing the right university to helping you with your application and financing counselling to lining up job interviews, We invests heavily in your success.</p>
-                    <Link class="leftdash-btn">Read More</Link>
+                    <Link class="leftdash-btn">Enquire Now</Link>
                 </div>
                 
             </div>

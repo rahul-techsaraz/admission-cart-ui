@@ -15,7 +15,7 @@ export const OurMission = ()=>{
                     <h1 class="imgText-heading">Our Mission</h1>
 
                     <p class="imgText-para">Our mission is to continuously innovate the best ways to train the next generation of developers and to transform the the way tech education is delivered.</p>
-                    <Link class="leftdash-btn">Read More</Link>
+                    <Link class="leftdash-btn">Enquire Now</Link>
                 </div>
    
             </div>

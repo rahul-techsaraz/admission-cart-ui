@@ -13,7 +13,7 @@ export default function CollegeListing() {
   return (
       <>
           <CollegeBanner />
-          <section className="course-listing-section">
+          <section className="course-listing-section section-padding">
         <div className="container">
             <div className="row">
                 {/* <div className="col-md-5 col-lg-3">

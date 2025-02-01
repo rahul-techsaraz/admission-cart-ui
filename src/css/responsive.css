@@ -30,6 +30,18 @@
         height: 400px;
         background-size: cover;
     }
+    #banner2-caption-right-position{
+        margin-left: auto !important;
+        margin-right: 14vw !important;
+      }
+      #banner3-caption-right-position{
+        margin-left: auto !important;
+        margin-right: 10vw !important;
+      }
+      #banner4-caption-right-position{
+        margin-left: auto !important;
+        margin-right: 12vw !important;
+      }
     .banner-caption {
         width: fit-content;
         /* padding-left: 40px; */
@@ -200,11 +212,25 @@
       .course-list-rightbox p{
         font-size: 22px;
       }
+      .banner-caption h1 {
+        font-size: 30px;
+    }
     
 }   /* end 991px */
 
 
-
+@media screen and (max-width: 768px){
+    .banner-slider, .swiper-slide{
+        background-repeat: no-repeat;
+      }
+      .banner-caption{
+        padding: 50px 0 50px 40px;
+      }
+      .banner-caption h1 {
+        font-size: 30px;
+        line-height: 50px;
+    }
+}
 @media screen and (max-width: 767px){
     .section-heading,
     .qa-title {
