@@ -78,10 +78,10 @@ const CourseList = () => {
                                             {/* </div> */}
                                             <div className="clg-listing-inner-btmbx" id="clg-listing-inner-btmbx-box-padding">
                                                 <div className="clg-name-parents"><h4 className="clg-name">{college.college_name}</h4></div>
-                                                <p className="clg-location">{college.city+", "+college.state}</p>
-                                                <ul className="clg-affi-info d-flex justify-content-between">
-                                                    <li><span className="clg-list-approved-text">Approved by</span>{college.affiliate_by}</li>
-                                                    <li><span className="clg-list-type-text">Type</span>{college.college_type}</li>
+                                                <p className="clg-location"><i class="fa-solid fa-location-dot"></i> {college.city+", "+college.state}</p>
+                                                <ul className="clg-affi-info">
+                                                    <li><span className="clg-list-approved-text"><i class="fa-solid fa-person-circle-check"></i> Approved by :</span>{college.affiliate_by}</li>
+                                                    <li><span className="clg-list-type-text"><i class="fa-solid fa-building-columns"></i> Type :</span>{college.college_type}</li>
                                                     {/* <li>NRF Ranking</li> */}
                                                 </ul>
                                                 <p className="clg-stream-name">{college.category_name}</p>

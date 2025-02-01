@@ -84,7 +84,7 @@ const ExploreCareer = () => {
                                                 <div className='course-box-p-parent'><p className="course-name">{exam.exam_name}</p></div>
                                                 <div className='course-box-p-parent2'><p className="course-numbering">{exam.category_name}</p></div>
                                                 <div className='course-box-p-parent3'><p className="course-para">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p></div>
-                                                <Link className="course-readmore-btn course-readmore-btn2" to={`/exam_details/${exam.exam_id}`}>Read More <img src={{rightArrow}} alt="" /></Link>
+                                                <Link className="course-readmore-btn course-readmore-btn2" to={`/exam_details/${exam.exam_id}`}>Enquire Now <img src={{rightArrow}} alt="" /></Link>
                                             </div>
                                         </div>
                                         </swiper-slide>

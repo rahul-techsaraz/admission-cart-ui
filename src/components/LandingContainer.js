@@ -43,7 +43,7 @@ const LandingContainer = () => {
                                                         <span className="d-block">From</span>
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 sm:mt-3">
+                                                    <div className="banner-btn-grp text-center mt-5 mt-md-1">
                                                         <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:true}))}>Get Started</Link>
                                                     </div>
                                                 </div>
@@ -51,12 +51,12 @@ const LandingContainer = () => {
                                         </swiper-slide>
                                         <swiper-slide>
                                             <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[1]})` }}>
-                                                <div className="banner-caption">
+                                                <div className="banner-caption" id='banner2-caption-right-position'>
                                                     <h1 className="text-center">
                                                         <span className="d-block">From</span>
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 sm:mt-3">
+                                                    <div className="banner-btn-grp text-center mt-5 mt-md-1">
                                                         <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link>
                                                     </div>
                                                 </div>
@@ -64,12 +64,12 @@ const LandingContainer = () => {
                                         </swiper-slide>
                                         <swiper-slide>
                                             <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[2]})` }}>
-                                                <div className="banner-caption">
+                                                <div className="banner-caption" id='banner3-caption-right-position'>
                                                     <h1 className="text-center">
                                                         <span className="d-block">From</span>
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 sm:mt-3">
+                                                    <div className="banner-btn-grp text-center mt-5 mt-md-1">
                                                         <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link>
                                                     </div>
                                                 </div>
@@ -77,12 +77,12 @@ const LandingContainer = () => {
                                         </swiper-slide>
                                         <swiper-slide>
                                             <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[3]})` }}>
-                                                <div className="banner-caption">
+                                                <div className="banner-caption" id='banner4-caption-right-position'>
                                                     <h1 className="text-center">
                                                         <span className="d-block">From</span>
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 sm:mt-3">
+                                                    <div className="banner-btn-grp text-center mt-5 md-mt-1">
                                                         <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link>
                                                     </div>
                                                 </div>

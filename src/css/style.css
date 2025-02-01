@@ -790,6 +790,18 @@ ul.mega_menu {
   padding: 123px 0;
   /* padding-bottom: 55px; */
 }
+#banner2-caption-right-position{
+  margin-left: auto !important;
+  margin-right: 17vw;
+}
+#banner3-caption-right-position{
+  margin-left: auto !important;
+  margin-right: 17vw;
+}
+#banner4-caption-right-position{
+  margin-left: auto !important;
+  margin-right: 17vw;
+}
 .banner1 .banner-caption {
   margin: 0 auto;
 }
@@ -1586,6 +1598,8 @@ p.course-para {
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
+  padding-top: 10px;
+  margin-bottom: 0px;
 }
 .contact-info-section h2 svg{
   margin-right: 5px;
@@ -1600,11 +1614,17 @@ p.course-para {
 .contact-info-section + svg {
   margin: 25px 0;
 }
+.contact-info-section-main-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .contact-form-section h2{
-  font-size: 24px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  padding-bottom: 10px;
   color: var(--color-grey);
 }
 .contact-form-section .form-control,
@@ -2576,6 +2596,8 @@ ul.exam-imp-list {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
 .course-details-criteria-list2{
   margin-left: 30px;
@@ -2669,7 +2691,7 @@ ul.exam-imp-list {
 }
 .clg-slider-logo{
   height: 45px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .slider-clg-name{
   color: var(--body-text-grey);
@@ -2678,12 +2700,16 @@ ul.exam-imp-list {
   font-weight: 500;
   line-height: 21px;
   margin-bottom: 10px;
+  max-height: 60px;
+  height: 60px;
 }
 .slider-clg-location{
   color: var(--body-text-grey);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
+  max-height: 50px;
+  height: 50px;
   line-height: 21px; /* 150% */
 }
 .apply-btn{
@@ -3663,21 +3689,33 @@ ul.exam-imp-list {
   color: var(--color-black);
 }
 .clg-listing-box {
-  /* box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25); */
   border-radius: 20px;
   overflow: hidden;
-  /* margin-bottom: 30px; */
   height: 100%;
 }
+.cig-listing-box-clg-card{
+   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    margin-bottom: 25px;
+    width: 100%;
+}
+.clg-affi-info-approve-type-parents-box{
+  display: flex;
+  flex-direction: column;
+}
 #box-height{
-  max-height: 420px;
-  height: 420px;
+  max-height: 450px;
+  height: 450px;
   padding: 0 20px;
 }
 .clg-img-reviews-box{
   display: flex;
   justify-content: space-between;
   height: 30%;
+}
+.clg-listing-box-logo-rating{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .featured-badge,.respond-grnte-badge {
@@ -3751,6 +3789,9 @@ ul.exam-imp-list {
 .clg-name-parents h4{
   font-size: 22px;
 }
+#clg-rating-color-green{
+  background: var(--color-green);
+}
 .clg-rating-badge .clg-rating{
   background: var(--color-yellow);
   /* padding: 15px 20px 16px; */
@@ -3776,7 +3817,14 @@ ul.exam-imp-list {
   font-weight: 600;
 }
 #clg-listing-inner-btmbx-box-padding{
-  padding: 20px 0px 10px 0;
+  padding: 5px 0px 10px 0;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#clg-listing-inner-btmbx-box-padding-pading{
+  padding: 20px 20px 10px 20px;
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -3807,7 +3855,7 @@ ul.exam-imp-list {
 }
 .clg-name {
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -3823,7 +3871,7 @@ p.clg-location {
   min-height: 40px;
 }
 .clg-affi-info{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 .clg-affi-info li{
@@ -3831,7 +3879,7 @@ p.clg-location {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  min-height: 50px;
+  min-height: 60px;
 }
 .course-box-img{
   height: 10%;
@@ -3845,9 +3893,9 @@ p.clg-location {
 .course-box-p-parent{
   min-height: 15%;
 }
-.clg-affi-info li+li{
+/* .clg-affi-info li+li{
   margin-left: 10px;
-}
+} */
 p.clg-stream-name {
   font-size: 15px;
   font-style: normal;
@@ -5267,8 +5315,10 @@ label #cancel{
 }
 
 .scroll-icon{
-  filter: invert(1)
+  /* filter: invert(1) */
+  color: #fff;
 }
+
 
 /* chat bot css */
 
