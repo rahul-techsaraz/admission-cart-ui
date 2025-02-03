@@ -27,9 +27,10 @@ import Loader from './components/Loader/Loader';
 import ScrollTop from './components/scroll/ScrollTop';
 import ChatBot from './components/chatBot/ChatBot';
 import ContactUsPopup from './components/contactUs/ContactUsPopup';
+import LoginPopup from './components/contactUs/LoginPopup';
 
 const AppLayout = () => {
-  const {isLoading, isPopup} = useSelector(state=>state.common)
+  const {isLoading, isLoginPopup, isSignupPopup} = useSelector(state=>state.common)
   const location = useLocation()
   register()
 
@@ -45,7 +46,8 @@ const AppLayout = () => {
         <Outlet />
         <ScrollTop />
         <ChatBot />
-        {isPopup && <ContactUsPopup />}
+        {isLoginPopup && <LoginPopup />}
+        {isSignupPopup && <ContactUsPopup />}
         <NewsLetter />
         <ContactUsPage />
         <Footer />

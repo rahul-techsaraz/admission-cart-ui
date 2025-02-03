@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import aboutImg1 from '../../images/about-img1.png';
+import { useDispatch } from 'react-redux';
+import { toggelIsLoginPopup } from '../../features/commonSlice';
 export const AboutUs =()=>{
+    const dispatch = useDispatch()
     return(
           <section class="imgText-grid-section">
         <div class="container">
@@ -15,7 +18,7 @@ export const AboutUs =()=>{
                     <h1 class="imgText-heading">The Achievement of Perfection is our goal but Excellence is Guarantee!</h1>
 
                     <p class="imgText-para">Eaconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <Link class="theme-btn black-btn">Get Started Now</Link>
+                    <Link class="theme-btn black-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Get Started Now</Link>
                 </div>
                 
             </div>

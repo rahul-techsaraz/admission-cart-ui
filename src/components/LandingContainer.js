@@ -6,12 +6,11 @@ import rightArrow from '../images/arrow-right-icon.svg';
 import leftArrow from '../images/arrow-left-icon.svg';
 import CustomSwiper from '../utils/Constants/custom-components/CustomSwiper';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggelPopup } from '../features/commonSlice';
+import { useDispatch } from 'react-redux';
+import { toggelIsLoginPopup } from '../features/commonSlice';
 
 const tarndingBanner = [sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4]
 const LandingContainer = () => {
-    const {isPopup} = useSelector(state=>state.common)
     const dispatch = useDispatch()
     return (
         <>
@@ -44,7 +43,7 @@ const LandingContainer = () => {
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
                                                     <div className="banner-btn-grp text-center mt-5 mt-md-1">
-                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:true}))}>Get Started</Link>
+                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Get Started</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,7 +56,7 @@ const LandingContainer = () => {
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
                                                     <div className="banner-btn-grp text-center mt-5 mt-md-1">
-                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link>
+                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Get Started</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -70,7 +69,7 @@ const LandingContainer = () => {
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
                                                     <div className="banner-btn-grp text-center mt-5 mt-md-1">
-                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link>
+                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Get Started</Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +82,7 @@ const LandingContainer = () => {
                                                         College Admissions to <strong className="d-block">Being Job Ready</strong>
                                                     </h1>
                                                     <div className="banner-btn-grp text-center mt-5 md-mt-1">
-                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link>
+                                                        <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Get Started</Link>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,58 +1,105 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../../images/logo.png'
-import { useDispatch, useSelector } from 'react-redux'
-import { toggelPopup } from '../../features/commonSlice'
+import { useDispatch } from 'react-redux'
+import { toggelIsLoginPopup, toggelIsSignupPopup } from '../../features/commonSlice'
+import constants from '../../utils/Constants/constants'
+import { signup } from '../ReduxThunk/CommonThunk'
 
 function ContactUsPopup() {
-    const {isPopup} = useSelector(state=>state.common)
+    const [firstName, setFirstName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [isEye, setIsEye] = useState(true)
     const dispatch = useDispatch()
+    
+    const validateName = ()=>{
+        if(firstName.length === 0){
+            alert("Name can't be blank")
+        }else{
+            return true
+        }
+    }
+    const validatePhone = ()=>{
+        const phoneRegex = /[0-9]{10}/;
+        if(!phone.match(phoneRegex)){
+            alert("Invalid Phone Number")
+        }else{
+            return true
+        }
+    }
+    const validateEmail = ()=>{
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+        if(!email.match(emailRegex)){
+            alert("Invalid Email")
+        }else{
+            return true;
+        }
+    }
+    const validatePassword = ()=>{
+        if(password.length<8){
+            alert("Your password must be at least 8 characters long!")
+        }else if (password!==confirmPassword){
+            alert("Password Missmatch")
+        }else{
+            return true
+        }
+    }
+    const handleSignUp = async ()=>{
+        if(validateName() && validatePhone() && validateEmail() && validatePassword()){
+            const signupPayload = {
+                "phone":phone,
+                "email":email,
+                "password":password,
+                "full_name":firstName
+            }
+            const data = await dispatch(signup({
+                url:constants.apiEndPoint.USER_SIGNUP,
+                method:constants.apiMethod.POST,
+                header:constants.apiHeader.HEADER,
+                body:signupPayload
+            }))
+            if(data?.payload?.success !== 1){
+                alert(data?.payload?.message)
+            }else{
+                dispatch(toggelIsLoginPopup({flag:true}))
+                dispatch(toggelIsSignupPopup({flag:false}))
+                alert(data?.payload?.message)
+            }
+        }
+    }
+    const toggelToSignupPopup = ()=>{
+            dispatch(toggelIsLoginPopup({flag:true}))
+            dispatch(toggelIsSignupPopup({flag:false}))
+        }
   return (
-    <div className="popup-main-container" id="popup-main-container1">
-        <div className="popup-main-container-child">
-            <div className="popup-close-btn-container">
-                <button className="popup-close-btn-x" id="close-btn" onClick={()=>dispatch(toggelPopup({flag:false}))}>X</button>
-            </div>
-            <div className="popup-container-start">
-                <div className="popup-container-image-img">
-                    <img src={logo} alt=""/>
-                    <h3 className="popup-heading-h3">Welcome To Admission Cart</h3>
+    <div className="main-popup-full-box-parent">
+        <div className="popup-main-container" id="popup-main-container1">
+            <div className="popup-main-container-child">
+                <div className="popup-close-btn-container">
+                    <button className="popup-close-btn-x" id="close-btn" onClick={()=>dispatch(toggelIsSignupPopup({flag:false}))}>X</button>
                 </div>
-                <div className="form-div-start">
-                    <form action="#" method="POST">
-                        <input type="text" className="popup-name-input" id="name1" placeholder="Name" required/>
-                        <input type="email" className="popup-email-input" id="email1" placeholder="Email" required/>
+                <div className="popup-container-start">
+                    <div className="popup-container-image-img">
+                        <img src={logo} alt="Admission Kart Image"/>
+                        <h3 className="popup-heading-h3">Welcome To Admission Cart</h3>
+                    </div>
+                    <div className="form-div-start">
+                        <input type="text" className="popup-name-input" id="name1" placeholder="Name" required value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+                        <input type="email" className="popup-email-input" id="email1" placeholder="Email" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
                         <div className="phone-container">
-                            <input type="text" className="popup-country-code" placeholder="+91" required/>
-                            <input type="text" className="popup-phone-input" placeholder="Mobile No." required/>
+                            <input type="text" className="popup-country-code" placeholder="+91" value={'+91'} readOnly/>
+                            <input type="text" className="popup-phone-input" placeholder="Mobile No." required value={phone} onChange={(e)=>setPhone(e.target.value)}/>
                         </div>
-                        <select name="select-stream"  className="popup-select-stream" >
-                            <option value="">Select Stream</option>
-                            <option value="">Commerce and Banking</option>
-                            <option value="">Design</option>
-                            <option value="">Engineering</option>
-                            <option value="">Management</option>
-                            <option value="">Hotel Management</option>
-                            <option value="">Information Technology</option>
-                            <option value="">Media and Mass Communication</option>
-                            <option value="">Medical</option>
-                            <option value="">Retail</option>
-                            <option value="">Arts and Humanities</option>
-                            <option value="">Law</option>
-                            <option value="">Science</option>
-                            <option value="">Vocational</option>
-                            <option value="">Others</option>
-                            <option value="">Physical Education</option>
-                            <option value="">Education</option>
-                            <option value="">Paramedical</option>
-                            <option value="">Agriculture</option>
-                            <option value="">Nursing</option>
-                            <option value="">Pharmacy</option>
-                            <option value="">Dental</option>
-                            <option value="">Performing Arts</option>
-                        </select>
-                        <textarea id="popup-textarea-show" name="textarea" rows="4" cols="50" placeholder="Message"/>
-                        <button className="popup-submit-btn-btn">Submit</button>
-                    </form>
+                        <div className='popup-login-form-password-container'>
+                            <input type={isEye ? 'password' : 'text'} className="login-popup-form-password-form-input" id="password" placeholder="Password" required value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                            {isEye ? <i className="fa-duotone fa-regular fa-eye" onClick={()=>setIsEye(!isEye)}/> : <i className="fa-regular fa-eye-slash" onClick={()=>setIsEye(!isEye)}/>}
+                        </div>
+                        <input type="text" className="popup-email-input" id="confirmPassword" placeholder="Confirm Password" required value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
+                        <button className="popup-submit-btn-btn" onClick={()=>handleSignUp()}>Submit</button>
+                        <p className="popup-account-text">Already have an account? <span className="popup-login-text" onClick={toggelToSignupPopup}>Login</span></p>
+                    </div>
                 </div>
             </div>
         </div>
