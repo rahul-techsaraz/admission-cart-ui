@@ -26,33 +26,33 @@ const Header = () => {
     },[])
     const {authenticateUser} = useSelector((state)=>state.common)
     const dispatch = useDispatch();
-    const navigate = useNavigate()
-    const location = useLocation()
-    const authorise = async ()=>{
-        const custHeader = {...constants.apiHeader.HEADER, "Authorization" : JSON.parse(localStorage.getItem('loginResponse')).token}
-        const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION,constants.apiMethod.GET,custHeader)
-        if(jsonData.success == 0){
-            localStorage.removeItem('loginResponse')
-            dispatch(updateauthenticateUser({flag:false}))
-        }else{
-            dispatch(updateauthenticateUser({flag:true}))
-        }
-    }
-useEffect(()=>{
-    if(!localStorage.getItem("loginResponse")){
-        dispatch(updateauthenticateUser({flag:false}))
-    }else{
-        authorise()  
-    }
-},[])
-useEffect(()=>{
-    if(!authenticateUser && location.pathname.includes('profile')){
-        navigate('/')
-     }
-    // else{
-    //     navigate(lastLocation.pathname)
+    // const navigate = useNavigate()
+    // const location = useLocation()
+    // const authorise = async ()=>{
+    //     const custHeader = {...constants.apiHeader.HEADER, "Authorization" : JSON.parse(localStorage.getItem('loginResponse')).token}
+    //     const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION,constants.apiMethod.GET,custHeader)
+    //     if(jsonData.success == 0){
+    //         localStorage.removeItem('loginResponse')
+    //         dispatch(updateauthenticateUser({flag:false}))
+    //     }else{
+    //         dispatch(updateauthenticateUser({flag:true}))
+    //     }
     // }
-},[authenticateUser])
+// useEffect(()=>{
+//     if(!localStorage.getItem("loginResponse")){
+//         dispatch(updateauthenticateUser({flag:false}))
+//     }else{
+//         authorise()  
+//     }
+// },[])
+// useEffect(()=>{
+//     if(!authenticateUser && location.pathname.includes('profile')){
+//         navigate('/')
+//      }
+//     // else{
+//     //     navigate(lastLocation.pathname)
+//     // }
+// },[authenticateUser])
 
     //Redux State
     const { openAfterLoginModel, openLoginModel } = useSelector(state => state.common)

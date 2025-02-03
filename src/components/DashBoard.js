@@ -44,6 +44,7 @@ const DashBoard = () => {
          <LandingContainer />
      {/* <MockExamList /> */}
         <CourseList />
+        <AboutUs />
         <AdmissionProcess />
         <CareerProcess />
         <ChoiceSection />
@@ -53,7 +54,7 @@ const DashBoard = () => {
         <ExploreCoursesPage />
         <ExploreCareer />
         <AbroadSuccessStory />
-        <AboutUs />
+        
         {/* <BlogSection /> */}
         <DataCounter />
         <Testimonial />

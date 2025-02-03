@@ -32,7 +32,7 @@ const ChatBot = () => {
       };
     
   return (
-    <div className="container mt-4 chat-bot">
+    <div className="chat-bot">
         <div className='row'>
             <div className='chat-bot-image' onClick={()=>setIschat(!isChat)}>
                 <img src={chatBotImage}/>

@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import arrowRightIcon from '../images/arrow-right-icon.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggelIsLoginPopup } from '../features/commonSlice';
 const DreamJobContainer = () => {
+    const {isPopup} = useSelector(state=>state.common)
+    const dispatch = useDispatch()
     return(
         <>
          <section className="admission-process-section">
@@ -10,7 +14,7 @@ const DreamJobContainer = () => {
                     <h2>Get #Assured to land your dream job</h2>
                     <p>Master employable skills under the mentorship of industry experts to become job ready</p>
                 </div>
-                <Link className="admission-process-btn d-inline-flex align-self-stretch">
+                <Link className="admission-process-btn d-inline-flex align-self-stretch" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>
                     <img src={arrowRightIcon} className="arrow-right-icon" alt="" />
                 </Link>
             </div>

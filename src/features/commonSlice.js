@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllCollegeList, fetchAllCourseList, fetchAllExamList, fetchCollegeById, fetchCourseById, fetchExamById } from "../components/ReduxThunk/CommonThunk";
+import { fetchAllCollegeList, fetchAllCourseList, fetchAllExamList, fetchCollegeById, fetchCourseById, fetchExamById, login, signup } from "../components/ReduxThunk/CommonThunk";
 import constants from "../utils/Constants/constants";
 
 const initialState = {
     isLoading: false,
-    isPopup: false,
+    isLoginPopup: false,
+    isSignupPopup: false,
     authenticateUser: localStorage.getItem('loginResponse')? true : false,
     lastLocation:'',
     openLoginModel: false,
@@ -14,7 +15,21 @@ const initialState = {
     allCollegeData:[],
     allExamData:[],
     allCourseData:[],
-    collegeDetailsById : {},
+    collegeDetailsById : {
+      basicCourseDetails :{
+        category_name: '',
+        course_accepting_exam: '',
+        course_description: '',
+        course_duration: '',
+        course_fee_max: '',
+        course_fee_min: '',
+        course_mode: '',
+        course_name: '',
+        created_at: '',
+        is_publish: '',
+        updated_at: '',
+      }
+    },
     examDetailsById : {},
     courseDetailsById : {},
  
@@ -42,11 +57,32 @@ const commonSlice = createSlice({
     updateLastLocation:(state, {payload})=>{
       state.lastLocation = payload.location
     },
-    toggelPopup:(state, {payload})=>{
-      state.isPopup = payload.flag
-    }
+    toggelIsLoginPopup:(state, {payload})=>{
+      state.isLoginPopup = payload.flag
+    },
+    toggelIsSignupPopup:(state, {payload})=>{
+      state.isSignupPopup = payload.flag
+    },
   },
   extraReducers:(builder)=>{
+    builder.addCase(login.fulfilled, (state, { payload}) => {
+      state.isLoading = false
+    })
+    builder.addCase(login.pending, (state, { payload}) => {
+      state.isLoading = true
+    })
+    builder.addCase(login.rejected, (state, { payload}) => {
+      state.isLoading = false
+    })
+    builder.addCase(signup.fulfilled, (state, { payload}) => {
+      state.isLoading = false
+    })
+    builder.addCase(signup.pending, (state, { payload}) => {
+      state.isLoading = true
+    })
+    builder.addCase(signup.rejected, (state, { payload}) => {
+      state.isLoading = false
+    })
     builder.addCase(fetchAllCollegeList.fulfilled, (state, { payload }) => {
       if (payload.status === constants.apiResponseStatus.SUCCESS) {
         state.allCollegeData = payload.data
@@ -128,7 +164,8 @@ export const {
     upDateActiveMenu,
     updateauthenticateUser,
     updateLastLocation,
-    toggelPopup,
+    toggelIsLoginPopup,
+    toggelIsSignupPopup,
  } = commonSlice.actions;
 
 export default commonSlice.reducer;

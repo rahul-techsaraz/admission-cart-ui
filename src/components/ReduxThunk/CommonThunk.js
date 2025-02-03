@@ -73,3 +73,27 @@ export const fetchAllCollegeList = createAsyncThunk("college/fetchAllCollegeList
       return thunkApi.rejectWithError(error)
     }
   })
+
+  export const signup = createAsyncThunk("signup/userSignup", async ({ url, method, header, body }, thunkApi) => {
+    try {
+      const data = await httpFetch(url, method, header, body )
+      if(data.success!==1){
+        throw new Error("Somting went wrong... try again");
+      }
+      return data
+    } catch (error) {
+      return thunkApi.rejectWithError(error)
+    }
+  })
+
+  export const login = createAsyncThunk("login/userLogin", async ({ url, method, header, body }, thunkApi) => {
+    try {
+      const data = await httpFetch(url, method, header, body )
+      if(data.success!==1){
+        throw new Error("Somting went wrong... try again");
+      }
+      return data
+    } catch (error) {
+      return thunkApi.rejectWithError(error)
+    }
+  })

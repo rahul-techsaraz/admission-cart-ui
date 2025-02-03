@@ -13,9 +13,10 @@ import relatedNews from '../../../images/related-news-img.png';
 import greyTick from '../../../images/grey-tick.svg'
 import cd from '../../../images/cd-img1.png'
 import { useFetchCourseById } from '../../hooks/useFetchCourseById';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 import constants from '../../../utils/Constants/constants';
+import { toggelIsLoginPopup } from '../../../features/commonSlice';
 
 
 
@@ -31,6 +32,7 @@ export default function CourseDetails() {
     const {course_id} = useParams()
     const {fetchCourse} = useFetchCourseById()
     const {courseDetailsById, allCollegeData} = useSelector(state=>state.common)
+    const dispatch = useDispatch()
     console.log(courseDetailsById)
     console.log(allCollegeData)
     const dataToMap = (data)=>{
@@ -121,7 +123,7 @@ export default function CourseDetails() {
                                 <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Eligibility Criteria'}</h2>
                                 <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 100 && readmore.course_eligibility_criteria_description === false) ? `${courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.slice(0, 100)}...` : courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description}</p>
                                 {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 100 && 
-                                    <div className="text-center">
+                                    <div className="text-center mb-4">
                                         <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_eligibility_criteria_description:!readmore.course_eligibility_criteria_description})}>{!readmore.course_eligibility_criteria_description ? 'Read More' : 'Read Less'}</Link>
                                     </div>
                                 }
@@ -142,7 +144,7 @@ export default function CourseDetails() {
                                     syllabus?.semester_name !== '' ? 
                                         <>
                                             <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
-                                            <ul className="course-details-criteria-list d-flex flex-wrap">
+                                            <ul className="course-details-criteria-list d-flex flex-wrap mb-4">
                                                 <li>{syllabus?.semester_name}</li>
                                                 <li>{syllabus?.list_of_subject}</li>
                                             </ul>
@@ -150,7 +152,7 @@ export default function CourseDetails() {
                                         :
                                         <>
                                             <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
-                                            <ul className="course-details-criteria-list d-flex flex-wrap">
+                                            <ul className="course-details-criteria-list d-flex flex-wrap mb-4">
                                                 <li>{syllabus?.list_of_subject}</li>
                                             </ul>
                                         </>
@@ -283,7 +285,7 @@ export default function CourseDetails() {
                             <div className="course-details-alterImgbox-col1 green-bg">
                                 <h2 className="text-white">Can’t find right <span className='course-details-span'>Guidance?</span></h2>
                                 <p>No Problem! Speak to our experts safely from your home.</p>
-                                <Link className="theme-btn white-btn">Request a Call Back</Link>
+                                <Link className="theme-btn white-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Request a Call Back</Link>
                             </div>
                             <div className="course-details-alterImgbox-col2 position-relative">
                                 <img src={cd} alt="" />
@@ -299,20 +301,20 @@ export default function CourseDetails() {
                         <div className="course-details-alterbox greybg">
                             <h2>So, How do you <span>secure your job?</span></h2>
                             <p>Master employable skills under the mentorship of industry experts to become job ready.</p>
-                            <Link className="theme-btn yellow-btn">Job Assured</Link>
+                            <Link className="theme-btn yellow-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Job Assured</Link>
                         </div>
 
                         <div className="course-details-alterbox">
                             <h2>Still have questions about<br /> 
                                 B. Tech - Biochemical Engineering?</h2>
                             <p>Ask us and get personalized response free of cost.</p>
-                            <Link className="theme-btn green-btn">Ask A Question</Link>
+                            <Link className="theme-btn green-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Ask A Question</Link>
                         </div>
 
                         <div className="course-details-alterbox greybg">
                             <h2>Will you get admission in  <span className="d-block">B. Tech - Biochemical Engineering</span></h2>
                             <p>Goodbye doubts! Say hello to our experts</p>
-                            <Link className="theme-btn yellow-btn">Job Assured</Link>
+                            <Link className="theme-btn yellow-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Job Assured</Link>
                         </div>
 
                         <div className="clg-slider-wrapper position-relative">
@@ -320,7 +322,7 @@ export default function CourseDetails() {
                                 <span className="tick-heading-icon d-inline-flex">
                                     <img src={greyTick} alt="" />
                                 </span>
-                                <h2>Top Engineering colleges in India</h2>
+                                <h2>{`Top ${courseDetailsById?.basicCourseDetails?.category_name} colleges in India`}</h2>
                             </div>
                             <div className="swiper clg-slider">
                                 <div className="swiper-wrapper position-relative">

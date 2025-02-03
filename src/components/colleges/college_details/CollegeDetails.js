@@ -70,9 +70,8 @@ export default function CollegeDetails() {
       })
    const {college_id} = useParams()
    const {fetchCollege} = useFetchCollegeById()
-   const {collegeDetailsById} = useSelector(state=>state.common)
-   const {allCourseData, allCollegeData} = useSelector(state=>state.common)
-   // console.log(collegeDetailsById)
+   const {collegeDetailsById,allCourseData, allCollegeData} = useSelector(state=>state.common)
+   console.log(collegeDetailsById)
    
    const responsive = {
       1400:{

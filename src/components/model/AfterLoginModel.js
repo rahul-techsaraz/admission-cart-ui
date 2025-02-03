@@ -13,6 +13,7 @@ export default function AfterLoginModel() {
         dispatch(toggelAfterLoginModel({flag:false}))
         dispatch(updateauthenticateUser({flag:false}))
         localStorage.removeItem('loginResponse')
+        navigate('/')
     }
 
     const handelClick = ()=>{

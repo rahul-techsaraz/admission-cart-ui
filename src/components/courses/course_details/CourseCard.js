@@ -11,6 +11,7 @@ import courseIcon9 from '../../../images/course/course-icon9.svg';
 import courseIcon10 from '../../../images/course/course-icon10.svg';
 import courseIcon11 from '../../../images/course/course-icon11.svg';
 import courseIcon12 from '../../../images/course/course-icon12.svg';
+import scollarship from '../../../images/scholarship-icon.svg'
 import sandclassNameIcon from '../../../images/sandglass-icon.svg';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -38,9 +39,18 @@ export default function CourseCard({data}) {
                 <Link to={`/courses_details/${course.course_id}`}>
                 <div className="course-listing-box align-items-center mb-4">
                     <div className="course-post-contentBx">
-                        <h2 className="course-title">{course.course_name}</h2>
-                        <p className="course-para">{course.course_description.slice(0, 100)}</p>
-                        <Link className="course-moredetails-btn">More Details</Link>
+                        <div className="course-box-img">
+                            <img src="/static/media/scholarship-icon.a58590de458b29a1a0ffcd163c4c712a.svg" class="scollarship-icon" alt="Course Image"/>
+                        </div>
+                        <div className='course-box-heading'>
+                            <h2 className="course-title">{course.course_name}</h2>
+                        </div>
+                        <div className='course-box-para'>
+                            <p className="course-para">{`${course.course_description.slice(0, 150)}...`}</p>
+                        </div>
+                        <div className='course-box-link'>
+                            <Link className="course-moredetails-btn" to={`/courses_details/${course.course_id}`}>More Details</Link>
+                        </div>
                         <div className="d-flex flex-wrap course-infowrapper">
                             <div className="course-infobx d-inline-flex align-items-center">
                                 <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
@@ -52,7 +62,7 @@ export default function CourseCard({data}) {
                                 <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                                     <img src={sandclassNameIcon} alt=""/>
                                 </span>
-                                <p className="course-info-title">Average Fees <span>{course.course_fee_min} K-{course.course_fee_max} L  INR</span></p>
+                                <p className="course-info-title">Average Fees<span>{course.course_fee_min} K-{course.course_fee_max} L INR</span></p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +71,7 @@ export default function CourseCard({data}) {
             </div>
         ))}
         </div>
-        <div className="row">
+        <div className="row pagination-gap">
             <CustomPagination data={allCourseData} itemsPerPage={6} currentItemsParent={setCourseData}/>
         </div>
     </>
