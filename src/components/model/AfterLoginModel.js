@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { toggelAfterLoginModel, updateauthenticateUser } from '../../features/commonSlice'
+import { toggelAfterLoginModel, toggelIsLoginPopup, updateauthenticateUser } from '../../features/commonSlice'
 
 export default function AfterLoginModel() {
     const dispatch = useDispatch()
@@ -14,6 +14,7 @@ export default function AfterLoginModel() {
         dispatch(updateauthenticateUser({flag:false}))
         localStorage.removeItem('loginResponse')
         navigate('/')
+        dispatch(toggelIsLoginPopup({flag:true}))
     }
 
     const handelClick = ()=>{
@@ -23,7 +24,7 @@ export default function AfterLoginModel() {
     <>
         <section className="popup">
             <div className="logo-name">
-                <div className="logo">{userInfo?.full_name.charAt(0).toUpperCase()}</div>
+                <div className="logo">{userInfo?.full_name && userInfo?.full_name.charAt(0).toUpperCase()}</div>
                 <label for="name" className="name">Hi, {userInfo?.full_name}</label>
             </div>
             <div className="all-list">

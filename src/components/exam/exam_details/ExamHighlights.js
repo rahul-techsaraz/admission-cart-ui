@@ -21,7 +21,7 @@ export default function ExamHighlights() {
                       <p>Particulars</p>
                     </th>
                     <th>
-                      <p>{examDetailsById?.examBasicDetails?.exam_name + 'Exam Details'}</p>
+                      <p>{examDetailsById?.examBasicDetails?.exam_name + ' Exam Details'}</p>
                     </th>
                   </tr>
                 </thead>

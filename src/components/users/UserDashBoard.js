@@ -9,8 +9,8 @@ import httpFetch from '../../fetch/useFetch'
 
 export default function UserDashBoard() {
 //   const dispatch = useDispatch()
-//   const navigate = useNavigate()
-//   const {authenticateUser, lastLocation} = useSelector((state)=>state.common)  
+  // const navigate = useNavigate()
+  // const {authenticateUser} = useSelector((state)=>state.common)  
 //   const authorise = async ()=>{
 //     const custHeader = {...constants.apiHeader.HEADER, "Authorization" : JSON.parse(localStorage.getItem('loginResponse')).token}
 //     const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION,constants.apiMethod.GET,custHeader)
@@ -33,10 +33,9 @@ export default function UserDashBoard() {
 // useEffect(()=>{
 //   if(!authenticateUser){
 //       navigate('/')
-//   }else{
-//       navigate(lastLocation.pathname)
 //   }
 // },[authenticateUser])
+
   return (
       <>
           <UserDashBoardBanner />

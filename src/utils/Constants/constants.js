@@ -39,6 +39,10 @@ import testiUserImg3 from '../../images/testi-user-img3.png'
 import arrowLeftIcon from '../../images/arrow-left-icon.svg'
 import arrowRightIcon from '../../images/arrow-right-icon.svg'
 import alarmClockIcon from '../../images/quiz-image/icons8-alarm-clock-30.png'
+import ICmanageProfile from '../../images/homepage-image/Ic-manage-profile.dd386740.svg';
+import ICFeedbackProfile from '../../images/homepage-image/Ic-feedback.47ae6b92.svg';
+import ICLegalProfile from '../../images/homepage-image/ic-legal.6c5d124d.svg';
+import ICSettingProfile from '../../images/homepage-image/Ic-settings.5c58e061.svg';
 const constants = {
     apiEndPoint: {
         UPLOAD_FILE: "https://techsaraz.in/admission-cart/api/fileupload/upload.php",
@@ -1457,13 +1461,13 @@ const constants = {
             itagClassName: "fa-user",
             secondSpanClassName: "profile-text"
         },
-        {
-            lableName: "My Test Performance",
-            path: "/performence",
-            firstSpanClassName: "profile-icon",
-            itagClassName: "fa-chart-pie",
-            secondSpanClassName: "perfomence-text"
-        },
+        // {
+        //     lableName: "My Test Performance",
+        //     path: "/performence",
+        //     firstSpanClassName: "profile-icon",
+        //     itagClassName: "fa-chart-pie",
+        //     secondSpanClassName: "perfomence-text"
+        // },
         {
             lableName: "Collages",
             path: "/collages",
@@ -1471,13 +1475,13 @@ const constants = {
             itagClassName: "fa-building-columns",
             secondSpanClassName: "collages-text"
         },
-        {
-            lableName: "Career",
-            path: "/career",
-            firstSpanClassName: "profile-icon",
-            itagClassName: "fa-compass",
-            secondSpanClassName: "career-text"
-        },
+        // {
+        //     lableName: "Career",
+        //     path: "/career",
+        //     firstSpanClassName: "profile-icon",
+        //     itagClassName: "fa-compass",
+        //     secondSpanClassName: "career-text"
+        // },
         {
             lableName: "Document",
             path: "/document",
@@ -1499,6 +1503,37 @@ const constants = {
             itagClassName: "fa-gear",
             secondSpanClassName: "account-text"
         }
+
+    ],
+    userDashBoasrLookingForMenu: [
+        {
+            path: '/profile',
+            imageSrc: ICmanageProfile,
+            imageAlt: 'Profile img',
+            title: 'Manage Profile',
+            activeIndex: 1
+        },
+        {
+            path: '/home',
+            imageSrc: ICFeedbackProfile,
+            imageAlt: 'feedback-img',
+            title: 'Give Us Feedback',
+            activeIndex: 1
+        },
+        {
+            path: '/home',
+            imageSrc: ICLegalProfile,
+            imageAlt: 'legal-img',
+            title: 'Legal',
+            activeIndex: 1
+        },
+        {
+            path: '/account',
+            imageSrc: ICSettingProfile,
+            imageAlt: 'settimgs-img',
+            title: 'Account Settings',
+            activeIndex: 7
+        },
 
     ],
     examDetailsList:[

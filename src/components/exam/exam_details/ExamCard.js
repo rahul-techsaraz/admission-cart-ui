@@ -25,7 +25,7 @@ export default function ExamCard({data}) {
             {examData.map((exam)=>(
             <div class="col-lg-3 col-md-6">
                 <div class="exam-listing-box position-relative">
-                    <p class="exam-name-listing-box d-inline-block">{exam.exam_name}</p>
+                    <p class="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
                     <div class="exam-listing-box-content">
                         <div class="d-flex align-items-center gap-2 mb-3">
                             <div className='calender-icon-circle-parent'>
@@ -36,7 +36,7 @@ export default function ExamCard({data}) {
 
                             <div className='calender-h2-parent'>
                             <h2 class="exam-dateinfo m-0">Application Date
-                                <span class="date">{exam.application_start_date}</span>
+                                <span class="date">{exam?.application_start_date}</span>
                             </h2>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ export default function ExamCard({data}) {
 
                             <div className='calender-h2-parent'>
                             <h2 class="exam-dateinfo m-0">Exam Date
-                                <span class="date">{`${exam.exam_start_date} to ${exam.exam_end_date}`}</span>
+                                <span class="date">{`${exam?.exam_start_date} to ${exam?.exam_end_date}`}</span>
                             </h2>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ export default function ExamCard({data}) {
                         </ul>
 
                     </div>
-                    <Link class="register-btn yellow-bg" to={`/exam_details/${exam.exam_id}`}><img src={examRegisterIconImage} alt="" /> Register Now</Link>
+                    <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                 </div>
             </div>
             ))}

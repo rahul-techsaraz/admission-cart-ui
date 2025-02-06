@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import user2 from '../../images/sign-up-image/users-2.png';
 import nationalFLag from '../../images/sign-up-image/national-flag.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggelLoginModel, toggelAfterLoginModel, updateauthenticateUser } from '../../features/commonSlice';
 import '../../css/collagedekho.css';
 import constants from '../../utils/Constants/constants';
 import httpFetch from '../../fetch/useFetch';
 import { updateUserInfo } from '../../features/userSlice';
+import { login } from '../ReduxThunk/CommonThunk';
 
 
 
@@ -21,6 +22,7 @@ export default function LoginModel() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const dispatch = useDispatch();
     const {openLoginModel, openAfterLoginModel} = useSelector(state=>state.common)
+    const navigate = useNavigate()
     // const handleModel = () => {
     //     dispatch(toggelLoginModel({flag:false}))
 
@@ -94,17 +96,22 @@ export default function LoginModel() {
                 "phone":loginPhone,
                 "password":loginPassword
                 }
-                const jsonData = await httpFetch(constants.apiEndPoint.USER_LOGIN,constants.apiMethod.POST,constants.apiHeader.HEADER,loginPayload)
-                console.log(jsonData)
-                if(jsonData.success!==0){
+                const jsonData = await dispatch(login({
+                    url: constants.apiEndPoint.USER_LOGIN,
+                    method: constants.apiMethod.POST,
+                    header: constants.apiHeader.HEADER,
+                    body: loginPayload
+                }))
+                if(jsonData?.payload?.success!==1){
+                    alert("Invalid Phone or Password")
+                }else{
                     dispatch(toggelLoginModel({flag:false}))
                     dispatch(toggelAfterLoginModel({flag:true}))
                     dispatch(updateauthenticateUser({flag:true}))
-                    const obj = {email:jsonData.email,full_name:jsonData.full_name,phone:jsonData.phone,token:jsonData.token}
+                    const obj = {email:jsonData?.payload?.email,full_name:jsonData?.payload?.full_name,phone:jsonData?.payload?.phone,token:jsonData?.payload?.token}
                     localStorage.setItem('loginResponse', JSON.stringify(obj))
                     dispatch(updateUserInfo({userData:obj}))
-                }else{
-                    alert("Invalid Phone or Password")
+                    navigate('/user/dashboard/profile')
                 }
            
         }

@@ -28,7 +28,7 @@ export default function ProfileEducationalDetails() {
         try{
         const response = await httpFetch(constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_TO_VERIFY+userInfo.email, constants.apiMethod.GET, constants.apiHeader.HEADER)
         console.log(response)
-        if(response.data.length > 0){
+        if(response.status === constants.apiResponseStatus.SUCCESS){
                 dispatch(updateQualificationInfo({qualificationInfo:response.data}))
                 setToggleButton(false)
                 setShowDetails(true)
@@ -200,7 +200,7 @@ export default function ProfileEducationalDetails() {
                         <Link><button className="besic-detials-button-save" onClick={()=>handleAddDetails()}>Add Details</button></Link>
                     </div>
                     <div style={{display:showDetails ? 'block' : 'none'}}>
-                        {userQualificationInfo.map((data, index)=>
+                        {userQualificationInfo.length > 0 && userQualificationInfo.map((data, index)=>
                             <>
                                 <div className='preferences-h3-i' style={{display:'flex', columnGap:"30px", justifyContent:'flex-start', marginTop:'30px'}}>
                                     <h4 className="education-h4">{data.class_name}</h4>

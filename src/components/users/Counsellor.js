@@ -3,9 +3,11 @@ import constants from '../../utils/Constants/constants';
 import '../../css/counsellors-collagedekho.css';
 import '../../css/counsellors-responsive.css';
 import Sidebar from './Sidebar';
+import { useSelector } from 'react-redux';
 
 
 export default function Counsellor() {
+  const {userInfo} = useSelector(state=>state.userSlice)
   return (
     <>
         <section className="profile-page">
@@ -16,7 +18,7 @@ export default function Counsellor() {
             <div className="counsellors-box1">
                 <div className="counsellors-text-image">
                     <div className="counsellors-text-h5-button order-text">
-                    <h5>Hi Jayanta Kumar Mondal, we are here to help you.</h5>
+                    <h5>{`Hey ${userInfo.full_name}, we are here to help you.`}</h5>
                     <span className="counsellors-span-text">Our experts will help you in your entire admission journey.</span>
                       {/* <!-- <div className="button-box">
                       <div className="counsellors-btn from-right">Apply for more colleges</div>

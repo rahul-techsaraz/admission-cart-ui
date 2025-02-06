@@ -81,10 +81,8 @@ export default function Document() {
     }
 
     const handleTabClick = async ()=>{
-      
-      const data = await httpFetch(constants.apiEndPoint.USER_DOCUMENT_GET_ALL_DOCUMENT+userInfo.email,constants.apiMethod.GET,constants.apiHeader.HEADER)
-      console.log(data)
-      if(data.status == 'success'){
+      const data = await httpFetch(constants.apiEndPoint.USER_DOCUMENT_GET_ALL_DOCUMENT+userInfo?.email,constants.apiMethod.GET,constants.apiHeader.HEADER)
+      if(data.status == 'success' && data.data.length>0){
         dispatch(updateUserDocumentAfterFetch({data : data.data}))
       }
       console.log(userDocument)

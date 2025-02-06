@@ -52,8 +52,9 @@ import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwipe
 import { Link, useParams } from 'react-router-dom';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 import { useFetchCollegeById } from '../../hooks/useFetchCollegeById';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import constants from '../../../utils/Constants/constants';
+import { toggelIsLoginPopup } from '../../../features/commonSlice';
 
 
 
@@ -70,6 +71,7 @@ export default function CollegeDetails() {
       })
    const {college_id} = useParams()
    const {fetchCollege} = useFetchCollegeById()
+   const dispatch = useDispatch()
    const {collegeDetailsById,allCourseData, allCollegeData} = useSelector(state=>state.common)
    console.log(collegeDetailsById)
    
@@ -233,16 +235,20 @@ export default function CollegeDetails() {
                      <div class="course-details-left-innerBox mb-5 text-center">
                         <h2 class="imgText-heading mb-4">{collegeDetailsById?.basicDetails?.college_name} Overview</h2>
                         <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_description.length > 100 && readmore.overview === false) ? collegeDetailsById?.descriptionDetails?.college_description.slice(0,100)+"..." : collegeDetailsById?.descriptionDetails?.college_description}</p>
-                        <div class="text-center">
-                           <Link class="theme-btn green-btn" onClick={()=>setReadmore({...readmore, overview:!readmore.overview })}>{!readmore.overview ? 'Read More' : 'Read Less'}</Link>
-                        </div>
+                        {collegeDetailsById?.descriptionDetails?.college_description.length > 100 &&
+                           <div class="text-center">
+                              <Link class="theme-btn green-btn" onClick={()=>setReadmore({...readmore, overview:!readmore.overview })}>{!readmore.overview ? 'Read More' : 'Read Less'}</Link>
+                           </div>   
+                        }
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
                         <h2 class="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Highlights ${getCurrentYear()}`}</h2>
                         <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 100 && readmore.highlightDescription === false) ? `${collegeDetailsById?.descriptionDetails?.college_highlights_description.slice(0,100)}...` : collegeDetailsById?.descriptionDetails?.college_highlights_description}</p>
-                        <div class="text-center">
-                           <Link class="theme-btn green-btn"onClick={()=>setReadmore({...readmore, highlightDescription:!readmore.highlightDescription})}>{!readmore.highlightDescription ? 'Read More' : 'Read Less'}</Link>
-                        </div>
+                        {collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 100 &&
+                           <div class="text-center">
+                              <Link class="theme-btn green-btn"onClick={()=>setReadmore({...readmore, highlightDescription:!readmore.highlightDescription})}>{!readmore.highlightDescription ? 'Read More' : 'Read Less'}</Link>
+                           </div>   
+                        }
                      </div>
                      <div class="tick-heading d-flex align-items-center mb-4">
                         <span class="tick-heading-icon d-inline-flex">
@@ -266,17 +272,17 @@ export default function CollegeDetails() {
                                  </tr>
                               </thead>
                               <tbody>
-                                 {Object.keys(collegeDetailsById).length>0 && dataToMap(collegeDetailsById?.highlightsDetails).map((college)=>(
+                                 {collegeDetailsById?.highlightsDetails.length>0 && dataToMap(collegeDetailsById?.highlightsDetails).map((college)=>(
                                     <tr>
                                        <td>{college?.course_name.split('-')[0].trim()} <span class="d-block">{college?.course_name.split('-')[1].trim()}</span></td>
                                        <td>₹ {college?.fees_annually}</td>
-                                       <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn">Apply Now</Link></td>
+                                       <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Apply Now</Link></td>
                                     </tr>   
                                  ))}
                               </tbody>
                            </table>
                         </div>
-                        {(Object.keys(collegeDetailsById).length>0 && collegeDetailsById?.highlightsDetails.length>4) && <div class="text-start mt-5">
+                        {collegeDetailsById?.highlightsDetails.length>4 && <div class="text-start mt-5">
                            <Link class="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, highlightCourses:!readmore.highlightCourses})}>{!readmore.highlightCourses ? 'Read More' : 'Read Less'}</Link>
                         </div>}
                      </div>
@@ -302,7 +308,7 @@ export default function CollegeDetails() {
                                  </tr>
                               </thead>
                               <tbody>
-                                 {Object.keys(collegeDetailsById).length>0 && dataToMap(collegeDetailsById?.courseOfferedDetails).map((course)=>(
+                                 {collegeDetailsById?.courseOfferedDetails.length > 0 && dataToMap(collegeDetailsById?.courseOfferedDetails).map((course)=>(
                                     <tr>
                                        <td>{course?.course_name}</td>
                                        <td>{`Rs ${course?.sub_course_fee}`}</td>
@@ -312,7 +318,7 @@ export default function CollegeDetails() {
                               </tbody>
                            </table>
                         </div>
-                        {(Object.keys(collegeDetailsById).length > 0 && collegeDetailsById?.highlightsDetails.length > 4) && <div class="text-start mt-5">
+                        {collegeDetailsById?.highlightsDetails.length > 4 && <div class="text-start mt-5">
                            <Link class="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, allCourses:!readmore.allCourses})}>{!readmore.allCourses ? 'Read More' : 'Read Less'}</Link>
                         </div>}
                         
@@ -2140,7 +2146,7 @@ export default function CollegeDetails() {
                         <div class="swiper faculty-slider-slider">
                            <div class="swiper-wrapper">
                               <CustomSwiper navigationNext={'.clg-faculty-button-next'} navigationPrev={'.clg-faculty-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 {Object.keys(collegeDetailsById).length>0 && collegeDetailsById?.facilitiesDetails?.faculty_name.split(',').map((faculty)=>(
+                                 {collegeDetailsById?.facilitiesDetails?.faculty_name && collegeDetailsById?.facilitiesDetails?.faculty_name.split(',').map((faculty)=>(
                                     <swiper-slide>
                                        <div class="swiper-slide">
                                           <div class="faculty-slider-box">
@@ -2727,27 +2733,27 @@ export default function CollegeDetails() {
                               <div class="swiper course-offered-slider pb-5">
                                  <div class="swiper-wrapper">
                                     <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
-                                       {Object.keys(collegeDetailsById).length>0 && getAllCourseDataById().map((course)=>(
+                                       {collegeDetailsById?.courseOfferedDetails.length > 0 && getAllCourseDataById().map((course)=>(
                                           <swiper-slide>
                                              {/* <div className="col-md-4"> */}
                                                 <Link to={`/courses_details/${course.course_id}`}>
                                                 <div className="course-listing-box align-items-center mb-4">
                                                    <div className="course-post-contentBx">
-                                                         <h2 className="course-title">{course.course_name}</h2>
-                                                         <p className="course-para">{course.course_description.length>100 ? `${course.course_description.slice(0, 100)}...` : course.course_description }</p>
+                                                         <h2 className="course-title">{course?.course_name}</h2>
+                                                         <p className="course-para">{course?.course_description.length>100 ? `${course?.course_description.slice(0, 100)}...` : course?.course_description }</p>
                                                          <Link className="course-moredetails-btn">More Details</Link>
                                                          <div className="d-flex flex-wrap course-infowrapper">
                                                             <div className="course-infobx d-inline-flex align-items-center">
                                                                <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                                                                      <img src={sandclassNameIcon} alt=""/>
                                                                </span>
-                                                               <p className="course-info-title">Average Duration <span>{course.course_duration} years</span></p>
+                                                               <p className="course-info-title">Average Duration <span>{course?.course_duration} years</span></p>
                                                             </div>
                                                             <div className="course-infobx d-inline-flex align-items-center">
                                                                <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
                                                                      <img src={sandclassNameIcon} alt=""/>
                                                                </span>
-                                                               <p className="course-info-title">Average Fees <span>{course.course_fee_min} K-{course.course_fee_max} L  INR</span></p>
+                                                               <p className="course-info-title">Average Fees <span>{course?.course_fee_min} K-{course?.course_fee_max} L INR</span></p>
                                                             </div>
                                                          </div>
                                                    </div>
@@ -2789,7 +2795,7 @@ export default function CollegeDetails() {
                         <div class="swiper recommended-clg-slider pb-5">
                             <div class="swiper-wrapper position-relative">
                               <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 {Object.keys(collegeDetailsById).length>0 && getAllCollegesDataByCity().map((college)=>(
+                                 {collegeDetailsById?.basicDetails?.city && getAllCollegesDataByCity().map((college)=>(
                                     <swiper-slide>
                                        <Link to={`/colleges_details/${college.college_id}`}>
                                           <div class="swiper-slide">
@@ -2808,8 +2814,8 @@ export default function CollegeDetails() {
                                                             </span>
                                                          </div>
                                                       </div>
-                                                      <p class="recommended-clg-name mb-2">{college.college_name}</p>
-                                                      <p class="recommended-clg-location">{college.state} <span>{college.city}</span></p>
+                                                      <p class="recommended-clg-name mb-2">{college?.college_name}</p>
+                                                      <p class="recommended-clg-location">{college?.state} <span>{college?.city}</span></p>
                                                       <p class="course-offer-badge d-flex justify-content-between align-items-center">
                                                          <span>Courses Offered</span>
                                                          <span class="text-end">{collegeDetailsById?.courseOfferedDetails.length}</span>

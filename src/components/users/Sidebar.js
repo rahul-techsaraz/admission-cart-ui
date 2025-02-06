@@ -8,6 +8,7 @@ export default function Sidebar() {
     const {openLoginModel,activemenue}= useSelector((state)=>state.common)
     // console.log(activemenue)
     const dispatch= useDispatch()
+    
   return (
     <>
         <div className="side-navbar-parents">
@@ -20,7 +21,7 @@ export default function Sidebar() {
                     </label>
                 <ul>
                     {constants.userDashBoardSidebarMenu.map((menuName, index)=>(
-                        <li onClick={()=>dispatch(upDateActiveMenu({index}))} className={index === activemenue? "active" : ""}><Link to={`/user/dashboard${menuName.path}`}><span className={index=== activemenue ? menuName.firstSpanClassName : ""}><i className={`fa-solid ${menuName.itagClassName}`}></i></span> <span className={index === activemenue ? menuName.secondSpanClassName : ""}>{menuName.lableName}</span></Link></li>
+                        <li onClick={()=>dispatch(upDateActiveMenu({index : index == 0 ? index+1 : index}))} className={index === activemenue? "active" : ""}><Link to={`/user/dashboard${menuName.path}`}><span className={index=== activemenue ? menuName.firstSpanClassName : ""}><i className={`fa-solid ${menuName.itagClassName}`}></i></span> <span className={index === activemenue ? menuName.secondSpanClassName : ""}>{menuName.lableName}</span></Link></li>
                     ))}
                    
                 </ul>

@@ -63,7 +63,7 @@ const Header = () => {
             dispatch(toggelAfterLoginModel({flag:false}))
         }else{
             dispatch(toggelLoginModel({flag:false}))
-            dispatch(toggelAfterLoginModel({flag:true}))
+            dispatch(toggelAfterLoginModel({flag:!openAfterLoginModel}))
         }
     }
     const handleModelLeave= ()=>{
@@ -73,9 +73,8 @@ const Header = () => {
    
     return(
         <>
-            {openAfterLoginModel && <AfterLoginModel/>}
+        {openAfterLoginModel && <AfterLoginModel/>}
         {openLoginModel && <LoginModel/>}
-            
         <div className="h7_header-top d-none d-md-block">
             <div className="container">
                     <div className="row">
@@ -142,6 +141,7 @@ const Header = () => {
         </div>
 
     </header>
+    
         </>
     )
 }
