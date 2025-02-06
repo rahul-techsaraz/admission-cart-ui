@@ -1,7 +1,7 @@
 import { useDebugValue, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate, useLocation, useNavigate } from "react-router-dom"
-import {updateauthenticateUser, updateLastLocation} from '../features/commonSlice'
+import {toggelIsLoginPopup, updateauthenticateUser, updateLastLocation} from '../features/commonSlice'
 import constants from "../utils/Constants/constants"
 import httpFetch from "../fetch/useFetch"
 
@@ -30,10 +30,13 @@ const ProtectedRouter = ({children})=>{
     useEffect(()=>{
         if(!localStorage.getItem("loginResponse")){
             dispatch(updateauthenticateUser({flag:false}))
+            navigate('/')
+            dispatch(toggelIsLoginPopup({flag:true}))
         }else{
             authorise()  
         }
-    },[])
+    },[authenticateUser])
+    
     return children
 }
 export default ProtectedRouter

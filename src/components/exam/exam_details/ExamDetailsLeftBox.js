@@ -17,6 +17,7 @@ import examStep4Info from '../../../images/exam-step3info-img3.png';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper'
 import constants from '../../../utils/Constants/constants'
 import { useSelector } from 'react-redux'
+import { swiperResponsive } from '../../../utils/Constants/swiperResponsive'
 
 
 
@@ -32,15 +33,18 @@ export default function ExamDetailsLeftBox() {
       exam_description: false,
       exam_conducting_body_description: false,
       exam_important_dates_description: false,
+      exam_application_form_description: false,
+      apllication_form_step1_description: false,
+      apllication_form_step2_description: false,
+      apllication_form_step3_description: false,
     })
-  const {examDetailsById, allExamData}=useSelector(state=>state.common)
+  const {examDetailsById, allExamData, allCollegeData}=useSelector(state=>state.common)
   const [pData, setPData] = useState(examDetailsById?.descriptionDetails?.exam_intimation_slip_description)
   console.log(examDetailsById)
   console.log(allExamData)
   const updateActive = (p, index)=>{
     setLinkIndex(index)
     setPData(p)
-    //console.log(p)
   }
   const getAllExamByCategory = ()=>{
     const data = allExamData.filter((v)=>v?.category_name === examDetailsById?.examBasicDetails?.category_name && v?.exam_name !== examDetailsById?.examBasicDetails?.exam_name)
@@ -61,8 +65,37 @@ export default function ExamDetailsLeftBox() {
     }).map((p)=>({...obj, 'tagTitle':p, 'pTagData': examDetailsById.descriptionDetails[p]}))
     return data
   }
-  useEffect(()=>{
-  },[examDetailsById])
+  const responsive = {
+    1400:{
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    1024:{
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    768:{
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
+    640:{
+        slidesPerView: 1,
+        spaceBetween: 20,
+    },
+    460:{
+        slidesPerView: 1,
+        spaceBetween: 20,
+    },
+ }
+ const getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+ const getCollegesByExamId = () => {
+    const data = allCollegeData.filter((college)=>college?.category_name === examDetailsById?.examBasicDetails?.category_name)
+    return data
+ }
   return (
    <div className="col-md-12">
         <div id="exam_details_leftBox" className="exam-details-leftBox">
@@ -114,7 +147,7 @@ export default function ExamDetailsLeftBox() {
           <div className="similar-exam-ylw-box yellow-bg py-5">
             <h2 className="section-heading2 text-center mb-5">Similar Exams</h2>
             <div className="d-flex justify-content-center flex-wrap gap-4">
-              {getAllExamByCategory().map((exam)=>(
+              {examDetailsById?.examBasicDetails?.category_name && getAllExamByCategory().map((exam)=>(
                 <Link className="similar-exam-badge">{exam.exam_name}</Link>  
               ))}
               {/* <Link className="similar-exam-badge">BITSAT</Link>
@@ -126,20 +159,22 @@ export default function ExamDetailsLeftBox() {
           <div className="similar-exam-bottom-contentbox text-center mt-5">
             <h2 className="section-heading2 text-center mb-2">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Important Dates`}</h2>
             <p className="similar-exam-bottom-contentbox-para1 mb-5">{(examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 100 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_important_dates_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_important_dates_description}</p>
-            <h3 className="mb-3">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates (January & April Sessions)` }</h3>
+            <h3 className="mb-3">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates (${examDetailsById?.examDetails?.session_name} Sessions)` }</h3>
             <p className="similar-exam-bottom-contentbox-para2">{(examDetailsById?.descriptionDetails?.exam_session_description.length > 100 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_session_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_session_description}</p>
           </div>
           <div className="py-5 mt-4">
-            <div className="row align-items-center">
-              <div className="col-12 col-md-5">
-                <h1 className="exam-center-calenderTxt text-center">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates`} <span>January (Session 1)</span>
-                </h1>
-              </div>
-              <div className="col-4 col-md-2">
-                <img src={yellowCircle} alt="" />
-              </div>
-              <div className="col-12 col-md-5">
-                <h1 className="exam-center-calenderTxt text-center">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates`} <span>January (Session 1)</span>
+            <div className="d-flex justify-content-around align-items-center">
+                {/* <div className="col-12 col-md-5">
+                  <h1 className="exam-center-calenderTxt text-center">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates`} <span>January (Session 1)</span>
+                  </h1>
+                </div> */}
+                <div className="col-4 col-md-2">
+                  <img src={yellowCircle} alt="" />
+                </div>
+            </div>
+            <div className="d-flex justify-content-around align-items-center">
+              <div className="col-12 col-md-5 mt-4">
+                <h1 className="exam-center-calenderTxt text-center">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates`} <span>{`${examDetailsById?.examDetails?.session_name} ( ${examDetailsById?.examBasicDetails?.exam_start_date} )`}</span>
                 </h1>
               </div>
             </div>
@@ -156,43 +191,40 @@ export default function ExamDetailsLeftBox() {
             </div>
           </div>
           <div className="clg-accepting-slider-wrapper position-relative yellow-bg px-4 pt-5 mt-5 mb-5">
-            <h2 className="section-heading2 grey text-center mb-5">Top Engineering Colleges</h2>
+            <h2 className="section-heading2 grey text-center mb-5">{`Top ${examDetailsById?.examBasicDetails?.category_name} Colleges`}</h2>
             <div className="swiper clg-slider">
               {/* <!-- Additional required wrapper --> */}
               <div className="swiper-wrapper position-relative">
-                <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={false}>
-                  <swiper-slide>
-                    <div className="swiper-slide">
-                      <div className="clg-accepting-exam-slider-box position-relative">
-                        <p className="clg-accepting-name">Geetanjali Group of Colleges</p>
-                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                      </div>
-                    </div>
-                  </swiper-slide>
-                  <swiper-slide>
-                    <div className="swiper-slide">
-                      <div className="clg-accepting-exam-slider-box position-relative">
-                        <p className="clg-accepting-name">DIT University</p>
-                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                      </div>
-                    </div>    
-                  </swiper-slide>
-                  <swiper-slide>
-                    <div className="swiper-slide">
-                      <div className="clg-accepting-exam-slider-box position-relative">
-                        <p className="clg-accepting-name">Haridwar University</p>
-                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                      </div>
-                    </div>    
-                  </swiper-slide>
-                  <swiper-slide>
-                    <div className="swiper-slide">
-                      <div className="clg-accepting-exam-slider-box position-relative">
-                        <p className="clg-accepting-name">Geetanjali Group of Colleges</p>
-                        <p className="clg-accepting-location">Durgapur, West Bengal</p>
-                      </div>
-                    </div>    
-                  </swiper-slide>
+                <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                  {examDetailsById?.examBasicDetails?.exam_name && getCollegesByExamId().map((college)=>(
+                      <swiper-slide>
+                        <div className="col-12">
+                          <Link to={`/colleges_details/${college.college_id}`}>
+                            <div className="clg-listing-box cig-listing-box-clg-card bg-white">
+                              <div className='clg-listing-box-logo-rating'>
+                                <div className="clglisting-clglogo" style={{width:"92px", height:'92px'}}>
+                                  <img src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo" />
+                                </div>
+                                    <div className="clg-rating-badge d-flex flex-column">
+                                        <span className="clg-rating" id='clg-rating-color-green'>{college?.ratings}</span>
+                                        <span className="clg-reviews-count">{getRandomInt(1, 100)}+ Reviews</span>
+                                    </div>
+                                </div>
+                            <div className="clg-listing-inner-btmbx" id="clg-listing-inner-btmbx-box-padding-pading">
+                                <h4 className="clg-name">{college?.college_name}</h4>
+                                <p className="clg-location"><i class="fa-solid fa-location-dot"></i> {college?.city+", "+college?.state}</p>
+                                <ul className="clg-affi-info d-flex clg-affi-info-approve-type-parents-box">
+                                <li><span className="clg-list-approved-text"><i class="fa-solid fa-person-circle-check"></i> Approved by :</span>{college?.affiliate_by}</li>
+                                <li><span className="clg-list-type-text"><i class="fa-solid fa-building-columns"></i> Type :</span>{college?.college_type}</li>
+                                </ul>
+                                <p className="clg-stream-name">{college?.category_name}</p>
+                                
+                            </div>
+                        </div>
+                    </Link>
+                        </div>
+                      </swiper-slide>
+                  ))}
                 </CustomSwiper>
                 {/* <!-- Slides --> */}
                 
@@ -222,10 +254,12 @@ export default function ExamDetailsLeftBox() {
             <h2>{`${examDetailsById?.examBasicDetails?.exam_name} Application Form ${examDetailsById?.examBasicDetails?.exam_year}`}</h2>
           </div>
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
-            <p className="exam-details-para1">{examDetailsById?.descriptionDetails?.exam_application_form_description}</p>
-            <div className="text-start mt-5">
-              {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
-            </div>
+            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_application_form_description.length > 100 && readmore.exam_application_form_description === false) ? `${examDetailsById?.descriptionDetails?.exam_application_form_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_application_form_description}</p>
+            {examDetailsById?.descriptionDetails?.exam_application_form_description.length > 100 &&
+              <div className="text-start mt-5">
+                <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_application_form_description:!readmore.exam_application_form_description})}>{!readmore.exam_application_form_description ? 'Read More' : 'Read Less'}</Link>
+              </div>
+            }
           </div>
           <div className="exam-3step-sec">
             <div className="row">
@@ -251,7 +285,7 @@ export default function ExamDetailsLeftBox() {
               </div>
               <div className="col-md-4">
                 <div className="exam-3step-box d-flex align-items-center">
-                  <p className="exam-3step-leftTxt"> Pay the JEE Main 2024 application fee</p>
+                  <p className="exam-3step-leftTxt">{`Pay the ${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} application fee`}</p>
                   <div className="exam-3step-badgebx">
                     <p className="exam-3step-text d-flex align-items-center justify-content-center">
                       <span className="me-1">03</span> Step
@@ -272,8 +306,10 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 1: Registration & Application Form Fill-up</h1>
-                    <p className="exam-registration-infopara">{examDetailsById?.descriptionDetails?.apllication_form_step1_description}</p>
-                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
+                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step1_description.length > 100 && readmore.apllication_form_step1_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step1_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.apllication_form_step1_description}</p>
+                    {examDetailsById?.descriptionDetails?.apllication_form_step1_description.length > 100 &&
+                      <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, apllication_form_step1_description:!readmore.apllication_form_step1_description})}>{!readmore.apllication_form_step1_description ? 'Read More' : 'Read Less'}</Link>
+                    }
                   </div>
                 </div>
                 <div className="row mb-5">
@@ -282,8 +318,10 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 2: Upload the Necessary Documents</h1>
-                    <p className="exam-registration-infopara">{examDetailsById?.descriptionDetails?.apllication_form_step2_description}</p>
-                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
+                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step2_description.length > 100 && readmore.apllication_form_step2_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step2_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.apllication_form_step2_description}</p>
+                    {examDetailsById?.descriptionDetails?.apllication_form_step2_description.length > 100 &&
+                      <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, apllication_form_step2_description:!readmore.apllication_form_step2_description})}>{!readmore.apllication_form_step2_description ? 'Read More' : 'Read Less'}</Link>
+                    }
                   </div>
                 </div>
                 <div className="row mb-5">
@@ -291,9 +329,11 @@ export default function ExamDetailsLeftBox() {
                     <img src={examStep4Info} className="exam-step3info-img" alt="" />
                   </div>
                   <div className="col-md-9">
-                    <h1 className="exam-registration-infoheading">Step 3: Pay the JEE Main 2024 Application Fee</h1>
-                    <p className="exam-registration-infopara">{examDetailsById?.descriptionDetails?.apllication_form_step3_description}</p>
-                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
+                    <h1 className="exam-registration-infoheading">{`Step 3: Pay the ${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Application Fee`}</h1>
+                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step3_description.length > 100 && readmore.apllication_form_step3_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step3_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.apllication_form_step3_description}</p>
+                    {examDetailsById?.descriptionDetails?.apllication_form_step3_description.length > 100 &&
+                      <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, apllication_form_step3_description:!readmore.apllication_form_step3_description})}>{!readmore.apllication_form_step3_description ? 'Read More' : 'Read Less'}</Link>  
+                    }
                   </div>
                 </div>
               </div>

@@ -7,7 +7,10 @@ import ICmanageProfile from '../../images/homepage-image/Ic-manage-profile.dd386
 import ICFeedbackProfile from '../../images/homepage-image/Ic-feedback.47ae6b92.svg';
 import ICLegalProfile from '../../images/homepage-image/ic-legal.6c5d124d.svg';
 import ICSettingProfile from '../../images/homepage-image/Ic-settings.5c58e061.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import constants from '../../utils/Constants/constants';
+import { upDateActiveMenu } from '../../features/commonSlice';
 
 
 
@@ -17,6 +20,15 @@ import { Link } from 'react-router-dom';
 
 
 export default function DashBoardMainSection() {
+    const {userInfo} = useSelector(state=>state.userSlice)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handieClick = (path, index) => {
+        navigate(`/user/dashboard${path}`)
+        dispatch(upDateActiveMenu({index}))
+    }
+    console.log(userInfo)
   return (
      <section className="next-section">
           <div className="container">
@@ -25,7 +37,7 @@ export default function DashBoardMainSection() {
                     <h3>20<span>%</span><p className="complete-p">Completed</p></h3>
                 </div>
                 <div className="h3-p">
-                    <h3>Hey Jayanta Kumar Mondal, Your profile is incomplete !</h3>
+                    <h3>{`Hey ${userInfo.full_name}, Your profile is incomplete !`}</h3>
                     <p className="incomplete-p">Complete your profile and we will help you in building better college recommendations for you.You are one step closer to earning 100 reward points</p>
                 </div>
                 <Link to={"/user/dashboard/profile"}><button className="complte-your-profile btn1">Complete Your Profile</button></Link>
@@ -131,14 +143,27 @@ export default function DashBoardMainSection() {
             <section className="looking-for">
                     <div className="loking-for-box">
                         <h3>Looking for something else?</h3>
-                        <div className="padding-icon-box">
-                           <div className="icon-text">
+                        {constants.userDashBoasrLookingForMenu.map((menu)=>(
+                            <div className="padding-icon-box">
+                            <div className="icon-text" onClick={()=>handieClick(menu.path, menu.activeIndex)}>
+                             <div className="manage-profile-img">
+                                 <img src={menu.imageSrc} alt= {`${menu.imageAlt}`}/>
+                             </div>
+                             <span className="manage-profile-span">{menu.title}</span>
+                            </div>
+                            <div className="manage-profile-rigrt-icon" onClick={()=>handieClick(menu.path, menu.activeIndex)}>
+                             <i className="fa-solid fa-angle-right"></i>
+                            </div>
+                         </div>
+                        ))}
+                        {/* <div className="padding-icon-box">
+                           <div className="icon-text" onClick={()=>navigate('/user/dashboard/profile')}>
                             <div className="manage-profile-img">
                                 <img src={ICmanageProfile} alt="" />
                             </div>
                             <span className="manage-profile-span">Manage Profile</span>
                            </div>
-                           <div className="manage-profile-rigrt-icon">
+                           <div className="manage-profile-rigrt-icon" onClick={()=>navigate('/user/dashboard/profile')}>
                             <i className="fa-solid fa-angle-right"></i>
                            </div>
                         </div>
@@ -168,16 +193,16 @@ export default function DashBoardMainSection() {
                          </div>
 
                          <div className="padding-icon-box">
-                            <div className="icon-text">
+                            <div className="icon-text" onClick={()=>navigate('/user/dashboard/account')}>
                              <div className="manage-profile-img">
                                  <img src={ICSettingProfile} alt="settimgs-img" />
                              </div>
                              <span className="manage-profile-span">Account Settings</span>
                             </div>
-                            <div className="manage-profile-rigrt-icon">
+                            <div className="manage-profile-rigrt-icon" onClick={()=>navigate('/user/dashboard/account')}>
                              <i className="fa-solid fa-angle-right"></i>
                             </div>
-                         </div>
+                         </div> */}
 
                     </div>
             </section>

@@ -129,18 +129,18 @@ export default function CourseDetails() {
                                 }
                                 <p className="imgText-para"><u><strong>The eligibility criteria for {courseDetailsById?.basicCourseDetails?.course_name} course can be checked below:</strong></u></p>
                                 <ul className="course-details-criteria-list" style={{listStyleType:'disc'}}>
-                                    {Object.keys(courseDetailsById).length>0 && courseDetailsById?.courseDetails?.eligiblity_criteria?.split(',').map((eligiblity)=>(
+                                    {courseDetailsById?.courseDetails?.eligiblity_criteria && courseDetailsById?.courseDetails?.eligiblity_criteria?.split(',').map((eligiblity)=>(
                                         <li>{eligiblity}</li>
                                     ))}
                                 </ul>
                                 <div className="text-start mt-5">
-                                    <Link className="course-details-readmore-btn btn">Read More</Link>
+                                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
                                 </div>
                             </div>
 
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Syllabus'}</h2>
-                                {Object.keys(courseDetailsById).length > 0 && dataToMap(courseDetailsById?.syllabusDetails).map((syllabus)=>(
+                                {courseDetailsById?.syllabusDetails.length > 0 && dataToMap(courseDetailsById?.syllabusDetails).map((syllabus)=>(
                                     syllabus?.semester_name !== '' ? 
                                         <>
                                             <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
@@ -158,7 +158,7 @@ export default function CourseDetails() {
                                         </>
                                     
                                 ))}
-                                {Object.keys(courseDetailsById).length>0 && courseDetailsById?.syllabusDetails.length > 3 &&
+                                {courseDetailsById?.syllabusDetails.length > 3 &&
                                     <div className="text-start mt-5">
                                         <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, syllabusDetails:!readmore.syllabusDetails})}>{!readmore.syllabusDetails ? 'Read More' : 'Read Less'}</Link>
                                     </div>

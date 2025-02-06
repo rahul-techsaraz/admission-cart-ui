@@ -12,7 +12,7 @@ export default function UserDashBoardBanner() {
         <div className="container">
       <div className="firstletter-name">
            <div className="firstletter">
-            <h1>{userInfo?.full_name.charAt(0).toUpperCase()}</h1>
+            <h1>{userInfo.full_name && userInfo?.full_name.charAt(0).toUpperCase()}</h1>
            </div>
            <div className="name">
             <h1> Welcome, {userInfo?.full_name}</h1>

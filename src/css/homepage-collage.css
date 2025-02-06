@@ -1148,6 +1148,9 @@
   width: 16px;
   display: flex;
 }
+.manage-profile-rigrt-icon, .icon-text{
+  cursor: pointer;
+}
 
 /*  */
 

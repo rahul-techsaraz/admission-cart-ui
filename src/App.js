@@ -30,7 +30,7 @@ import ContactUsPopup from './components/contactUs/ContactUsPopup';
 import LoginPopup from './components/contactUs/LoginPopup';
 
 const AppLayout = () => {
-  const {isLoading, isLoginPopup, isSignupPopup} = useSelector(state=>state.common)
+  const {isLoading, isLoginPopup, isSignupPopup, authenticateUser} = useSelector(state=>state.common)
   const location = useLocation()
   register()
 
@@ -46,10 +46,10 @@ const AppLayout = () => {
         <Outlet />
         <ScrollTop />
         <ChatBot />
-        {isLoginPopup && <LoginPopup />}
-        {isSignupPopup && <ContactUsPopup />}
+        {(isLoginPopup && authenticateUser===false) && <LoginPopup />}
+        {(isSignupPopup && authenticateUser===false) && <ContactUsPopup />}
         <NewsLetter />
-        <ContactUsPage />
+        {/* <ContactUsPage /> */}
         <Footer />
       </div>
     </>
