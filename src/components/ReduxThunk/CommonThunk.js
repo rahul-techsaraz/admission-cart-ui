@@ -254,9 +254,10 @@ export const fetchAllCollegeList = createAsyncThunk("college/fetchAllCollegeList
     }
   })
 
-  export const saveUserShortlist = createAsyncThunk("UserShortlist/saveUserShortlist", async ({ url, method, header }, thunkApi) => {
+  export const saveUserShortlist = createAsyncThunk("UserShortlist/saveUserShortlist", async ({ url, method, header, body }, thunkApi) => {
     try {
-      const data = await httpFetch(url, method, header)
+      const data = await httpFetch(url, method, header, body)
+      console.log(data)
       if(data.status !== constants.apiResponseStatus.SUCCESS){
         throw new Error("Somting went wrong... try again");
       }

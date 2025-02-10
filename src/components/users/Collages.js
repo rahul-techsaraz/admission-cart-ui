@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSortlistedColleges } from '../../features/userSlice';
 import { Link } from 'react-router-dom';
 import { useFetchUserSortlist } from '../hooks/useFetchUserSortlist';
+import { saveUserShortlist } from '../ReduxThunk/CommonThunk';
 
 
 export default function Collages() {
-  const {userPreferenceInfo, userShortListedColleges} = useSelector(state=>state.userSlice)
+  const {userPreferenceInfo, userShortListedColleges, userInfo} = useSelector(state=>state.userSlice)
   const {allCollegeData} = useSelector(state=>state.common)
   const dispatch = useDispatch()
   const {fetchSortlist} = useFetchUserSortlist()
@@ -40,12 +41,38 @@ export default function Collages() {
       dispatch(updateUserSortlistedColleges({sortlistedCollege:college}))
     }
   }
-  // const uploadSortList = () => {
-
-  // }
+  const uploadSortList = async () => {
+    try{
+      const payload = {
+        email: userInfo.email,
+        college_id: userShortListedColleges.college_id,
+        college_name: userShortListedColleges.college_name
+      }
+      const response = await dispatch(saveUserShortlist({
+        url: constants.apiEndPoint.USER_SORTLIST_SAVE_UPDATE,
+        method: userShortListedColleges.college_id.split(',').length <= 1 ? constants.apiMethod.POST : constants.apiMethod.PUT,
+        header: constants.apiHeader.HEADER,
+        body: payload
+      }))
+      console.log(response)
+      if(response?.payload.status === constants.apiResponseStatus.SUCCESS){
+        fetchSortlist();
+      }else{
+        alert("Something went wrong try again later...")
+      }
+    }catch(err){
+      alert("Something went wrong try again later...")
+    }
+  }
   useEffect(()=>{
     fetchSortlist()
   },[])
+  useEffect(()=>{
+    if(userShortListedColleges.college_id !== ''){
+      console.log(userShortListedColleges)
+      uploadSortList()
+    }
+  },[userShortListedColleges.college_id])
   return (
     <>
         <section className="profile-page">

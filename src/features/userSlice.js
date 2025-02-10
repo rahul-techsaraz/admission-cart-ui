@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { deleteUserEducationalDetails, fetchSpecializationCategory, fetchUserBasicDetails, fetchUserDocument, fetchUserEducationalDetails, fetchUserFeedback, fetchUserPreferenceDetails, fetchUserShortlist, saveUserBasicDetails, saveUserDocument, saveUserEducationalDetails, saveUserFeedback, saveUserPreferenceDetails, saveUserShortlist } from "../components/ReduxThunk/CommonThunk";
+import constants from "../utils/Constants/constants";
 
 const initialState = {
     loader:false,
@@ -62,13 +63,13 @@ const userSlice = createSlice({
         },
         updateUserSortlistedColleges : (state, {payload}) => {
             if(state.userShortListedColleges.college_id === ''){
-                state.userShortListedColleges = {...state?.userShortListedColleges, 
+                state.userShortListedColleges = {
                     college_id:payload?.sortlistedCollege?.college_id, 
                     college_name:payload?.sortlistedCollege?.college_name}
             }else{
                 state.userShortListedColleges = {
-                    college_id:`${state.userShortListedColleges?.college_id}, ${payload?.sortlistedCollege?.college_id}`,
-                    college_name:`${state.userShortListedColleges?.college_name}, ${payload?.sortlistedCollege?.college_name}`
+                    college_id:`${state.userShortListedColleges?.college_id},${payload?.sortlistedCollege?.college_id}`,
+                    college_name:`${state.userShortListedColleges?.college_name},${payload?.sortlistedCollege?.college_name}`
                 }
             }
             
@@ -95,7 +96,7 @@ const userSlice = createSlice({
     },
     extraReducers:(builder)=>{
         builder.addCase(fetchUserBasicDetails.fulfilled, (state, { payload}) => {
-            state.userInfo = {...state.userInfo, ...payload.data[0]}
+            state.userInfo = {...state.userInfo, ...payload.data}
             state.loader = false
         })
         builder.addCase(fetchUserBasicDetails.pending, (state, { payload}) => {
@@ -221,6 +222,12 @@ const userSlice = createSlice({
         })
         builder.addCase(fetchUserShortlist.fulfilled, (state, { payload}) => {
             console.log(payload)
+            if(payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0){
+                state.userShortListedColleges = {
+                    college_id : payload?.data[0]?.college_id,
+                    college_name : payload?.data[0]?.college_name
+                }
+            }
             state.loader = false
         })
         builder.addCase(fetchUserShortlist.pending, (state, { payload}) => {
