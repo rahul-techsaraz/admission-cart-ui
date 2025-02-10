@@ -33,8 +33,7 @@ export default function CourseDetails() {
     const {fetchCourse} = useFetchCourseById()
     const {courseDetailsById, allCollegeData} = useSelector(state=>state.common)
     const dispatch = useDispatch()
-    console.log(courseDetailsById)
-    console.log(allCollegeData)
+    
     const dataToMap = (data)=>{
         if(readmore.syllabusDetails){
            return data
@@ -44,7 +43,6 @@ export default function CourseDetails() {
     }
     const getCollegeByCourse = ()=>{
         const data = allCollegeData.filter((v)=>v.category_name === courseDetailsById?.basicCourseDetails?.category_name)
-        console.log(data)
         return data
     }
     const responsive = {

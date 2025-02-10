@@ -20,7 +20,6 @@ import CustomPagination from '../../../utils/Constants/custom-components/CustomP
 export default function CourseCard({data}) {
     const {allCourseData} = useSelector(state=>state.common)
     const [courseData, setCourseData] = useState([])
-    console.log(allCourseData)
     const courseImage = {
         image : '',
         course : '',

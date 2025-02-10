@@ -9,7 +9,6 @@ import constants from "../utils/Constants/constants";
 
 const CourseList = () => {
     const {allCollegeData} = useSelector(state=>state.common)
-    console.log(allCollegeData)
     const responsive = {
         1400:{
             slidesPerView: 4,

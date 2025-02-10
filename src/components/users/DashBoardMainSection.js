@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import expertPersonImage from '../../images/homepage-image/img-talk-to-expert.5ba545e8.svg'
 import referNEarn from '../../images/homepage-image/img-refre-earn.70618d08.svg';
 import imageCareer from '../../images/homepage-image/img-career-test.d688cf52.svg';
@@ -10,7 +10,7 @@ import ICSettingProfile from '../../images/homepage-image/Ic-settings.5c58e061.s
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import constants from '../../utils/Constants/constants';
-import { upDateActiveMenu } from '../../features/commonSlice';
+import { toggelIsFeedBackPopup, upDateActiveMenu } from '../../features/commonSlice';
 
 
 
@@ -20,21 +20,46 @@ import { upDateActiveMenu } from '../../features/commonSlice';
 
 
 export default function DashBoardMainSection() {
+    const [isComplete, setIsComplete] = useState({
+        basicDetails: false,
+        educationalDetails: false,
+        preferences: false,
+        
+    })
     const {userInfo} = useSelector(state=>state.userSlice)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const handieClick = (path, index) => {
-        navigate(`/user/dashboard${path}`)
-        dispatch(upDateActiveMenu({index}))
+        if(path && index){
+            navigate(`/user/dashboard${path}`)
+            dispatch(upDateActiveMenu({index}))
+        }else{
+            dispatch(toggelIsFeedBackPopup({flag:true}))
+        }
     }
     console.log(userInfo)
+    const calculateProfileBuildPercentage = () =>{
+        const requiredFields = [
+            'full_name',
+            'dob',
+            'social_category',
+            'gender',
+            'marital_status',
+            'physically_challenged',
+            'phone',
+            'email',
+            'city',
+            'state',
+        ]
+       return Object.keys(userInfo).filter((v)=>requiredFields.includes(v)).length
+    }
   return (
      <section className="next-section">
           <div className="container">
             <div className="incomplete">
                 <div className="progress">
-                    <h3>20<span>%</span><p className="complete-p">Completed</p></h3>
+                    <h3>{calculateProfileBuildPercentage()}<span>%</span><p className="complete-p">Completed</p></h3>
                 </div>
                 <div className="h3-p">
                     <h3>{`Hey ${userInfo.full_name}, Your profile is incomplete !`}</h3>
@@ -145,7 +170,7 @@ export default function DashBoardMainSection() {
                         <h3>Looking for something else?</h3>
                         {constants.userDashBoasrLookingForMenu.map((menu)=>(
                             <div className="padding-icon-box">
-                            <div className="icon-text" onClick={()=>handieClick(menu.path, menu.activeIndex)}>
+                            <div className="icon-text" onClick={()=>handieClick(menu?.path, menu?.activeIndex)}>
                              <div className="manage-profile-img">
                                  <img src={menu.imageSrc} alt= {`${menu.imageAlt}`}/>
                              </div>

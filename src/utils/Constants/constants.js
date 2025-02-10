@@ -58,10 +58,15 @@ const constants = {
         USER_PREFERENCE_SAVE_UPDATE: "https://techsaraz.in/admission-cart/api/user.php?requestType=collegePreferences",
         USER_DOCUMENT_SAVE_UPDATE: "https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument",
         USER_DOCUMENT_GET_ALL_DOCUMENT: " https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument&email=",
+        USER_FEADBACK: "https://techsaraz.in//admission-cart/api/user.php?requestType=userFeedbackReport",
+        USER_FEADBACK_RESPONSE:"https://techsaraz.in//admission-cart/api/user.php?requestType=userFeedbackReport&email=",
+        USER_SORTLIST_SAVE_UPDATE:"https://techsaraz.in//admission-cart/api/user.php?requestType=userShortListedCollege",
+        USER_SORTLIST_GET_ALL:"https://techsaraz.in//admission-cart/api/user.php?requestType=userShortListedCollege&email=",
         DOCUMENT_PATH: "https://techsaraz.in/admission-cart/api/fileupload/",
         COLLEGE_LIST: 'https://techsaraz.in/admission-cart/api/colleges.php',
         EXAM_LIST: 'https://techsaraz.in//admission-cart/api/exam.php',
         COURSE_LIST: 'https://techsaraz.in//admission-cart/api/courses.php',
+        CATEGORY_LIST: 'https://techsaraz.in//admission-cart/api/course_category_list.php',
     },
     apiMethod: {
         GET: 'get',
@@ -1514,25 +1519,25 @@ const constants = {
             activeIndex: 1
         },
         {
-            path: '/home',
+            path: '',
             imageSrc: ICFeedbackProfile,
             imageAlt: 'feedback-img',
             title: 'Give Us Feedback',
-            activeIndex: 1
+            activeIndex: ''
         },
-        {
-            path: '/home',
-            imageSrc: ICLegalProfile,
-            imageAlt: 'legal-img',
-            title: 'Legal',
-            activeIndex: 1
-        },
+        // {
+        //     path: '/home',
+        //     imageSrc: ICLegalProfile,
+        //     imageAlt: 'legal-img',
+        //     title: 'Legal',
+        //     activeIndex: 1
+        // },
         {
             path: '/account',
             imageSrc: ICSettingProfile,
             imageAlt: 'settimgs-img',
             title: 'Account Settings',
-            activeIndex: 7
+            activeIndex: 5
         },
 
     ],
@@ -1557,8 +1562,60 @@ const constants = {
             linkClass: "nav-link mb-3 d-flex align-items-stretch gap-2 active",
             pTagData : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
-    ]
-
-
+    ],
+    userPreferencesStream:[
+        "Select", "Science", "Commerce", 'Arts'
+    ],
+    userPreferencesLevel:[
+        "Select",
+        "10th Standard",
+        "PUC",
+        "Diploma",
+        "Graduation",
+        "Post Graduation",
+        "Masters",
+    ],
+    state:[
+        'Select',
+        'Andaman & Nicobar Island',
+        'Andhra Pradesh',
+        'Arunachal Pradesh',
+        'Assam',
+        'Bihar',
+        'Chhattisgarh',
+        'Chandigarh',
+        'Daman & Diu',
+        'Delhi',
+        'Dadara & Nagar Havelli',
+        'Goa',
+        'Gujarat',
+        'Himachal Pradesh',
+        'Haryana Jharkhand',
+        'Jammu and Kashmir',
+        'Karnataka',
+        'Kerala',
+        'Lakshadweep',
+        'Meghalaya',
+        'Manipur',
+        'Madhya Pradesh',
+        'Maharashtra',
+        'Mizoram',
+        'Nagaland',
+        'Odisha',
+        'Punjab',
+        'Puducherry',
+        'Rajasthan',
+        'Sikkim',
+        'Tamil Nadu',
+        'Telangana',
+        'Tripura',
+        'Uttarakhand',
+        'Uttar Pradesh',
+        'West Bengal',
+    ],
+    collegeType:['Select', 'Private', 'Government', 'Autonomous'],
+    feeRange:['Select', '10 - 30 Lakhs', '30 - 50 Lakhs', '50 - 70 Lakhs', '70 - 90 Lakhs'],
+    studingAbroad:['Select', 'Yes', 'No'],
+    loan:['Select', 'Yes', 'No'],
 }
 export default constants;

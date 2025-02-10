@@ -9,7 +9,6 @@ import { useEffect } from "react";
 
 const TrandingSection  = () => {
     const {allCourseData} = useSelector(state=>state.common)
-    console.log(allCourseData)
     
     return(
         <>

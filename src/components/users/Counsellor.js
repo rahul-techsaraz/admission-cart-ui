@@ -3,11 +3,13 @@ import constants from '../../utils/Constants/constants';
 import '../../css/counsellors-collagedekho.css';
 import '../../css/counsellors-responsive.css';
 import Sidebar from './Sidebar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggelIsFeedBackPopup } from '../../features/commonSlice';
 
 
 export default function Counsellor() {
   const {userInfo} = useSelector(state=>state.userSlice)
+  const dispatch = useDispatch()
   return (
     <>
         <section className="profile-page">
@@ -37,7 +39,7 @@ export default function Counsellor() {
                 <div className="counsellors-child">
                     <h5>Need help deciding the right insurance plan for you?</h5>
                     <div className="counsellors-button">
-                        <div className="counsellors-btn from-right">Share your Feedback</div>
+                        <div className="counsellors-btn from-right" onClick={()=>dispatch(toggelIsFeedBackPopup({flag:true}))}>Share your Feedback</div>
                       </div>
                 </div>
               </div>
