@@ -1,9 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import '../../css/account-collagedekho.css'
 import '../../css/account-responsive.css'
+import { toggelIsFeedBackPopup } from '../../features/commonSlice'
+import constants from '../../utils/Constants/constants'
+import { useDispatch, useSelector } from 'react-redux'
+import { useFetchUserFeedback } from '../hooks/useFetchUserFeedback'
+import { saveUserFeedback } from '../ReduxThunk/CommonThunk'
 
 export default function Account() {
+  const [message, setMessage] = useState('')
+    const dispatch = useDispatch()
+    const {userInfo, feedback} = useSelector(state=>state.userSlice)
+    const {fetchFeedback} = useFetchUserFeedback()
+    const handleSubmit = async() => {
+        try{
+            const payload = {
+                "email":userInfo.email,
+                "user_name":userInfo.full_name,
+                "feedback": feedback ? `${feedback}, ${message}` : message,
+                "status":"RESOLVED",
+                "phone_number":userInfo.phone
+            }
+            const response = await dispatch(saveUserFeedback({
+                url : feedback ? constants.apiEndPoint.USER_FEADBACK_RESPONSE+userInfo.email : constants.apiEndPoint.USER_FEADBACK,
+                method :  feedback ? constants.apiMethod.PUT : constants.apiMethod.POST,
+                header : constants.apiHeader.HEADER,
+                body : payload
+            }))
+            if(response.payload?.status===constants.apiResponseStatus.SUCCESS){
+                fetchFeedback()
+                dispatch(toggelIsFeedBackPopup({flag:false}))
+            }
+        }catch(err){
+            alert("Something went wrong please try again later...")
+        }
+    }
+    useEffect(()=>{
+        fetchFeedback()
+    },[])
   return (
     <>
         <section className="profile-page">
@@ -78,10 +113,11 @@ export default function Account() {
             <div className="issu-box">
                  <h3>Report an Issue</h3>
                  <div className="issu-comment">
-                    <input type="write" className="issu-button" placeholder="What is your concern?"/>
+                    {/* <input type="text" className="issu-button" placeholder="What is your concern?"/> */}
+                    <textarea className="issu-button" name="textarea" rows="4" cols="100" placeholder="What is your concern?" onChange={(e)=>setMessage(e.target.value)}></textarea>
                  </div>
                  <div className="submit-button-box">
-                    <div className="submit-button from-center">Submit</div>
+                    <div className="submit-button from-center" onClick={()=>handleSubmit()}>Submit</div>
                   </div>
             </div>
         </div>

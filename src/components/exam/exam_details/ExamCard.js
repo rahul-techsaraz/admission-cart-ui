@@ -13,7 +13,6 @@ import CustomPagination from '../../../utils/Constants/custom-components/CustomP
 export default function ExamCard({data}) {
     const {allExamData}=useSelector(state=>state.common)
     const [examData, setExamData] = useState([])
-    console.log(allExamData)
     useEffect(()=>{
         if(data){
             setExamData(data)

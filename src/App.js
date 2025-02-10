@@ -28,9 +28,11 @@ import ScrollTop from './components/scroll/ScrollTop';
 import ChatBot from './components/chatBot/ChatBot';
 import ContactUsPopup from './components/contactUs/ContactUsPopup';
 import LoginPopup from './components/contactUs/LoginPopup';
+import FeedbackPopup from './components/contactUs/FeedbackPopup';
 
 const AppLayout = () => {
-  const {isLoading, isLoginPopup, isSignupPopup, authenticateUser} = useSelector(state=>state.common)
+  const {isLoading, isLoginPopup, isSignupPopup, authenticateUser, isFeedbackPopup} = useSelector(state=>state.common)
+  const {loader} = useSelector(state=>state.userSlice)
   const location = useLocation()
   register()
 
@@ -40,7 +42,7 @@ const AppLayout = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
+      {(isLoading || loader) && <Loader />}
       <div className="app position-relative">
         <Header />
         <Outlet />
@@ -48,6 +50,7 @@ const AppLayout = () => {
         <ChatBot />
         {(isLoginPopup && authenticateUser===false) && <LoginPopup />}
         {(isSignupPopup && authenticateUser===false) && <ContactUsPopup />}
+        {isFeedbackPopup && <FeedbackPopup />}
         <NewsLetter />
         {/* <ContactUsPage /> */}
         <Footer />

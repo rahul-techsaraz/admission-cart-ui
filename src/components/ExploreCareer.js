@@ -11,7 +11,6 @@ import constants from "../utils/Constants/constants";
 
 const ExploreCareer = () => {
     const{allExamData}= useSelector(state=>state.common)
-    console.log(allExamData)
     const responsive = {
         1400:{
             slidesPerView: 4,
@@ -34,9 +33,7 @@ const ExploreCareer = () => {
             spaceBetween: 10,
         },
     }
-    // useEffect(()=>{
-    //     console.log(allCollegeData)
-    // },[allCollegeData])
+    
     return(
         <>
         <section className="career-slider-section text-center section-padding pt-4">

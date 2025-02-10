@@ -6,6 +6,7 @@ const initialState = {
     isLoading: false,
     isLoginPopup: false,
     isSignupPopup: false,
+    isFeedbackPopup: false,
     authenticateUser: localStorage.getItem('loginResponse')? true : false,
     lastLocation:'',
     openLoginModel: false,
@@ -156,6 +157,9 @@ const commonSlice = createSlice({
     toggelIsSignupPopup:(state, {payload})=>{
       state.isSignupPopup = payload.flag
     },
+    toggelIsFeedBackPopup:(state, {payload})=>{
+      state.isFeedbackPopup = payload.flag
+    },
   },
   extraReducers:(builder)=>{
     builder.addCase(login.fulfilled, (state, { payload}) => {
@@ -259,6 +263,7 @@ export const {
     updateLastLocation,
     toggelIsLoginPopup,
     toggelIsSignupPopup,
+    toggelIsFeedBackPopup,
  } = commonSlice.actions;
 
 export default commonSlice.reducer;

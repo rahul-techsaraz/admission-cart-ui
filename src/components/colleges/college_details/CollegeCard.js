@@ -6,7 +6,6 @@ import constants from '../../../utils/Constants/constants';
 import { Link } from 'react-router-dom';
 
 export default function CollegeCard({allCollegeData}) {
-    console.log(allCollegeData)
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);

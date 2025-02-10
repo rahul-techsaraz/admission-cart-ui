@@ -6,7 +6,7 @@ export default function CustomInputTextBox({inputType, className, placeHolder , 
       <span style={style}>{divlable}</span>
       <div className="input-field">
           <input type={inputType} className={className} placeholder={placeHolder} value={inputValue} onChange={(e)=>onChange(e)} id={inputId} name={inputName} spellcheck={spellcheck}/> 
-          <label>{inputLabel}</label>
+          {/* <label>{inputLabel}</label> */}
       </div>
     </div>
   )
