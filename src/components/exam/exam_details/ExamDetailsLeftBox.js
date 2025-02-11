@@ -18,6 +18,7 @@ import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwipe
 import constants from '../../../utils/Constants/constants'
 import { useSelector } from 'react-redux'
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive'
+import Tooltip from '../../../utils/Constants/custom-components/Tooltip'
 
 
 
@@ -40,7 +41,7 @@ export default function ExamDetailsLeftBox() {
     })
   const {examDetailsById, allExamData, allCollegeData}=useSelector(state=>state.common)
   const [pData, setPData] = useState(examDetailsById?.descriptionDetails?.exam_intimation_slip_description)
-  
+  console.log(examDetailsById)
   const updateActive = (p, index)=>{
     setLinkIndex(index)
     setPData(p)
@@ -342,15 +343,17 @@ export default function ExamDetailsLeftBox() {
           <div className="py-5 header">
             <div className="px-2">
               <div className="row">
-                <div className="col-md-5 pe-0">
-                  <div className="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div className="col-12 col-md-5 pe-0">
+                  <div className="nav flex-column nav-pills nav-pills-custom">
                     {Object.keys(examDetailsById).length > 0 && examDescriptionTabSetting().map((value, index)=>(
-                      <Link onClick={()=>updateActive(value.pTagData, index)} className={index===linkIndex ? "nav-link mb-3 d-flex align-items-stretch gap-2 active" : "nav-link mb-3 d-flex align-items-stretch gap-2"} id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                      <Tooltip text={value.pTagData} linkIndex={linkIndex} index={index}>
+                      <div onMouseEnter={()=>updateActive(value.pTagData, index)} className={index===linkIndex ? "nav-link mb-3 d-flex align-items-stretch gap-2 active" : "nav-link mb-3 d-flex align-items-stretch gap-2"}>
                         <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
                           <img src={contractIcon} alt="" />
                         </span>
                         <span className="exam-tab-txt d-inline-flex align-items-center ps-3">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} ${value.tagTitle.split('_').slice(0,value.tagTitle.split('_').length).join(' ')}`}</span>
-                      </Link>  
+                      </div>
+                      </Tooltip>  
                     ))}
                     {/* <Link className="nav-link mb-3 d-flex align-items-stretch gap-2 active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                       <span className="exam-tab-icon flex-shrink-0 d-inline-flex align-items-center justify-content-center">
@@ -384,25 +387,13 @@ export default function ExamDetailsLeftBox() {
                     </Link> */}
                   </div>
                 </div>
-                <div className="col-md-7 ps-0">
+                {/* <div className="col-md-7 ps-0">
                   <div className="tab-content exam-tab-content" id="v-pills-tabContent">
                     <div className="tab-pane fade rounded bg-white show active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <p className="m-0">{pData}</p>
                     </div>
-                    {/* <div className="tab-pane fade rounded bg-white p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                      <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div className="tab-pane fade rounded bg-white p-5" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                      <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div className="tab-pane fade rounded bg-white p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                      <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <div className="tab-pane fade rounded bg-white p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                      <p className="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div> */}
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* <div className="row">
                 <div className="col-12">

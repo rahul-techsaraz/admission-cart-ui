@@ -8,9 +8,11 @@ import { updateUserSortlistedColleges } from '../../features/userSlice';
 import { Link } from 'react-router-dom';
 import { useFetchUserSortlist } from '../hooks/useFetchUserSortlist';
 import { saveUserShortlist } from '../ReduxThunk/CommonThunk';
+import CustomPagination from '../../utils/Constants/custom-components/CustomPagination';
 
 
 export default function Collages() {
+  const [recomendedColleges, setRecomendedColleges] = useState([])
   const {userPreferenceInfo, userShortListedColleges, userInfo} = useSelector(state=>state.userSlice)
   const {allCollegeData} = useSelector(state=>state.common)
   const dispatch = useDispatch()
@@ -94,7 +96,7 @@ export default function Collages() {
                 
                 <div className="tab-panels">
                   {tabToShow?.recomendation &&
-                    filteredColleges().map((college)=>(
+                    recomendedColleges.map((college)=>(
                       <section id="Recommendations" style={{marginBottom:'10px'}}>
                       <div className="recomendation-box">
                         <div className="reco-img-name">
@@ -122,9 +124,15 @@ export default function Collages() {
                     </section>
                     ))
                   }
+                  {tabToShow?.recomendation &&
+                    <div className='row pagination-gap'>
+                      <CustomPagination data={filteredColleges()} itemsPerPage={2} currentItemsParent={setRecomendedColleges}/>
+                    </div>
+                  }
+                  
                   
                   {(tabToShow?.shortlist && userShortListedColleges.college_id !== '' ? 
-                    filteredCollegesById().map((college)=>(
+                    recomendedColleges.map((college)=>(
                       <section id="Recommendations" style={{marginBottom:'10px'}}>
                         <div className="recomendation-box">
                           <div className="reco-img-name">
@@ -162,6 +170,13 @@ export default function Collages() {
                       </div>
                     </section>
                   )}
+
+                  {(tabToShow?.shortlist && userShortListedColleges.college_id !== '') && 
+                    <div className='row pagination-gap'>
+                      <CustomPagination data={filteredCollegesById()} itemsPerPage={2} currentItemsParent={setRecomendedColleges}/>
+                    </div>
+                  }
+                  
                   {/* <section id="Recommendations" className="tab-panel">
                     <div className="recomendation-box">
                        <div className="reco-img-name">
