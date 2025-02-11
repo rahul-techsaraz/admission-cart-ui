@@ -1,12 +1,67 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import constants from '../../utils/Constants/constants'
-import { useDispatch, useSelector } from 'react-redux'
-import { upDateActiveMenu } from '../../features/commonSlice'
+import { useSelector } from 'react-redux'
 
 export default function UserDashBoardBanner() {
-  const {userInfo} = useSelector((state)=>state.userSlice)
-  const dispatch = useDispatch()
+  const [isComplete, setIsComplete] = useState({
+          basicDetails: false,
+          educationalDetails: false,
+          preferences: false,
+          recomendation: false,
+          shortlisting: false,
+          documentUploaded: false,
+      })
+  const {userInfo, userQualificationInfo, userPreferenceInfo, userShortListedColleges, userDocument} = useSelector((state)=>state.userSlice)
+  const calculateProfileBuildPercentage = () =>{
+    const requiredFields = [
+        'full_name',
+        'dob',
+        'social_category',
+        'gender',
+        'marital_status',
+        'physically_challenged',
+        'phone',
+        'email',
+        'city',
+        'state',
+    ]
+    if(Object.keys(userInfo).filter((info)=>requiredFields.includes(info)).length === requiredFields.length && isComplete.basicDetails === false){
+        setIsComplete({...isComplete, basicDetails:true})
+    }
+    if(userQualificationInfo.length > 0 && isComplete.educationalDetails === false){
+        setIsComplete({...isComplete, educationalDetails:true})
+    }
+    if(userPreferenceInfo.length > 0 && isComplete.preferences === false){
+        setIsComplete({...isComplete, preferences:true, recomendation:true})
+    }
+    if(userShortListedColleges.college_id !== '' && isComplete.shortlisting === false){
+        setIsComplete({...isComplete, shortlisting:true})
+    }
+    if(Object.keys(userDocument).filter((data)=> [
+        'aadhaar_card',
+        'certificate_10th',
+        'certificate_12th',
+        'graduation_certificate',
+        'pan_card',
+        'pg_certificate',
+      ].includes(data)).length > 0 && isComplete.documentUploaded === false){
+        setIsComplete({...isComplete, documentUploaded:true})
+      }
+  }
+  const calculateWidth = () => {
+    if(isComplete.basicDetails && isComplete.educationalDetails && isComplete.preferences && isComplete.recomendation &&isComplete.preferences){
+      return '99%'
+    }else if(isComplete.basicDetails && isComplete.educationalDetails && isComplete.preferences && isComplete.recomendation){
+      return '66%'
+    }else if(isComplete.basicDetails && isComplete.educationalDetails && isComplete.preferences){
+      return '33%'
+    }else{
+      return ''
+    }
+  }
+  useEffect(()=>{
+    calculateProfileBuildPercentage()
+  },[userInfo, userQualificationInfo, userPreferenceInfo, userShortListedColleges, userDocument])
   return (
     <section className="main">
         <div className="container">
@@ -25,7 +80,7 @@ export default function UserDashBoardBanner() {
       <div className="contain">
         <div className="steps">
           <div className="steps-span-p">
-            <Link to={"/user/dashboard/profile"}><span className="circle active" onClick={()=>dispatch(upDateActiveMenu({index:1}))}><i className="fa-solid fa-user"></i></span></Link>
+            <span className={isComplete.basicDetails && isComplete.educationalDetails && isComplete.preferences ? "circle active" : "circle"}><i className="fa-solid fa-user"></i></span>
             <p className="steps-p">Profile <br/> Building</p>
           </div>
 
@@ -35,12 +90,12 @@ export default function UserDashBoardBanner() {
           </div> */}
         
           <div className="steps-span-p">
-            <Link to={"/user/dashboard/collages"}><span className="circle active" onClick={()=>dispatch(upDateActiveMenu({index:3}))}><i className="fa-solid fa-thumbs-up"></i></span></Link>
+            <span className={isComplete.recomendation ? "circle active" : "circle"}><i className="fa-solid fa-thumbs-up"></i></span>
             <p className="steps-p">Recommendation is Build</p>
           </div>
           
           <div className="steps-span-p">
-            <Link to={"/user/dashboard/collages"}><span className="circle active" onClick={()=>dispatch(upDateActiveMenu({index:3}))}><img src={constants.images.users.shortlist} alt="shortlist"/></span></Link>
+            <span className={isComplete.shortlisting ? "circle active" : "circle"}><img src={constants.images.users.shortlist} alt="shortlist"/></span>
             <p className="steps-p">Shortlisting of Colleges</p>
           </div>
           
@@ -55,7 +110,7 @@ export default function UserDashBoardBanner() {
           </div> */}
           
           <div className="steps-span-p">
-            <Link to={"/user/dashboard/document"}><span className="circle" onClick={()=>dispatch(upDateActiveMenu({index:5}))}><i className="fa-solid fa-arrow-up-from-bracket"></i></span></Link>
+            <span className={isComplete.documentUploaded ? "circle active" : "circle"}><i className="fa-solid fa-arrow-up-from-bracket"></i></span>
             <p className="steps-p">Upload your Documents</p>
           </div>
           
@@ -75,7 +130,7 @@ export default function UserDashBoardBanner() {
           </div> */}
           
           <div className="progress-bar23">
-            <span className="indicator"></span>
+            <span className="indicator" style={{width:`${calculateWidth()}`}}></span>
           </div>
         </div>
         <div className="buttons">

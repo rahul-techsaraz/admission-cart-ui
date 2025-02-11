@@ -221,7 +221,6 @@ const userSlice = createSlice({
             state.loader = false
         })
         builder.addCase(fetchUserShortlist.fulfilled, (state, { payload}) => {
-            console.log(payload)
             if(payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0){
                 state.userShortListedColleges = {
                     college_id : payload?.data[0]?.college_id,

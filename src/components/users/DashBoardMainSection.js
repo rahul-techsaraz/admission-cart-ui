@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import expertPersonImage from '../../images/homepage-image/img-talk-to-expert.5ba545e8.svg'
 import referNEarn from '../../images/homepage-image/img-refre-earn.70618d08.svg';
 import imageCareer from '../../images/homepage-image/img-career-test.d688cf52.svg';
@@ -11,6 +11,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import constants from '../../utils/Constants/constants';
 import { toggelIsFeedBackPopup, upDateActiveMenu } from '../../features/commonSlice';
+import { useFetchUserBasicDetails } from '../hooks/useFetchUserBasicDetails';
+import { useFetchUserEducationalDetails } from '../hooks/useFetchUserEducationalDetails';
+import { useFetchUserPreferenceDetails } from '../hooks/useFetchUserPreferenceDetails';
+import { useFetchUserSortlist } from '../hooks/useFetchUserSortlist';
+import { useFetchUserDocuments } from '../hooks/useFetchUserDocuments';
 
 
 
@@ -24,9 +29,17 @@ export default function DashBoardMainSection() {
         basicDetails: false,
         educationalDetails: false,
         preferences: false,
-        
+        recomendation: false,
+        shortlisting: false,
+        documentUploaded: false,
     })
-    const {userInfo} = useSelector(state=>state.userSlice)
+    const [percentage, setPercentage] = useState(0)
+    const {userInfo, userQualificationInfo, userPreferenceInfo, userShortListedColleges, userDocument} = useSelector(state=>state.userSlice)
+    const {fetchUserBasicDetail} = useFetchUserBasicDetails()
+    const {fetchUserEducationalDetail} = useFetchUserEducationalDetails()
+    const {fetchPreferences} = useFetchUserPreferenceDetails()
+    const {fetchSortlist} = useFetchUserSortlist()
+    const {fetchDocument} = useFetchUserDocuments()
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -38,7 +51,6 @@ export default function DashBoardMainSection() {
             dispatch(toggelIsFeedBackPopup({flag:true}))
         }
     }
-    console.log(userInfo)
     const calculateProfileBuildPercentage = () =>{
         const requiredFields = [
             'full_name',
@@ -52,21 +64,60 @@ export default function DashBoardMainSection() {
             'city',
             'state',
         ]
-       return Object.keys(userInfo).filter((v)=>requiredFields.includes(v)).length
+        if(Object.keys(userInfo).filter((info)=>requiredFields.includes(info)).length === requiredFields.length && isComplete.basicDetails === false){
+            setIsComplete({...isComplete, basicDetails:true})
+            setPercentage(percentage+20)
+        }
+        if(userQualificationInfo.length > 0 && isComplete.educationalDetails === false){
+            setIsComplete({...isComplete, educationalDetails:true})
+            setPercentage(percentage+20)
+        }
+        if(userPreferenceInfo.length > 0 && isComplete.preferences === false){
+            setIsComplete({...isComplete, preferences:true, recomendation:true})
+            setPercentage(percentage+20)
+        }
+        if(userShortListedColleges.college_id !== '' && isComplete.shortlisting === false){
+            setIsComplete({...isComplete, shortlisting:true})
+            setPercentage(percentage+20)
+        }
+        if(Object.keys(userDocument).filter((data)=> [
+            'aadhaar_card',
+            'certificate_10th',
+            'certificate_12th',
+            'graduation_certificate',
+            'pan_card',
+            'pg_certificate',
+          ].includes(data)).length > 0 && isComplete.documentUploaded === false){
+            setIsComplete({...isComplete, documentUploaded:true})
+            setPercentage(percentage+20)
+          }
     }
+    useEffect(()=>{
+        fetchUserBasicDetail()
+        fetchUserEducationalDetail()
+        fetchPreferences()
+        fetchSortlist()
+        fetchDocument()
+    },[])
+    useEffect(()=>{
+        calculateProfileBuildPercentage()
+    },[userInfo, userQualificationInfo, userPreferenceInfo, userShortListedColleges, userDocument])
   return (
      <section className="next-section">
           <div className="container">
-            <div className="incomplete">
-                <div className="progress">
-                    <h3>{calculateProfileBuildPercentage()}<span>%</span><p className="complete-p">Completed</p></h3>
+            {percentage < 100 &&
+                <div className="incomplete">
+                    <div className="progress">
+                        <h3>{percentage}<span>%</span><p className="complete-p">Completed</p></h3>
+                    </div>
+                    <div className="h3-p">
+                        <h3>{`Hey ${userInfo.full_name}, Your profile is incomplete !`}</h3>
+                        <p className="incomplete-p">Complete your profile and we will help you in building better college recommendations for you.You are one step closer to earning 100 reward points</p>
+                    </div>
+                    <Link to={"/user/dashboard/profile"}><button className="complte-your-profile btn1">Complete Your Profile</button></Link>
                 </div>
-                <div className="h3-p">
-                    <h3>{`Hey ${userInfo.full_name}, Your profile is incomplete !`}</h3>
-                    <p className="incomplete-p">Complete your profile and we will help you in building better college recommendations for you.You are one step closer to earning 100 reward points</p>
-                </div>
-                <Link to={"/user/dashboard/profile"}><button className="complte-your-profile btn1">Complete Your Profile</button></Link>
-            </div>
+            }
+            
 
             
             <div className="all-img-box">

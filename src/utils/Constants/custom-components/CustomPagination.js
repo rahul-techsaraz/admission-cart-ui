@@ -4,7 +4,7 @@ const CustomPagination = ({data, itemsPerPage, currentItemsParent}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const [currentItems, setCurrentItems] = useState(data.slice(indexOfFirstItem, indexOfLastItem));
+    const [currentItems, setCurrentItems] = useState(data.length > 0 ? data.slice(indexOfFirstItem, indexOfLastItem) : []);
     const totalPages = Math.ceil(data.length / itemsPerPage)
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1)
     const pageRange = [];

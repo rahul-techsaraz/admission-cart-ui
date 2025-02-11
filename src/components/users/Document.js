@@ -110,6 +110,7 @@ export default function Document() {
     // }
 
     const customLabel = (data)=>{
+      console.log(data)
       const capturedName = data.split('-')[1].split('.')[0]
       const removeExtension = capturedName.replace(/_/,' ')
       if(removeExtension==='certificate 10th' || removeExtension==='certificate 12th'){
@@ -235,7 +236,14 @@ export default function Document() {
                       <div className="document-box2">
                         <h5>Uploaded Documents</h5>
                         <div className="upload-wraper">
-                          {Object.keys(userDocument).length > 0 && Object.keys(userDocument).filter((data)=> data !== 'email').map((value)=>userDocument[value]).filter((value)=>(value!==' ')).map((data)=>(
+                          {Object.keys(userDocument).length > 0 && Object.keys(userDocument).filter((data)=> [
+                            'aadhaar_card',
+                            'certificate_10th',
+                            'certificate_12th',
+                            'graduation_certificate',
+                            'pan_card',
+                            'pg_certificate',
+                          ].includes(data)).map((value)=>userDocument[value]).filter((value)=>(value!==' ')).map((data)=>(
                             <div className="upload" style={{display:'flex', flexDirection:"column", justifyContent:"space-between", alignItems:"center" }}>
                               <div className="upload-i-text">
                                 <div style={{width:'60%', height:"100px"}}>
