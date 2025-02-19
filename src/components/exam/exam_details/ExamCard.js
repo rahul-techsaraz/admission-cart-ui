@@ -54,29 +54,39 @@ export default function ExamCard({data}) {
                         </div>
                         <ul class="exam-imp-list">
                             <li>
-                                <img src={examOverviewImage} alt="" />
-                                Overview
+                                <div className='d-flex align-items-center gap-2'>
+                                    <img src={examOverviewImage} alt="" />
+                                    Overview
+                                </div>
                             </li>
                             <li>
-                                <img src={examImpDateImage} alt="" />
-                                Important Date
+                                <div className='d-flex align-items-center gap-2'>
+                                    <img src={examImpDateImage} alt="" />
+                                    Important Date
+                                </div>
                             </li>
                             <li>
-                                <img src={examAppFormImage} alt="" />
-                                Application Form
+                                <div className='d-flex align-items-center gap-2'>
+                                    <img src={examAppFormImage} alt="" />
+                                    Application Form
+                                </div>
                             </li>
                             <li>
-                                <img src={examElgiIconImage} alt="" />
-                                Eligibility
+                                <div className='d-flex align-items-center gap-2'>
+                                    <img src={examElgiIconImage} alt="" />
+                                    Eligibility
+                                </div>
                             </li>
                             <li>
-                                <img src={examAdmitCardIconImage} alt="" />
-                                Admit Card
+                                <div className='d-flex align-items-center gap-2'>
+                                    <img src={examAdmitCardIconImage} alt="" />
+                                    Admit Card
+                                </div>
                             </li>
                         </ul>
 
                     </div>
-                    <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> Register Now</Link>
+                    <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>
                 </div>
             </div>
             ))}

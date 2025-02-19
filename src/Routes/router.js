@@ -35,6 +35,7 @@ import Account from "../components/users/Account";
 import PsychometricTest from "../components/PsychometricTest";
 import Quiz from "../components/Quiz";
 import ProtectedRouter from "./ProtectedRouter";
+import ContactMain from "../components/contactUs/contactDetails/ContactMain";
 
   export const appRouter = createBrowserRouter([
     {
@@ -61,7 +62,7 @@ import ProtectedRouter from "./ProtectedRouter";
         },
         {
           path: "/contact-us",
-          element: <ContactUsPage/>,
+          element: <ContactMain/>,
         },
         {
           path: "/user/dashboard",

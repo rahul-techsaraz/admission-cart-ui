@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
+import { toggelIsLoginPopup } from "../features/commonSlice";
 
 const ContactUsPage = () => {
+    const dispatch = useDispatch()
     return (
         <>
          <section class="contact-section section-padding">
@@ -49,7 +52,7 @@ const ContactUsPage = () => {
                 <div class="col-md-6 col-lg-6">
                     <div class="contact-form-section">
                         <h2>Get in Touch with Our Expert Counsellors</h2>
-                        <form action="" method="post">
+                        {/* <form> */}
                             <div class="mb-3">
                               <input class="form-control" id="name" type="text" name="Name" placeholder="Name" />
                             </div>
@@ -67,8 +70,8 @@ const ContactUsPage = () => {
                                     <option value="3">Stream Three</option>
                                   </select>
                             </div>
-                            <input class="theme-btn black-btn submit-btn mt-3" type="submit" value="Request for a Callback" />
-                        </form>
+                            <button class="theme-btn black-btn submit-btn mt-3" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Request for a Callback</button>
+                        {/* </form> */}
 
                     </div>
                 </div>
