@@ -9,7 +9,7 @@ export const CollegeSection = ()=>{
                         <img src={offeringImg} class="offer-icon" alt="" />
                         <h1 class="offer-heading">College Finder</h1>
                         <p class="offer-para">Browse through authentic and updated information on courses, careers, colleges </p>
-                        <Link class="course-readmore-btn green-btn">Enquire Now <img src={arrowRightImg} alt="" /></Link>
+                        {/* <Link class="course-readmore-btn green-btn">Enquire Now <img src={arrowRightImg} alt="" /></Link> */}
                     </div>
                 </div>
     )

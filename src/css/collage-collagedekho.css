@@ -1364,6 +1364,7 @@ label #cancel{
     z-index: 1;
     margin-top: 20px;
     letter-spacing: 1px;
+    text-align: center;
   }
   
   .collages-btn:before, .collages-btn:after {

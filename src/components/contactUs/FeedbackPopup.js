@@ -16,13 +16,13 @@ const FeedbackPopup = () => {
             const payload = {
                 "email":userInfo.email,
                 "user_name":userInfo.full_name,
-                "feedback": feedback ? `${feedback}, ${message}` : message,
+                "feedback": feedback.length > 0 ? [...feedback, message] : [message],
                 "status":"RESOLVED",
                 "phone_number":userInfo.phone
             }
             const response = await dispatch(saveUserFeedback({
-                url : feedback ? constants.apiEndPoint.USER_FEADBACK_RESPONSE+userInfo.email : constants.apiEndPoint.USER_FEADBACK,
-                method :  feedback ? constants.apiMethod.PUT : constants.apiMethod.POST,
+                url : constants.apiEndPoint.USER_FEADBACK,
+                method :  feedback.length > 0 ? constants.apiMethod.PUT : constants.apiMethod.POST,
                 header : constants.apiHeader.HEADER,
                 body : payload
             }))
@@ -37,6 +37,7 @@ const FeedbackPopup = () => {
     useEffect(()=>{
         fetchFeedback()
     },[])
+    
   return (
     <div className="main-popup-full-box-parent">
         <div className="popup-main-container" id="popup-main-container1">
@@ -50,7 +51,7 @@ const FeedbackPopup = () => {
                         <h3 className="popup-heading-h3">Share Your Feedback</h3>
                     </div>
                     <div className="form-div-start">
-                        <textarea id="popup-textarea-show" name="textarea" rows="4" cols="50" placeholder="Message" onChange={(e)=>setMessage(e.target.value)}></textarea>
+                        <textarea id="popup-textarea-show" name="textarea" rows="4" cols="50" placeholder="Message" onChange={(e)=> setMessage(e.target.value)}></textarea>
                         <button className="popup-submit-btn-btn" onClick={()=>handleSubmit()}>Submit</button>
                     </div>
                 </div>

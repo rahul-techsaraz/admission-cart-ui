@@ -112,12 +112,12 @@ export default function Collages() {
                         <div className="reco-text-button">
                           <div className="reco-text-i">Why should you choose this college? Know more about the College. <Link to={`/colleges_details/${college.college_id}`}style={{display:"inline-flex"}}><span className="reco-span">Checkout USPs <i className="fa-solid fa-arrow-right"></i></span></Link></div>
                           <div className="reco-button">
-                              <div className="reco-btn">
+                            {/* <div className="reco-btn">
                               <button className="reco-btn1">Schedule a Call</button>
-                              </div>
-                                  <div className="button-box">
-                                  <div className="collages-btn from-down" onClick={()=>moveToShortList(college)}>Move to Shortlist</div>
-                                  </div>
+                            </div> */}
+                            <div className="button-box">
+                              <div className="collages-btn from-down" onClick={()=>moveToShortList(college)}>Move to Shortlist</div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -146,14 +146,11 @@ export default function Collages() {
                           </div>
                           <hr className="reco-hr"/>
                           <div className="reco-text-button">
-                            <div className="reco-text-i">Why should you choose this college? Know more about the College. <span className="reco-span">Checkout USPs <i className="fa-solid fa-arrow-right"></i></span></div>
+                            <div className="reco-text-i">Why should you choose this college? Know more about the College.</div>
                             <div className="reco-button">
-                                <div className="reco-btn">
-                                <button className="reco-btn1">Schedule a Call</button>
-                                </div>
-                                    <div className="button-box">
-                                    <div className="collages-btn from-down">Move to Shortlist</div>
-                                    </div>
+                              <div className="button-box">
+                                <div className="collages-btn from-down">Remove from Shortlist</div>
+                              </div>
                             </div>
                           </div>
                         </div>

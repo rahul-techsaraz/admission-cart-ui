@@ -39,7 +39,7 @@ const initialState = {
         college_id:"",
         college_name:""
     },
-    feedback:'',
+    feedback:[],
 };
 
 const userSlice = createSlice({
@@ -75,7 +75,6 @@ const userSlice = createSlice({
             
         },
         updateUserFeedback : (state, {payload}) => {
-            state.feedback = payload.feedback
         },
         updateUserDocument : (state, {payload})=>{
             payload.data.map((value)=>(
@@ -181,7 +180,10 @@ const userSlice = createSlice({
             state.loader = false
         })
         builder.addCase(fetchUserFeedback.fulfilled, (state, { payload}) => {
-            state.feedback = payload?.data[0]?.feedback
+            console.log(payload)
+            if(payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0){
+                state.feedback = JSON.parse(payload?.data[0]?.feedback)
+            }
             state.loader = false
         })
         builder.addCase(fetchUserFeedback.pending, (state, { payload}) => {

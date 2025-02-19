@@ -22,7 +22,7 @@ const AboutUs = () => {
                         <h1 className="imgText-heading">About Us</h1>
                         <p className="imgText-para">The Achievement of Perfection is our goal but Excellence is Guarantee!</p>
                         <p className="imgText-para">It was founded under the aegis of Girnarsoft Education Services Pvt Ltd. (GESPL) to institutionalize students’ counseling in India. Between its inception in 2015 and 2021, Collegedekho.com has counselled over two million students. Headquartered in Gurgaon, Haryana, and with satellite offices in Delhi, Chandigarh, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Mumbai etc,</p>
-                        <Link className="theme-btn black-btn" to={'about'}>View More</Link>
+                        <Link className="theme-btn black-btn" to={'about'} target='_blank'>View More</Link>
                         <img src={dotsImage} className="dots-img1" alt="" />
                     </div>
                 </div>
