@@ -3,6 +3,16 @@ import constants from '../../utils/Constants/constants'
 
 export default function CollegeFaq() {
   const [tabIndex, setTabIndex] = useState(0)
+  const [show, setShow] = useState(false)
+  const handleClick = (index) => {
+    if(index === tabIndex){
+      setShow(!show)  
+    }else{
+      setTabIndex(index)
+      setShow(true)
+    }
+    
+  }
   return (
     <section className="faq-section position-relative pt-50 pb-50">
         <div className="container">
@@ -13,11 +23,11 @@ export default function CollegeFaq() {
 
                       {constants.faqData.map((data,index)=>(
                         <div className="accordion-item" key={index}>
-                          <div className="accordion-button-mystyle" onClick={()=>setTabIndex(index)}>{data.question} 
-                            <span className='up-down-arrow'><i class={index === tabIndex ? "fa-solid fa-angle-up fa-lg" : "fa-solid fa-angle-down fa-lg"}/></span>
+                          <div className="accordion-button-mystyle" onClick={()=>handleClick(index)}>{data.question} 
+                            <span className='up-down-arrow'><i class={index === tabIndex && show ? "fa-solid fa-angle-up fa-lg" : "fa-solid fa-angle-down fa-lg"}/></span>
                           </div>
                         
-                        <div className={index === tabIndex ? "accordion-collapse collapse show" : "accordion-collapse collapse hide"}>
+                        <div className={index === tabIndex && show ? "accordion-collapse collapse show" : "accordion-collapse collapse hide"}>
                           <div className="accordion-body">
                               {data.answer}
                           </div>
