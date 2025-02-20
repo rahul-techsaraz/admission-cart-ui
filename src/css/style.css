@@ -2879,14 +2879,30 @@ ul.exam-imp-list {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  padding: 25px 50px;
+  padding: 25px 25px;
 }
 .faq-section .accordion-button {
   border: 1px solid #DDD;
 }
-.faq-section .accordion-button:not(.collapsed){
+/* .faq-section .accordion-button:not(.collapsed){
   background-color: #fff;
   color: var(--color-grey);
+} */
+
+.accordion-button-mystyle{
+  color: var(--color-grey);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 25px 25px;
+  border: 1px solid #DDD;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.up-down-arrow{
+  color: var(--color-green);
 }
 
 
