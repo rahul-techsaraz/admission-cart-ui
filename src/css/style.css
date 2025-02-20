@@ -2709,6 +2709,7 @@ ul.exam-imp-list {
   border: 2px solid var(--color-green);
   background: #FFF;
   padding: 20px 30px;
+  width: 340px;
 }
 .clg-slider-logo{
   height: 45px;
