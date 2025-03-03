@@ -84,6 +84,7 @@ export default function ExamCard({data}) {
                                 </div>
                             </li>
                         </ul>
+                        <button className='examcard_applynow_button'>Apply Now</button>
 
                     </div>
                     <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>

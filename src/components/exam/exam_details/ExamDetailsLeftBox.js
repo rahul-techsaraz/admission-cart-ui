@@ -19,6 +19,7 @@ import constants from '../../../utils/Constants/constants'
 import { useSelector } from 'react-redux'
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive'
 import Tooltip from '../../../utils/Constants/custom-components/Tooltip'
+import ExamMockList from './ExamMockList'
 
 
 
@@ -128,6 +129,7 @@ export default function ExamDetailsLeftBox() {
             </div>
           </div> */}
           <ExamHighlights />
+          <ExamMockList/>
          <ExamSlider examDetailsById={examDetailsById}/>
           <div className="pt-4"></div>
           <div className="tick-heading d-flex align-items-center mb-4">

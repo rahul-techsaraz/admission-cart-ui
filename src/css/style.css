@@ -127,8 +127,8 @@ li {
   outline: none;
 }
 .section-padding{
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .pt-50{
@@ -1009,7 +1009,8 @@ p.course-para {
 /* admission-process-section
 =========================== */
 .admission-process-section{
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 .admission-process-bx{
   border-radius: 0 0 36px 36px;
@@ -1143,7 +1144,8 @@ p.course-para {
 /* trending-course-section
 ============================== */
 .trending-course-section{
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
+  padding: 50px 0;
 }
 .trending-course-box{
   background-image: url(../images/trending-bg-img.jpg);
@@ -1326,7 +1328,7 @@ p.course-para {
 /* imgText-grid-section
 ========================== */
 .imgText-grid-section{
-  margin: 40px 0;
+  margin: 50px 0;
 }
 .imgText-heading{
   font-size: 36px;
@@ -1653,7 +1655,7 @@ select.form-select {
 /* Footer
 ========================== */
 .footer-section{
-  background-color: var(--white-100);
+  background-color: var(--color-black);
 }
 .footer-top{
   border-bottom: 1px solid var(--color-green);
@@ -1663,6 +1665,7 @@ select.form-select {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  color: var(--white-100);
   line-height: 27px; /* 168.75% */
 }
 .site-logo{
@@ -1679,20 +1682,20 @@ select.form-select {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  color: var(--color-black);
+  color: var(--white-100);
   margin-bottom: 0;
 }
 .courses-link-list,
-.company-footer-contact-list{
+.colleges-link-list{
   margin-top: 20px;
 }
 .courses-link-list li,
-.company-footer-contact-list li{
+.colleges-link-list li{
   font-size: 16px;
   font-style: normal;
   line-height: normal;
   margin-bottom: 10px;
-  color: var(--color-black);
+  color: var(--white-100);
 }
 .courses-link-list li span{
   color: var(--color-green);
@@ -1701,8 +1704,8 @@ select.form-select {
   margin-right: 6px;
 }
 .courses-link-list li a{
-  color: var(--color-black);
-  font-size: 18px;
+  color: var(--white-100);
+  font-size: 16px;
   font-weight: 400;
   display: flex;
   justify-content: start;
@@ -1722,6 +1725,7 @@ select.form-select {
 }
 .copy-right-text span{
   font-weight: 600;
+  color: var(--white-100);
 }
 .copy-right-text a{
   display: inline;
@@ -5661,20 +5665,110 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
       }
   }
 
-  /* Tooltip css */
-  .tooltip-container{
-    position: relative;
+  /* jayantadev code start */
+
+  .banner1_searchbutton_button input[type=text] {
+    padding: 10px 20px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 20px 0 0 20px;
   }
-  .tooltip-top{
-    position: absolute;
-    color: #000000;
-    font-weight: 600;
-    box-shadow: 0 3px 5px #707070;
-    border-radius: .25rem;
-    background-color: #fff;
-    padding: 2rem;
-    width: 600px;
-    top: 0px;
-    right: -615px;
-    height: auto;
+  
+  /* Style the submit button */
+  .banner1_searchbutton_button button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: var(--color-black);
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius: 0 20px 20px 0px;
   }
+  
+  .banner1_searchbutton_button button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  .banner1_searchbutton_button::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .exam_mock_list_parents{
+    padding: 50px 0;
+  }
+  .exam_mock_list-table{
+    width: 100%;
+  }
+  .exam_mock_list-table_tr{
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-green);
+  border-collapse: collapse;
+  }
+  .exam_mock_list-table_td{
+    text-align: center;
+    width: 50%;
+    border: 1px solid var(--color-green);
+  border-collapse: collapse;
+  height: 60px;
+  color: var(--color-black);
+  }
+  .exam_mock_list-table_th{
+    height: 70px;
+    border: 1px solid var(--color-green);
+  border-collapse: collapse;
+  text-align: center;
+  background: var(--color-light-grey);
+  }
+  .exam_mock_list-table_thh{
+    height: 70px;
+    border: 1px solid var(--color-green);
+  border-collapse: collapse;
+  text-align: center;
+  font-weight: 400;
+  color: var(--color-black);
+  }
+  .exam_mock_list-table_tdd{
+    text-align: center;
+    width: 100%;
+    border: 1px solid var(--color-green);
+  border-collapse: collapse;
+  }
+  .neet_question_paper{
+    margin-top: 50px;
+  }
+  .neet_question_paper_h2{
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
+  .neet_question_paper_p{
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .exam_mock_list-table_td_download{
+    text-align: center;
+    width: 50%;
+    border: 1px solid var(--color-green);
+  border-collapse: collapse;
+  height: 60px;
+  color: var(--color-green);
+  }
+
+.examcard_applynow_button{
+  padding: 5px 20px;
+    border: none;
+    background: #5BE4A8;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius:0px 20px 0px 0px;
+}
