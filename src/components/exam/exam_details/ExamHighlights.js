@@ -92,5 +92,7 @@ export default function ExamHighlights() {
               {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
             </div>
           </div>
+ 
+          
   )
 }
