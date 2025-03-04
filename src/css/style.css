@@ -1686,11 +1686,11 @@ select.form-select {
   margin-bottom: 0;
 }
 .courses-link-list,
-.colleges-link-list{
+.collages-link-list{
   margin-top: 20px;
 }
 .courses-link-list li,
-.colleges-link-list li{
+.collages-link-list li{
   font-size: 16px;
   font-style: normal;
   line-height: normal;
@@ -1702,6 +1702,13 @@ select.form-select {
   font-size: 16px;
   font-weight: 600;
   margin-right: 6px;
+}
+.collages-link-list li a{
+  display: flex;
+  justify-content: start;
+  color: var(--white-100);
+  font-size: 16px;
+  font-weight: 400;
 }
 .courses-link-list li a{
   color: var(--white-100);
@@ -2270,12 +2277,40 @@ ul.exam-imp-list {
   bottom: -20px;
   right: 0;
   color: var(--color-black);
-  width: 180px;
+  width: 160px;
   max-width: 100%;
 }
 .exam-listing-box .register-btn img{
   margin-right: 2px;
 }
+
+.exam-apply-btn{
+  padding: 12px 15px 12px 25px;
+  border-radius:0px 30px 0px 0px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: var(--color-black);
+  width: 160px;
+  max-width: 100%;
+}
+
+
+
+@media only screen and (min-width: 992px) {
+  .exam-apply-btn{
+    width: 130px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .exam-apply-btn{
+    width: 160px;
+  }
+}
+
+
 
 
 /* Course Listing Page
@@ -5765,10 +5800,122 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   }
 
 .examcard_applynow_button{
-  padding: 5px 20px;
     border: none;
     background: #5BE4A8;
     font-size: 16px;
     font-weight: 400;
-    border-radius:0px 20px 0px 0px;
+}
+
+.collage_card_main_box{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 50px;
+}
+.collage_card_1stimgbox{
+  width: 100%;
+  height: 220px;
+  background: url('../images/trending-bg-img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.collage_card_1stimgbox_text_logo_parents{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+}
+.collage_card_1stimgbox_text_logo{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: end;
+  color: var(--white-100);
+}
+.collage_card_1stimgbox_img_logo{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  color: var(--white-100);
+}
+.collage_card_1stimgbox_img_logo_logo_imgbox{
+  width: 90px;
+  height: 90px;
+}
+.collage_card_1stimgbox_img_logo_logo_img{
+  width: 90px;
+  height: 90px;
+  background-color: var(--white-100);
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.25);
+  padding: 5px;
+}
+.collage_card_1stimgbox_img_logo_logo{
+  display: flex;
+  gap: 20px;
+}
+.collage_card_1stimgbox_img_logo_collages_name{
+  font-size: 20px;
+}
+.collage_card_1stimgbox_img_logo_collages_address{
+  font-size: 16px;
+  color: var(--white-100);
+}
+
+.collage_card_2ndtextbox{
+  padding: 20px;
+}
+.course-name_rating_parents_box{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--body-text-grey);
+}
+.collage_card_2ndtextbox_course-name_h3{
+  font-size: 20px;
+  color: var(--color-black);
+  font-weight: 600;
+}
+.collage_card_2ndtextbox_course-name_p{
+  font-size: 16px;
+  color: var(--color-black);
+}
+.collage_card_2ndtextbox_course-name_p_span{
+  color: var(--color-green);
+  font-weight: 600;
+}
+.collage_card_2ndtextbox_rating_star_number{
+  font-size: 17px;
+  text-align: right;
+  margin-bottom: 0rem;
+  font-weight: 600;
+}
+.collage_card_2ndtextbox_reviews{
+  font-size: 16px;
+  text-align: right;
+}
+
+.course-name_ranked_parents_box{
+  padding: 15px 0;
+  border-bottom: 1px solid var(--body-text-grey);
+  color: var(--color-black);
+  font-size: 16px;
+  font-weight: 400;
+}
+.course-name_courses_fees_parents_box, .course-name_download_brochure_parents_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px 15px 0;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 16px;
+  border-bottom: 1px solid var(--body-text-grey);
+}
+.course-name_compare_parents_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px 15px 0;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 16px;
 }
