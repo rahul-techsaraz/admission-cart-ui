@@ -46,7 +46,7 @@ const Footer = () => {
                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="4" viewBox="0 0 70 4" fill="none">
                         <path d="M0 2C0 0.895431 0.895431 0 2 0H68C69.1046 0 70 0.895431 70 2C70 3.10457 69.1046 4 68 4H2C0.895431 4 0 3.10457 0 2Z" fill="#5BE4A8"/>
                         </svg>
-                       <ul className="colleges-link-list">
+                       <ul className="collages-link-list">
                           <li><Link to={"/courses_list"}>Engineering and Architecture</Link></li>
                           <li><Link to={"/courses_list"}>Management and Business</Link></li>
                           <li><Link to={"/courses_list"}>Medicine and Allied Sciences</Link></li>

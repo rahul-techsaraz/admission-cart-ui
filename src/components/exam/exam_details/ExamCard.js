@@ -22,7 +22,7 @@ export default function ExamCard({data}) {
     <>
         
             {examData.map((exam)=>(
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="exam-listing-box position-relative">
                     <p class="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
                     <div class="exam-listing-box-content">
@@ -84,10 +84,11 @@ export default function ExamCard({data}) {
                                 </div>
                             </li>
                         </ul>
-                        <button className='examcard_applynow_button'>Apply Now</button>
+                        {/* <button className='examcard_applynow_button'>Apply Now</button> */}
 
                     </div>
                     <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>
+                    <Link class="exam-apply-btn examcard_applynow_button yellow-bg" to={`/exam_details/${exam?.exam_id}`}>Apply Now</Link>
                 </div>
             </div>
             ))}
