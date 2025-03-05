@@ -36,7 +36,7 @@ const ExploreCareer = () => {
     
     return(
         <>
-        <section className="career-slider-section text-center section-padding pt-4">
+        <section className="career-slider-section text-center section-padding">
         <div className="container">
             <div className="row">
                 <div className="col-12">
