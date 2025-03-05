@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import collegeImage1 from '../../../images/clg-img1.jpg';
 import collegeLogo from '../../../images/clg-logo3.png';
 import collegeWishList from '../../../images/wishlist-checked-icon.svg';
@@ -11,16 +11,20 @@ export default function CollegeCard({allCollegeData}) {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
       }
+      useEffect(()=>{
+        console.log(allCollegeData)
+      },[allCollegeData])
   return (
     <>
         {allCollegeData.map((college)=>(
             <div className="col-lg-4">
-                <Link to={`/colleges_details/${college.college_id}`}>
+                {/* <Link to={`/colleges_details/${college.college_id}`}> */}
                 <div className='collage_card_main_box'>
                     <div className='collage_card_1stimgbox'>
+                        <img src={constants.imageAbsolutePath+college?.college_thumbnail} className='collages_card_images_img' alt="College Thumbnail"/>
                         <div className='collage_card_1stimgbox_text_logo_parents'>
                         <div className='collage_card_1stimgbox_text_logo'>
-                            <span className='span_text'>Text</span>
+                            <span className='span_text'>118/1800</span>
                         </div>
                         <div className='collage_card_1stimgbox_img_logo'>
                            <div className='collage_card_1stimgbox_img_logo_logo'>
@@ -40,29 +44,33 @@ export default function CollegeCard({allCollegeData}) {
                                 <p className='collage_card_2ndtextbox_course-name_p'><span className='collage_card_2ndtextbox_course-name_p_span'>2.31 Lacs</span> First Year Fees</p>
                             </div>
                             <div className='collage_card_2ndtextbox_rating'>
-                                <p className='collage_card_2ndtextbox_rating_star_number'>4.4/5</p>
+                                <p className='collage_card_2ndtextbox_rating_star_number'><i class="fa-solid fa-star"></i> 4.4/5</p>
                                 <p className='collage_card_2ndtextbox_reviews'>370 reviews</p>
                             </div>
                         </div>
                         <div className='course-name_ranked_parents_box'>
                             Ranked 118 out of 1800 QS
                         </div>
+                        <Link to={`/colleges_details/${college.college_id}`} className='course-name_courses_fees_parents_box2'>
                         <div className='course-name_courses_fees_parents_box'>
                             View All Courses and Fees
                             <span className='course-name_courses_fees_parents_box_icon'>
-                               +
+                            <i class="fa-solid fa-angle-right"></i>
                             </span>
                         </div>
+                        </Link>
+
+
                         <div className='course-name_download_brochure_parents_box'>
                             Download Brochure
                             <span className='course-name_courses_fees_parents_box_icon'>
-                               +
+                            <i class="fa-solid fa-angle-right"></i>
                             </span>
                         </div>
                         <div className='course-name_compare_parents_box'>
                             Compare
                             <span className='course-name_courses_fees_parents_box_icon'>
-                               +
+                            <i class="fa-solid fa-angle-right"></i>
                             </span>
                         </div>
                     </div>
@@ -114,7 +122,7 @@ export default function CollegeCard({allCollegeData}) {
                             </div> j-code */}
                         {/* </div>
                     </div> */}
-                </Link>
+                {/* </Link> */}
             </div>
         ))}
         
