@@ -4,13 +4,22 @@ import collegeLogo from '../../../images/clg-logo3.png';
 import collegeWishList from '../../../images/wishlist-checked-icon.svg';
 import constants from '../../../utils/Constants/constants';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggelIsLoginPopup } from '../../../features/commonSlice';
 
 export default function CollegeCard({allCollegeData}) {
+    const{authenticateUser}= useSelector((state)=>state.common)
+    const dispatch = useDispatch()
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
       }
+    const handleClick = () => {
+        if(!authenticateUser){
+            dispatch(toggelIsLoginPopup({flag:true}))
+        }
+    }
       useEffect(()=>{
         console.log(allCollegeData)
       },[allCollegeData])
@@ -30,8 +39,8 @@ export default function CollegeCard({allCollegeData}) {
                            <div className='collage_card_1stimgbox_img_logo_logo'>
                             <img className='collage_card_1stimgbox_img_logo_logo_img' src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo"/>
                             <div className='collage_card_1stimgbox_img_logo_collages_name_address'>
-                                <h2 className='collage_card_1stimgbox_img_logo_collages_name'>IIT Bombay-Indian Institute of Technology</h2>
-                                <p className='collage_card_1stimgbox_img_logo_collages_address'>New Delhi, Delhi NCR</p>
+                                <h2 className='collage_card_1stimgbox_img_logo_collages_name'>{college?.college_name}</h2>
+                                <p className='collage_card_1stimgbox_img_logo_collages_address'>{college?.city+", "+college?.state}</p>
                             </div>
                             </div> 
                         </div>
@@ -40,12 +49,12 @@ export default function CollegeCard({allCollegeData}) {
                     <div className='collage_card_2ndtextbox'>
                         <div className='course-name_rating_parents_box'>
                             <div className='collage_card_2ndtextbox_course-name'>
-                                <h3 className='collage_card_2ndtextbox_course-name_h3'>BE/B.Tech</h3>
+                                <h3 className='collage_card_2ndtextbox_course-name_h3'>{college?.category_name}</h3>
                                 <p className='collage_card_2ndtextbox_course-name_p'><span className='collage_card_2ndtextbox_course-name_p_span'>2.31 Lacs</span> First Year Fees</p>
                             </div>
                             <div className='collage_card_2ndtextbox_rating'>
-                                <p className='collage_card_2ndtextbox_rating_star_number'><i class="fa-solid fa-star"></i> 4.4/5</p>
-                                <p className='collage_card_2ndtextbox_reviews'>370 reviews</p>
+                                <p className='collage_card_2ndtextbox_rating_star_number'><i class="fa-solid fa-star"></i> {college?.ratings}/5</p>
+                                <p className='collage_card_2ndtextbox_reviews'>{getRandomInt(1, 300)}+ reviews</p>
                             </div>
                         </div>
                         <div className='course-name_ranked_parents_box'>
@@ -61,7 +70,7 @@ export default function CollegeCard({allCollegeData}) {
                         </Link>
 
 
-                        <div className='course-name_download_brochure_parents_box'>
+                        <div className='course-name_download_brochure_parents_box' onClick={()=>handleClick()}>
                             Download Brochure
                             <span className='course-name_courses_fees_parents_box_icon'>
                             <i class="fa-solid fa-angle-right"></i>

@@ -5921,6 +5921,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   font-size: 16px;
   border-bottom: 1px solid var(--body-text-grey);
   width: 100%;
+  cursor: pointer;
 }
 .course-name_courses_fees_parents_box2{
   width: 100%;
