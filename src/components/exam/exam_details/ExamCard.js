@@ -26,7 +26,10 @@ export default function ExamCard({data}) {
                 <div class="exam-listing-box position-relative">
                     <p class="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
                     <div class="exam-listing-box-content">
-                        <div class="d-flex align-items-center gap-2 mb-3">
+
+
+                        <div className="d-flex justify-content-between">
+                        <div class="d-flex gap-2 mb-3 flex-column application-exam-date-text">
                             <div className='calender-icon-circle-parent'>
                             <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
                                 <img src={examCalenderImage} alt="examCalenderImage" />
@@ -39,7 +42,7 @@ export default function ExamCard({data}) {
                             </h2>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center gap-2">
+                        <div class="d-flex gap-2 flex-column application-exam-date-text">
                         <div className='calender-icon-circle-parent'>
                             <span class="calender-icon-circle green-bg d-inline-flex align-items-center justify-content-center">
                                 <img src={examCalenderImage} alt="" />
@@ -52,32 +55,34 @@ export default function ExamCard({data}) {
                             </h2>
                             </div>
                         </div>
+                        </div>
+
                         <ul class="exam-imp-list">
-                            <li>
+                            <li className="exam-imp-list-width-50">
                                 <div className='d-flex align-items-center gap-2'>
                                     <img src={examOverviewImage} alt="" />
                                     Overview
                                 </div>
                             </li>
-                            <li>
+                            <li className="exam-imp-list-width-50">
                                 <div className='d-flex align-items-center gap-2'>
                                     <img src={examImpDateImage} alt="" />
                                     Important Date
                                 </div>
                             </li>
-                            <li>
+                            <li className="exam-imp-list-width-50">
                                 <div className='d-flex align-items-center gap-2'>
                                     <img src={examAppFormImage} alt="" />
                                     Application Form
                                 </div>
                             </li>
-                            <li>
+                            <li className="exam-imp-list-width-50">
                                 <div className='d-flex align-items-center gap-2'>
                                     <img src={examElgiIconImage} alt="" />
                                     Eligibility
                                 </div>
                             </li>
-                            <li>
+                            <li className="exam-imp-list-width-50">
                                 <div className='d-flex align-items-center gap-2'>
                                     <img src={examAdmitCardIconImage} alt="" />
                                     Admit Card

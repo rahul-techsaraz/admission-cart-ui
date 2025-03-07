@@ -345,7 +345,7 @@ export default function ExamDetailsLeftBox() {
           <div className="py-5 header">
             <div className="px-2">
               <div className="row">
-                <div className="col-12 col-md-5 pe-0">
+                <div className="col-12 col-lg-5 pe-0">
                   <div className="nav flex-column nav-pills nav-pills-custom">
                     {Object.keys(examDetailsById).length > 0 && examDescriptionTabSetting().map((value, index)=>(
                       <Tooltip text={value.pTagData} linkIndex={linkIndex} index={index}>

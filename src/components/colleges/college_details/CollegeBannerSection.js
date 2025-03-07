@@ -12,7 +12,7 @@ export default function CollegeBannerSection() {
   return (
     <section class="clg-infobanner-section text-center pb-5 position-relative" style={{width:'100%', height:'250px'}}>
          <img src={constants.imageAbsolutePath+collegeDetailsById?.basicDetails?.college_thumbnail} class="h-1/2" alt="" style={{width:'100%', maxHeight:'250px', objectFit:"contain"}}/>
-         <div class="clg-banner-greenbox">
+         <div class="clg-banner-greenbox collage-green-box">
             <div class="container">
                <div class="row">
                   

@@ -33,21 +33,23 @@ export default function CollegeCard({allCollegeData}) {
                         <img src={constants.imageAbsolutePath+college?.college_thumbnail} className='collages_card_images_img' alt="College Thumbnail"/>
                         <div className='collage_card_1stimgbox_text_logo_parents'>
                         <div className='collage_card_1stimgbox_text_logo'>
+                        <img className='collage_card_1stimgbox_img_logo_logo_img' src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo"/>
                             <span className='span_text'>118/1800</span>
                         </div>
                         <div className='collage_card_1stimgbox_img_logo'>
                            <div className='collage_card_1stimgbox_img_logo_logo'>
-                            <img className='collage_card_1stimgbox_img_logo_logo_img' src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo"/>
+                            {/* <img className='collage_card_1stimgbox_img_logo_logo_img' src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo"/> */}
                             <div className='collage_card_1stimgbox_img_logo_collages_name_address'>
                                 <h2 className='collage_card_1stimgbox_img_logo_collages_name'>{college?.college_name}</h2>
                                 <p className='collage_card_1stimgbox_img_logo_collages_address'>{college?.city+", "+college?.state}</p>
                             </div>
                             </div> 
                         </div>
+
                         </div>
                     </div>
                     <div className='collage_card_2ndtextbox'>
-                        <div className='course-name_rating_parents_box'>
+                        <div className='collage-name_rating_parents_box'>
                             <div className='collage_card_2ndtextbox_course-name'>
                                 <h3 className='collage_card_2ndtextbox_course-name_h3'>{college?.category_name}</h3>
                                 <p className='collage_card_2ndtextbox_course-name_p'><span className='collage_card_2ndtextbox_course-name_p_span'>2.31 Lacs</span> First Year Fees</p>
@@ -57,31 +59,31 @@ export default function CollegeCard({allCollegeData}) {
                                 <p className='collage_card_2ndtextbox_reviews'>{getRandomInt(1, 300)}+ reviews</p>
                             </div>
                         </div>
-                        <div className='course-name_ranked_parents_box'>
+                        {/* <div className='course-name_ranked_parents_box'>
                             Ranked 118 out of 1800 QS
-                        </div>
-                        <Link to={`/colleges_details/${college.college_id}`} className='course-name_courses_fees_parents_box2'>
-                        <div className='course-name_courses_fees_parents_box'>
+                        </div> */}
+                        <Link to={`/colleges_details/${college.college_id}`} className='collage-name_courses_fees_parents_box2'>
+                        <div className='collage-name_courses_fees_parents_box'>
                             View All Courses and Fees
-                            <span className='course-name_courses_fees_parents_box_icon'>
+                            <span className='collage-name_courses_fees_parents_box_icon'>
                             <i class="fa-solid fa-angle-right"></i>
                             </span>
                         </div>
                         </Link>
 
 
-                        <div className='course-name_download_brochure_parents_box' onClick={()=>handleClick()}>
+                        <div className='collage-name_download_brochure_parents_box' onClick={()=>handleClick()}>
                             Download Brochure
-                            <span className='course-name_courses_fees_parents_box_icon'>
+                            <span className='collage-name_courses_fees_parents_box_icon'>
                             <i class="fa-solid fa-angle-right"></i>
                             </span>
                         </div>
-                        <div className='course-name_compare_parents_box'>
+                        {/* <div className='course-name_compare_parents_box'>
                             Compare
                             <span className='course-name_courses_fees_parents_box_icon'>
                             <i class="fa-solid fa-angle-right"></i>
                             </span>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                     {/* <div className="clg-listing-box cig-listing-box-clg-card"> */}

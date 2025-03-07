@@ -47,9 +47,9 @@ export default function CourseCard({data}) {
                         <div className='course-box-para'>
                             <p className="course-para">{course?.course_description.length > 150 ? `${course?.course_description.slice(0, 150)}...` : course?.course_description}</p>
                         </div>
-                        <div className='course-box-link'>
+                        {/* <div className='course-box-link'>
                             <Link className="course-moredetails-btn" to={`/courses_details/${course.course_id}`}>More Details</Link>
-                        </div>
+                        </div> */}
                         <div className="d-flex flex-wrap course-infowrapper">
                             <div className="course-infobx d-inline-flex align-items-center">
                                 <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
@@ -64,6 +64,9 @@ export default function CourseCard({data}) {
                                 <p className="course-info-title">Average Fees<span>{course?.course_fee_min} K-{course?.course_fee_max} L INR</span></p>
                             </div>
                         </div>
+                        
+                        <div className='course-readmore-btn course-readmore-btn2 course-card-hover'>Enquire Now </div>
+                        
                     </div>
                 </div>
                 </Link>
