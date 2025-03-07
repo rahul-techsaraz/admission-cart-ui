@@ -5,7 +5,7 @@ import newsLetterImage from '../../images/newsletter-icon.svg'
 const NewsLetter = () => {
     return(
         <>
-       <section class="newsletter-section section-padding pt-4">
+       <section class="newsletter-section section-padding">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
