@@ -16,7 +16,7 @@ export default function ExamLandingBanner() {
                 <img className="regis-alert-icon" src={alertIcon} alt="alertIcon" />
                 <p className="regis-alert-txt1">Registration starts On
                     <span> {examDetailsById?.examBasicDetails?.application_start_date}</span></p>
-                <p className="regis-alert-txt2 d-flex align-items-center justify-content-center"> <span className="ylw-circle me-2"></span>Set Exam alert</p>
+                {/* <p className="regis-alert-txt2 d-flex align-items-center justify-content-center"> <span className="ylw-circle me-2"></span>Set Exam alert</p> */}
             </div>
          </div>
       </section> 
