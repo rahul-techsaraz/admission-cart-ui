@@ -17,6 +17,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 import constants from '../../../utils/Constants/constants';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
+import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
+import CustomFaq from '../../colleges/CustomFaq';
 
 
 
@@ -31,7 +33,7 @@ export default function CourseDetails() {
     })
     const {course_id} = useParams()
     const {fetchCourse} = useFetchCourseById()
-    const {courseDetailsById, allCollegeData} = useSelector(state=>state.common)
+    const {courseDetailsById, allCollegeData, authenticateUser} = useSelector(state=>state.common)
     const dispatch = useDispatch()
     
     const dataToMap = (data)=>{
@@ -45,26 +47,32 @@ export default function CourseDetails() {
         const data = allCollegeData.filter((v)=>v.category_name === courseDetailsById?.basicCourseDetails?.category_name)
         return data
     }
+    const getRandomInt = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    const handleClick = () => {
+        if(!authenticateUser){
+            dispatch(toggelIsLoginPopup({flag:true}))
+        }
+    }
     const responsive = {
         1400:{
             slidesPerView: 4,
             spaceBetween: 50,
         },
         1024:{
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 50,
         },
         768:{
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 40,
         },
-        640:{
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        460:{
-            slidesPerView: 1,
-            spaceBetween: 20,
+        576:{
+            slidesPerView: 2,
+            spaceBetween: 10,
         },
      }
     useEffect(()=>{
@@ -109,8 +117,8 @@ export default function CourseDetails() {
                         <div className="course-details-leftBox-inner text-center">
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{'About ' + courseDetailsById?.basicCourseDetails?.course_name}</h2>
-                                <p className="imgText-para">{(courseDetailsById?.basicCourseDetails?.course_description.length > 100 && readmore.course_description === false) ? `${courseDetailsById?.basicCourseDetails?.course_description.slice(0, 100)}...` : courseDetailsById?.basicCourseDetails?.course_description}</p>
-                                {courseDetailsById?.basicCourseDetails?.course_description.length > 100 && 
+                                <p className="imgText-para">{(courseDetailsById?.basicCourseDetails?.course_description.length > 300 && readmore.course_description === false) ? `${courseDetailsById?.basicCourseDetails?.course_description.slice(0, 300)}...` : courseDetailsById?.basicCourseDetails?.course_description}</p>
+                                {courseDetailsById?.basicCourseDetails?.course_description.length > 300 && 
                                     <div className="text-center">
                                         <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_description:!readmore.course_description})}>{!readmore.course_description ? 'Read More' : 'Read Less'}</Link>
                                     </div>
@@ -119,8 +127,8 @@ export default function CourseDetails() {
                         
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Eligibility Criteria'}</h2>
-                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 100 && readmore.course_eligibility_criteria_description === false) ? `${courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.slice(0, 100)}...` : courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description}</p>
-                                {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 100 && 
+                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 300 && readmore.course_eligibility_criteria_description === false) ? `${courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.slice(0, 300)}...` : courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description}</p>
+                                {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 300 && 
                                     <div className="text-center mb-4">
                                         <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_eligibility_criteria_description:!readmore.course_eligibility_criteria_description})}>{!readmore.course_eligibility_criteria_description ? 'Read More' : 'Read Less'}</Link>
                                     </div>
@@ -166,7 +174,7 @@ export default function CourseDetails() {
 
                             <div className="course-details-left-innerBox mb-5">
                                 <h2 className="imgText-heading mb-4">{`About ${courseDetailsById?.basicCourseDetails?.course_name} Placement`}</h2>
-                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_placement_description.length > 100 && readmore.course_placement_description === false) ? `${courseDetailsById?.descriptionDetails?.course_placement_description.slice(0, 100)}...` : courseDetailsById?.descriptionDetails?.course_placement_description}</p>
+                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_placement_description.length > 300 && readmore.course_placement_description === false) ? `${courseDetailsById?.descriptionDetails?.course_placement_description.slice(0, 300)}...` : courseDetailsById?.descriptionDetails?.course_placement_description}</p>
                                 {/* <ul className="course-details-criteria-list2 text-start">
                                     <li>Chemical Administrator</li>
                                     <li>Technical Consultant</li>
@@ -328,14 +336,7 @@ export default function CourseDetails() {
                                         {
                                             getCollegeByCourse().map((college)=>(
                                                 <swiper-slide>
-                                                    <div className="swiper-slide">
-                                                        <div className="clg-slider-box position-relative">
-                                                            <img src= {constants.imageAbsolutePath+college.college_thumbnail} className="clg-slider-logo" alt="" />
-                                                            <p className="slider-clg-name">{college.college_name}</p>
-                                                            <p className="slider-clg-location">{`${college.city}, ${college.state}`}</p>
-                                                            <Link className="apply-btn position-absolute" to={`/colleges_details/${college.college_id}`}>View Details</Link>
-                                                        </div>
-                                                    </div>
+                                                    <CustomCollegeCard college={college} isSwiper={true}/>
                                                 </swiper-slide>
                                             ))
                                         }
@@ -440,7 +441,7 @@ export default function CourseDetails() {
     </section>
 
 
-    <section className="faq-section position-relative pt-50 pb-50">
+    {/* <section className="faq-section position-relative pt-50 pb-50">
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -504,8 +505,8 @@ export default function CourseDetails() {
                 </div>
             </div>
         </div>
-    </section>
-
+    </section> */}
+    <CustomFaq />
 
    
 

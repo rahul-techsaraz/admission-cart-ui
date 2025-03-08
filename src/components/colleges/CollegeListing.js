@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import CollegeBanner from './CollegeBanner'
-import CollegeFaq from './CollegeFaq'
 import collegeImage1 from '../../images/clg-img1.jpg';
 import collegeLogo from '../../images/clg-logo3.png';
 import collegeWishList from '../../images/wishlist-checked-icon.svg';
 import { useSelector } from 'react-redux';
 import CollegeCard from './college_details/CollegeCard';
 import CustomPagination from '../../utils/Constants/custom-components/CustomPagination';
+import CustomFaq from './CustomFaq';
 export default function CollegeListing() {
     const [collegeData, setCollegeData] = useState([])
     const {allCollegeData} = useSelector(state=>state.common)
@@ -385,7 +385,7 @@ export default function CollegeListing() {
             </div>
         </div>
           </section>
-          <CollegeFaq />
+          <CustomFaq />
       </>
   )
 }

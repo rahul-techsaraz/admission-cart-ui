@@ -20,6 +20,7 @@ import { useSelector } from 'react-redux'
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive'
 import Tooltip from '../../../utils/Constants/custom-components/Tooltip'
 import ExamMockList from './ExamMockList'
+import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
 
 
 
@@ -102,8 +103,8 @@ export default function ExamDetailsLeftBox() {
         <div id="exam_details_leftBox" className="exam-details-leftBox">
           <h2 className="exam-details-yellow-heading mb-4 d-inline-block">{examDetailsById?.examBasicDetails?.exam_name} {examDetailsById?.examBasicDetails?.exam_year}</h2>
           <div className="exam-details-left-innerpara mb-5 ps-5">
-            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_description.length > 100 && readmore.exam_description === false) ? `${examDetailsById?.descriptionDetails?.exam_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_description}</p>
-            {examDetailsById?.descriptionDetails?.exam_description.length > 100 &&
+            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_description.length > 300 && readmore.exam_description === false) ? `${examDetailsById?.descriptionDetails?.exam_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.exam_description}</p>
+            {examDetailsById?.descriptionDetails?.exam_description.length > 300 &&
               <div className="text-start mt-5">
                 <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_description:!readmore.exam_description})}>{!readmore.exam_description ? 'Read More' : 'Read Less'}</Link>
               </div>
@@ -139,8 +140,8 @@ export default function ExamDetailsLeftBox() {
             <h2>{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Conducting Body`}</h2>
           </div>
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
-            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_conducting_body_description.length > 100 && readmore.exam_conducting_body_description === false) ? `${examDetailsById?.descriptionDetails?.exam_conducting_body_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_conducting_body_description}</p>
-            {examDetailsById?.descriptionDetails?.exam_conducting_body_description.length > 100 &&
+            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_conducting_body_description.length > 300 && readmore.exam_conducting_body_description === false) ? `${examDetailsById?.descriptionDetails?.exam_conducting_body_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.exam_conducting_body_description}</p>
+            {examDetailsById?.descriptionDetails?.exam_conducting_body_description.length > 300 &&
               <div className="text-start mt-5">
                 <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_conducting_body_description:!readmore.exam_conducting_body_description})}>{!readmore.exam_conducting_body_description ? 'Read More' : 'Read Less'}</Link>
               </div>
@@ -160,9 +161,9 @@ export default function ExamDetailsLeftBox() {
           </div>
           <div className="similar-exam-bottom-contentbox text-center mt-5">
             <h2 className="section-heading2 text-center mb-2">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Important Dates`}</h2>
-            <p className="similar-exam-bottom-contentbox-para1 mb-5">{(examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 100 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_important_dates_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_important_dates_description}</p>
+            <p className="similar-exam-bottom-contentbox-para1 mb-5">{(examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 300 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_important_dates_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.exam_important_dates_description}</p>
             <h3 className="mb-3">{`${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Exam Dates (${examDetailsById?.examDetails?.session_name} Sessions)` }</h3>
-            <p className="similar-exam-bottom-contentbox-para2">{(examDetailsById?.descriptionDetails?.exam_session_description.length > 100 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_session_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_session_description}</p>
+            <p className="similar-exam-bottom-contentbox-para2">{(examDetailsById?.descriptionDetails?.exam_session_description.length > 300 && readmore.exam_important_dates_description === false) ? `${examDetailsById?.descriptionDetails?.exam_session_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.exam_session_description}</p>
           </div>
           <div className="py-5 mt-4">
             <div className="d-flex justify-content-around align-items-center">
@@ -181,7 +182,7 @@ export default function ExamDetailsLeftBox() {
               </div>
             </div>
           </div>
-          {examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 100 || examDetailsById?.descriptionDetails?.exam_session_description.length > 100}
+          {examDetailsById?.descriptionDetails?.exam_important_dates_description.length > 300 || examDetailsById?.descriptionDetails?.exam_session_description.length > 300}
           <div className="text-center mb-5">
             <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_important_dates_description:!readmore.exam_important_dates_description})}>{!readmore.exam_important_dates_description ? 'Read More' : 'Read Less'}</Link>
           </div>
@@ -200,31 +201,7 @@ export default function ExamDetailsLeftBox() {
                 <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                   {examDetailsById?.examBasicDetails?.exam_name && getCollegesByExamId().map((college)=>(
                       <swiper-slide>
-                        <div className="col-12">
-                          <Link to={`/colleges_details/${college.college_id}`}>
-                            <div className="clg-listing-box cig-listing-box-clg-card bg-white">
-                              <div className='clg-listing-box-logo-rating'>
-                                <div className="clglisting-clglogo" style={{width:"92px", height:'92px'}}>
-                                  <img src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo" />
-                                </div>
-                                    <div className="clg-rating-badge d-flex flex-column">
-                                        <span className="clg-rating" id='clg-rating-color-green'>{college?.ratings}</span>
-                                        <span className="clg-reviews-count">{getRandomInt(1, 100)}+ Reviews</span>
-                                    </div>
-                                </div>
-                            <div className="clg-listing-inner-btmbx" id="clg-listing-inner-btmbx-box-padding-pading">
-                                <h4 className="clg-name">{college?.college_name}</h4>
-                                <p className="clg-location"><i class="fa-solid fa-location-dot"></i> {college?.city+", "+college?.state}</p>
-                                <ul className="clg-affi-info d-flex clg-affi-info-approve-type-parents-box">
-                                <li><span className="clg-list-approved-text"><i class="fa-solid fa-person-circle-check"></i> Approved by :</span>{college?.affiliate_by}</li>
-                                <li><span className="clg-list-type-text"><i class="fa-solid fa-building-columns"></i> Type :</span>{college?.college_type}</li>
-                                </ul>
-                                <p className="clg-stream-name">{college?.category_name}</p>
-                                
-                            </div>
-                        </div>
-                    </Link>
-                        </div>
+                        <CustomCollegeCard college={college} isSwiper={true}/>
                       </swiper-slide>
                   ))}
                 </CustomSwiper>
@@ -256,8 +233,8 @@ export default function ExamDetailsLeftBox() {
             <h2>{`${examDetailsById?.examBasicDetails?.exam_name} Application Form ${examDetailsById?.examBasicDetails?.exam_year}`}</h2>
           </div>
           <div className="exam-details-left-innerpara mb-5 ps-tick85">
-            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_application_form_description.length > 100 && readmore.exam_application_form_description === false) ? `${examDetailsById?.descriptionDetails?.exam_application_form_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.exam_application_form_description}</p>
-            {examDetailsById?.descriptionDetails?.exam_application_form_description.length > 100 &&
+            <p className="exam-details-para1">{(examDetailsById?.descriptionDetails?.exam_application_form_description.length > 300 && readmore.exam_application_form_description === false) ? `${examDetailsById?.descriptionDetails?.exam_application_form_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.exam_application_form_description}</p>
+            {examDetailsById?.descriptionDetails?.exam_application_form_description.length > 300 &&
               <div className="text-start mt-5">
                 <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, exam_application_form_description:!readmore.exam_application_form_description})}>{!readmore.exam_application_form_description ? 'Read More' : 'Read Less'}</Link>
               </div>
@@ -308,8 +285,8 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 1: Registration & Application Form Fill-up</h1>
-                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step1_description.length > 100 && readmore.apllication_form_step1_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step1_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.apllication_form_step1_description}</p>
-                    {examDetailsById?.descriptionDetails?.apllication_form_step1_description.length > 100 &&
+                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step1_description.length > 300 && readmore.apllication_form_step1_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step1_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.apllication_form_step1_description}</p>
+                    {examDetailsById?.descriptionDetails?.apllication_form_step1_description.length > 300 &&
                       <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, apllication_form_step1_description:!readmore.apllication_form_step1_description})}>{!readmore.apllication_form_step1_description ? 'Read More' : 'Read Less'}</Link>
                     }
                   </div>
@@ -320,8 +297,8 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">Step 2: Upload the Necessary Documents</h1>
-                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step2_description.length > 100 && readmore.apllication_form_step2_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step2_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.apllication_form_step2_description}</p>
-                    {examDetailsById?.descriptionDetails?.apllication_form_step2_description.length > 100 &&
+                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step2_description.length > 300 && readmore.apllication_form_step2_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step2_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.apllication_form_step2_description}</p>
+                    {examDetailsById?.descriptionDetails?.apllication_form_step2_description.length > 300 &&
                       <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, apllication_form_step2_description:!readmore.apllication_form_step2_description})}>{!readmore.apllication_form_step2_description ? 'Read More' : 'Read Less'}</Link>
                     }
                   </div>
@@ -332,8 +309,8 @@ export default function ExamDetailsLeftBox() {
                   </div>
                   <div className="col-md-9">
                     <h1 className="exam-registration-infoheading">{`Step 3: Pay the ${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year} Application Fee`}</h1>
-                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step3_description.length > 100 && readmore.apllication_form_step3_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step3_description.slice(0,100)}...` : examDetailsById?.descriptionDetails?.apllication_form_step3_description}</p>
-                    {examDetailsById?.descriptionDetails?.apllication_form_step3_description.length > 100 &&
+                    <p className="exam-registration-infopara">{(examDetailsById?.descriptionDetails?.apllication_form_step3_description.length > 300 && readmore.apllication_form_step3_description === false) ? `${examDetailsById?.descriptionDetails?.apllication_form_step3_description.slice(0,300)}...` : examDetailsById?.descriptionDetails?.apllication_form_step3_description}</p>
+                    {examDetailsById?.descriptionDetails?.apllication_form_step3_description.length > 300 &&
                       <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, apllication_form_step3_description:!readmore.apllication_form_step3_description})}>{!readmore.apllication_form_step3_description ? 'Read More' : 'Read Less'}</Link>  
                     }
                   </div>

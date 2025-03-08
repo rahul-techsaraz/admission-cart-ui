@@ -11,7 +11,7 @@ export default function ExamHighlights() {
               <span className="tick-heading-icon d-inline-flex">
                 <img src={greyTick} alt="" />
               </span>
-              <h2>{'Highlights of ' + examDetailsById?.examBasicDetails?.exam_name} {examDetailsById?.examBasicDetails?.exam_year}</h2>
+              <h2>{`Highlights of ${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year}`}</h2>
             </div>
             <div className="exam-details-hightlights-table">
               <table className="table">
