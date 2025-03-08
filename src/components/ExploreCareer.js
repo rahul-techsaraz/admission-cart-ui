@@ -17,19 +17,15 @@ const ExploreCareer = () => {
             spaceBetween: 10,
         },
         1024:{
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 10,
         },
         768:{
             slidesPerView: 3,
             spaceBetween: 10,
         },
-        640:{
-            slidesPerView: 1,
-            spaceBetween: 10,
-        },
-        460:{
-            slidesPerView: 1,
+        576:{
+            slidesPerView: 2,
             spaceBetween: 10,
         },
     }
@@ -47,7 +43,7 @@ const ExploreCareer = () => {
                     <div className="career-slider-wrapper position-relative">
                         <div className="swiper career-slider">
                             <div className="swiper-wrapper position-reltive">
-                                <CustomSwiper navigationNext={".career-button-next"} navigationPrev={".career-button-prev"} noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                                <CustomSwiper navigationNext={".career-button-next"} navigationPrev={".career-button-prev"} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                     {allExamData.map((exam)=>(
                                         <swiper-slide>
                                         {/* <div className="swiper-slide">

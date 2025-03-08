@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import constants from '../../utils/Constants/constants'
 
-export default function CollegeFaq() {
+export default function CustomFaq() {
   const [tabIndex, setTabIndex] = useState(0)
   const [show, setShow] = useState(false)
   const handleClick = (index) => {

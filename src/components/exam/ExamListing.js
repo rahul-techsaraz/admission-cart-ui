@@ -10,6 +10,7 @@ import examRegisterIconImage from '../../images/register-icon.svg';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ExamCard from './exam_details/ExamCard';
+import CustomFaq from '../colleges/CustomFaq';
 
 
 
@@ -20,7 +21,7 @@ export default function ExamListing() {
     return (
         <>
             <ExamBanner />
-         <section class="exam-listing-section">
+         <section class="exam-listing-section mb-5">
         <div class="container">
             <div class="row">
                 {/* <div class="col-md-3">
@@ -541,7 +542,8 @@ export default function ExamListing() {
                 </div>
             </div>
         </div>
-    </section>   
+    </section>
+    <CustomFaq/>
       </>
    
   )

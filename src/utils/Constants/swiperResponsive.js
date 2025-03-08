@@ -5,19 +5,15 @@ export const swiperResponsive = (breakpoints)=>{
             spaceBetween: 50,
         },
         1024:{
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 50,
         },
         768:{
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 40,
         },
-        640:{
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        460:{
-            slidesPerView: 1,
+        576:{
+            slidesPerView: 2,
             spaceBetween: 20,
         },
     }

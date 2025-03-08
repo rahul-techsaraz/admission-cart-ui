@@ -55,6 +55,8 @@ import { useFetchCollegeById } from '../../hooks/useFetchCollegeById';
 import { useDispatch, useSelector } from 'react-redux';
 import constants from '../../../utils/Constants/constants';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
+import CustomCourseCard from '../../courses/course_details/CustomCourseCard';
+import { CustomCollegeCard } from './CustomCollegeCard';
 
 
 
@@ -88,14 +90,10 @@ export default function CollegeDetails() {
           slidesPerView: 2,
           spaceBetween: 40,
       },
-      640:{
-          slidesPerView: 1,
-          spaceBetween: 20,
-      },
-      460:{
-          slidesPerView: 1,
-          spaceBetween: 20,
-      },
+      576:{
+         slidesPerView: 2,
+         spaceBetween: 20,
+     },
    }
    const responsive1 = {
       1400:{
@@ -110,14 +108,10 @@ export default function CollegeDetails() {
          slidesPerView: 2,
          spaceBetween: 40,
       },
-      640:{
-         slidesPerView: 1,
+      576:{
+         slidesPerView: 2,
          spaceBetween: 20,
-      },
-      460:{
-         slidesPerView: 1,
-         spaceBetween: 20,
-      },
+     },
    }
    const getCurrentYear = ()=>{
       const d = new Date();
@@ -142,6 +136,7 @@ export default function CollegeDetails() {
    }
    useEffect(()=>{
       getAllCollegesDataByCity()
+      console.log(collegeDetailsById)
    },[collegeDetailsById])
    useEffect(()=>{
       fetchCollege(college_id)
@@ -234,8 +229,8 @@ export default function CollegeDetails() {
                      </div> */}
                      <div class="course-details-left-innerBox mb-5 text-center">
                         <h2 class="imgText-heading mb-4">{collegeDetailsById?.basicDetails?.college_name} Overview</h2>
-                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_description.length > 100 && readmore.overview === false) ? collegeDetailsById?.descriptionDetails?.college_description.slice(0,100)+"..." : collegeDetailsById?.descriptionDetails?.college_description}</p>
-                        {collegeDetailsById?.descriptionDetails?.college_description.length > 100 &&
+                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_description.length > 300 && readmore.overview === false) ? collegeDetailsById?.descriptionDetails?.college_description.slice(0,300)+"..." : collegeDetailsById?.descriptionDetails?.college_description}</p>
+                        {collegeDetailsById?.descriptionDetails?.college_description.length > 300 &&
                            <div class="text-center">
                               <Link class="theme-btn green-btn" onClick={()=>setReadmore({...readmore, overview:!readmore.overview })}>{!readmore.overview ? 'Read More' : 'Read Less'}</Link>
                            </div>   
@@ -243,8 +238,8 @@ export default function CollegeDetails() {
                      </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
                         <h2 class="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Highlights ${getCurrentYear()}`}</h2>
-                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 100 && readmore.highlightDescription === false) ? `${collegeDetailsById?.descriptionDetails?.college_highlights_description.slice(0,100)}...` : collegeDetailsById?.descriptionDetails?.college_highlights_description}</p>
-                        {collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 100 &&
+                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 300 && readmore.highlightDescription === false) ? `${collegeDetailsById?.descriptionDetails?.college_highlights_description.slice(0,300)}...` : collegeDetailsById?.descriptionDetails?.college_highlights_description}</p>
+                        {collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 300 &&
                            <div class="text-center">
                               <Link class="theme-btn green-btn"onClick={()=>setReadmore({...readmore, highlightDescription:!readmore.highlightDescription})}>{!readmore.highlightDescription ? 'Read More' : 'Read Less'}</Link>
                            </div>   
@@ -393,7 +388,7 @@ export default function CollegeDetails() {
                         <h2>{`${collegeDetailsById?.basicDetails?.college_name} Admission ${getCurrentYear()}`}</h2>
                      </div>
                      <div class="clg-location-infograybx">
-                        <p>IIT Chennai University admission for 2023 is currently open. The university is accepting applications through its official website. Interested candidates can apply online as well as visit the campus to apply in the offline mode. </p>
+                        <p>{collegeDetailsById?.descriptionDetails?.college_admission_description}</p>
                         <div class="text-start mt-3">
                            <Link class="course-details-readmore-btn btn text-white">Read More</Link>
                         </div>
@@ -2732,34 +2727,10 @@ export default function CollegeDetails() {
                            <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                               <div class="swiper course-offered-slider pb-5">
                                  <div class="swiper-wrapper">
-                                    <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
+                                    <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
                                        {collegeDetailsById?.courseOfferedDetails.length > 0 && getAllCourseDataById().map((course)=>(
                                           <swiper-slide>
-                                             {/* <div className="col-md-4"> */}
-                                                <Link to={`/courses_details/${course.course_id}`}>
-                                                <div className="course-listing-box align-items-center mb-4">
-                                                   <div className="course-post-contentBx">
-                                                         <h2 className="course-title">{course?.course_name}</h2>
-                                                         <p className="course-para">{course?.course_description.length>100 ? `${course?.course_description.slice(0, 100)}...` : course?.course_description }</p>
-                                                         <Link className="course-moredetails-btn">More Details</Link>
-                                                         <div className="d-flex flex-wrap course-infowrapper">
-                                                            <div className="course-infobx d-inline-flex align-items-center">
-                                                               <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
-                                                                     <img src={sandclassNameIcon} alt=""/>
-                                                               </span>
-                                                               <p className="course-info-title">Average Duration <span>{course?.course_duration} years</span></p>
-                                                            </div>
-                                                            <div className="course-infobx d-inline-flex align-items-center">
-                                                               <span className="course-info-icon d-inline-flex align-items-center justify-content-center flex-shrink-0">
-                                                                     <img src={sandclassNameIcon} alt=""/>
-                                                               </span>
-                                                               <p className="course-info-title">Average Fees <span>{course?.course_fee_min} K-{course?.course_fee_max} L INR</span></p>
-                                                            </div>
-                                                         </div>
-                                                   </div>
-                                                </div>
-                                                </Link>
-                                             {/* </div> */}
+                                             <CustomCourseCard course={course} isSwiper={true}/>
                                           </swiper-slide>
                                        ))}
                                     </CustomSwiper>
@@ -2797,39 +2768,7 @@ export default function CollegeDetails() {
                               <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                  {collegeDetailsById?.basicDetails?.city && getAllCollegesDataByCity().map((college)=>(
                                     <swiper-slide>
-                                       <Link to={`/colleges_details/${college.college_id}`}>
-                                          <div class="swiper-slide">
-                                                <div class="clg-slider-box position-relative">
-                                                   <div class="recommended-clg-sliderbx">
-                                                      <div class="d-flex justify-content-between">
-                                                         <img src={constants.imageAbsolutePath+college?.college_logo} class="clg-slider-logo" alt="" />
-                                                         <div class="recommended-clg-rating text-center">
-                                                            <p class="mb-0">{college?.ratings}</p>
-                                                            <span class="d-flex align-items-center justify-content-center gap-1">
-                                                               <img src={starFIcon} alt="" />
-                                                               <img src={starFIcon} alt="" />
-                                                               <img src={starFIcon} alt="" />
-                                                               <img src={starFIcon} alt="" />
-                                                               <img src={starFIcon} alt="" />
-                                                            </span>
-                                                         </div>
-                                                      </div>
-                                                      <p class="recommended-clg-name mb-2">{college?.college_name}</p>
-                                                      <p class="recommended-clg-location">{college?.state} <span>{college?.city}</span></p>
-                                                      <p class="course-offer-badge d-flex justify-content-between align-items-center">
-                                                         <span>Courses Offered</span>
-                                                         <span class="text-end">{collegeDetailsById?.courseOfferedDetails.length}</span>
-                                                      </p>
-                                                      <p class="total-price-range d-flex justify-content-between align-items-center">
-                                                         <span>Total Fees Range</span>
-                                                         <span class="text-end">₹12.5 L - 24.5 L</span>
-                                                      </p>
-                                                   </div>
-
-                                                   <Link class="apply-btn position-absolute px-3">Download brochure <img src={iconThreeImage} srcset={`${iconThreeImage} 1X, ${iconThreeImage2X} 2X`} alt="Button Icon" width="16" height="18" /></Link>
-                                                </div>
-                                          </div>
-                                       </Link>
+                                       <CustomCollegeCard college={college} isSwiper={true}/>
                                     </swiper-slide>
                                  ))}
                               </CustomSwiper>

@@ -16,6 +16,7 @@ import courseIcon12 from '../../images/course/course-icon12.svg';
 import ApplyFilter from '../ApplyFilter';
 import CourseCard from './course_details/CourseCard';
 import { useSelector } from 'react-redux';
+import CustomFaq from '../colleges/CustomFaq';
 
 
 export default function CourseListing() {
@@ -207,7 +208,8 @@ export default function CourseListing() {
                 
             </div>
         </div>
-    </section>    
+    </section>
+    <CustomFaq/>    
       </>
    
   )
