@@ -85,6 +85,7 @@ p:last-child {
 }
 
 a, button {
+  color: var(--color-black);
   text-decoration: none;
   transition: all 300ms ease-in-out 0s;
   -moz-transition: all 300ms ease-in-out 0s;
@@ -936,6 +937,9 @@ ul.mega_menu {
   padding: 20px 20px 0;
   background: #fff;
 }
+.course_box_childtext{
+  padding: 30px 40px 0;
+}
 .course-box-heigh-set{
   border-radius: 0px 50px 0px 0px;
     border: 3px solid var(--color-green);
@@ -971,7 +975,7 @@ p.course-para {
   transform: translateX(-50%);
 }
 .course-name-text{
-  min-height: 85px;
+  min-height: 110px;
 }
 /* .course-readmore-btn-position{
   position: absolute;
@@ -2277,6 +2281,10 @@ ul.exam-imp-list {
   color: var(--color-black);
   width: 160px;
   max-width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .exam-listing-box .register-btn img{
   margin-right: 2px;
@@ -3727,6 +3735,9 @@ ul.exam-imp-list {
   margin-bottom: 5px;
   height: fit-content;
 }
+.clg-infobanner-section{
+  background-color: #fff;
+}
 .clg-banner-greenbox .green-bg{
   border-radius: 14px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
@@ -4885,15 +4896,14 @@ p.clg-stream-name {
   align-items: center;
 
 }
-a{
+/* a{
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   color: #4F4F4F;
-  /* text-decoration: underline; */
   font-weight: 600;
-}
+} */
 
 .continue{
   width: 100%;
@@ -5851,8 +5861,10 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
 .examcard_applynow_button{
     border: none;
     background: #5BE4A8;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
+    padding: 12px 0;
+    text-align: center;
 }
 
 .collage_card_main_box{

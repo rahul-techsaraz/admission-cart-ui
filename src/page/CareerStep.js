@@ -53,7 +53,7 @@ const CareerStep = () => {
                             <path d="M0.999993 1.052C3.84898 11.8135 25.0029 69.8577 103.33 70.7715C118.566 70.9492 103.33 70.7715 118.566 70.9492C118.566 70.9492 193 75.3969 218.662 1.05199" stroke="black" stroke-dasharray="8 8"/>
                         </svg>
                         <img src={campusIcon} className="d-block mx-auto" alt="" />
-                        <span className="mx-auto d-flex align-items-center justify-content-center">06</span>
+                        <span className="mx-auto d-flex align-items-center justify-content-center">04</span>
                     </div>
                     <div className="px-2">
                         <p className="process-title">Course Commencement</p>

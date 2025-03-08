@@ -72,7 +72,7 @@
     width: 500px;
     background-color: white;
     box-shadow: 8px 8px 20px rgb(128, 128, 128);
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     margin: auto;
     z-index: 99999;
