@@ -72,10 +72,11 @@ export default function CollegeDetails() {
          allCourses: false,
       })
    const {college_id} = useParams()
+   console.log(college_id)
    const {fetchCollege} = useFetchCollegeById()
    const dispatch = useDispatch()
    const {collegeDetailsById,allCourseData, allCollegeData} = useSelector(state=>state.common)
-   
+   console.log(collegeDetailsById)
    
    const responsive = {
       1400:{
@@ -128,6 +129,7 @@ export default function CollegeDetails() {
    const getAllCourseDataById = ()=>{
       const ids = collegeDetailsById.courseOfferedDetails.map((v)=> v.course_id)
       const data = allCourseData.filter((v)=>ids.includes(v.course_id))
+      console.log(data)
       return data
    }
    const getAllCollegesDataByCity = ()=>{
@@ -2765,7 +2767,7 @@ export default function CollegeDetails() {
                         </div>
                         <div class="swiper recommended-clg-slider pb-5">
                             <div class="swiper-wrapper position-relative">
-                              <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                              <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                                  {collegeDetailsById?.basicDetails?.city && getAllCollegesDataByCity().map((college)=>(
                                     <swiper-slide>
                                        <CustomCollegeCard college={college} isSwiper={true}/>

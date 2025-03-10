@@ -10,10 +10,6 @@ import { CustomCollegeCard } from './CustomCollegeCard';
 
 export default function CollegeCard({allCollegeData}) {
     
-    
-      useEffect(()=>{
-        console.log(allCollegeData)
-      },[allCollegeData])
   return (
     <>
         {allCollegeData.map((college)=>(

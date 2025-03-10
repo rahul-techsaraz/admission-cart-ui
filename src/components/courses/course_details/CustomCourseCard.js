@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import sandclassNameIcon from '../../../images/sandglass-icon.svg';
 import { Link } from 'react-router-dom';
 
 const CustomCourseCard = ({course,isSwiper}) => {
+    // useEffect(()=>{
+    //     console.log(course)
+    // },[course])
   return (
     <div className={isSwiper ? 'col-12' : "col-md-4"}>
                 <Link to={`/courses_details/${course.course_id}`}>
