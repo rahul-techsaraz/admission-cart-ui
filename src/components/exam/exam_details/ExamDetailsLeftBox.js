@@ -43,7 +43,6 @@ export default function ExamDetailsLeftBox() {
     })
   const {examDetailsById, allExamData, allCollegeData}=useSelector(state=>state.common)
   const [pData, setPData] = useState(examDetailsById?.descriptionDetails?.exam_intimation_slip_description)
-  console.log(examDetailsById)
   const updateActive = (p, index)=>{
     setLinkIndex(index)
     setPData(p)
