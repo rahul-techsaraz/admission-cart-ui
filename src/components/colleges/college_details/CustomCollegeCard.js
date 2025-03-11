@@ -18,7 +18,7 @@ export const CustomCollegeCard = ({college,isSwiper}) => {
             }
         }
   return (
-    <div className={isSwiper ? "col-12" : "col-lg-4"}>
+    <div className={isSwiper ? "col-12" : "col-lg-3"}>
                 <div className='collage_card_main_box'>
                     <div className='collage_card_1stimgbox'>
                         <img src={constants.imageAbsolutePath+college?.college_thumbnail} className='collages_card_images_img' alt="College Thumbnail"/>

@@ -23,12 +23,8 @@ const CourseList = () => {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        640:{
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        460:{
-            slidesPerView: 1,
+        576:{
+            slidesPerView: 2,
             spaceBetween: 20,
         },
       };
@@ -45,7 +41,11 @@ const CourseList = () => {
                 <h3 className="course-slider_h3text">Tranding Courses</h3>
                 <div className="course-slider">
                     <div className="swiper-wrapper position-relative">
+<<<<<<< Updated upstream
                         <CustomSwiper navigationNext='.courselist-button-next' className='customswiperwraper' navigationPrev='.courselist-button-prev' noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+=======
+                        <CustomSwiper navigationNext='.courselist-button-next' navigationPrev='.courselist-button-prev' noOfSlidesPerView={1} autoplay={2000} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+>>>>>>> Stashed changes
                             {allCollegeData.filter((data)=>data.ratings>=3).map((college)=>(
                             <swiper-slide>
                                 <TrendingCollegesCard college={college} />

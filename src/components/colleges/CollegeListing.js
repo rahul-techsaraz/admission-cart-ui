@@ -378,7 +378,7 @@ export default function CollegeListing() {
 
                     </div>
                     <div className='row pagination-gap'>
-                    <CustomPagination data={allCollegeData} itemsPerPage={6} currentItemsParent={setCollegeData}/>
+                        <CustomPagination data={allCollegeData} itemsPerPage={8} currentItemsParent={setCollegeData}/>
                     </div>
                 </div>
                 

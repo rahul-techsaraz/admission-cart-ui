@@ -72,7 +72,6 @@ export default function CollegeDetails() {
          allCourses: false,
       })
    const {college_id} = useParams()
-   console.log(college_id)
    const {fetchCollege} = useFetchCollegeById()
    const dispatch = useDispatch()
    const {collegeDetailsById,allCourseData, allCollegeData} = useSelector(state=>state.common)
@@ -151,9 +150,9 @@ export default function CollegeDetails() {
           <section class="exam-details-section pt-50">
          <div class="container">
             <div class="row">
-               <div class="col-12">
+               <div class="col-8">
                   <div class="colg-examinfo-leftcol">
-                     {/* <div class="whatsNew-box mb-5">
+                     <div class="whatsNew-box mb-5">
                         <div class="d-flex mb-4 ms-3">
                            <div class="whatsnew-cal-badge">
                               <img src={whatsIcon} alt="" />
@@ -228,7 +227,7 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div> */}
+                     </div>
                      <div class="course-details-left-innerBox mb-5 text-center">
                         <h2 class="imgText-heading mb-4">{collegeDetailsById?.basicDetails?.college_name} Overview</h2>
                         <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_description.length > 300 && readmore.overview === false) ? collegeDetailsById?.descriptionDetails?.college_description.slice(0,300)+"..." : collegeDetailsById?.descriptionDetails?.college_description}</p>
@@ -389,7 +388,7 @@ export default function CollegeDetails() {
                         </span>
                         <h2>{`${collegeDetailsById?.basicDetails?.college_name} Admission ${getCurrentYear()}`}</h2>
                      </div>
-                     <div class="clg-location-infograybx">
+                     <div class="clg-location-infograybx mb-5">
                         <p>{collegeDetailsById?.descriptionDetails?.college_admission_description}</p>
                         <div class="text-start mt-3">
                            <Link class="course-details-readmore-btn btn text-white">Read More</Link>
@@ -1747,190 +1746,7 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div> */}
-                  </div>
-               </div>
-               {/* <div class="col-md-4">
-                  <aside id="courses_details_rightcol" class="courses-details-rightcol">
-                     <div class="courses-details-rightcol-grid">
-                        <h2 class="courses-details-rightcol-grid-title">Photos</h2>
-                        <div class="courses-details-rightcol-gridcontent clg-info-photo-innergrid">
-                           <ul class="d-flex flex-wrap justify-content-between">
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Videos</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="d-flex flex-wrap justify-content-center">
-                              <li class="border-0"><img src={clgInfoVideo1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoVideo1} alt="" /></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Placement</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="clg-info-topcourse-list">
-                              <li class="border-0 pb-0">
-                                 <p class="topcourse-avgfess mb-0">₹19,800,000</p>
-                                 <p class="clginfo-topcourse-title">Highest Package</p>
-                              </li>
-                              <li class="border-0 pb-0">
-                                 <p class="topcourse-avgfess mb-0">₹19,800,000</p>
-                                 <p class="clginfo-topcourse-title">Highest Package</p>
-                              </li>
-                           </ul>
-                           <ul class="placement-company-logolist d-flex justify-content-between mt-3">
-                              <li class="border-0"><img src={companyLogo1} alt="" /></li>
-                              <li class="border-0"><img src={companyLogo2} alt="" /></li>
-                              <li class="border-0"><img src={companyLogo3} alt="" /></li>
-                              <li class="border-0"><img src={companyLogo4} alt="" /></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Scholarship</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <p class="clg-info-scholarship-para mt-4">The university's authorities provide several kinds of scholarships to its students. The Haridwar University scholarship is offered to needy and meritorious students. Students can get to know more details regarding scholarship programs from the table below.</p>
-                           <span class="clg-info-scholarship-badge green-bg d-inline-block px-3 py-1">Institute’s Scholarship</span>
-                           <ul class="clg-info-scholarship-list">
-                              <li class="border-0">Institute Merit-Cum Means Scholarship</li>
-                              <li class="border-0">Institute Free studentship</li>
-                              <li class="border-0">Institute National Prize</li>
-                              <li class="border-0">Institute SC/ST Scholarship</li>
-                              <li class="border-0">Indian Women’s Association at Bonn Scholarship</li>
-                              <li class="border-0">Sri V Ranga Raju Memorial scholarship</li>
-                              <li class="border-0">Kanchi Kamakoti Jagadguru Sri Chandrasekharendra Saraswathi Endowment Award</li>
-                              <li class="border-0">More..</li>
-                           </ul>
-                           <div class="mt-4 mb-3">
-                              <span class="clg-info-scholarship-badge green-bg d-inline-block px-3 py-1">Other Scholarships</span>
-                           </div>
-                           <div>
-                              <span class="clg-info-scholarship-badge green-bg d-inline-block px-3 py-1">FAQs</span>
-                           </div>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Top Courses</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="clg-info-topcourse-list">
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Related News</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <div class="d-inline-flex gap-2 my-3">
-                              <Link class="latest-news-badge">Latest</Link>
-                              <Link class="popular-news-badge">Popular</Link>
-                           </div>
-                           <ul class="courses-details-rightcol-listing">
-                              <li class="d-flex">
-                                 <div class="related-news-postimg">
-                                    <img src={relatedNews} alt="" />
-                                 </div>
-                                 <div class="related-news-postinfo">
-                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
-                                    <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="related-news-postimg">
-                                    <img src={relatedNews} alt="" />
-                                 </div>
-                                 <div class="related-news-postinfo">
-                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
-                                    <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="related-news-postimg">
-                                    <img src={relatedNews} alt="" />
-                                 </div>
-                                 <div class="related-news-postinfo">
-                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
-                                    <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
-                                 </div>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Notification</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="clg-info-noti-listing">
-                              <li><img src={clgLogo3} alt="" />Geetanjali Group of Colleges</li>
-                              <li><img src={clgLogo3} alt="" />Indian Institute of Management Ahmedabad</li>
-                              <li><img src={clgLogo3} alt="" />Biotechnology Engineering</li>
-                              <li><img src={clgLogo3} alt="" />Industrial Design</li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                  </aside>
-               </div> */}
-            
-            </div>
-            <div className='row'>
-               <div className='col-12'>
-              
-               <div class="course-details-alterImgbox d-flex align-items-center">
+                     <div class="course-details-alterImgbox d-flex align-items-center">
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
                            <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
@@ -1940,7 +1756,7 @@ export default function CollegeDetails() {
                            <img src={cdIcon} alt="" />
                         </div>
                      </div>
-                     {/* <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                     <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
                         <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
                         <div class="swiper clg-facilities-slider">
                            <div class="swiper-wrapper position-relative">
@@ -2002,7 +1818,7 @@ export default function CollegeDetails() {
                               </div>
                            </div>
                         </div>
-                     </div> */}
+                     </div>
                      <div class="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
                         <div class="course-details-alterImgbox-col2 position-relative">
                            <img src={cdIcon} alt="" />
@@ -2783,12 +2599,185 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div>
-
-
-
-                     
+                  </div>
                </div>
-             </div>
+               <div class="col-md-4">
+                  <aside id="courses_details_rightcol" class="courses-details-rightcol">
+                     <div class="courses-details-rightcol-grid">
+                        <h2 class="courses-details-rightcol-grid-title">Photos</h2>
+                        <div class="courses-details-rightcol-gridcontent clg-info-photo-innergrid">
+                           <ul class="d-flex flex-wrap justify-content-between">
+                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
+                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
+                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
+                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
+                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
+                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+
+                     {/* <div class="courses-details-rightcol-grid mt-5">
+                        <h2 class="courses-details-rightcol-grid-title">Videos</h2>
+                        <div class="courses-details-rightcol-gridcontent">
+                           <ul class="d-flex flex-wrap justify-content-center">
+                              <li class="border-0"><img src={clgInfoVideo1} alt="" /></li>
+                              <li class="border-0"><img src={clgInfoVideo1} alt="" /></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link> */}
+
+                     <div class="courses-details-rightcol-grid mt-5">
+                        <h2 class="courses-details-rightcol-grid-title">Placement</h2>
+                        <div class="courses-details-rightcol-gridcontent">
+                           <ul class="clg-info-topcourse-list">
+                              <li class="border-0 pb-0">
+                                 <p class="topcourse-avgfess mb-0">₹19,800,000</p>
+                                 <p class="clginfo-topcourse-title">Highest Package</p>
+                              </li>
+                              <li class="border-0 pb-0">
+                                 <p class="topcourse-avgfess mb-0">₹19,800,000</p>
+                                 <p class="clginfo-topcourse-title">Highest Package</p>
+                              </li>
+                           </ul>
+                           <ul class="placement-company-logolist d-flex justify-content-between mt-3">
+                              <li class="border-0"><img src={companyLogo1} alt="" /></li>
+                              <li class="border-0"><img src={companyLogo2} alt="" /></li>
+                              <li class="border-0"><img src={companyLogo3} alt="" /></li>
+                              <li class="border-0"><img src={companyLogo4} alt="" /></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+
+                     {/* <div class="courses-details-rightcol-grid mt-5">
+                        <h2 class="courses-details-rightcol-grid-title">Scholarship</h2>
+                        <div class="courses-details-rightcol-gridcontent">
+                           <p class="clg-info-scholarship-para mt-4">The university's authorities provide several kinds of scholarships to its students. The Haridwar University scholarship is offered to needy and meritorious students. Students can get to know more details regarding scholarship programs from the table below.</p>
+                           <span class="clg-info-scholarship-badge green-bg d-inline-block px-3 py-1">Institute’s Scholarship</span>
+                           <ul class="clg-info-scholarship-list">
+                              <li class="border-0">Institute Merit-Cum Means Scholarship</li>
+                              <li class="border-0">Institute Free studentship</li>
+                              <li class="border-0">Institute National Prize</li>
+                              <li class="border-0">Institute SC/ST Scholarship</li>
+                              <li class="border-0">Indian Women’s Association at Bonn Scholarship</li>
+                              <li class="border-0">Sri V Ranga Raju Memorial scholarship</li>
+                              <li class="border-0">Kanchi Kamakoti Jagadguru Sri Chandrasekharendra Saraswathi Endowment Award</li>
+                              <li class="border-0">More..</li>
+                           </ul>
+                           <div class="mt-4 mb-3">
+                              <span class="clg-info-scholarship-badge green-bg d-inline-block px-3 py-1">Other Scholarships</span>
+                           </div>
+                           <div>
+                              <span class="clg-info-scholarship-badge green-bg d-inline-block px-3 py-1">FAQs</span>
+                           </div>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link> */}
+
+                     <div class="courses-details-rightcol-grid mt-5">
+                        <h2 class="courses-details-rightcol-grid-title">Top Courses</h2>
+                        <div class="courses-details-rightcol-gridcontent">
+                           <ul class="clg-info-topcourse-list">
+                              <li class="d-flex">
+                                 <div class="col-9">
+                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                                 </div>
+                                 <div class="col-3">
+                                    <p class="topcourse-duration text-end">4 Years</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex">
+                                 <div class="col-9">
+                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                                 </div>
+                                 <div class="col-3">
+                                    <p class="topcourse-duration text-end">4 Years</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex">
+                                 <div class="col-9">
+                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                                 </div>
+                                 <div class="col-3">
+                                    <p class="topcourse-duration text-end">4 Years</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex">
+                                 <div class="col-9">
+                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                                 </div>
+                                 <div class="col-3">
+                                    <p class="topcourse-duration text-end">4 Years</p>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+
+                     {/* <div class="courses-details-rightcol-grid mt-5">
+                        <h2 class="courses-details-rightcol-grid-title">Related News</h2>
+                        <div class="courses-details-rightcol-gridcontent">
+                           <div class="d-inline-flex gap-2 my-3">
+                              <Link class="latest-news-badge">Latest</Link>
+                              <Link class="popular-news-badge">Popular</Link>
+                           </div>
+                           <ul class="courses-details-rightcol-listing">
+                              <li class="d-flex">
+                                 <div class="related-news-postimg">
+                                    <img src={relatedNews} alt="" />
+                                 </div>
+                                 <div class="related-news-postinfo">
+                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
+                                    <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex">
+                                 <div class="related-news-postimg">
+                                    <img src={relatedNews} alt="" />
+                                 </div>
+                                 <div class="related-news-postinfo">
+                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
+                                    <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex">
+                                 <div class="related-news-postimg">
+                                    <img src={relatedNews} alt="" />
+                                 </div>
+                                 <div class="related-news-postinfo">
+                                    <p class="related-news-posttitle">How to Prepare Physics for JEE Mains 2024 - Expert Advice & Preparation.... <Link>Read More</Link> </p>
+                                    <p class="related-news-postdate">Sept 20, 2023 | By: Someone</p>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link> */}
+
+                     <div class="courses-details-rightcol-grid mt-5">
+                        <h2 class="courses-details-rightcol-grid-title">Notification</h2>
+                        <div class="courses-details-rightcol-gridcontent">
+                           <ul class="clg-info-noti-listing">
+                              <li><img src={clgLogo3} alt="" />Geetanjali Group of Colleges</li>
+                              <li><img src={clgLogo3} alt="" />Indian Institute of Management Ahmedabad</li>
+                              <li><img src={clgLogo3} alt="" />Biotechnology Engineering</li>
+                              <li><img src={clgLogo3} alt="" />Industrial Design</li>
+                           </ul>
+                        </div>
+                     </div>
+                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+
+                  </aside>
+               </div>
+            </div>
          </div>
       </section>
       </>

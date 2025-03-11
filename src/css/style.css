@@ -1741,6 +1741,7 @@ select.form-select {
 }
 .copy-right-text{
   font-size: 14px;
+  color: var(--color-white);
 }
 .copy-right-text span{
   font-weight: 600;
