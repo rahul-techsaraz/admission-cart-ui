@@ -21,10 +21,7 @@ import CustomCourseCard from './CustomCourseCard';
 export default function CourseCard({data}) {
     const {allCourseData} = useSelector(state=>state.common)
     const [courseData, setCourseData] = useState([])
-    const courseImage = {
-        image : '',
-        course : '',
-    }
+    
     useEffect(()=>{
         if(data){
             setCourseData(data)
@@ -34,7 +31,6 @@ export default function CourseCard({data}) {
     <>
         <div className="row">
         {courseData.map((course)=>(
-            
             <CustomCourseCard course={course} isSwiper={false}/>
         ))}
         </div>

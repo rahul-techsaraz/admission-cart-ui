@@ -5,6 +5,7 @@ import scollarship from '../images/scholarship-icon.svg'
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import TrendingCourseCard from "../utils/Constants/custom-components/trendingCourseCard/TrendingCourseCard";
 
 
 const TrandingSection  = () => {
@@ -27,16 +28,8 @@ const TrandingSection  = () => {
                                 <div className="swiper-wrapper">
                                     <CustomSwiper navigationNext={".trending-button-next"} navigationPrev={".trending-button-prev"} noOfSlidesPerView={1} isBreakPoint={false}>
                                         {allCourseData.map((course)=>(
-                                            <swiper-slide>
-                                            <div className="swiper-slide">
-                                                <div className="course-box text-start course_box_childtext">
-                                                    <img src={scollarship} className="scollarship-icon" alt="" />
-                                                    <div className="course-name-text"><p className="course-name mb-1">{course.course_name}<br /> Management</p></div>
-                                                    {/* <p className="course-numbering mb-2">01.</p> */}
-                                                    <p className="course-para text-start p-0">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor</p>
-                                                    <Link className="course-readmore-btn course-readmore-btn-position" to={'/courses_list'}>Read More <img src={rightArrow} alt="" /></Link>
-                                                </div>
-                                            </div>
+                                        <swiper-slide>
+                                            <TrendingCourseCard course={course}/>    
                                         </swiper-slide>
                                         ))}
                                     </CustomSwiper>   
