@@ -4,6 +4,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import './trendingCollegeCard.css'
 import { useDispatch } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../../features/commonSlice';
+import { useDispatch } from 'react-redux';
+import { toggelIsLoginPopup } from '../../../../features/commonSlice';
 
 const TrendingCollegesCard = ({college}) => {
     const [isHidden, setIsHidden] = useState(false)
@@ -21,6 +23,29 @@ const TrendingCollegesCard = ({college}) => {
     }
     return (
         <div className='swiper-child' onMouseEnter={()=>setIsHidden(true)} onMouseLeave={()=>setIsHidden(false)}>
+            <div className="col-12">
+                <div className="clg-listing-box">
+                    <div className='course_card_main_box'>
+                        <div className='course_card_1stimgbox'>
+                            <img src={constants.imageAbsolutePath+college?.college_thumbnail} className='course_card_images_img' alt="College Thumbnail"/>
+                            <div className='course_card_1stimgbox_text_logo_parents'>
+                                <div className='course_card_1stimgbox_text_logo'>
+                                    <img className='course_card_1stimgbox_img_logo_logo_img' src={constants.imageAbsolutePath+college?.college_logo} alt="college Logo"/>
+                                    <div className='course_card_2ndtextbox_rating'>
+                                        <p className='course_card_2ndtextbox_rating_star_number'><i class="fa-solid fa-star"></i> {college?.ratings}/5</p>
+                                        <p className='course_card_2ndtextbox_reviews'>{getRandomInt(1, 300)}+ reviews</p>
+                                    </div>
+                                </div>
+                                <div className='course_card_1stimgbox_img_logo'>
+                                    <div className='course_card_1stimgbox_img_logo_logo'>
+                                        <div className='course_card_1stimgbox_img_logo_collages_name_address'>
+                                            <h2 className='course_card_1stimgbox_img_logo_collages_name'>{college?.college_name}</h2>
+                                            <p className='course_card_1stimgbox_img_logo_collages_address'>{college?.city+", "+college?.state}</p>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
             <div className="col-12">
                 <div className="clg-listing-box">
                     <div className='course_card_main_box'>
