@@ -22,7 +22,7 @@ export default function ExamCard({data}) {
     <>
         
             {examData.map((exam)=>(
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="exam-listing-box position-relative">
                     <p class="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
                     <div class="exam-listing-box-content">
@@ -98,7 +98,7 @@ export default function ExamCard({data}) {
             </div>
             ))}
         <div class="row">
-            <CustomPagination data={allExamData} itemsPerPage={6} currentItemsParent={setExamData}/>
+            <CustomPagination data={allExamData} itemsPerPage={8} currentItemsParent={setExamData}/>
         </div>
     </>
   )

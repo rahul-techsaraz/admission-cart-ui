@@ -7,7 +7,7 @@ const CustomCourseCard = ({course,isSwiper}) => {
     //     console.log(course)
     // },[course])
   return (
-    <div className={isSwiper ? 'col-12' : "col-md-4"}>
+    <div className={isSwiper ? 'col-12' : "col-md-3"}>
                 <Link to={`/courses_details/${course.course_id}`}>
                 <div className="course-listing-box align-items-center mb-4">
                     <div className="course-post-contentBx">
