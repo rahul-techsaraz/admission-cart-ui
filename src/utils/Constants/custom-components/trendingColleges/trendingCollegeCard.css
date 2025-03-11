@@ -16,12 +16,16 @@
   .swiper-child{
     background-color: inherit;
     position: relative;
+    border-radius: 30px 30px 30px 0px;
   }
+
   .swiper-child:hover{
-    background-color: inherit;
+    /* background-color: inherit; */
     position: relative;
     transform: scale(1.25);
     z-index: 9999;
+    border-radius: 30px 30px 30px 0px;
+    background-color: #FED626;
   }
   .clg-listing-box-2{
     border-radius: 20px;
@@ -200,4 +204,63 @@
   .hidden{
     display: none;
   }
+  .course-slider_h3text{
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 35px;
+  }
 
+  /* .customswiperwraper:nth-child(3n+1){
+    background-color: orange !important;
+  }
+  .swiper-child:nth-child(2n+1):hover{
+    background-color: red;
+  } */
+
+  /* .course-slider .swiper-slide:nth-child(2n) {
+    background-color: var(--color-green);
+  }
+
+  .course-slider .swiper-slide:nth-child(2n+1) {
+    background-color: var(--color-yellow);
+  } */
+
+  .course-slider swiper-container swiper-slide:nth-child(2n){
+    background-color: #FED626;
+  }
+
+  .course-slider swiper-container swiper-slide:nth-child(2n+1){
+    background-color: #5BE4A8;
+  }
+
+  .course-slider swiper-container swiper-slide .swiper-child:nth-child(2){
+    background-color: #FED626;
+  }
+  .course-slider swiper-container swiper-slide .swiper-child:nth-child(3){
+    background-color: #272003;
+  }
+
+  /* .course-slider swiper-container swiper-slide .swiper-child:nth-child(2n+1){
+    background-color: #5BE4A8;
+  } */
+
+
+/* 
+  .course-slider swiper-container swiper-slide .swiper-child .course_card_2ndtextbox:nth-child(odd){
+    background-color: #FED626;
+  }
+
+  .course-slider swiper-container swiper-slide .swiper-child .course_card_2ndtextbox:nth-child(even){
+    background-color: #5BE4A8;
+  } */
+
+
+  /* .course-slider swiper-container swiper-slide:nth-child(odd).swiper-child:hover{
+    background-color: #FED626;
+  } */
+
+  /* .course-slider swiper-container swiper-slide:nth-child(even) {
+    background-color: #5BE4A8;
+} */

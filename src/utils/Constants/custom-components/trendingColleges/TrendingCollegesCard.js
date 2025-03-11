@@ -51,7 +51,7 @@ const TrendingCollegesCard = ({college}) => {
                                 </span>
                             </div>
                         </Link>
-                        <div className={isHidden ? 'course-name_download_brochure_parents_box' : 'hidden'}>
+                        <div className={isHidden ? 'course-name_download_brochure_parents_box pb-5' : 'hidden'}>
                             Download Brochure
                             <span className='course-name_courses_fees_parents_box_icon'>
                                 <i class="fa-solid fa-angle-right"></i>

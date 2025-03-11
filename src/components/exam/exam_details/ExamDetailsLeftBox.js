@@ -192,7 +192,7 @@ export default function ExamDetailsLeftBox() {
               <p className="text-center">{examDetailsById?.examDetails?.counselling_dates == '' ? 'To Be Announced' : examDetailsById?.examDetails?.counselling_dates}</p>
             </div>
           </div>
-          <div className="clg-accepting-slider-wrapper position-relative yellow-bg px-4 pt-5 mt-5 mb-5">
+          <div className="clg-accepting-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
             <h2 className="section-heading2 grey text-center mb-5">{`Top ${examDetailsById?.examBasicDetails?.category_name} Colleges`}</h2>
             <div className="swiper clg-slider">
               {/* <!-- Additional required wrapper --> */}

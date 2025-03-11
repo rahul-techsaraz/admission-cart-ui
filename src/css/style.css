@@ -924,7 +924,7 @@ ul.mega_menu {
   margin-bottom: 20px;
 }
 .course-box-heigh-set{
-  height: 490px;
+  height: 380px;
   border: 7px solid #fff;
 }
 /* .trending-course-box .course-box {
@@ -946,6 +946,10 @@ ul.mega_menu {
     background: #FFF;
     /* box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25); */
 }
+.course-box-heigh-set:hover{
+  background-color: #ffdd49;
+}
+
 .scollarship-icon{
   width: 43px;
 }
@@ -1161,6 +1165,10 @@ p.course-para {
   padding: 80px 50px;
   border-radius: 30px;
   overflow: hidden;
+  box-shadow: 3px 3px 10px #000000;
+  /* border: 2px solid #FED626; */
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 3px solid #5be4a8;
 }
 .trending-course-box .course-readmore-btn{
   background-color: var(--color-green);
@@ -3199,6 +3207,7 @@ ul.exam-imp-list {
   font-weight: 400;
   line-height: 30px;
   color: var(--color-grey);
+  text-align: justify;
 }
 .section-heading2.grey{
   color: #404040;
@@ -3420,7 +3429,7 @@ ul.exam-imp-list {
   line-height: 24px;
   width: fit-content;
   margin: 0 auto;
-  padding: 8px 50px
+  padding: 8px 50px;
 }
 .undraw_img{
   width: 550px;
@@ -3442,6 +3451,7 @@ ul.exam-imp-list {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-align: justify;
 }
 
 .swiper.management-clg-slider {
@@ -3981,11 +3991,11 @@ p.clg-location {
   min-height: 60px;
 }
 .course-box-img{
-  min-height: 15%;
+  min-height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .course-numbering{
   font-size: 20px;
@@ -3993,28 +4003,91 @@ p.clg-location {
 .course-box_parent3-child{
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #000;
 }
 .course-box_parent3-child2{
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  border-bottom: 1px solid #000;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 .course-box_parent3-child3{
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 .course-box-prents3-child-in-child1-confirmed{
   padding: 2px 5px;
-  background-color: var(--color-yellow);
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   display: inline-flex;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  position: relative;
+  font-size: 16px;
+}
+/* .course-box-heigh-set:hover .course-readmore-btn{
+  border: 2px solid #fff;
+} */
+.tranding_tooltip .tooltiptext {
+  /* visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 5px;
+  margin-top: 50px;
+  font-size: 14px;
+
+  position: absolute;
+  z-index: 9999; */
+  visibility: hidden;
+  /* width: 120px; */
+  background-color: #5be4a8;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 5px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+  font-size: 13px;
+}
+
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #5be4a8 transparent transparent;
+}
+
+.course-box_parent3-child:hover .tooltiptext {
+  visibility: visible;
+}
+.course-box_parent3-child2:hover .tooltiptext {
+  visibility: visible;
+
+
+}
+/* .course-box-heigh-set:hover .tranding_exam_details_heading{
+  color: #5be4a8;
+} */
+
+
+
+.course-box-prents3-child-in-child1{
+  display: flex;
+  gap: 5px;
 }
 .course-box-p-parent2{
   min-height: 20%;
@@ -5872,6 +5945,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   height: auto;
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.25);
   margin-bottom: 50px;
+  background: #fff;
 }
 .collage_card_1stimgbox{
   width: 100%;
