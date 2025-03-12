@@ -1,19 +1,19 @@
-const httpFetch = async (url,method,header,body)=>{
-    if(method !== 'get'){
-        const data = await fetch(url,{
-            method : method,
-            headers: header,
-            body:  body ? JSON.stringify(body) : ''
-        })
-        const fetchData = await data.json()
-        return fetchData
-    }else{
-        const data = await fetch(url,{
-            method : method,
-            headers: header,
-        })
-        const fetchData = await data.json()
-        return fetchData
-    }
-}
-export default httpFetch
+const httpFetch = async (url, method, header, body) => {
+  if (method !== 'get') {
+    const data = await fetch(url, {
+      method: method,
+      headers: header,
+      body: body ? JSON.stringify(body) : '',
+    });
+    const fetchData = await data.json();
+    return fetchData;
+  } else {
+    const data = await fetch(url, {
+      method: method,
+      headers: header,
+    });
+    const fetchData = await data.json();
+    return fetchData;
+  }
+};
+export default httpFetch;

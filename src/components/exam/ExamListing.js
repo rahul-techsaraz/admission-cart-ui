@@ -1,5 +1,5 @@
-import React from 'react'
-import ExamBanner from './ExamBanner'
+import React from 'react';
+import ExamBanner from './ExamBanner';
 import examCalenderImage from '../../images/calendar-icon.svg';
 import examOverviewImage from '../../images/overview-icon.svg';
 import examImpDateImage from '../../images/imp-date-icon.svg';
@@ -12,19 +12,15 @@ import { useSelector } from 'react-redux';
 import ExamCard from './exam_details/ExamCard';
 import CustomFaq from '../colleges/CustomFaq';
 
-
-
-
-
 export default function ExamListing() {
-    const {allExamData} = useSelector(state=>state.common)
-    return (
-        <>
-            <ExamBanner />
-         <section class="exam-listing-section mb-5">
-        <div class="container">
-            <div class="row">
-                {/* <div class="col-md-3">
+  const { allExamData } = useSelector((state) => state.common);
+  return (
+    <>
+      <ExamBanner />
+      <section className="exam-listing-section mb-5">
+        <div className="container">
+          <div className="row">
+            {/* <div class="col-md-3">
                     <aside class="filter-col">
                         <div class="accordion" id="streams_accordion">
                             <div class="accordion-item border-0">
@@ -175,8 +171,8 @@ export default function ExamListing() {
                      </aside>
 
                 </div> */}
-                <div class="col-12">
-                    {/* <div class="row">
+            <div className="col-12">
+              {/* <div class="row">
                         <div class="col-12">
                             <div class="applied-fliter-o d-flex align-items-center justify-content-between mb-4">
                                 <div class="applied-filter d-inline-flex align-items-center">
@@ -194,9 +190,9 @@ export default function ExamListing() {
                             </div>
                         </div>
                     </div> */}
-                    <div class="row">
-                        <ExamCard />
-                        {/* <div class="col-lg-4 col-md-6">
+              <div className="row">
+                <ExamCard />
+                {/* <div class="col-lg-4 col-md-6">
                             <div class="exam-listing-box position-relative">
                                 <p class="exam-name-listing-box d-inline-block">JEE Main 2024</p>
                                 <div class="exam-listing-box-content">
@@ -538,13 +534,12 @@ export default function ExamListing() {
                                 <Link class="register-btn yellow-bg"><img src={examRegisterIconImage} alt="" /> Register Now</Link>
                             </div>
                         </div> */}
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-    <CustomFaq/>
-      </>
-   
-  )
+      </section>
+      <CustomFaq />
+    </>
+  );
 }
