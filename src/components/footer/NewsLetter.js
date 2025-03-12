@@ -19,7 +19,12 @@ const NewsLetter = () => {
               <form action="">
                 <div className="row">
                   <div className="col-md-6">
-                    <input type="email" className="form-control newsletter-input" id="email" placeholder="Email address" />
+                    <input
+                      type="email"
+                      className="form-control newsletter-input"
+                      id="email"
+                      placeholder="Email address"
+                    />
                   </div>
                   <div className="col-md-6">
                     <button type="submit" className=" newsletter-btn w-100">
