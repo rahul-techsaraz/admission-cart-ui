@@ -7,19 +7,19 @@ const CustomCourseCard = ({course,isSwiper}) => {
     //     console.log(course)
     // },[course])
   return (
-    <div className={isSwiper ? 'col-12' : "col-md-3"}>
+    <div className={isSwiper ? 'col-12' : "col-md-4 col-lg-3"}>
                 <Link to={`/courses_details/${course.course_id}`}>
                 <div className="course-listing-box align-items-center mb-4">
                     <div className="course-post-contentBx">
-                        <div className="course-box-img">
+                        {/* <div className="course-box-img">
                             <img src="/static/media/scholarship-icon.a58590de458b29a1a0ffcd163c4c712a.svg" class="scollarship-icon" alt="Course Image"/>
-                        </div>
+                        </div> */}
                         <div className='course-box-heading'>
                             <h2 className="course-title">{course?.course_name}</h2>
                         </div>
-                        <div className='course-box-para'>
+                        {/* <div className='course-box-para'>
                             <p className="course-para">{course?.course_description.length > 150 ? `${course?.course_description.slice(0, 150)}...` : course?.course_description}</p>
-                        </div>
+                        </div> */}
                         {/* <div className='course-box-link'>
                             <Link className="course-moredetails-btn" to={`/courses_details/${course.course_id}`}>More Details</Link>
                         </div> */}
