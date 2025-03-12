@@ -3,12 +3,14 @@ import rightArrow from '../images/arrow-right-icon.svg';
 import leftArrow from '../images/arrow-left-icon.svg';
 import { swiperResponsive } from "../utils/Constants/swiperResponsive";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import constants from "../utils/Constants/constants";
 import TrendingCollegesCard from "../utils/Constants/custom-components/trendingColleges/TrendingCollegesCard";
+import CustomeCrousel from "../utils/Constants/custom-components/CustomeCrousel";
 
 const CourseList = () => {
+    
     const {allCollegeData} = useSelector(state=>state.common)
     const responsive = {
         1400:{
@@ -32,36 +34,19 @@ const CourseList = () => {
             spaceBetween: 20,
         },
       };
-    const getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-    }
     
     return(
         <>
         <section className="course-slider-section text-center section-padding">
             <div className="container">
                 <h3 className="course-slider_h3text">Tranding Courses</h3>
-                <div className="course-slider">
-                    <div className="swiper-wrapper position-relative">
-                        <CustomSwiper navigationNext='.courselist-button-next' navigationPrev='.courselist-button-prev' noOfSlidesPerView={1} autoplay={2000} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                            {allCollegeData.filter((data)=>data.ratings>=3).map((college)=>(
-                            <swiper-slide>
-                                <TrendingCollegesCard college={college} />
-                            </swiper-slide>
-                            ))}
-                        </CustomSwiper>
-                        <div class="swiper-button-prev courselist-button-prev">
-                            <img src={leftArrow} alt="" />
-                        </div>
-                        <div class="swiper-button-next courselist-button-next">
-                            <img src={rightArrow} alt="" />
-                        </div>
-                    </div>
+                <div className="row course-list">
+                    <CustomeCrousel data={allCollegeData.filter((data)=>data.ratings>=3)} itemsPerView={4} CardComponent={TrendingCollegesCard} ishidden={true}/>
+                    {/* {allCollegeData.filter((data)=>data.ratings>=3).map((college, index)=>(
+                        <TrendingCollegesCard college={college} ishidden={true} index={index}/>
+                    ))} */}
                 </div>
             </div>
-            
         </section>
         </>
     )

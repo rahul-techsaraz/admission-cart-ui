@@ -36,73 +36,73 @@ const LandingContainer = () => {
                                         </swiper-slide>
                                     ))} */}
                                     <swiper-slide>
-                                            <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[0]})` }}>
-                                                <div className="banner-caption">
-                                                    <h1 className="text-center">
-                                                        <span className="d-block">From</span>
-                                                        College Admissions to <strong className="d-block">Being Job Ready</strong>
-                                                    </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                                                        {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:true}))}>Get Started</Link> */}
-                                                        <form className="banner1_searchbutton_button">
-                                                           <input type="text" placeholder="Search.." name="search"/>
-                                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                                        </form>
-                                                    </div>
+                                        <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[0]})` }}>
+                                            <div className="banner-caption">
+                                                <h1 className="text-center">
+                                                    <span className="d-block">From</span>
+                                                    College Admissions to <strong className="d-block">Being Job Ready</strong>
+                                                </h1>
+                                                <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
+                                                    {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:true}))}>Get Started</Link> */}
+                                                    <form className="banner1_searchbutton_button">
+                                                        <input type="text" placeholder="Search.." name="search"/>
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </swiper-slide>
-                                        <swiper-slide>
-                                            <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[1]})` }}>
-                                                <div className="banner-caption" id='banner2-caption-right-position'>
-                                                    <h1 className="text-center">
-                                                        <span className="d-block">From</span>
-                                                        College Admissions to <strong className="d-block">Being Job Ready</strong>
-                                                    </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                                                        {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
-                                                        <form className="banner1_searchbutton_button">
-                                                           <input type="text" placeholder="Search.." name="search"/>
-                                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                                        </form>
-                                                    </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[1]})` }}>
+                                            <div className="banner-caption" id='banner2-caption-right-position'>
+                                                <h1 className="text-center">
+                                                    <span className="d-block">From</span>
+                                                    College Admissions to <strong className="d-block">Being Job Ready</strong>
+                                                </h1>
+                                                <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
+                                                    {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
+                                                    <form className="banner1_searchbutton_button">
+                                                        <input type="text" placeholder="Search.." name="search"/>
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </swiper-slide>
-                                        <swiper-slide>
-                                            <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[2]})` }}>
-                                                <div className="banner-caption" id='banner3-caption-right-position'>
-                                                    <h1 className="text-center">
-                                                        <span className="d-block">From</span>
-                                                        College Admissions to <strong className="d-block">Being Job Ready</strong>
-                                                    </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                                                        {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
-                                                        <form className="banner1_searchbutton_button">
-                                                           <input type="text" placeholder="Search.." name="search"/>
-                                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                                        </form>
-                                                    </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[2]})` }}>
+                                            <div className="banner-caption" id='banner3-caption-right-position'>
+                                                <h1 className="text-center">
+                                                    <span className="d-block">From</span>
+                                                    College Admissions to <strong className="d-block">Being Job Ready</strong>
+                                                </h1>
+                                                <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
+                                                    {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
+                                                    <form className="banner1_searchbutton_button">
+                                                        <input type="text" placeholder="Search.." name="search"/>
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </swiper-slide>
-                                        <swiper-slide>
-                                            <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[3]})` }}>
-                                                <div className="banner-caption" id='banner4-caption-right-position'>
-                                                    <h1 className="text-center">
-                                                        <span className="d-block">From</span>
-                                                        College Admissions to <strong className="d-block">Being Job Ready</strong>
-                                                    </h1>
-                                                    <div className="banner-btn-grp text-center mt-5 md-mt-2 mt-lg-4">
-                                                        {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
-                                                        <form className="banner1_searchbutton_button">
-                                                           <input type="text" placeholder="Search.." name="search"/>
-                                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                                        </form>
-                                                    </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div className="swiper-slide banner1" style={{ backgroundImage: `url(${tarndingBanner[3]})` }}>
+                                            <div className="banner-caption" id='banner4-caption-right-position'>
+                                                <h1 className="text-center">
+                                                    <span className="d-block">From</span>
+                                                    College Admissions to <strong className="d-block">Being Job Ready</strong>
+                                                </h1>
+                                                <div className="banner-btn-grp text-center mt-5 md-mt-2 mt-lg-4">
+                                                    {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
+                                                    <form className="banner1_searchbutton_button">
+                                                        <input type="text" placeholder="Search.." name="search"/>
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </swiper-slide>
+                                        </div>
+                                    </swiper-slide>
                                 </CustomSwiper>
                                 <div className="swiper-button-next banner-button-next">
                                     <img src={rightArrow} alt="" />

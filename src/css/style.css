@@ -5574,7 +5574,29 @@ label #cancel{
   gap: 5px;
 }
 
+/* Crousel button css */
 
+.crousel-btn-prev,
+.crousel-btn-next{
+  background: var(--color-green);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 50%;
+}
+.crousel-btn-prev{
+  left: -40px;
+}
+.crousel-btn-next{
+  right: -40px;
+}
 /* Scroll button css */
 
 .scroll-btn{

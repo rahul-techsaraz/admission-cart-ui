@@ -7,26 +7,58 @@
     -webkit-box-sizing: border-box;
     margin: 0;
   }
-
+  @keyframes collegeList{
+    0% {
+      transform: scale(1) translateY(0px);
+      /* opacity: 0; */
+    }
+  100% {
+      transform: scale(1.3) translateY(-20px);
+      /* opacity: 100%; */
+  }
+  }
+  
+  /* .course-list :nth-child(odd){
+    background-color: var(--color-yellow);
+  }
+  .course-list :nth-child(even){
+    background-color: var(--color-green);
+  } */
+   .course-list{
+    position: relative;
+   }
+  .bg-yellow{
+    background-color: var(--color-yellow);
+  }
+  .bg-green{
+    background-color: var(--color-green);
+  }
   .clg-listing-box {
-    border-radius: 20px;
+    border-radius: 30px 30px 30px 0px;
     overflow: hidden;
     height: 100%;
+    transition-delay: 300ms;
+    transition: .5s ease-in-out;
+  }
+  .clg-listing-box:hover{
+    transform: scale(1.25);
+    transition: .5s ease-in-out;
+    transition-delay: 300ms;
+    z-index: 9999;
+    position: relative;
+    animation-name: collegeList;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .swiper-child{
-    background-color: inherit;
-    position: relative;
+    /* background-color: red; */
+    /* position: relative; */
     border-radius: 30px 30px 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
-  .swiper-child:hover{
-    /* background-color: inherit; */
-    position: relative;
-    transform: scale(1.25);
-    z-index: 9999;
-    border-radius: 30px 30px 30px 0px;
-    background-color: #FED626;
-  }
   .clg-listing-box-2{
     border-radius: 20px;
     overflow: hidden;
@@ -227,7 +259,7 @@
     background-color: var(--color-yellow);
   } */
 
-  .course-slider swiper-container swiper-slide:nth-child(2n){
+  /* .course-slider swiper-container swiper-slide:nth-child(2n){
     background-color: #FED626;
   }
 
@@ -240,7 +272,7 @@
   }
   .course-slider swiper-container swiper-slide .swiper-child:nth-child(3){
     background-color: #272003;
-  }
+  } */
 
   /* .course-slider swiper-container swiper-slide .swiper-child:nth-child(2n+1){
     background-color: #5BE4A8;
