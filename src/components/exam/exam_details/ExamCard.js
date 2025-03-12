@@ -22,13 +22,13 @@ export default function ExamCard({data}) {
     <>
         
             {examData.map((exam)=>(
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="exam-listing-box position-relative">
                     <p class="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
                     <div class="exam-listing-box-content">
 
 
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between text-center">
                         <div class="d-flex gap-2 mb-3 flex-column application-exam-date-text">
                             <div className='calender-icon-circle-parent'>
                             <span class="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
@@ -59,7 +59,7 @@ export default function ExamCard({data}) {
 
                         <ul class="exam-imp-list">
                             <li className="exam-imp-list-width-50">
-                                <div className='d-flex align-items-center gap-2'>
+                                <div className='d-flex align-items-center gap-2 lg-gap-1 xl-gap-2'>
                                     <img src={examOverviewImage} alt="" />
                                     Overview
                                 </div>
@@ -92,13 +92,14 @@ export default function ExamCard({data}) {
                         {/* <button className='examcard_applynow_button'>Apply Now</button> */}
 
                     </div>
-                    <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>
-                    <Link class="exam-apply-btn examcard_applynow_button yellow-bg" to={`/exam_details/${exam?.exam_id}`}>Apply Now</Link>
+                    {/* <Link class="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>
+                    <Link class="exam-apply-btn examcard_applynow_button yellow-bg" to={`/exam_details/${exam?.exam_id}`}>Apply Now</Link> */}
+                    <div className='course-readmore-btn course-readmore-btn2 course-card-hover'>Enquire Now </div>
                 </div>
             </div>
             ))}
         <div class="row">
-            <CustomPagination data={allExamData} itemsPerPage={6} currentItemsParent={setExamData}/>
+            <CustomPagination data={allExamData} itemsPerPage={8} currentItemsParent={setExamData}/>
         </div>
     </>
   )

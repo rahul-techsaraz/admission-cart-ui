@@ -35,7 +35,7 @@ export default function CourseCard({data}) {
         ))}
         </div>
         <div className="row pagination-gap">
-            <CustomPagination data={allCourseData} itemsPerPage={6} currentItemsParent={setCourseData}/>
+            <CustomPagination data={allCourseData} itemsPerPage={8} currentItemsParent={setCourseData}/>
         </div>
     </>
   )

@@ -11,13 +11,13 @@ export default function CollegeBannerSection() {
    const {collegeDetailsById} = useSelector(state=>state.common)
   return (
     <section class="clg-infobanner-section text-center pb-5 position-relative" style={{width:'100%', height:'250px'}}>
-         <img src={constants.imageAbsolutePath+collegeDetailsById?.basicDetails?.college_thumbnail} class="h-1/2" alt="" style={{width:'100%', maxHeight:'250px', objectFit:"contain"}}/>
+         <img src={constants.imageAbsolutePath+collegeDetailsById?.basicDetails?.college_thumbnail} class="h-1/2" alt="" style={{width:'100%', maxHeight:'250px'}}/>
          <div class="clg-banner-greenbox collage-green-box">
             <div class="container">
                <div class="row">
                   
                   <div class="clglisting-clglogo col-2" style={{width:"92px", height:'92px'}}>
-                     <img src={constants.imageAbsolutePath+collegeDetailsById?.basicDetails?.college_logo} alt="" style={{width:'100%', height:'100%', objectFit:"contain"}}/>
+                     <img src={constants.imageAbsolutePath+collegeDetailsById?.basicDetails?.college_logo} alt="" style={{width:'100%', height:'100%'}}/>
                   </div>
                   <div class="container green-bg col-10">
                <div class="row align-items-center">

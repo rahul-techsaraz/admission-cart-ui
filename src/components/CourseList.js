@@ -42,9 +42,10 @@ const CourseList = () => {
         <>
         <section className="course-slider-section text-center section-padding">
             <div className="container">
+                <h3 className="course-slider_h3text">Tranding Courses</h3>
                 <div className="course-slider">
                     <div className="swiper-wrapper position-relative">
-                        <CustomSwiper navigationNext='.courselist-button-next' navigationPrev='.courselist-button-prev' noOfSlidesPerView={4} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
+                        <CustomSwiper navigationNext='.courselist-button-next' navigationPrev='.courselist-button-prev' noOfSlidesPerView={1} autoplay={2000} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
                             {allCollegeData.filter((data)=>data.ratings>=3).map((college)=>(
                             <swiper-slide>
                                 <TrendingCollegesCard college={college} />

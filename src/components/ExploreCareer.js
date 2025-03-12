@@ -14,7 +14,7 @@ const ExploreCareer = () => {
     const{allExamData}= useSelector(state=>state.common)
     const responsive = {
         1400:{
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 10,
         },
         1024:{
