@@ -15,7 +15,7 @@ const TrandingSection  = () => {
         <>
          <section className="trending-course-section">
         <div className="container">
-            <div className="trending-course-box position-relative">
+            <div className="trending-course-box position-relative tranding_courses_box_heighset">
                 <div className="row align-items-center">
                     <div className="col-12 col-lg-6">
                         <h2 className="text-white text-center text-lg-start mb-5 mb-lg-0 position-relative z-1">Trending Courses</h2>
@@ -24,7 +24,7 @@ const TrandingSection  = () => {
                     
                     <div className="col-12 col-md-9 col-lg-5 mx-auto ms-lg-auto">
                         <div className="trending-slider-wrapper position-relative">
-                            <div className="swiper trending-course-slider bg-white">
+                            <div className="swiper trending-course-slider bg-white tranding_border_radius">
                                 <div className="swiper-wrapper">
                                     <CustomSwiper navigationNext={".trending-button-next"} navigationPrev={".trending-button-prev"} noOfSlidesPerView={1} isBreakPoint={false}>
                                         {allCourseData.map((course)=>(

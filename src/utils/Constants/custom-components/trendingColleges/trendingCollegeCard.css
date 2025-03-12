@@ -264,3 +264,8 @@
   /* .course-slider swiper-container swiper-slide:nth-child(even) {
     background-color: #5BE4A8;
 } */
+
+
+.tranding_border_radius{
+  border-radius: 0 50px 0 0;
+}
