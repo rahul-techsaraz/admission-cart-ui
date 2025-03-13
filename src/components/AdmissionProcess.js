@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import arrowRightIcon from '../images/arrow-right-icon.svg';
 const AdmissionProcess = () => {
   return (
-    <section className="admission-process-section">
+    <section className="admission-process-section section-padding">
       <div className="container cust-container">
         <div className="admission-process-bx d-flex align-items-center justify-content-between">
           <div className="admission-process-content">

@@ -22,7 +22,7 @@ export default function CollegeBannerSection() {
       <div class="clg-banner-greenbox collage-green-box">
         <div class="container">
           <div class="row">
-            <div class="clglisting-clglogo col-2" style={{ width: '92px', height: '92px' }}>
+            <div class="clglisting-clglogo col-2" style={{ width: '120px', height: '100%' }}>
               <img
                 src={constants.imageAbsolutePath + collegeDetailsById?.basicDetails?.college_logo}
                 alt=""

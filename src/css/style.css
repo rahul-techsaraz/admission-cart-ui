@@ -786,17 +786,6 @@ ul.mega_menu {
   justify-content: center;
   flex-direction: column;
 }
-.tranding_border_radius{
-  transition: .4s;
-}
-.course_box_childtext
-.tranding_border_radius:hover{
-  transform: scale(1.1);
-  transition: .4s;
-}
-.course-readmore-btn-position{
-  display: none !important;
-}
 .tranding_border_radius:hover .course-readmore-btn-position{
   display: block !important;
 }
@@ -1031,10 +1020,7 @@ p.course-para {
 
 /* admission-process-section
 =========================== */
-.admission-process-section{
-  padding-bottom: 50px;
-  padding-top: 50px;
-}
+
 .admission-process-bx{
   border-radius: 0 0 36px 36px;
   background: #FFF;
@@ -1066,9 +1052,6 @@ p.course-para {
 /* career-process-section
 ============================== */
 
-.career-process-section{
-  padding: 50px 0;
-}
 .process-list li{
   width: 16%;
   padding: 0 0 40px;
@@ -1168,10 +1151,7 @@ p.course-para {
 
 /* trending-course-section
 ============================== */
-.trending-course-section{
-  /* padding-bottom: 80px; */
-  padding: 50px 0;
-}
+
 .trending-course-box{
   background-image: url(../images/trending-bg-img.jpg);
   background-repeat: no-repeat;
@@ -1181,12 +1161,8 @@ p.course-para {
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 3px 3px 10px #000000;
-  /* border: 2px solid #FED626; */
   background-color: rgba(0, 0, 0, 0.5);
   border: 3px solid #5be4a8;
-}
-.tranding_courses_box_heighset{
-  height: 500px;
 }
 .trending-course-box .course-readmore-btn{
   background-color: var(--color-green);
@@ -2252,12 +2228,21 @@ span.milestone-dot {
   border: 1px solid #E0E0E0;
   padding: 0 0 50px;
   margin-bottom: 50px;
+  transition: .3s;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
 }
+.exam-listing-box:hover{
+  border: 1px solid var(--color-green);
+  /* background: #f1f1f1; */
+  transition: .3s;
+  /* background: linear-gradient(to top, #ffffff 0%, #f1f1f1 100%) */
+}
+
 .exam-listing-box-content{
   padding: 0 19px 0;
 }
 .exam-name-listing-box{
-  background: var(--color-light-grey);
+  background: var(--color-green);
   padding: 20px;
   width: 250px;
   border-radius: 0px 0px 30px 0px;
@@ -2351,7 +2336,7 @@ ul.exam-imp-list {
     width: 160px;
   }
   .exam-listing-box-content {
-    padding: 0 20px 0;
+    padding: 0 15px 0;
 }
 }
 
@@ -2400,10 +2385,6 @@ ul.exam-imp-list {
   height: auto;
   position: relative;
 }
-/* .course-post-imgBx,
-.course-post-contentBx{
-  width: 50%;
-} */
 .course-post-imgBx{
   overflow: hidden;
   border-radius: 20px;
@@ -3812,6 +3793,17 @@ ul.exam-imp-list {
   margin-bottom: 5px;
   height: fit-content;
 }
+@media only screen and (min-width: 768px){
+  .clglisting-clglogo{
+    width: 100px !important;
+  }
+}
+
+@media only screen and (min-width: 912px){
+  .clglisting-clglogo{
+    width: 120px !important;
+  }
+}
 .clg-infobanner-section{
   background-color: #fff;
 }
@@ -3934,12 +3926,10 @@ ul.exam-imp-list {
 .clglisting-clglogo{
   border-radius: 14px;
   background-color: var(--color-white);
-  /* box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25); */
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.25);
   bottom: -30px;
   left: 25px;
   padding: 15px;
-  margin-top: 20px;
 }
 .clg-whistlist-badge {
   position: absolute;
@@ -3953,12 +3943,6 @@ ul.exam-imp-list {
   right: 82px;
   bottom: -59px;
 }
-/* .course-slider .swiper-container .swiper-slide:nth-child(odd) >.clg-rating{
-  background-color: rgb(255, 0, 0);
-}
-.clg-rating:nth-child(odd) {
-  background-color: rgb(255, 0, 0);
-} */
 .clg-name-parents{
   min-height: 70px;
 }
