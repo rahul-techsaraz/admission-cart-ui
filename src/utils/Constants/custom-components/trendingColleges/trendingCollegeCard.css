@@ -10,23 +10,15 @@
   @keyframes collegeList{
     0% {
       transform: scale(1) translateY(0px);
-      /* opacity: 0; */
     }
   100% {
       transform: scale(1.3) translateY(-20px);
-      /* opacity: 100%; */
   }
   }
   
-  /* .course-list :nth-child(odd){
-    background-color: var(--color-yellow);
+  .course-list{
+  position: relative;
   }
-  .course-list :nth-child(even){
-    background-color: var(--color-green);
-  } */
-   .course-list{
-    position: relative;
-   }
   .bg-yellow{
     background-color: var(--color-yellow);
   }
@@ -34,7 +26,7 @@
     background-color: var(--color-green);
   }
   .clg-listing-box {
-    border-radius: 30px 30px 30px 0px;
+    border-radius: 30px 30px 0px;
     overflow: hidden;
     height: 100%;
     transition-delay: 300ms;
@@ -52,8 +44,6 @@
     animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .swiper-child{
-    /* background-color: red; */
-    /* position: relative; */
     border-radius: 30px 30px 30px 0px;
     display: flex;
     flex-wrap: wrap;
@@ -160,7 +150,6 @@
   .course_card_2ndtextbox_course-name_p_span{
     color: var(--color-black);
     font-weight: 600;
-    /* padding-right: 5px; */
   }
   .course_card_2ndtextbox_rating_star_number{
     font-size: 17px;
@@ -243,61 +232,6 @@
     line-height: normal;
     margin-bottom: 35px;
   }
-
-  /* .customswiperwraper:nth-child(3n+1){
-    background-color: orange !important;
+  .tranding_border_radius{
+    border-radius: 0 50px 0 0;
   }
-  .swiper-child:nth-child(2n+1):hover{
-    background-color: red;
-  } */
-
-  /* .course-slider .swiper-slide:nth-child(2n) {
-    background-color: var(--color-green);
-  }
-
-  .course-slider .swiper-slide:nth-child(2n+1) {
-    background-color: var(--color-yellow);
-  } */
-
-  /* .course-slider swiper-container swiper-slide:nth-child(2n){
-    background-color: #FED626;
-  }
-
-  .course-slider swiper-container swiper-slide:nth-child(2n+1){
-    background-color: #5BE4A8;
-  }
-
-  .course-slider swiper-container swiper-slide .swiper-child:nth-child(2){
-    background-color: #FED626;
-  }
-  .course-slider swiper-container swiper-slide .swiper-child:nth-child(3){
-    background-color: #272003;
-  } */
-
-  /* .course-slider swiper-container swiper-slide .swiper-child:nth-child(2n+1){
-    background-color: #5BE4A8;
-  } */
-
-
-/* 
-  .course-slider swiper-container swiper-slide .swiper-child .course_card_2ndtextbox:nth-child(odd){
-    background-color: #FED626;
-  }
-
-  .course-slider swiper-container swiper-slide .swiper-child .course_card_2ndtextbox:nth-child(even){
-    background-color: #5BE4A8;
-  } */
-
-
-  /* .course-slider swiper-container swiper-slide:nth-child(odd).swiper-child:hover{
-    background-color: #FED626;
-  } */
-
-  /* .course-slider swiper-container swiper-slide:nth-child(even) {
-    background-color: #5BE4A8;
-} */
-
-
-.tranding_border_radius{
-  border-radius: 0 50px 0 0;
-}

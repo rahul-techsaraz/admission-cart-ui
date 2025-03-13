@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import finderIcon from '../../../images/finder-icon.svg';
 import studentIcon from '../../../images/student-icon.svg';
@@ -10,8 +10,8 @@ import sliderlogo from '../../../images/clg-slider-logo.png';
 import leftArrow from '../../../images/arrow-left-icon.svg';
 import rightArrow from '../../../images/arrow-right-icon.svg';
 import relatedNews from '../../../images/related-news-img.png';
-import greyTick from '../../../images/grey-tick.svg'
-import cd from '../../../images/cd-img1.png'
+import greyTick from '../../../images/grey-tick.svg';
+import cd from '../../../images/cd-img1.png';
 import { useFetchCourseById } from '../../hooks/useFetchCourseById';
 import { useDispatch, useSelector } from 'react-redux';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
@@ -20,68 +20,64 @@ import { toggelIsLoginPopup } from '../../../features/commonSlice';
 import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
 import CustomFaq from '../../colleges/CustomFaq';
 
-
-
-
 export default function CourseDetails() {
-    const [readmore, setReadmore] = useState(
-    {
-        course_description: false,
-        course_eligibility_criteria_description: false,
-        syllabusDetails: false,
-        course_placement_description: false,
-    })
-    const {course_id} = useParams()
-    const {fetchCourse} = useFetchCourseById()
-    const {courseDetailsById, allCollegeData, authenticateUser} = useSelector(state=>state.common)
-    const dispatch = useDispatch()
-    
-    const dataToMap = (data)=>{
-        if(readmore.syllabusDetails){
-           return data
-        }else{
-           return data.filter((_,i)=> i<4 )
-        }
+  const [readmore, setReadmore] = useState({
+    course_description: false,
+    course_eligibility_criteria_description: false,
+    syllabusDetails: false,
+    course_placement_description: false,
+  });
+  const { course_id } = useParams();
+  const { fetchCourse } = useFetchCourseById();
+  const { courseDetailsById, allCollegeData, authenticateUser } = useSelector((state) => state.common);
+  const dispatch = useDispatch();
+
+  const dataToMap = (data) => {
+    if (readmore.syllabusDetails) {
+      return data;
+    } else {
+      return data.filter((_, i) => i < 4);
     }
-    const getCollegeByCourse = ()=>{
-        const data = allCollegeData.filter((v)=>v.category_name === courseDetailsById?.basicCourseDetails?.category_name)
-        return data
+  };
+  const getCollegeByCourse = () => {
+    const data = allCollegeData.filter((v) => v.category_name === courseDetailsById?.basicCourseDetails?.category_name);
+    return data;
+  };
+  const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+  const handleClick = () => {
+    if (!authenticateUser) {
+      dispatch(toggelIsLoginPopup({ flag: true }));
     }
-    const getRandomInt = (min, max) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-    const handleClick = () => {
-        if(!authenticateUser){
-            dispatch(toggelIsLoginPopup({flag:true}))
-        }
-    }
-    const responsive = {
-        1400:{
-            slidesPerView: 4,
-            spaceBetween: 50,
-        },
-        1024:{
-            slidesPerView: 3,
-            spaceBetween: 50,
-        },
-        768:{
-            slidesPerView: 3,
-            spaceBetween: 40,
-        },
-        576:{
-            slidesPerView: 2,
-            spaceBetween: 10,
-        },
-     }
-    useEffect(()=>{
-        fetchCourse(course_id)
-    },[course_id])
+  };
+  const responsive = {
+    1400: {
+      slidesPerView: 4,
+      spaceBetween: 50,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+  };
+  useEffect(() => {
+    fetchCourse(course_id);
+  }, [course_id]);
   return (
-      <>
-            <CourseDetailsBanner />
-            {/* <section class="courses-details-section pt-50">
+    <>
+      <CourseDetailsBanner />
+      {/* <section class="courses-details-section pt-50">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -109,73 +105,123 @@ export default function CourseDetails() {
                 </div>
             </section> */}
 
-            <section className="courses-details-section pt-50">
+      <section className="courses-details-section pt-50">
         <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <div id="course_details_leftBox" className="course-details-leftBox">
-                        <div className="course-details-leftBox-inner text-center">
-                            <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">{'About ' + courseDetailsById?.basicCourseDetails?.course_name}</h2>
-                                <p className="imgText-para">{(courseDetailsById?.basicCourseDetails?.course_description.length > 300 && readmore.course_description === false) ? `${courseDetailsById?.basicCourseDetails?.course_description.slice(0, 300)}...` : courseDetailsById?.basicCourseDetails?.course_description}</p>
-                                {courseDetailsById?.basicCourseDetails?.course_description.length > 300 && 
-                                    <div className="text-center">
-                                        <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_description:!readmore.course_description})}>{!readmore.course_description ? 'Read More' : 'Read Less'}</Link>
-                                    </div>
-                                }
-                            </div>
-                        
-                            <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Eligibility Criteria'}</h2>
-                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 300 && readmore.course_eligibility_criteria_description === false) ? `${courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.slice(0, 300)}...` : courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description}</p>
-                                {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 300 && 
-                                    <div className="text-center mb-4">
-                                        <Link className="theme-btn green-btn" onClick={()=>setReadmore({...readmore, course_eligibility_criteria_description:!readmore.course_eligibility_criteria_description})}>{!readmore.course_eligibility_criteria_description ? 'Read More' : 'Read Less'}</Link>
-                                    </div>
-                                }
-                                <p className="imgText-para"><u><strong>The eligibility criteria for {courseDetailsById?.basicCourseDetails?.course_name} course can be checked below:</strong></u></p>
-                                <ul className="course-details-criteria-list" style={{listStyleType:'disc'}}>
-                                    {courseDetailsById?.courseDetails?.eligiblity_criteria && courseDetailsById?.courseDetails?.eligiblity_criteria?.split(',').map((eligiblity)=>(
-                                        <li>{eligiblity}</li>
-                                    ))}
-                                </ul>
-                                <div className="text-start mt-5">
-                                    {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
-                                </div>
-                            </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div id="course_details_leftBox" className="course-details-leftBox">
+                <div className="course-details-leftBox-inner text-center">
+                  <div className="course-details-left-innerBox mb-5">
+                    <h2 className="imgText-heading mb-4">
+                      {'About ' + courseDetailsById?.basicCourseDetails?.course_name}
+                    </h2>
+                    <p className="imgText-para">
+                      {courseDetailsById?.basicCourseDetails?.course_description.length > 300 &&
+                      readmore.course_description === false
+                        ? `${courseDetailsById?.basicCourseDetails?.course_description.slice(0, 300)}...`
+                        : courseDetailsById?.basicCourseDetails?.course_description}
+                    </p>
+                    {courseDetailsById?.basicCourseDetails?.course_description.length > 300 && (
+                      <div className="text-center">
+                        <Link
+                          className="theme-btn green-btn"
+                          onClick={() => setReadmore({ ...readmore, course_description: !readmore.course_description })}
+                        >
+                          {!readmore.course_description ? 'Read More' : 'Read Less'}
+                        </Link>
+                      </div>
+                    )}
+                  </div>
 
-                            <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">{courseDetailsById?.basicCourseDetails?.course_name + ' Syllabus'}</h2>
-                                {courseDetailsById?.syllabusDetails.length > 0 && dataToMap(courseDetailsById?.syllabusDetails).map((syllabus)=>(
-                                    syllabus?.semester_name !== '' ? 
-                                        <>
-                                            <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
-                                            <ul className="course-details-criteria-list d-flex flex-wrap mb-4">
-                                                <li>{syllabus?.semester_name}</li>
-                                                <li>{syllabus?.list_of_subject}</li>
-                                            </ul>
-                                        </> 
-                                        :
-                                        <>
-                                            <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
-                                            <ul className="course-details-criteria-list d-flex flex-wrap mb-4">
-                                                <li>{syllabus?.list_of_subject}</li>
-                                            </ul>
-                                        </>
-                                    
-                                ))}
-                                {courseDetailsById?.syllabusDetails.length > 3 &&
-                                    <div className="text-start mt-5">
-                                        <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, syllabusDetails:!readmore.syllabusDetails})}>{!readmore.syllabusDetails ? 'Read More' : 'Read Less'}</Link>
-                                    </div>
-                                }
-                                
-                            </div>
+                  <div className="course-details-left-innerBox mb-5">
+                    <h2 className="imgText-heading mb-4">
+                      {courseDetailsById?.basicCourseDetails?.course_name + ' Eligibility Criteria'}
+                    </h2>
+                    <p className="imgText-para">
+                      {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 300 &&
+                      readmore.course_eligibility_criteria_description === false
+                        ? `${courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.slice(0, 300)}...`
+                        : courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description}
+                    </p>
+                    {courseDetailsById?.descriptionDetails?.course_eligibility_criteria_description.length > 300 && (
+                      <div className="text-center mb-4">
+                        <Link
+                          className="theme-btn green-btn"
+                          onClick={() =>
+                            setReadmore({
+                              ...readmore,
+                              course_eligibility_criteria_description:
+                                !readmore.course_eligibility_criteria_description,
+                            })
+                          }
+                        >
+                          {!readmore.course_eligibility_criteria_description ? 'Read More' : 'Read Less'}
+                        </Link>
+                      </div>
+                    )}
+                    <p className="imgText-para">
+                      <u>
+                        <strong>
+                          The eligibility criteria for {courseDetailsById?.basicCourseDetails?.course_name} course can
+                          be checked below:
+                        </strong>
+                      </u>
+                    </p>
+                    <ul className="course-details-criteria-list" style={{ listStyleType: 'disc' }}>
+                      {courseDetailsById?.courseDetails?.eligiblity_criteria &&
+                        courseDetailsById?.courseDetails?.eligiblity_criteria
+                          ?.split(',')
+                          .map((eligiblity) => <li>{eligiblity}</li>)}
+                    </ul>
+                    <div className="text-start mt-5">
+                      {/* <Link className="course-details-readmore-btn btn">Read More</Link> */}
+                    </div>
+                  </div>
 
-                            <div className="course-details-left-innerBox mb-5">
-                                <h2 className="imgText-heading mb-4">{`About ${courseDetailsById?.basicCourseDetails?.course_name} Placement`}</h2>
-                                <p className="imgText-para">{(courseDetailsById?.descriptionDetails?.course_placement_description.length > 300 && readmore.course_placement_description === false) ? `${courseDetailsById?.descriptionDetails?.course_placement_description.slice(0, 300)}...` : courseDetailsById?.descriptionDetails?.course_placement_description}</p>
-                                {/* <ul className="course-details-criteria-list2 text-start">
+                  <div className="course-details-left-innerBox mb-5">
+                    <h2 className="imgText-heading mb-4">
+                      {courseDetailsById?.basicCourseDetails?.course_name + ' Syllabus'}
+                    </h2>
+                    {courseDetailsById?.syllabusDetails.length > 0 &&
+                      dataToMap(courseDetailsById?.syllabusDetails).map((syllabus) =>
+                        syllabus?.semester_name !== '' ? (
+                          <>
+                            <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
+                            <ul className="course-details-criteria-list d-flex flex-wrap mb-4">
+                              <li>{syllabus?.semester_name}</li>
+                              <li>{syllabus?.list_of_subject}</li>
+                            </ul>
+                          </>
+                        ) : (
+                          <>
+                            <p className="course-details-yearsyllabus text-start">Year: {syllabus.year_name}</p>
+                            <ul className="course-details-criteria-list d-flex flex-wrap mb-4">
+                              <li>{syllabus?.list_of_subject}</li>
+                            </ul>
+                          </>
+                        )
+                      )}
+                    {courseDetailsById?.syllabusDetails.length > 3 && (
+                      <div className="text-start mt-5">
+                        <Link
+                          className="course-details-readmore-btn btn"
+                          onClick={() => setReadmore({ ...readmore, syllabusDetails: !readmore.syllabusDetails })}
+                        >
+                          {!readmore.syllabusDetails ? 'Read More' : 'Read Less'}
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="course-details-left-innerBox mb-5">
+                    <h2 className="imgText-heading mb-4">{`About ${courseDetailsById?.basicCourseDetails?.course_name} Placement`}</h2>
+                    <p className="imgText-para">
+                      {courseDetailsById?.descriptionDetails?.course_placement_description.length > 300 &&
+                      readmore.course_placement_description === false
+                        ? `${courseDetailsById?.descriptionDetails?.course_placement_description.slice(0, 300)}...`
+                        : courseDetailsById?.descriptionDetails?.course_placement_description}
+                    </p>
+                    {/* <ul className="course-details-criteria-list2 text-start">
                                     <li>Chemical Administrator</li>
                                     <li>Technical Consultant</li>
                                     <li>Project Engineer</li>
@@ -188,16 +234,24 @@ export default function CourseDetails() {
                                     <li>Quality Analyst</li>
                                     <li>Product Technician</li>
                                 </ul> */}
-                                <div className="text-start mt-5">
-                                    <Link className="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, course_placement_description:!readmore.course_placement_description})}>{!readmore.course_placement_description ? 'Read More' : 'Read Less'}</Link>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    
+                    <div className="text-start mt-5">
+                      <Link
+                        className="course-details-readmore-btn btn"
+                        onClick={() =>
+                          setReadmore({
+                            ...readmore,
+                            course_placement_description: !readmore.course_placement_description,
+                          })
+                        }
+                      >
+                        {!readmore.course_placement_description ? 'Read More' : 'Read Less'}
+                      </Link>
                     </div>
+                  </div>
                 </div>
-                {/* <div className="col-md-4">
+              </div>
+            </div>
+            {/* <div className="col-md-4">
                     <aside id="courses_details_rightcol" className="courses-details-rightcol">
                         <div className="courses-details-rightcol-grid">
                             <h2 className="courses-details-rightcol-grid-title">Popular Courses</h2>
@@ -286,87 +340,100 @@ export default function CourseDetails() {
 
                     </aside>
                 </div> */}
-                <div className='col-12'>
-                <div className="course-details-alterImgbox d-flex align-items-center">
-                            <div className="course-details-alterImgbox-col1 green-bg">
-                                <h2 className="text-white">Can’t find right <span className='course-details-span'>Guidance?</span></h2>
-                                <p>No Problem! Speak to our experts safely from your home.</p>
-                                <Link className="theme-btn white-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Request a Call Back</Link>
-                            </div>
-                            <div className="course-details-alterImgbox-col2 position-relative">
-                                <img src={cd} alt="" />
-                            </div>
-                        </div>
-                    
-                        <div className="course-details-alterbox">
-                            <h2>Don't Miss Anything!</h2>
-                            <p>Subscribe now and get latest updates on college news, exam and much more.</p>
-                            <Link className="theme-btn green-btn">Subscribe Now</Link>
-                        </div>
-                    
-                        <div className="course-details-alterbox greybg">
-                            <h2>So, How do you <span>secure your job?</span></h2>
-                            <p>Master employable skills under the mentorship of industry experts to become job ready.</p>
-                            <Link className="theme-btn yellow-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Job Assured</Link>
-                        </div>
+            <div className="col-12">
+              <div className="course-details-alterImgbox d-flex align-items-center">
+                <div className="course-details-alterImgbox-col1 green-bg">
+                  <h2 className="text-white">
+                    Can’t find right <span className="course-details-span">Guidance?</span>
+                  </h2>
+                  <p>No Problem! Speak to our experts safely from your home.</p>
+                  <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                    Request a Call Back
+                  </Link>
+                </div>
+                <div className="course-details-alterImgbox-col2 position-relative">
+                  <img src={cd} alt="" />
+                </div>
+              </div>
 
-                        <div className="course-details-alterbox">
-                            <h2>Still have questions about<br /> 
-                                B. Tech - Biochemical Engineering?</h2>
-                            <p>Ask us and get personalized response free of cost.</p>
-                            <Link className="theme-btn green-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Ask A Question</Link>
-                        </div>
+              <div className="course-details-alterbox">
+                <h2>Don't Miss Anything!</h2>
+                <p>Subscribe now and get latest updates on college news, exam and much more.</p>
+                <Link className="theme-btn green-btn">Subscribe Now</Link>
+              </div>
 
-                        <div className="course-details-alterbox greybg">
-                            <h2>Will you get admission in  <span className="d-block">B. Tech - Biochemical Engineering</span></h2>
-                            <p>Goodbye doubts! Say hello to our experts</p>
-                            <Link className="theme-btn yellow-btn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Job Assured</Link>
-                        </div>
+              <div className="course-details-alterbox greybg">
+                <h2>
+                  So, How do you <span>secure your job?</span>
+                </h2>
+                <p>Master employable skills under the mentorship of industry experts to become job ready.</p>
+                <Link className="theme-btn yellow-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                  Job Assured
+                </Link>
+              </div>
 
-                        <div className="clg-slider-wrapper position-relative">
-                            <div className="tick-heading d-flex align-items-center mb-4">
-                                <span className="tick-heading-icon d-inline-flex">
-                                    <img src={greyTick} alt="" />
-                                </span>
-                                <h2>{`Top ${courseDetailsById?.basicCourseDetails?.category_name} colleges in India`}</h2>
-                            </div>
-                            <div className="swiper clg-slider">
-                                <div className="swiper-wrapper position-relative">
-                                    <CustomSwiper navigationNext={'.ind-clg-button-next'} navigationPrev={'.ind-clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                        {
-                                            getCollegeByCourse().map((college)=>(
-                                                <swiper-slide>
-                                                    <CustomCollegeCard college={college} isSwiper={true}/>
-                                                </swiper-slide>
-                                            ))
-                                        }
-                                    </CustomSwiper>
-                                    <div className="swiper-button-prev ind-clg-button-prev">
-                                <img src={leftArrow} alt="" />
-                            </div>
-                            <div className="swiper-button-next ind-clg-button-next">
-                                <img src={rightArrow} alt="" />
-                            </div>
-                                    
-                                    
-                                    
-                                    
+              <div className="course-details-alterbox">
+                <h2>
+                  Still have questions about
+                  <br />
+                  B. Tech - Biochemical Engineering?
+                </h2>
+                <p>Ask us and get personalized response free of cost.</p>
+                <Link className="theme-btn green-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                  Ask A Question
+                </Link>
+              </div>
 
+              <div className="course-details-alterbox greybg">
+                <h2>
+                  Will you get admission in <span className="d-block">B. Tech - Biochemical Engineering</span>
+                </h2>
+                <p>Goodbye doubts! Say hello to our experts</p>
+                <Link className="theme-btn yellow-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                  Job Assured
+                </Link>
+              </div>
 
-                                </div>
-                            </div>
+              <div className="clg-slider-wrapper position-relative">
+                <div className="tick-heading d-flex align-items-center mb-4">
+                  <span className="tick-heading-icon d-inline-flex">
+                    <img src={greyTick} alt="" />
+                  </span>
+                  <h2>{`Top ${courseDetailsById?.basicCourseDetails?.category_name} colleges in India`}</h2>
+                </div>
+                <div className="swiper clg-slider">
+                  <div className="swiper-wrapper position-relative">
+                    <CustomSwiper
+                      navigationNext={'.ind-clg-button-next'}
+                      navigationPrev={'.ind-clg-button-prev'}
+                      noOfSlidesPerView={1}
+                      isBreakPoint={true}
+                      breakPoint={swiperResponsive(responsive)}
+                    >
+                      {getCollegeByCourse().map((college) => (
+                        <swiper-slide>
+                          <CustomCollegeCard college={college} isSwiper={true} />
+                        </swiper-slide>
+                      ))}
+                    </CustomSwiper>
+                    <div className="swiper-button-prev ind-clg-button-prev">
+                      <img src={leftArrow} alt="" />
+                    </div>
+                    <div className="swiper-button-next ind-clg-button-next">
+                      <img src={rightArrow} alt="" />
+                    </div>
+                  </div>
+                </div>
 
-                            {/* <div className="swiper-button-prev clg-button-prev">
+                {/* <div className="swiper-button-prev clg-button-prev">
                                 <img src="images/Linkrrow-left-icon.svg" alt="" />
                             </div>
                             <div className="swiper-button-next clg-button-next">
                                 <img src="images/Linkrrow-right-icon.svg" alt="" />
                             </div> */}
-                            
-            
-                        </div>
+              </div>
 
-                        {/* <div className="clg-slider-wrapper">
+              {/* <div className="clg-slider-wrapper">
                             <div className="tick-heading d-flex align-items-center mb-4">
                                 <span className="tick-heading-icon d-inline-flex">
                                     <img src={greyTick} alt="" />
@@ -433,15 +500,12 @@ export default function CourseDetails() {
                                 </div>
                             </div>
                         </div> */}
-                </div>
             </div>
-
-
+          </div>
         </div>
-    </section>
+      </section>
 
-
-    {/* <section className="faq-section position-relative pt-50 pb-50">
+      {/* <section className="faq-section position-relative pt-50 pb-50">
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -506,13 +570,7 @@ export default function CourseDetails() {
             </div>
         </div>
     </section> */}
-    <CustomFaq />
-
-   
-
-
-    
-
-      </>
-  )
+      <CustomFaq />
+    </>
+  );
 }

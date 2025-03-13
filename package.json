@@ -17,11 +17,15 @@
     "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier src/**/*.js --write"
   },
   "eslintConfig": {
     "extends": [
