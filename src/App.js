@@ -1,12 +1,12 @@
 import './App.css';
-import './css/document-responsive.css';
-import './css/homepage-collage.css';
-import './css/homepage-responsive.css';
-import './css/model.css';
-import './css/signin-collagedekho.css';
-import './css/signin-responsive.css';
-import './css/style.css';
-import './css/responsive.css';
+import './css/document-responsive.css'
+import './css/homepage-collage.css'
+import './css/homepage-responsive.css'
+import './css/model.css'
+import './css/signin-collagedekho.css'
+import './css/signin-responsive.css'
+import './css/style.css'
+import './css/responsive.css'
 // import './css/collagedekho.css'
 
 import Header from './components/header/Header';
@@ -21,8 +21,8 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { useEffect } from 'react';
 import { toggelAfterLoginModel, toggelLoginModel, updateauthenticateUser } from './features/commonSlice';
 import constants from './utils/Constants/constants';
-import httpFetch from './fetch/useFetch';
-import { register } from 'swiper/element/bundle';
+import httpFetch from './fetch/useFetch'
+import {register} from "swiper/element/bundle"
 import Loader from './components/Loader/Loader';
 import ScrollTop from './components/scroll/ScrollTop';
 import ChatBot from './components/chatBot/ChatBot';
@@ -31,16 +31,14 @@ import LoginPopup from './components/contactUs/LoginPopup';
 import FeedbackPopup from './components/contactUs/FeedbackPopup';
 
 const AppLayout = () => {
-  const { isLoading, isLoginPopup, isSignupPopup, authenticateUser, isFeedbackPopup } = useSelector(
-    (state) => state.common
-  );
-  const { loader } = useSelector((state) => state.userSlice);
-  const location = useLocation();
-  register();
+  const {isLoading, isLoginPopup, isSignupPopup, authenticateUser, isFeedbackPopup} = useSelector(state=>state.common)
+  const {loader} = useSelector(state=>state.userSlice)
+  const location = useLocation()
+  register()
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[location.pathname])
 
   return (
     <>
@@ -50,8 +48,8 @@ const AppLayout = () => {
         <Outlet />
         <ScrollTop />
         <ChatBot />
-        {isLoginPopup && authenticateUser === false && <LoginPopup />}
-        {isSignupPopup && authenticateUser === false && <ContactUsPopup />}
+        {(isLoginPopup && authenticateUser===false) && <LoginPopup />}
+        {(isSignupPopup && authenticateUser===false) && <ContactUsPopup />}
         {isFeedbackPopup && <FeedbackPopup />}
         <NewsLetter />
         {/* <ContactUsPage /> */}
