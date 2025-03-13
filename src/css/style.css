@@ -965,7 +965,7 @@ p.course-name {
   font-weight: 600;
   line-height: 28px;
   letter-spacing: 0.72px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 p.course-para {
   color: var(--color-grey);
@@ -975,6 +975,7 @@ p.course-para {
   font-weight: 600;
   line-height: 20px;
   padding-left: 65px;
+  margin-top: 20px;
 }
 .course-readmore-btn2{
   position: absolute;
@@ -982,8 +983,24 @@ p.course-para {
   left: 50%;
   transform: translateX(-50%);
 }
-.course-name-text{
-  min-height: 110px;
+
+@media only screen and (min-width: 420px) {
+    .course-name-text {
+        min-height: 90px;
+    }
+}
+@media only screen and (min-width: 1100px){
+  p.course-name{
+    font-size: 24px;
+  }
+}
+@media only screen and (min-width: 920px){
+  p.course-name{
+    font-size: 20px;
+  }
+  .course-name-text{
+    min-height: 120px;
+  }
 }
 /* .course-readmore-btn-position{
   position: absolute;
