@@ -10,7 +10,7 @@ const AbroadSuccessStory = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <section className="imgText-grid-section">
+      <section className="imgText-grid-section section-padding">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-7">

@@ -17,7 +17,7 @@ export default function ExamListing() {
   return (
     <>
       <ExamBanner />
-      <section class="exam-listing-section mb-5">
+      <section class="exam-listing-section section-padding">
         <div class="container">
           <div class="row">
             {/* <div class="col-md-3">

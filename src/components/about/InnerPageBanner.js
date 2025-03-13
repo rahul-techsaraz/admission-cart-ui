@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const InnerPageBannet = () => {
   return (
-    <section class="inner-pagebanner-section text-center mb-5 pt-50 pb-50">
+    <section class="inner-pagebanner-section section-padding text-center">
       <div class="container">
         <h1>About</h1>
         {/* <nav aria-label="breadcrumb">

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function CollegeBanner() {
   return (
-    <section className="inner-pagebanner-section text-center pt-50 pb-50 position-relative">
+    <section className="inner-pagebanner-section text-center section-padding position-relative">
       <div className="container">
         <h1>COLLEGES</h1>
         {/* <nav aria-label="breadcrumb">
