@@ -12,7 +12,7 @@ const TrandingSection = () => {
 
   return (
     <>
-      <section className="trending-course-section">
+      <section className="trending-course-section section-padding">
         <div className="container">
           <div className="trending-course-box position-relative tranding_courses_box_heighset">
             <div className="row align-items-center">
