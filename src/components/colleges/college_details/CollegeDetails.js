@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import CollegeBannerSection from './CollegeBannerSection'
+import React, { useEffect, useState } from 'react';
+import CollegeBannerSection from './CollegeBannerSection';
 import MenucSection from './MenucSection';
 import whatsIcon from '../../../images/whatsnew-cal-icon.svg';
 import arrowLeftIcon from '../../../images/arrow-left-icon.svg';
@@ -58,267 +58,337 @@ import { toggelIsLoginPopup } from '../../../features/commonSlice';
 import CustomCourseCard from '../../courses/course_details/CustomCourseCard';
 import { CustomCollegeCard } from './CustomCollegeCard';
 
-
-
-
-
-
 export default function CollegeDetails() {
-   const [readmore, setReadmore] = useState(
-      {
-         overview: false,
-         highlightDescription: false,
-         highlightCourses: false,
-         allCourses: false,
-      })
-   const {college_id} = useParams()
-   const {fetchCollege} = useFetchCollegeById()
-   const dispatch = useDispatch()
-   const {collegeDetailsById,allCourseData, allCollegeData} = useSelector(state=>state.common)
-   console.log(collegeDetailsById)
-   
-   const responsive = {
-      1400:{
-          slidesPerView: 3,
-          spaceBetween: 50,
-      },
-      1024:{
-          slidesPerView: 3,
-          spaceBetween: 50,
-      },
-      768:{
-          slidesPerView: 2,
-          spaceBetween: 40,
-      },
-      576:{
-         slidesPerView: 2,
-         spaceBetween: 20,
-     },
-   }
-   const responsive1 = {
-      1400:{
-         slidesPerView: 3,
-         spaceBetween: 50,
-      },
-      1024:{
-         slidesPerView: 3,
-         spaceBetween: 50,
-      },
-      768:{
-         slidesPerView: 2,
-         spaceBetween: 40,
-      },
-      576:{
-         slidesPerView: 2,
-         spaceBetween: 20,
-     },
-   }
-   const getCurrentYear = ()=>{
-      const d = new Date();
-      const year = d.getFullYear();
-      return year
-   }
-   const dataToMap = (data)=>{
-      if(readmore.highlightCourses){
-         return data
-      }else{
-         return data.filter((_,i)=> i<4 )
-      }
-   }
-   const getAllCourseDataById = ()=>{
-      const ids = collegeDetailsById.courseOfferedDetails.map((v)=> v.course_id)
-      const data = allCourseData.filter((v)=>ids.includes(v.course_id))
-      console.log(data)
-      return data
-   }
-   const getAllCollegesDataByCity = ()=>{
-      const data = allCollegeData.filter((v)=>v.city === collegeDetailsById?.basicDetails?.city && v.college_name !== collegeDetailsById?.basicDetails?.college_name)
-      return data
-   }
-   useEffect(()=>{
-      getAllCollegesDataByCity()
-      console.log(collegeDetailsById)
-   },[collegeDetailsById])
-   useEffect(()=>{
-      fetchCollege(college_id)
-   },[college_id])
-   
+  const [readmore, setReadmore] = useState({
+    overview: false,
+    highlightDescription: false,
+    highlightCourses: false,
+    allCourses: false,
+  });
+  const { college_id } = useParams();
+  const { fetchCollege } = useFetchCollegeById();
+  const dispatch = useDispatch();
+  const { collegeDetailsById, allCourseData, allCollegeData } = useSelector((state) => state.common);
+  console.log(collegeDetailsById);
+
+  const responsive = {
+    1400: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  };
+  const responsive1 = {
+    1400: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  };
+  const getCurrentYear = () => {
+    const d = new Date();
+    const year = d.getFullYear();
+    return year;
+  };
+  const dataToMap = (data) => {
+    if (readmore.highlightCourses) {
+      return data;
+    } else {
+      return data.filter((_, i) => i < 4);
+    }
+  };
+  const getAllCourseDataById = () => {
+    const ids = collegeDetailsById.courseOfferedDetails.map((v) => v.course_id);
+    const data = allCourseData.filter((v) => ids.includes(v.course_id));
+    console.log(data);
+    return data;
+  };
+  const getAllCollegesDataByCity = () => {
+    const data = allCollegeData.filter(
+      (v) =>
+        v.city === collegeDetailsById?.basicDetails?.city &&
+        v.college_name !== collegeDetailsById?.basicDetails?.college_name
+    );
+    return data;
+  };
+  useEffect(() => {
+    getAllCollegesDataByCity();
+    console.log(collegeDetailsById);
+  }, [collegeDetailsById]);
+  useEffect(() => {
+    fetchCollege(college_id);
+  }, [college_id]);
+
   return (
-      <>
-          <CollegeBannerSection />
-          {/* <MenucSection /> */}
-          <section class="exam-details-section pt-50">
-         <div class="container">
-            <div class="row">
-               <div class="col-8">
-                  <div class="colg-examinfo-leftcol">
-                     <div class="whatsNew-box mb-5">
-                        <div class="d-flex mb-4 ms-3">
-                           <div class="whatsnew-cal-badge">
-                              <img src={whatsIcon} alt="" />
-                           </div>
-                           <h1 class="whatsNew-heading ms-2">
-                              <span>{collegeDetailsById?.basicDetails?.college_name}</span>
-                              What’s New
-                           </h1>
-                        </div>
-                        <div class="whatsNew-inner-box">
-                           <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                           <p class="whatsNew-para">IIT Chennai University PhD applications 2024 are open and the last date to apply is Jan 17, 2024. Below are some of the other important IIM Ahmedabad latest updates:</p>
-                           <ul class="whatsNew-list">
-                              <li>The CAT 2023 exam will be held on Nov 26, 2023.</li>
-                              <li>MBA-PGPX R2 applications are open and the last date to apply is Oct 30, 2023.</li>
-                           </ul>
-                           <Link class="whatsNew-readmore-btn mt-4 d-inline-block">Read More</Link>
-                        </div>
-                        <div class="whatsNew-slider-wrapper mt-4 mb-5">
-                           <div class="swiper whatsNew-slider">
-                              <div class="swiper-wrapper">
-                                 <main className="slider-main-container position-relative">
-                                    <CustomSwiper navigationNext={".whatsNew-button-next"} navigationPrev={".whatsNew-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="whatsNew-inner-box">
-                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
-                                             </div>
-                                          </div>
-                                       </swiper-slide>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="whatsNew-inner-box">
-                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
-                                             </div>
-                                          </div>      
-                                       </swiper-slide>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="whatsNew-inner-box">
-                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
-                                             </div>
-                                          </div>      
-                                       </swiper-slide>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="whatsNew-inner-box">
-                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
-                                             </div>
-                                          </div>      
-                                       </swiper-slide>
-                                       <swiper-slide>
-                                          <div class="swiper-slide">
-                                             <div class="whatsNew-inner-box">
-                                                <p class="whatsNew-date">October 6, 2023 10:09 AM</p>
-                                                <p class="whatsNew-para">IIT Chennai University celebrated World Pharmacist Day at the premises... <Link class="whatsNew-readmore-btn">Read More</Link></p>
-                                             </div>
-                                          </div>      
-                                       </swiper-slide>
-                                    </CustomSwiper>
-                                    <div class="swiper-button-prev whatsNew-button-prev">
-                                       <img src={arrowLeftIcon} alt="" />
-                                    </div>
-                                    <div class="swiper-button-next whatsNew-button-next ">
-                                       <img src={arrowRightIcon} alt="" />
-                                    </div>
-                                 </main>
+    <>
+      <CollegeBannerSection />
+      {/* <MenucSection /> */}
+      <section className="exam-details-section pt-50">
+        <div className="container">
+          <div className="row">
+            <div className="col-8">
+              <div className="colg-examinfo-leftcol">
+                <div className="whatsNew-box mb-5">
+                  <div className="d-flex mb-4 ms-3">
+                    <div className="whatsnew-cal-badge">
+                      <img src={whatsIcon} alt="" />
+                    </div>
+                    <h1 className="whatsNew-heading ms-2">
+                      <span>{collegeDetailsById?.basicDetails?.college_name}</span>
+                      What’s New
+                    </h1>
+                  </div>
+                  <div className="whatsNew-inner-box">
+                    <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+                    <p className="whatsNew-para">
+                      IIT Chennai University PhD applications 2024 are open and the last date to apply is Jan 17, 2024.
+                      Below are some of the other important IIM Ahmedabad latest updates:
+                    </p>
+                    <ul className="whatsNew-list">
+                      <li>The CAT 2023 exam will be held on Nov 26, 2023.</li>
+                      <li>MBA-PGPX R2 applications are open and the last date to apply is Oct 30, 2023.</li>
+                    </ul>
+                    <Link class="whatsNew-readmore-btn mt-4 d-inline-block">Read More</Link>
+                  </div>
+                  <div className="whatsNew-slider-wrapper mt-4 mb-5">
+                    <div className="swiper whatsNew-slider">
+                      <div className="swiper-wrapper">
+                        <main className="slider-main-container position-relative">
+                          <CustomSwiper
+                            navigationNext={'.whatsNew-button-next'}
+                            navigationPrev={'.whatsNew-button-prev'}
+                            isBreakPoint={true}
+                            breakPoint={swiperResponsive(responsive)}
+                          >
+                            <swiper-slide>
+                              <div className="swiper-slide">
+                                <div className="whatsNew-inner-box">
+                                  <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                  <p className="whatsNew-para">
+                                    IIT Chennai University celebrated World Pharmacist Day at the premises...{' '}
+                                    <Link class="whatsNew-readmore-btn">Read More</Link>
+                                  </p>
+                                </div>
                               </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="course-details-left-innerBox mb-5 text-center">
-                        <h2 class="imgText-heading mb-4">{collegeDetailsById?.basicDetails?.college_name} Overview</h2>
-                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_description.length > 300 && readmore.overview === false) ? collegeDetailsById?.descriptionDetails?.college_description.slice(0,300)+"..." : collegeDetailsById?.descriptionDetails?.college_description}</p>
-                        {collegeDetailsById?.descriptionDetails?.college_description.length > 300 &&
-                           <div class="text-center">
-                              <Link class="theme-btn green-btn" onClick={()=>setReadmore({...readmore, overview:!readmore.overview })}>{!readmore.overview ? 'Read More' : 'Read Less'}</Link>
-                           </div>   
+                            </swiper-slide>
+                            <swiper-slide>
+                              <div className="swiper-slide">
+                                <div className="whatsNew-inner-box">
+                                  <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                  <p className="whatsNew-para">
+                                    IIT Chennai University celebrated World Pharmacist Day at the premises...{' '}
+                                    <Link class="whatsNew-readmore-btn">Read More</Link>
+                                  </p>
+                                </div>
+                              </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                              <div className="swiper-slide">
+                                <div className="whatsNew-inner-box">
+                                  <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                  <p className="whatsNew-para">
+                                    IIT Chennai University celebrated World Pharmacist Day at the premises...{' '}
+                                    <Link class="whatsNew-readmore-btn">Read More</Link>
+                                  </p>
+                                </div>
+                              </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                              <div className="swiper-slide">
+                                <div className="whatsNew-inner-box">
+                                  <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                  <p className="whatsNew-para">
+                                    IIT Chennai University celebrated World Pharmacist Day at the premises...{' '}
+                                    <Link class="whatsNew-readmore-btn">Read More</Link>
+                                  </p>
+                                </div>
+                              </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                              <div className="swiper-slide">
+                                <div className="whatsNew-inner-box">
+                                  <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+                                  <p className="whatsNew-para">
+                                    IIT Chennai University celebrated World Pharmacist Day at the premises...{' '}
+                                    <Link class="whatsNew-readmore-btn">Read More</Link>
+                                  </p>
+                                </div>
+                              </div>
+                            </swiper-slide>
+                          </CustomSwiper>
+                          <div className="swiper-button-prev whatsNew-button-prev">
+                            <img src={arrowLeftIcon} alt="" />
+                          </div>
+                          <div className="swiper-button-next whatsNew-button-next ">
+                            <img src={arrowRightIcon} alt="" />
+                          </div>
+                        </main>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="course-details-left-innerBox mb-5 text-center">
+                  <h2 className="imgText-heading mb-4">{collegeDetailsById?.basicDetails?.college_name} Overview</h2>
+                  <p className="imgText-para">
+                    {collegeDetailsById?.descriptionDetails?.college_description.length > 300 &&
+                    readmore.overview === false
+                      ? collegeDetailsById?.descriptionDetails?.college_description.slice(0, 300) + '...'
+                      : collegeDetailsById?.descriptionDetails?.college_description}
+                  </p>
+                  {collegeDetailsById?.descriptionDetails?.college_description.length > 300 && (
+                    <div className="text-center">
+                      <Link
+                        class="theme-btn green-btn"
+                        onClick={() => setReadmore({ ...readmore, overview: !readmore.overview })}
+                      >
+                        {!readmore.overview ? 'Read More' : 'Read Less'}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                <div className="course-details-left-innerBox mb-5 text-center">
+                  <h2 className="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Highlights ${getCurrentYear()}`}</h2>
+                  <p className="imgText-para">
+                    {collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 300 &&
+                    readmore.highlightDescription === false
+                      ? `${collegeDetailsById?.descriptionDetails?.college_highlights_description.slice(0, 300)}...`
+                      : collegeDetailsById?.descriptionDetails?.college_highlights_description}
+                  </p>
+                  {collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 300 && (
+                    <div className="text-center">
+                      <Link
+                        class="theme-btn green-btn"
+                        onClick={() =>
+                          setReadmore({ ...readmore, highlightDescription: !readmore.highlightDescription })
                         }
-                     </div>
-                     <div class="course-details-left-innerBox mb-5 text-center">
-                        <h2 class="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Highlights ${getCurrentYear()}`}</h2>
-                        <p class="imgText-para">{(collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 300 && readmore.highlightDescription === false) ? `${collegeDetailsById?.descriptionDetails?.college_highlights_description.slice(0,300)}...` : collegeDetailsById?.descriptionDetails?.college_highlights_description}</p>
-                        {collegeDetailsById?.descriptionDetails?.college_highlights_description.length > 300 &&
-                           <div class="text-center">
-                              <Link class="theme-btn green-btn"onClick={()=>setReadmore({...readmore, highlightDescription:!readmore.highlightDescription})}>{!readmore.highlightDescription ? 'Read More' : 'Read Less'}</Link>
-                           </div>   
-                        }
-                     </div>
-                     <div class="tick-heading d-flex align-items-center mb-4">
-                        <span class="tick-heading-icon d-inline-flex">
-                        <img src={greyTickIcon} alt="" />
-                        </span>
-                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Top Courses & Fees`}</h2>
-                     </div>
-                     <div class="exam-details-hightlisghts-sec mt-5">
-                        <div class="exam-details-hightlights-table">
-                           <table class="table">
-                              <thead>
-                                 <tr>
-                                    <th>
-                                       <p>Courses</p>
-                                    </th>
-                                    <th>
-                                       <p>Annual Course Fees</p>
-                                    </th>
-                                    <th>
-                                    </th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 {collegeDetailsById?.highlightsDetails.length>0 && dataToMap(collegeDetailsById?.highlightsDetails).map((college)=>(
-                                    <tr>
-                                       <td>{college?.course_name.split('-')[0].trim()} <span class="d-block">{college?.course_name.split('-')[1].trim()}</span></td>
-                                       <td>₹ {college?.fees_annually}</td>
-                                       <td class="position-relative"><Link class="management-clg-applybtn clginfo-applybtn" onClick={()=>dispatch(toggelIsLoginPopup({flag:true}))}>Apply Now</Link></td>
-                                    </tr>   
-                                 ))}
-                              </tbody>
-                           </table>
-                        </div>
-                        {collegeDetailsById?.highlightsDetails.length>4 && <div class="text-start mt-5">
-                           <Link class="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, highlightCourses:!readmore.highlightCourses})}>{!readmore.highlightCourses ? 'Read More' : 'Read Less'}</Link>
-                        </div>}
-                     </div>
-                     <div class="course-details-left-innerBox mb-5 text-center">
-                        <h2 class="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Courses & Fees`}</h2>
-                        <p class="imgText-para">{collegeDetailsById?.descriptionDetails?.college_course_description}</p>
-                     </div>
-                     <div class="exam-details-hightlisghts-sec mt-5">
-                        <h5 class="mb-3"><strong>{`${collegeDetailsById?.basicDetails?.college_name} Fees and Course List`}</strong></h5>
-                        <div class="exam-details-hightlights-table">
-                           <table class="table">
-                              <thead>
-                                 <tr>
-                                    <th>
-                                       <p>Courses</p>
-                                    </th>
-                                    <th>
-                                       <p>Annual Course Fees</p>
-                                    </th>
-                                    <th>
-                                       <p>Eligibility</p>
-                                    </th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 {collegeDetailsById?.courseOfferedDetails.length > 0 && dataToMap(collegeDetailsById?.courseOfferedDetails).map((course)=>(
-                                    <tr>
-                                       <td>{course?.course_name}</td>
-                                       <td>{`Rs ${course?.sub_course_fee}`}</td>
-                                       <td>10+2: 45%</td>
-                                    </tr>
-                                 ))}
-                              </tbody>
-                           </table>
-                        </div>
-                        {collegeDetailsById?.highlightsDetails.length > 4 && <div class="text-start mt-5">
-                           <Link class="course-details-readmore-btn btn" onClick={()=>setReadmore({...readmore, allCourses:!readmore.allCourses})}>{!readmore.allCourses ? 'Read More' : 'Read Less'}</Link>
-                        </div>}
-                        
-                        {/* <h5 class="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
+                      >
+                        {!readmore.highlightDescription ? 'Read More' : 'Read Less'}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                <div className="tick-heading d-flex align-items-center mb-4">
+                  <span className="tick-heading-icon d-inline-flex">
+                    <img src={greyTickIcon} alt="" />
+                  </span>
+                  <h2>{`${collegeDetailsById?.basicDetails?.college_name} Top Courses & Fees`}</h2>
+                </div>
+                <div className="exam-details-hightlisghts-sec mt-5">
+                  <div className="exam-details-hightlights-table">
+                    <table className="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <p>Courses</p>
+                          </th>
+                          <th>
+                            <p>Annual Course Fees</p>
+                          </th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {collegeDetailsById?.highlightsDetails.length > 0 &&
+                          dataToMap(collegeDetailsById?.highlightsDetails).map((college) => (
+                            <tr>
+                              <td>
+                                {college?.course_name.split('-')[0].trim()}{' '}
+                                <span className="d-block">{college?.course_name.split('-')[1].trim()}</span>
+                              </td>
+                              <td>₹ {college?.fees_annually}</td>
+                              <td className="position-relative">
+                                <Link
+                                  class="management-clg-applybtn clginfo-applybtn"
+                                  onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}
+                                >
+                                  Apply Now
+                                </Link>
+                              </td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {collegeDetailsById?.highlightsDetails.length > 4 && (
+                    <div className="text-start mt-5">
+                      <Link
+                        class="course-details-readmore-btn btn"
+                        onClick={() => setReadmore({ ...readmore, highlightCourses: !readmore.highlightCourses })}
+                      >
+                        {!readmore.highlightCourses ? 'Read More' : 'Read Less'}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                <div className="course-details-left-innerBox mb-5 text-center">
+                  <h2 className="imgText-heading mb-4">{`${collegeDetailsById?.basicDetails?.college_name} Courses & Fees`}</h2>
+                  <p className="imgText-para">{collegeDetailsById?.descriptionDetails?.college_course_description}</p>
+                </div>
+                <div className="exam-details-hightlisghts-sec mt-5">
+                  <h5 className="mb-3">
+                    <strong>{`${collegeDetailsById?.basicDetails?.college_name} Fees and Course List`}</strong>
+                  </h5>
+                  <div className="exam-details-hightlights-table">
+                    <table className="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <p>Courses</p>
+                          </th>
+                          <th>
+                            <p>Annual Course Fees</p>
+                          </th>
+                          <th>
+                            <p>Eligibility</p>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {collegeDetailsById?.courseOfferedDetails.length > 0 &&
+                          dataToMap(collegeDetailsById?.courseOfferedDetails).map((course) => (
+                            <tr>
+                              <td>{course?.course_name}</td>
+                              <td>{`Rs ${course?.sub_course_fee}`}</td>
+                              <td>10+2: 45%</td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {collegeDetailsById?.highlightsDetails.length > 4 && (
+                    <div className="text-start mt-5">
+                      <Link
+                        class="course-details-readmore-btn btn"
+                        onClick={() => setReadmore({ ...readmore, allCourses: !readmore.allCourses })}
+                      >
+                        {!readmore.allCourses ? 'Read More' : 'Read Less'}
+                      </Link>
+                    </div>
+                  )}
+
+                  {/* <h5 class="mb-3 mt-5"><strong>IIT Chennai University Fees and Course List</strong></h5>
                         <div class="exam-details-hightlights-table">
                            <table class="table">
                               <thead>
@@ -381,20 +451,20 @@ export default function CollegeDetails() {
                         <div class="text-start mt-5">
                            <Link class="course-details-readmore-btn btn">Read More</Link>
                         </div> */}
-                     </div>
-                     <div class="tick-heading d-flex align-items-center mb-4">
-                        <span class="tick-heading-icon d-inline-flex">
-                        <img src={greyTickIcon} alt="" />
-                        </span>
-                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Admission ${getCurrentYear()}`}</h2>
-                     </div>
-                     <div class="clg-location-infograybx mb-5">
-                        <p>{collegeDetailsById?.descriptionDetails?.college_admission_description}</p>
-                        <div class="text-start mt-3">
-                           <Link class="course-details-readmore-btn btn text-white">Read More</Link>
-                        </div>
-                     </div>
-                     {/* <div class="course-details-left-innerBox my-5 text-center">
+                </div>
+                <div className="tick-heading d-flex align-items-center mb-4">
+                  <span className="tick-heading-icon d-inline-flex">
+                    <img src={greyTickIcon} alt="" />
+                  </span>
+                  <h2>{`${collegeDetailsById?.basicDetails?.college_name} Admission ${getCurrentYear()}`}</h2>
+                </div>
+                <div className="clg-location-infograybx mb-5">
+                  <p>{collegeDetailsById?.descriptionDetails?.college_admission_description}</p>
+                  <div className="text-start mt-3">
+                    <Link class="course-details-readmore-btn btn text-white">Read More</Link>
+                  </div>
+                </div>
+                {/* <div class="course-details-left-innerBox my-5 text-center">
                         <h2 class="imgText-heading mb-4">IIT Chennai Ranking</h2>
                         <p class="imgText-para">IIT Chennai University ranking for 2023 is 145 out of 246 in India as per India Today’s B.Tech Survey. Moreover, the university has also been ranked 64th in the engineering category by the Times of India Ranking Survey 2023. Various other rankings obtained by the university are mentioned below..</p>
                         <div class="row align-items-center today-ranking-info">
@@ -429,7 +499,7 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div> */}
-                     {/* <div class="course-details-alterImgbox d-flex align-items-center">
+                {/* <div class="course-details-alterImgbox d-flex align-items-center">
                         <div class="course-details-alterImgbox-col1 green-bg">
                            <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
                            <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
@@ -1746,108 +1816,117 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div> */}
-                     <div class="course-details-alterImgbox d-flex align-items-center">
-                        <div class="course-details-alterImgbox-col1 green-bg">
-                           <h2 class="text-white">Worried About College <span>Guidance?</span></h2>
-                           <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
-                           <Link class="theme-btn white-btn">Ask Our Experts</Link>
-                        </div>
-                        <div class="course-details-alterImgbox-col2 position-relative">
-                           <img src={cdIcon} alt="" />
-                        </div>
-                     </div>
-                     <div class="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
-                        <h2 class="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
-                        <div class="swiper clg-facilities-slider">
-                           <div class="swiper-wrapper position-relative">
-                              <CustomSwiper navigationNext={".clg-facilities-button-next"} navigationPrev={".clg-facilities-button-prev"} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-facilities-box position-relative">
-                                          <img src={audienceIcon} alt="" />
-                                          <p>Auditorium</p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-facilities-box position-relative">
-                                          <img src={hostelIcon} alt="" />
-                                          <p>Boys Hostel</p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-facilities-box position-relative">
-                                          <img src={canteenIcon} alt="" />
-                                          <p>Canteen</p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-facilities-box position-relative">
-                                          <img src={audienceIcon} alt="" />
-                                          <p>Computer Lab</p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-facilities-box position-relative">
-                                          <img src={audienceIcon} alt="" />
-                                          <p>Counselling</p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                                 <swiper-slide>
-                                    <div class="swiper-slide">
-                                       <div class="clg-facilities-box position-relative">
-                                          <img src={audienceIcon} alt="" />
-                                          <p>Auditorium</p>
-                                       </div>
-                                    </div>
-                                 </swiper-slide>
-                              </CustomSwiper>
-                              <div class="swiper-button-prev clg-facilities-button-prev">
-                                 <img src={arrowLeftIcon} alt="" />
-                              </div>
-                              <div class="swiper-button-next clg-facilities-button-next">
-                                 <img src={arrowRightIcon} alt="" />
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
-                        <div class="course-details-alterImgbox-col2 position-relative">
-                           <img src={cdIcon} alt="" />
-                        </div>
-                        <div class="course-details-alterImgbox-col1 green-bg">
-                           <h2 class="text-white">Are you feeling lost and unsure about what <span>career path to take after completing 12th standard?</span></h2>
-                           <p>Say goodbye to confusion and hello to a bright future!</p>
-                           <Link class="theme-btn white-btn">Ask Our Experts</Link>
-                        </div>
-                     </div>
-                     <div class="py-5 mt-4">
-                        <div class="row align-items-center">
-                           <div class="col-md-5">
-                              <h1 class="exam-center-calenderTxt1 text-center">Will you get 
-                                 <span>{` Admission in ${collegeDetailsById?.basicDetails?.college_name}`}</span>
-                              </h1>
-                           </div>
-                           <div class="col-md-2 text-center">
-                              <img src={yellowCircleIcon} alt="" />
-                           </div>
-                           <div class="col-md-5 text-center">
-                              <h1 class="exam-center-calenderTxt">Goodbye doubts! 
-                                 Say hello to our experts
-                              </h1>
-                              <Link class="theme-btn black-btn">Ask A Question</Link>
-                           </div>
-                        </div>
-                     </div>
-                     {/* <div class="successfull-almni-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                <div className="course-details-alterImgbox d-flex align-items-center">
+                  <div className="course-details-alterImgbox-col1 green-bg">
+                    <h2 className="text-white">
+                      Worried About College <span>Guidance?</span>
+                    </h2>
+                    <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
+                    <Link class="theme-btn white-btn">Ask Our Experts</Link>
+                  </div>
+                  <div className="course-details-alterImgbox-col2 position-relative">
+                    <img src={cdIcon} alt="" />
+                  </div>
+                </div>
+                <div className="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
+                  <h2 className="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
+                  <div className="swiper clg-facilities-slider">
+                    <div className="swiper-wrapper position-relative">
+                      <CustomSwiper
+                        navigationNext={'.clg-facilities-button-next'}
+                        navigationPrev={'.clg-facilities-button-prev'}
+                        isBreakPoint={true}
+                        breakPoint={swiperResponsive(responsive)}
+                      >
+                        <swiper-slide>
+                          <div className="swiper-slide">
+                            <div className="clg-facilities-box position-relative">
+                              <img src={audienceIcon} alt="" />
+                              <p>Auditorium</p>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                          <div className="swiper-slide">
+                            <div className="clg-facilities-box position-relative">
+                              <img src={hostelIcon} alt="" />
+                              <p>Boys Hostel</p>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                          <div className="swiper-slide">
+                            <div className="clg-facilities-box position-relative">
+                              <img src={canteenIcon} alt="" />
+                              <p>Canteen</p>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                          <div className="swiper-slide">
+                            <div className="clg-facilities-box position-relative">
+                              <img src={audienceIcon} alt="" />
+                              <p>Computer Lab</p>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                          <div className="swiper-slide">
+                            <div className="clg-facilities-box position-relative">
+                              <img src={audienceIcon} alt="" />
+                              <p>Counselling</p>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                        <swiper-slide>
+                          <div className="swiper-slide">
+                            <div className="clg-facilities-box position-relative">
+                              <img src={audienceIcon} alt="" />
+                              <p>Auditorium</p>
+                            </div>
+                          </div>
+                        </swiper-slide>
+                      </CustomSwiper>
+                      <div className="swiper-button-prev clg-facilities-button-prev">
+                        <img src={arrowLeftIcon} alt="" />
+                      </div>
+                      <div className="swiper-button-next clg-facilities-button-next">
+                        <img src={arrowRightIcon} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="course-details-alterImgbox d-flex align-items-center mt-5 pt-5">
+                  <div className="course-details-alterImgbox-col2 position-relative">
+                    <img src={cdIcon} alt="" />
+                  </div>
+                  <div className="course-details-alterImgbox-col1 green-bg">
+                    <h2 className="text-white">
+                      Are you feeling lost and unsure about what{' '}
+                      <span>career path to take after completing 12th standard?</span>
+                    </h2>
+                    <p>Say goodbye to confusion and hello to a bright future!</p>
+                    <Link class="theme-btn white-btn">Ask Our Experts</Link>
+                  </div>
+                </div>
+                <div className="py-5 mt-4">
+                  <div className="row align-items-center">
+                    <div className="col-md-5">
+                      <h1 className="exam-center-calenderTxt1 text-center">
+                        Will you get
+                        <span>{` Admission in ${collegeDetailsById?.basicDetails?.college_name}`}</span>
+                      </h1>
+                    </div>
+                    <div className="col-md-2 text-center">
+                      <img src={yellowCircleIcon} alt="" />
+                    </div>
+                    <div className="col-md-5 text-center">
+                      <h1 className="exam-center-calenderTxt">Goodbye doubts! Say hello to our experts</h1>
+                      <Link class="theme-btn black-btn">Ask A Question</Link>
+                    </div>
+                  </div>
+                </div>
+                {/* <div class="successfull-almni-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
                         <h2 class="section-heading2 grey text-center mb-5">Successful Alumni</h2>
                         <div class="swiper successfull-almni-slider">
                            <div class="swiper-wrapper position-relative">
@@ -1946,53 +2025,66 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div> */}
-                     <div class="tick-heading d-flex align-items-center mb-4">
-                        <span class="tick-heading-icon d-inline-flex">
-                        <img src={greyTickIcon} alt="" />
-                        </span>
-                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Faculty`}</h2>
-                     </div>
-                     {/* <div class="mt-5">
+                <div className="tick-heading d-flex align-items-center mb-4">
+                  <span className="tick-heading-icon d-inline-flex">
+                    <img src={greyTickIcon} alt="" />
+                  </span>
+                  <h2>{`${collegeDetailsById?.basicDetails?.college_name} Faculty`}</h2>
+                </div>
+                {/* <div class="mt-5">
                         <img src={studentFaculty} class="faculty-students-img d-block mx-auto" alt="" />
                      </div> */}
-                     <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
-                        <div class="swiper faculty-slider-slider">
-                           <div class="swiper-wrapper">
-                              <CustomSwiper navigationNext={'.clg-faculty-button-next'} navigationPrev={'.clg-faculty-button-prev'} noOfSlidesPerView={3} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 {collegeDetailsById?.facilitiesDetails?.faculty_name && collegeDetailsById?.facilitiesDetails?.faculty_name.split(',').map((faculty)=>(
-                                    <swiper-slide>
-                                       <div class="swiper-slide">
-                                          <div class="faculty-slider-box">
-                                             <img className='faculty-slider-box-img' src={avtar} alt="" />
-                                             <p>{`Prof. ${faculty.split('-')[0]}`}<br/><span>{`Dept. ${faculty.split('-')[1]}`}</span></p>
-                                          </div>
-                                       </div>
-                                    </swiper-slide>
-                                 ))}
-                              </CustomSwiper>
-                              <div class="swiper-button-prev clg-faculty-button-prev">
-                                 <img src={arrowLeftIcon} alt="" />
+                <div className="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
+                  <div className="swiper faculty-slider-slider">
+                    <div className="swiper-wrapper">
+                      <CustomSwiper
+                        navigationNext={'.clg-faculty-button-next'}
+                        navigationPrev={'.clg-faculty-button-prev'}
+                        noOfSlidesPerView={3}
+                        isBreakPoint={true}
+                        breakPoint={swiperResponsive(responsive)}
+                      >
+                        {collegeDetailsById?.facilitiesDetails?.faculty_name &&
+                          collegeDetailsById?.facilitiesDetails?.faculty_name.split(',').map((faculty) => (
+                            <swiper-slide>
+                              <div className="swiper-slide">
+                                <div className="faculty-slider-box">
+                                  <img className="faculty-slider-box-img" src={avtar} alt="" />
+                                  <p>
+                                    {`Prof. ${faculty.split('-')[0]}`}
+                                    <br />
+                                    <span>{`Dept. ${faculty.split('-')[1]}`}</span>
+                                  </p>
+                                </div>
                               </div>
-                              <div class="swiper-button-next clg-faculty-button-next">
-                                 <img src={arrowRightIcon} alt="" />
-                              </div>      
-                           </div>
-                        </div>
-                        
-                     </div>
-                     <div class="row justify-content-center mb-5">
-                        <div class="col-9">
-                           <div class="download-content-box text-center">
-                              <img src={downloadIcon} class="mb-4" alt="" />
-                              <h2 class="mb-4"><span class="d-block">Get details on</span> {`Fee, Cut off marks, Admission Process for session ${getCurrentYear()}.`}</h2>
-                              <div class="d-flex justify-content-center gap-3 align-items-center download-btn-sec">
-                                 <p>Download brochure</p>
-                                 <Link class="theme-btn black-btn">Ask A Question</Link>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     {/* <div class="clg-specific-review-section mb-5">
+                            </swiper-slide>
+                          ))}
+                      </CustomSwiper>
+                      <div className="swiper-button-prev clg-faculty-button-prev">
+                        <img src={arrowLeftIcon} alt="" />
+                      </div>
+                      <div className="swiper-button-next clg-faculty-button-next">
+                        <img src={arrowRightIcon} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row justify-content-center mb-5">
+                  <div className="col-9">
+                    <div className="download-content-box text-center">
+                      <img src={downloadIcon} className="mb-4" alt="" />
+                      <h2 className="mb-4">
+                        <span className="d-block">Get details on</span>{' '}
+                        {`Fee, Cut off marks, Admission Process for session ${getCurrentYear()}.`}
+                      </h2>
+                      <div className="d-flex justify-content-center gap-3 align-items-center download-btn-sec">
+                        <p>Download brochure</p>
+                        <Link class="theme-btn black-btn">Ask A Question</Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* <div class="clg-specific-review-section mb-5">
                         <div class="row mb-4">
                            <div class="col-12">
                               <div class="tick-heading d-flex align-items-center mb-4">
@@ -2534,91 +2626,119 @@ export default function CollegeDetails() {
                            </div>
                         </div>
                      </div> */}
-                     <div class="tick-heading d-flex align-items-center mb-4 mt-5">
-                        <span class="tick-heading-icon d-inline-flex">
-                        <img src={greyTickIcon} alt="" />
-                        </span>
-                        <h2>{`${collegeDetailsById?.basicDetails?.college_name} Courses Offered`}</h2>
-                     </div>
-                     <div class="row">
-                        <div class="col-12">
-                           <div class="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
-                              <div class="swiper course-offered-slider pb-5">
-                                 <div class="swiper-wrapper">
-                                    <CustomSwiper navigationNext={'.courseOffer-button-next'} navigationPrev={'.courseOffer-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive1)}>
-                                       {collegeDetailsById?.courseOfferedDetails.length > 0 && getAllCourseDataById().map((course)=>(
-                                          <swiper-slide>
-                                             <CustomCourseCard course={course} isSwiper={true}/>
-                                          </swiper-slide>
-                                       ))}
-                                    </CustomSwiper>
-                                    <div class="swiper-button-prev courseOffer-button-prev">
-                                       <img src={arrowLeftIcon} alt="" />
-                                    </div>
-                                    <div class="swiper-button-next courseOffer-button-next">
-                                       <img src={arrowRightIcon} alt="" />
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                <div className="tick-heading d-flex align-items-center mb-4 mt-5">
+                  <span className="tick-heading-icon d-inline-flex">
+                    <img src={greyTickIcon} alt="" />
+                  </span>
+                  <h2>{`${collegeDetailsById?.basicDetails?.college_name} Courses Offered`}</h2>
+                </div>
+                <div className="row">
+                  <div className="col-12">
+                    <div className="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
+                      <div className="swiper course-offered-slider pb-5">
+                        <div className="swiper-wrapper">
+                          <CustomSwiper
+                            navigationNext={'.courseOffer-button-next'}
+                            navigationPrev={'.courseOffer-button-prev'}
+                            noOfSlidesPerView={1}
+                            isBreakPoint={true}
+                            breakPoint={swiperResponsive(responsive1)}
+                          >
+                            {collegeDetailsById?.courseOfferedDetails.length > 0 &&
+                              getAllCourseDataById().map((course) => (
+                                <swiper-slide>
+                                  <CustomCourseCard course={course} isSwiper={true} />
+                                </swiper-slide>
+                              ))}
+                          </CustomSwiper>
+                          <div className="swiper-button-prev courseOffer-button-prev">
+                            <img src={arrowLeftIcon} alt="" />
+                          </div>
+                          <div className="swiper-button-next courseOffer-button-next">
+                            <img src={arrowRightIcon} alt="" />
+                          </div>
                         </div>
-                     </div>
-                     <div class="course-details-alterImgbox d-flex align-items-center">
-                        <div class="course-details-alterImgbox-col1 green-bg">
-                           <h2 class="text-white">Still have questions about <span>{`${collegeDetailsById?.basicDetails?.college_name}?`}</span></h2>
-                           <p>Ask us and get personalized</p>
-                           <Link class="theme-btn white-btn">Ask A Question</Link>
-                        </div>
-                        <div class="course-details-alterImgbox-col2 position-relative">
-                           <img src={askQuesImage} alt="" />
-                        </div>
-                     </div>
-
-                     <div class="clg-slider-wrapper position-relative">
-                        <div class="tick-heading d-flex align-items-center mb-4">
-                            <span class="tick-heading-icon d-inline-flex">
-                                <img src={greyTickIcon} alt="" />
-                            </span>
-                            <h2>Recommended Colleges</h2>
-                        </div>
-                        <div class="swiper recommended-clg-slider pb-5">
-                            <div class="swiper-wrapper position-relative">
-                              <CustomSwiper navigationNext={'.clg-button-next'} navigationPrev={'.clg-button-prev'} noOfSlidesPerView={1} isBreakPoint={true} breakPoint={swiperResponsive(responsive)}>
-                                 {collegeDetailsById?.basicDetails?.city && getAllCollegesDataByCity().map((college)=>(
-                                    <swiper-slide>
-                                       <CustomCollegeCard college={college} isSwiper={true}/>
-                                    </swiper-slide>
-                                 ))}
-                              </CustomSwiper>
-                              <div class="swiper-button-prev clg-button-prev">
-                                 <img src={arrowLeftIcon} alt="" />
-                              </div>
-                              <div class="swiper-button-next clg-button-next">
-                                 <img src={arrowRightIcon} alt="" />
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                      </div>
+                    </div>
                   </div>
-               </div>
-               <div class="col-md-4">
-                  <aside id="courses_details_rightcol" class="courses-details-rightcol">
-                     <div class="courses-details-rightcol-grid">
-                        <h2 class="courses-details-rightcol-grid-title">Photos</h2>
-                        <div class="courses-details-rightcol-gridcontent clg-info-photo-innergrid">
-                           <ul class="d-flex flex-wrap justify-content-between">
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                              <li class="border-0"><img src={clgInfoPhoto1} alt="" /></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+                </div>
+                <div className="course-details-alterImgbox d-flex align-items-center">
+                  <div className="course-details-alterImgbox-col1 green-bg">
+                    <h2 className="text-white">
+                      Still have questions about <span>{`${collegeDetailsById?.basicDetails?.college_name}?`}</span>
+                    </h2>
+                    <p>Ask us and get personalized</p>
+                    <Link class="theme-btn white-btn">Ask A Question</Link>
+                  </div>
+                  <div className="course-details-alterImgbox-col2 position-relative">
+                    <img src={askQuesImage} alt="" />
+                  </div>
+                </div>
 
-                     {/* <div class="courses-details-rightcol-grid mt-5">
+                <div className="clg-slider-wrapper position-relative">
+                  <div className="tick-heading d-flex align-items-center mb-4">
+                    <span className="tick-heading-icon d-inline-flex">
+                      <img src={greyTickIcon} alt="" />
+                    </span>
+                    <h2>Recommended Colleges</h2>
+                  </div>
+                  <div className="swiper recommended-clg-slider pb-5">
+                    <div className="swiper-wrapper position-relative">
+                      <CustomSwiper
+                        navigationNext={'.clg-button-next'}
+                        navigationPrev={'.clg-button-prev'}
+                        noOfSlidesPerView={1}
+                        isBreakPoint={true}
+                        breakPoint={swiperResponsive(responsive)}
+                      >
+                        {collegeDetailsById?.basicDetails?.city &&
+                          getAllCollegesDataByCity().map((college) => (
+                            <swiper-slide>
+                              <CustomCollegeCard college={college} isSwiper={true} />
+                            </swiper-slide>
+                          ))}
+                      </CustomSwiper>
+                      <div className="swiper-button-prev clg-button-prev">
+                        <img src={arrowLeftIcon} alt="" />
+                      </div>
+                      <div className="swiper-button-next clg-button-next">
+                        <img src={arrowRightIcon} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <aside id="courses_details_rightcol" className="courses-details-rightcol">
+                <div className="courses-details-rightcol-grid">
+                  <h2 className="courses-details-rightcol-grid-title">Photos</h2>
+                  <div className="courses-details-rightcol-gridcontent clg-info-photo-innergrid">
+                    <ul className="d-flex flex-wrap justify-content-between">
+                      <li className="border-0">
+                        <img src={clgInfoPhoto1} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={clgInfoPhoto1} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={clgInfoPhoto1} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={clgInfoPhoto1} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={clgInfoPhoto1} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={clgInfoPhoto1} alt="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+
+                {/* <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Videos</h2>
                         <div class="courses-details-rightcol-gridcontent">
                            <ul class="d-flex flex-wrap justify-content-center">
@@ -2629,30 +2749,38 @@ export default function CollegeDetails() {
                      </div>
                      <Link class="courses-details-rightcol-viewall-btn">View All</Link> */}
 
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Placement</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="clg-info-topcourse-list">
-                              <li class="border-0 pb-0">
-                                 <p class="topcourse-avgfess mb-0">₹19,800,000</p>
-                                 <p class="clginfo-topcourse-title">Highest Package</p>
-                              </li>
-                              <li class="border-0 pb-0">
-                                 <p class="topcourse-avgfess mb-0">₹19,800,000</p>
-                                 <p class="clginfo-topcourse-title">Highest Package</p>
-                              </li>
-                           </ul>
-                           <ul class="placement-company-logolist d-flex justify-content-between mt-3">
-                              <li class="border-0"><img src={companyLogo1} alt="" /></li>
-                              <li class="border-0"><img src={companyLogo2} alt="" /></li>
-                              <li class="border-0"><img src={companyLogo3} alt="" /></li>
-                              <li class="border-0"><img src={companyLogo4} alt="" /></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+                <div className="courses-details-rightcol-grid mt-5">
+                  <h2 className="courses-details-rightcol-grid-title">Placement</h2>
+                  <div className="courses-details-rightcol-gridcontent">
+                    <ul className="clg-info-topcourse-list">
+                      <li className="border-0 pb-0">
+                        <p className="topcourse-avgfess mb-0">₹19,800,000</p>
+                        <p className="clginfo-topcourse-title">Highest Package</p>
+                      </li>
+                      <li className="border-0 pb-0">
+                        <p className="topcourse-avgfess mb-0">₹19,800,000</p>
+                        <p className="clginfo-topcourse-title">Highest Package</p>
+                      </li>
+                    </ul>
+                    <ul className="placement-company-logolist d-flex justify-content-between mt-3">
+                      <li className="border-0">
+                        <img src={companyLogo1} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={companyLogo2} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={companyLogo3} alt="" />
+                      </li>
+                      <li className="border-0">
+                        <img src={companyLogo4} alt="" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
-                     {/* <div class="courses-details-rightcol-grid mt-5">
+                {/* <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Scholarship</h2>
                         <div class="courses-details-rightcol-gridcontent">
                            <p class="clg-info-scholarship-para mt-4">The university's authorities provide several kinds of scholarships to its students. The Haridwar University scholarship is offered to needy and meritorious students. Students can get to know more details regarding scholarship programs from the table below.</p>
@@ -2677,52 +2805,52 @@ export default function CollegeDetails() {
                      </div>
                      <Link class="courses-details-rightcol-viewall-btn">View All</Link> */}
 
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Top Courses</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="clg-info-topcourse-list">
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                              <li class="d-flex">
-                                 <div class="col-9">
-                                    <p class="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
-                                    <p class="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
-                                 </div>
-                                 <div class="col-3">
-                                    <p class="topcourse-duration text-end">4 Years</p>
-                                 </div>
-                              </li>
-                           </ul>
+                <div className="courses-details-rightcol-grid mt-5">
+                  <h2 className="courses-details-rightcol-grid-title">Top Courses</h2>
+                  <div className="courses-details-rightcol-gridcontent">
+                    <ul className="clg-info-topcourse-list">
+                      <li className="d-flex">
+                        <div className="col-9">
+                          <p className="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                          <p className="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
                         </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+                        <div className="col-3">
+                          <p className="topcourse-duration text-end">4 Years</p>
+                        </div>
+                      </li>
+                      <li className="d-flex">
+                        <div className="col-9">
+                          <p className="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                          <p className="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                        </div>
+                        <div className="col-3">
+                          <p className="topcourse-duration text-end">4 Years</p>
+                        </div>
+                      </li>
+                      <li className="d-flex">
+                        <div className="col-9">
+                          <p className="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                          <p className="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                        </div>
+                        <div className="col-3">
+                          <p className="topcourse-duration text-end">4 Years</p>
+                        </div>
+                      </li>
+                      <li className="d-flex">
+                        <div className="col-9">
+                          <p className="clginfo-topcourse-title">B.Tech Computer Science Engineering</p>
+                          <p className="topcourse-avgfess">AVG FEE - ₹204,263/Yr</p>
+                        </div>
+                        <div className="col-3">
+                          <p className="topcourse-duration text-end">4 Years</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <Link class="courses-details-rightcol-viewall-btn">View All</Link>
 
-                     {/* <div class="courses-details-rightcol-grid mt-5">
+                {/* <div class="courses-details-rightcol-grid mt-5">
                         <h2 class="courses-details-rightcol-grid-title">Related News</h2>
                         <div class="courses-details-rightcol-gridcontent">
                            <div class="d-inline-flex gap-2 my-3">
@@ -2762,24 +2890,35 @@ export default function CollegeDetails() {
                      </div>
                      <Link class="courses-details-rightcol-viewall-btn">View All</Link> */}
 
-                     <div class="courses-details-rightcol-grid mt-5">
-                        <h2 class="courses-details-rightcol-grid-title">Notification</h2>
-                        <div class="courses-details-rightcol-gridcontent">
-                           <ul class="clg-info-noti-listing">
-                              <li><img src={clgLogo3} alt="" />Geetanjali Group of Colleges</li>
-                              <li><img src={clgLogo3} alt="" />Indian Institute of Management Ahmedabad</li>
-                              <li><img src={clgLogo3} alt="" />Biotechnology Engineering</li>
-                              <li><img src={clgLogo3} alt="" />Industrial Design</li>
-                           </ul>
-                        </div>
-                     </div>
-                     <Link class="courses-details-rightcol-viewall-btn">View All</Link>
-
-                  </aside>
-               </div>
+                <div className="courses-details-rightcol-grid mt-5">
+                  <h2 className="courses-details-rightcol-grid-title">Notification</h2>
+                  <div className="courses-details-rightcol-gridcontent">
+                    <ul className="clg-info-noti-listing">
+                      <li>
+                        <img src={clgLogo3} alt="" />
+                        Geetanjali Group of Colleges
+                      </li>
+                      <li>
+                        <img src={clgLogo3} alt="" />
+                        Indian Institute of Management Ahmedabad
+                      </li>
+                      <li>
+                        <img src={clgLogo3} alt="" />
+                        Biotechnology Engineering
+                      </li>
+                      <li>
+                        <img src={clgLogo3} alt="" />
+                        Industrial Design
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <Link class="courses-details-rightcol-viewall-btn">View All</Link>
+              </aside>
             </div>
-         </div>
+          </div>
+        </div>
       </section>
-      </>
-  )
+    </>
+  );
 }

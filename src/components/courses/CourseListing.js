@@ -1,6 +1,6 @@
-import React from 'react'
-import CoursesBanner from './CoursesBanner'
-import CoursesTopSearch from './CourseTopSearch'
+import React from 'react';
+import CoursesBanner from './CoursesBanner';
+import CoursesTopSearch from './CourseTopSearch';
 import courseIcon1 from '../../images/course/course-icon1.svg';
 import courseIcon2 from '../../images/course/course-icon2.svg';
 import courseIcon3 from '../../images/course/course-icon3.svg';
@@ -18,34 +18,31 @@ import CourseCard from './course_details/CourseCard';
 import { useSelector } from 'react-redux';
 import CustomFaq from '../colleges/CustomFaq';
 
-
 export default function CourseListing() {
-    const {allCourseData} = useSelector(state=>state.common)
-    
-    const yearsFilterOption = [
-        { label: '1 Year', count: 4142 },
-        {label:'2 Years', count:4142},
-        {label:'3 Years', count:4142},
-        {label:'4 Years', count:4142},
-        {label:'5 Years', count:4142},
-        {label:'6 Years', count:4142},
-        
-    ]
-     const studyModeFilterOption = [
-        { label: 'Full TIme', count: 4142 },
-        {label:'Distance', count:4142},
-        {label:'Regular / Distance', count:4142},
-        {label:'Regular', count:4142},
-        
-    ]
-    return (
-        <>
-            <CoursesBanner />
-            {/* <CoursesTopSearch /> */}
-        <section className="course-listing-section pt-50 pb-50">
+  const { allCourseData } = useSelector((state) => state.common);
+
+  const yearsFilterOption = [
+    { label: '1 Year', count: 4142 },
+    { label: '2 Years', count: 4142 },
+    { label: '3 Years', count: 4142 },
+    { label: '4 Years', count: 4142 },
+    { label: '5 Years', count: 4142 },
+    { label: '6 Years', count: 4142 },
+  ];
+  const studyModeFilterOption = [
+    { label: 'Full TIme', count: 4142 },
+    { label: 'Distance', count: 4142 },
+    { label: 'Regular / Distance', count: 4142 },
+    { label: 'Regular', count: 4142 },
+  ];
+  return (
+    <>
+      <CoursesBanner />
+      {/* <CoursesTopSearch /> */}
+      <section className="course-listing-section pt-50 pb-50">
         <div className="container">
-            <div className="row">
-                {/* <div className="col-md-3">
+          <div className="row">
+            {/* <div className="col-md-3">
                     <aside className="filter-col">
                         <div className="accordion" id="duration_accordion">
                             <ApplyFilter  inputField={yearsFilterOption} isSearchBar={false} label="Duration" />
@@ -60,17 +57,19 @@ export default function CourseListing() {
                      </aside>
 
                 </div> */}
+            <div className="col-12">
+              <div className="row">
                 <div className="col-12">
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="mb-4">
-                                <p className="totalSearch-courses">Total <span>{allCourseData.length}</span> Courses</p>
-                            </div>
-                        </div>
-                    </div>
-                    {/* <div className="row"> */}
-                        <CourseCard/>
-                        {/* <div className="col-lg-6 col-md-12">
+                  <div className="mb-4">
+                    <p className="totalSearch-courses">
+                      Total <span>{allCourseData.length}</span> Courses
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="row"> */}
+              <CourseCard />
+              {/* <div className="col-lg-6 col-md-12">
                             <div className="couses-listing-grid d-flex align-items-center">
                                 <div className="course-list-leftbox yellow-bg">
                                     <img src={courseIcon1} alt="courseIcon1" />
@@ -203,14 +202,12 @@ export default function CourseListing() {
                             </div>
                         </div> */}
 
-                    {/* </div> */}
-                </div>
-                
+              {/* </div> */}
             </div>
+          </div>
         </div>
-    </section>
-    <CustomFaq/>    
-      </>
-   
-  )
+      </section>
+      <CustomFaq />
+    </>
+  );
 }
