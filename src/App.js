@@ -7,6 +7,7 @@ import './css/signin-collagedekho.css';
 import './css/signin-responsive.css';
 import './css/style.css';
 import './css/responsive.css';
+import './css/carousel.css';
 // import './css/collagedekho.css'
 
 import Header from './components/header/Header';

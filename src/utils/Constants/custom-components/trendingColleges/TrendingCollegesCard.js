@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import constants from '../../constants';
 import { Link, useSearchParams } from 'react-router-dom';
 import './trendingCollegeCard.css';
 import { useDispatch } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../../features/commonSlice';
 
-const TrendingCollegesCard = ({ college, ishidden, index }) => {
+const TrendingCollegesCard = ({ college, ishidden, index, updateActiveIndex, realIndex, toggelScroll }) => {
   const { authenticateUser } = useSearchParams((state) => state.common);
   const dispatch = useDispatch();
   // const getRandomInt = (min, max) => {
@@ -14,6 +14,7 @@ const TrendingCollegesCard = ({ college, ishidden, index }) => {
   //     return Math.floor(Math.random() * (max - min)) + min;
   // }
   const handleClick = (from) => {
+    console.log('from click');
     if (!authenticateUser) {
       dispatch(toggelIsLoginPopup({ flag: true }));
     }
@@ -25,26 +26,22 @@ const TrendingCollegesCard = ({ college, ishidden, index }) => {
       return false;
     }
   };
-  // const handleMouseEnter = (e) => {
-  //     console.log(e.target)
-  //     e.preventDefault()
-  //     e.stopPropagation()
-  //     if(isSetIndex){
-  //         setIndex(index)
-  //         slideOffSet(e.target.getBoundingClientRect())
-  //     }
-  // }
-  // const handleMouseLeave = (e) => {
-  //     e.preventDefault()
-  //     e.stopPropagation()
-  //     if(isSetIndex){
-  //         setIndex(null)
-  //         slideOffSet(null)
-  //     }
-  // }
+  const handleMouseEnter = () => {
+    updateActiveIndex(index);
+    toggelScroll(false);
+  };
+  const handleMouseLeave = () => {
+    updateActiveIndex(null);
+    toggelScroll(true);
+  };
+
   return (
     <div className="col-md-3">
-      <div className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}>
+      <div
+        className={isOdd(realIndex) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}
+        onMouseEnter={() => handleMouseEnter()}
+        onMouseLeave={() => handleMouseLeave()}
+      >
         <div className="course_card_main_box">
           <div className="course_card_1stimgbox">
             <img
@@ -90,7 +87,7 @@ const TrendingCollegesCard = ({ college, ishidden, index }) => {
             </div>
             <Link
               to={authenticateUser && `/colleges_details/${college.college_id}`}
-              className={ishidden ? 'course-name_compare_parents_box' : 'hidden'}
+              className={ishidden ? 'hidden' : 'course-name_compare_parents_box'}
               onClick={() => handleClick('View')}
             >
               <div className="course-name_courses_fees_parents_box">
@@ -101,7 +98,7 @@ const TrendingCollegesCard = ({ college, ishidden, index }) => {
               </div>
             </Link>
             <div
-              className={ishidden ? 'course-name_download_brochure_parents_box' : 'hidden'}
+              className={ishidden ? 'hidden' : 'course-name_download_brochure_parents_box'}
               onClick={() => handleClick('Download')}
             >
               Download Brochure
