@@ -13,7 +13,7 @@ export default function CustomFaq() {
     }
   };
   return (
-    <section className="faq-section position-relative pt-50 pb-50">
+    <section className="faq-section position-relative section-padding">
       <div className="container">
         <div className="row">
           <div className="col-12">

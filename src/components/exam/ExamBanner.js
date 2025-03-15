@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function ExamBanner() {
   return (
-    <section class="inner-pagebanner-section text-center mb-5 pt-50 pb-50">
+    <section class="inner-pagebanner-section text-center section-padding">
       <div class="container">
         <h1>Entrance Exams in 2024</h1>
         {/* <nav aria-label="breadcrumb">

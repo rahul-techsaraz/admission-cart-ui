@@ -1,7 +1,7 @@
 const CoursesBanner = () => {
   return (
     <>
-      <section className="inner-pagebanner-section text-center pt-50 pb-50 position-relative">
+      <section className="inner-pagebanner-section text-center position-relative section-padding">
         <div className="container">
           <h1>COURSES</h1>
           <nav aria-label="breadcrumb">
