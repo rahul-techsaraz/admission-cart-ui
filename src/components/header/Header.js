@@ -78,8 +78,8 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-9">
-              <ul className="h7_header-top-list">
-                <li>
+              <ul className="h7_header-top-list d-flex align-items-center">
+                <li className="position-relative">
                   <span href="tel:8812356877787 ">
                     <i className="fa fa-phone" aria-hidden="true"></i> (88) 123 568 777 87{' '}
                   </span>
