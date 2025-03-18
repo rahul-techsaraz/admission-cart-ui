@@ -16,9 +16,6 @@
       transform-origin: center center;
   }
   }
-  /* .overflow-x-hidden{
-    overflow-x: hidden;
-  } */
   .course-list{
   position: relative;
   }
@@ -28,19 +25,37 @@
   .bg-green{
     background-color: var(--color-green);
   }
+  .crousel-item{
+    position: relative;
+  }
+  /* .modal-box{
+    position: absolute;
+  } */
   .clg-listing-box {
     border-radius: 30px 30px 0px;
     overflow: hidden;
-    transition-delay: 300ms;
-    transition: .5s ease-in-out;
+    /* transition-delay: 300ms;
+    transition: .5s ease-in-out; */
     height: auto;
   }
-  .clg-listing-box:hover{
-    /* transform: scale(1.10); */
+  .clg-listing-box-modal{
+    position: absolute;
+    /* transform: scale(1.10);
+    transition: .5s ease-in-out;
+    transition-delay: 300ms; */
+    z-index: 9;
+    top: -10px;
+    /* animation-name: collegeList;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); */
+  }
+  .clg-listing-box-modal:hover{
+    transform: scale(1.10);
     transition: .5s ease-in-out;
     transition-delay: 300ms;
     z-index: 9;
-    position: relative;
+    top: 0;
     animation-name: collegeList;
     animation-duration: 0.6s;
     animation-fill-mode: forwards;
