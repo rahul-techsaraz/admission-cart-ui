@@ -36,7 +36,7 @@ const TrendingCollegesCard = ({ college, index, updateActiveIndex, toggelScroll,
   };
 
   return (
-    <div className={ishidden ? 'hidden' : isModal ? "col-12 clg-listing-box-modal" : 'col-12'}>
+    <div className={ishidden ? 'hidden' : isModal ? 'col-12 clg-listing-box-modal' : 'col-12'}>
       <div
         className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}
         onMouseEnter={(e) => handleMouseEnter(e)}
