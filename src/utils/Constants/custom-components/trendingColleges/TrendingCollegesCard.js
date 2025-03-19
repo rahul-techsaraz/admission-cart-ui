@@ -5,7 +5,7 @@ import './trendingCollegeCard.css';
 import { useDispatch } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../../features/commonSlice';
 
-const TrendingCollegesCard = ({ college, index, updateActiveIndex, realIndex, toggelScroll, ishidden, isModal }) => {
+const TrendingCollegesCard = ({ college, index, updateActiveIndex, toggelScroll, ishidden, isModal }) => {
   const { authenticateUser } = useSearchParams((state) => state.common);
   const dispatch = useDispatch();
   // const getRandomInt = (min, max) => {
@@ -21,17 +21,16 @@ const TrendingCollegesCard = ({ college, index, updateActiveIndex, realIndex, to
   };
   const isOdd = (i) => {
     if (i % 2 === 1) {
-      return true;
-    } else {
       return false;
+    } else {
+      return true;
     }
   };
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (e) => {
     updateActiveIndex(index);
     toggelScroll(false);
   };
-  const handleMouseLeave = () => {
-
+  const handleMouseLeave = (e) => {
     updateActiveIndex(null);
     toggelScroll(true);
   };
@@ -39,9 +38,9 @@ const TrendingCollegesCard = ({ college, index, updateActiveIndex, realIndex, to
   return (
     <div className={ishidden ? 'hidden' : isModal ? "col-12 clg-listing-box-modal" : 'col-12'}>
       <div
-        className={isOdd(realIndex) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}
-        onMouseEnter={() => handleMouseEnter()}
-        onMouseLeave={() => handleMouseLeave()}
+        className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}
+        onMouseEnter={(e) => handleMouseEnter(e)}
+        onMouseLeave={(e) => handleMouseLeave(e)}
       >
         <div className="course_card_main_box">
           <div className="course_card_1stimgbox">

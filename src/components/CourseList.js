@@ -28,16 +28,18 @@ const CourseList = () => {
       <section className="course-slider-section text-center section-padding">
         <div className="container">
           <h3 className="course-slider_h3text">Tranding Courses</h3>
-          {/* <div className="row flex-nowrap align-items-center position-relative overflow-x-hidden"> */}
+          <div className="row flex-nowrap align-items-center position-relative overflow-x-hidden">
             <CustomeCrousel
               data={allCollegeData.filter((data) => data.ratings >= 3)}
               itemsPerView={4}
               CardComponent={TrendingCollegesCard}
               ishidden={true}
-              isAutoScroll={false}
-              // breakPoints={responsive}
+              isAutoScroll={true}
+              breakPoints={responsive}
+              animation={'Card-Zoom-Effect'}
+              autoScrollPauseOnMouseEnter={true}
             />
-          {/* </div> */}
+          </div>
         </div>
       </section>
     </>
