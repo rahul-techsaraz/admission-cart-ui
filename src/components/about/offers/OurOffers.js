@@ -6,9 +6,9 @@ export const OurOffering = () => {
     <section className="offering-section section-padding pt-4">
       <div className="container">
         <div className="row">
-          <div class="col-12 mb-5">
-            <h1 class="section-heading text-start">Our Offerings</h1>
-            <p class="section-subheading text-start">
+          <div className="col-12 mb-5">
+            <h1 className="section-heading text-start">Our Offerings</h1>
+            <p className="section-subheading text-start">
               We simplify international admissions for students, universities & our partners
             </p>
           </div>
@@ -24,7 +24,7 @@ export const OurOffering = () => {
           <CollegeSection />
         </div>
         <div className="row">
-          <Link class="course-readmore-btn green-btn">
+          <Link className="course-readmore-btn green-btn">
             Enquire Now <img src={arrowRightImg} alt="" />
           </Link>
         </div>

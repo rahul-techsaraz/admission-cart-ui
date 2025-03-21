@@ -1,26 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Children, cloneElement, useEffect, useState } from 'react';
 import rightArrow from '../../../images/arrow-right-icon.svg';
 import leftArrow from '../../../images/arrow-left-icon.svg';
 
-function CarouselWraper({ children }) {}
+const CarouselSlides = ({ children, slideStyle, ishidden, updateActiveIndex, toggelScroll, isModal, index }) => {
+  return (
+    <div className="crousel-item" style={slideStyle()}>
+      {Children.map(children, (child) =>
+        cloneElement(child, { updateActiveIndex, toggelScroll, isModal, index, ishidden })
+      )}
+    </div>
+  );
+};
+export { CarouselSlides };
 
 const CustomeCrousel = ({
-  data,
   itemsPerView,
-  CardComponent,
-  ishidden,
   isAutoScroll,
   breakPoints,
   animation,
   autoScrollPauseOnMouseEnter,
+  children,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
   const [autoScroll, setAutoScroll] = useState(isAutoScroll);
+  const [originalData, setOriginalData] = useState([]);
   const [clonedData, setClonedData] = useState([]);
   const [isTransitioning, setIsTransitioning] = useState(isAutoScroll);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [slidePerView, setSlidePerView] = useState(itemsPerView);
+
   let responsive = {
     1400: {
       itemsPerView: 4,
@@ -42,12 +51,10 @@ const CustomeCrousel = ({
   let intervalId;
 
   const cloneDataToUse = () => {
-    // Clone the first and last slides to create infinite loop effect
-    let clonedItems = [...data];
+    let clonedItems = [...children];
     const firstSlide = clonedItems.slice(0, slidePerView);
     const lastSlide = clonedItems.slice(clonedItems.length - slidePerView);
-    clonedItems = [...lastSlide, ...data, ...firstSlide]; // Add last slide at the start
-    // clonedItems.push(firstSlide); // Add first slide at the end
+    clonedItems = [...lastSlide, ...children, ...firstSlide];
     setClonedData(clonedItems);
   };
 
@@ -55,13 +62,13 @@ const CustomeCrousel = ({
     if (autoScroll) {
       cloneDataToUse();
     }
-  }, [data]);
+  }, [slidePerView]);
 
-  const dataToMap = isAutoScroll ? clonedData : data;
+  const dataToMap = isAutoScroll ? clonedData : originalData;
 
   // Move to next slide
   const nextSlide = () => {
-    if (currentIndex < data.length - slidePerView) {
+    if (currentIndex < children.length - slidePerView) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
@@ -88,14 +95,14 @@ const CustomeCrousel = ({
   useEffect(() => {
     // Reset the transition to prevent issues with infinite looping
     if (autoScroll) {
-      if (currentIndex === clonedData.length - slidePerView) {
+      if (currentIndex == dataToMap.length - slidePerView) {
         setTimeout(() => {
           setIsTransitioning(false);
           setCurrentIndex(slidePerView); // Jump to the second slide (to avoid showing the clone of the last slide)
         }, 300); // Wait for the transition to complete
-      } else if (currentIndex === 0) {
+      } else if (currentIndex == 0) {
         setTimeout(() => {
-          setCurrentIndex(clonedData.length - slidePerView); // Jump to the second-to-last slide
+          setCurrentIndex(dataToMap.length - slidePerView); // Jump to the second-to-last slide
         }, 300); // Wait for the transition to complete
       } else {
         setIsTransitioning(true);
@@ -120,25 +127,25 @@ const CustomeCrousel = ({
     if (breakPoints) {
       if (screenWidth >= 1400) {
         return {
-          width: `${100 / responsive[1400].itemsPerView}%`,
+          width: `${100 / slidePerView}%`,
           paddingLeft: `${responsive[1400].spaceBetween / 2}`,
           paddingRight: `${responsive[1400].spaceBetween / 2}`,
         };
       } else if (screenWidth >= 1024) {
         return {
-          width: `${100 / responsive[1024].itemsPerView}%`,
+          width: `${100 / slidePerView}%`,
           paddingLeft: `${responsive[1024].spaceBetween / 2}`,
           paddingRight: `${responsive[1024].spaceBetween / 2}`,
         };
       } else if (screenWidth >= 768) {
         return {
-          width: `${100 / responsive[768].itemsPerView}%`,
+          width: `${100 / slidePerView}%`,
           paddingLeft: `${responsive[768].spaceBetween / 2}`,
           paddingRight: `${responsive[768].spaceBetween / 2}`,
         };
       } else if (screenWidth >= 576) {
         return {
-          width: `${100 / responsive[576].itemsPerView}%`,
+          width: `${100 / slidePerView}%`,
           paddingLeft: `${responsive[576].spaceBetween / 2}`,
           paddingRight: `${responsive[576].spaceBetween / 2}`,
         };
@@ -184,9 +191,9 @@ const CustomeCrousel = ({
     resetItemsPerView();
   }, [screenWidth]);
 
-  // useEffect(()=>{
-  //   console.log(isTransitioning)
-  // },[isTransitioning])
+  useEffect(() => {
+    setOriginalData([...children]);
+  }, [children]);
   return (
     <>
       <div className="carousel-container">
@@ -199,18 +206,15 @@ const CustomeCrousel = ({
               transition: isTransitioning ? 'transform 0.5s ease' : 'none',
             }}
           >
-            {data.length > 0 &&
-              dataToMap.map((college, index) => (
-                <div key={index} className="crousel-item" style={carouselStyle()}>
-                  <CardComponent
-                    college={college}
-                    updateActiveIndex={(i) => setActiveIndex(i)}
-                    index={index}
-                    toggelScroll={(flag) => toggelAutoScroll(flag)}
-                    isModal={false}
-                  />
-                </div>
-              ))}
+            {Children.map(dataToMap, (child, index) =>
+              cloneElement(child, {
+                index: index,
+                slideStyle: carouselStyle,
+                updateActiveIndex: (i) => setActiveIndex(i),
+                toggelScroll: (flag) => toggelAutoScroll(flag),
+                isModal: false,
+              })
+            )}
           </div>
         </div>
         {animation === 'Card-Zoom-Effect' && (
@@ -223,29 +227,25 @@ const CustomeCrousel = ({
                 transition: isTransitioning ? 'transform 0.5s ease' : 'none',
               }}
             >
-              {data.length > 0 &&
-                dataToMap.map((college, index) => (
-                  <div key={index} className="crousel-item" style={carouselStyle()}>
-                    <CardComponent
-                      college={college}
-                      index={index}
-                      updateActiveIndex={(i) => setActiveIndex(i)}
-                      toggelScroll={(flag) => toggelAutoScroll(flag)}
-                      ishidden={index === activeIndex ? !ishidden : ishidden}
-                      isModal={true}
-                    />
-                  </div>
-                ))}
+              {Children.map(dataToMap, (child, index) =>
+                cloneElement(child, {
+                  index: index,
+                  ishidden: index === activeIndex ? false : true,
+                  slideStyle: carouselStyle,
+                  updateActiveIndex: (i) => setActiveIndex(i),
+                  toggelScroll: (flag) => toggelAutoScroll(flag),
+                  isModal: true,
+                })
+              )}
             </div>
           </div>
         )}
         <button onClick={prevSlide} disabled={currentIndex === 0} className="crousel-btn-prev">
           <img src={leftArrow} alt="" />
         </button>
-
         <button
           onClick={nextSlide}
-          disabled={currentIndex === dataToMap.length - slidePerView}
+          disabled={currentIndex === children.length - slidePerView}
           className="crousel-btn-next"
         >
           <img src={rightArrow} alt="" />
