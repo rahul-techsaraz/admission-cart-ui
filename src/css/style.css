@@ -224,8 +224,8 @@ li {
   line-height: 35px;
 }
 .h7_header-top-list {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   gap: 10px;
 }
 .h7_header-top-list li {
@@ -785,9 +785,6 @@ ul.mega_menu {
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
-.tranding_border_radius:hover .course-readmore-btn-position{
-  display: block !important;
 }
 .banner-caption {
   width: fit-content;

@@ -22,7 +22,7 @@ const TrandingSection = () => {
                 </h2>
               </div>
 
-              <div className="col-12 col-md-9 col-lg-5 mx-auto ms-lg-auto">
+              <div className="col-12 col-md-9 col-lg-4 mx-auto ms-lg-auto">
                 <div className="trending-slider-wrapper position-relative">
                   <div className="swiper trending-course-slider bg-white tranding_border_radius">
                     <div className="swiper-wrapper">
