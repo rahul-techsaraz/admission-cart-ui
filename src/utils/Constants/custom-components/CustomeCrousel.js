@@ -3,6 +3,7 @@ import rightArrow from '../../../images/arrow-right-icon.svg';
 import leftArrow from '../../../images/arrow-left-icon.svg';
 
 const CarouselSlides = ({ children, slideStyle, ishidden, updateActiveIndex, toggelScroll, isModal, index }) => {
+  
   return (
     <div className="crousel-item" style={slideStyle()}>
       {Children.map(children, (child) =>
@@ -14,12 +15,12 @@ const CarouselSlides = ({ children, slideStyle, ishidden, updateActiveIndex, tog
 export { CarouselSlides };
 
 const CustomeCrousel = ({
+  children,
   itemsPerView,
   isAutoScroll,
   breakPoints,
   animation,
   autoScrollPauseOnMouseEnter,
-  children,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -62,9 +63,7 @@ const CustomeCrousel = ({
     if (autoScroll) {
       cloneDataToUse();
     }
-  }, [slidePerView]);
-
-  const dataToMap = isAutoScroll ? clonedData : originalData;
+  }, [autoScroll,slidePerView]);
 
   // Move to next slide
   const nextSlide = () => {
@@ -84,6 +83,7 @@ const CustomeCrousel = ({
   // Automatically move to the next slide
   useEffect(() => {
     if (autoScroll) {
+      cloneDataToUse();
       setIsTransitioning(true);
       intervalId = setInterval(() => {
         setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -111,7 +111,7 @@ const CustomeCrousel = ({
   }, [currentIndex, clonedData]);
 
   const toggelAutoScroll = (flag) => {
-    if (autoScrollPauseOnMouseEnter) {
+    if (autoScrollPauseOnMouseEnter && isAutoScroll) {
       if (flag) {
         setAutoScroll(true);
         setIsTransitioning(true);
@@ -194,6 +194,9 @@ const CustomeCrousel = ({
   useEffect(() => {
     setOriginalData([...children]);
   }, [children]);
+
+  const dataToMap = isAutoScroll ? clonedData : originalData;
+  
   return (
     <>
       <div className="carousel-container">
@@ -213,13 +216,13 @@ const CustomeCrousel = ({
                 updateActiveIndex: (i) => setActiveIndex(i),
                 toggelScroll: (flag) => toggelAutoScroll(flag),
                 isModal: false,
+                ishidden: false
               })
             )}
           </div>
         </div>
         {animation === 'Card-Zoom-Effect' && (
           <div className="crousel-wrapper-clone">
-            {/* Adjusting the X position for smooth slide */}
             <div
               className="row flex-nowrap position-relative crousel-container"
               style={{
@@ -231,8 +234,8 @@ const CustomeCrousel = ({
                 cloneElement(child, {
                   index: index,
                   ishidden: index === activeIndex ? false : true,
-                  slideStyle: carouselStyle,
                   updateActiveIndex: (i) => setActiveIndex(i),
+                  slideStyle: carouselStyle,
                   toggelScroll: (flag) => toggelAutoScroll(flag),
                   isModal: true,
                 })

@@ -14,7 +14,6 @@ const TrendingCollegesCard = ({ college, index, updateActiveIndex, toggelScroll,
   //     return Math.floor(Math.random() * (max - min)) + min;
   // }
   const handleClick = (from) => {
-    console.log('from click');
     if (!authenticateUser) {
       dispatch(toggelIsLoginPopup({ flag: true }));
     }
@@ -34,7 +33,7 @@ const TrendingCollegesCard = ({ college, index, updateActiveIndex, toggelScroll,
     updateActiveIndex(null);
     toggelScroll(true);
   };
-
+  
   return (
     <div className={ishidden ? 'hidden' : isModal ? 'col-12 clg-listing-box-modal' : 'col-12'}>
       <div

@@ -23,8 +23,8 @@ const TrendingExamCard = ({ exam }) => {
             <div className="course-box-prents3-child-in-child1">
               <h3 className="course-box-prents3-child-in-child1-h3">Admit Card</h3>
               <div className="course-box-prents3-child-in-child1-confirmed tranding_tooltip">
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="tooltiptext">Confirmed</span>
+                <i className="fa-solid fa-circle-info"></i>
+                <span className="tooltiptext">Confirmed</span>
               </div>
             </div>
             <div className="course-box-prents3-child-in-child1-date">07 Mar 25</div>
@@ -34,8 +34,8 @@ const TrendingExamCard = ({ exam }) => {
             <div className="course-box-prents3-child-in-child1">
               <h3 className="course-box-prents3-child-in-child1-h3">Exam</h3>
               <div className="course-box-prents3-child-in-child1-confirmed tranding_tooltip">
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="tooltiptext">Confirmed</span>
+                <i className="fa-solid fa-circle-info"></i>
+                <span className="tooltiptext">Confirmed</span>
               </div>
             </div>
             <div className="course-box-prents3-child-in-child1-date">07 Mar 25</div>
