@@ -894,7 +894,7 @@ ul.mega_menu {
 /* course-slider-section
 ============================== */
 .course-slider-section{
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 .course-slider swiper-container swiper-slide:nth-child(odd){
   background-color: var(--color-yellow);

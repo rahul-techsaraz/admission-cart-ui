@@ -10,41 +10,41 @@ export default function CollegeBannerSection() {
   const { collegeDetailsById } = useSelector((state) => state.common);
   return (
     <section
-      class="clg-infobanner-section text-center pb-5 position-relative"
+      className="clg-infobanner-section text-center pb-5 position-relative"
       style={{ width: '100%', height: '250px' }}
     >
       <img
         src={constants.imageAbsolutePath + collegeDetailsById?.basicDetails?.college_thumbnail}
-        class="h-1/2"
+        className="h-1/2"
         alt=""
         style={{ width: '100%', maxHeight: '250px' }}
       />
-      <div class="clg-banner-greenbox collage-green-box">
-        <div class="container">
-          <div class="row">
-            <div class="clglisting-clglogo col-2" style={{ width: '120px', height: '100%' }}>
+      <div className="clg-banner-greenbox collage-green-box">
+        <div className="container">
+          <div className="row">
+            <div className="clglisting-clglogo col-2" style={{ width: '120px', height: '100%' }}>
               <img
                 src={constants.imageAbsolutePath + collegeDetailsById?.basicDetails?.college_logo}
                 alt=""
                 style={{ width: '100%', height: '100%' }}
               />
             </div>
-            <div class="container green-bg col-10">
-              <div class="row align-items-center">
-                <div class="col-lg-9 text-start">
-                  <h1 class="clg-info-greenbox-hdng">{collegeDetailsById?.basicDetails?.college_name}</h1>
-                  <p class="clg-info-greenbox-location">
+            <div className="container green-bg col-10">
+              <div className="row align-items-center">
+                <div className="col-lg-9 text-start">
+                  <h1 className="clg-info-greenbox-hdng">{collegeDetailsById?.basicDetails?.college_name}</h1>
+                  <p className="clg-info-greenbox-location">
                     {collegeDetailsById?.basicDetails?.city + ', ' + collegeDetailsById?.basicDetails?.state}
                   </p>
                 </div>
-                <div class="col-lg-3">
-                  <div class="d-flex align-items-center justify-content-end">
-                    <span class="clginfo-greenbx-review-badge me-2">
-                      <img src={starIcon} class="" alt="" />
+                <div className="col-lg-3">
+                  <div className="d-flex align-items-center justify-content-end">
+                    <span className="clginfo-greenbx-review-badge me-2">
+                      <img src={starIcon} className="" alt="" />
                       {collegeDetailsById?.basicDetails?.ratings + ' (10 Reviews)'}
                     </span>
-                    {/* <span class="commnet-chat-icon-badge">
-                        <img src={commentIcon} class="" alt="" />
+                    {/* <span className="commnet-chat-icon-badge">
+                        <img src={commentIcon} className="" alt="" />
                         Comments
                         </span> */}
                   </div>

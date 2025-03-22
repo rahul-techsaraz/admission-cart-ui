@@ -6,31 +6,31 @@ import { Link } from 'react-router-dom';
 
 export default function MenucSection() {
   return (
-    <section class="courses-details-section clg-info-filter-badge-section pt-2">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-6 col-md-12">
-            <div class="bookmark-badge-leftbox d-flex gap-3">
-              <Link class="border-0 shadow-none">Approved by UGC</Link>
-              <Link class="border-0 shadow-none">Private College</Link>
-              <Link class="border-0 shadow-none">ESTD 1959</Link>
-              <Link class="border-0 shadow-none">NIRF Ranking - 1</Link>
+    <section className="courses-details-section clg-info-filter-badge-section pt-2">
+      <div className="container">
+        <div className="row mb-5">
+          <div className="col-lg-6 col-md-12">
+            <div className="bookmark-badge-leftbox d-flex gap-3">
+              <Link className="border-0 shadow-none">Approved by UGC</Link>
+              <Link className="border-0 shadow-none">Private College</Link>
+              <Link className="border-0 shadow-none">ESTD 1959</Link>
+              <Link className="border-0 shadow-none">NIRF Ranking - 1</Link>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12">
-            <div class="padding-top d-flex justify-content-end align-items-center">
-              <div class="bookmark-badge-leftbox d-flex gap-3 me-3">
+          <div className="col-lg-6 col-md-12">
+            <div className="padding-top d-flex justify-content-end align-items-center">
+              <div className="bookmark-badge-leftbox d-flex gap-3 me-3">
                 <Link>
                   <img src={bookMarkIcon} alt="" />
                   Save
                 </Link>
               </div>
-              <div class="bookmark-badge-rightbox d-flex gap-3 justify-content-end">
-                <Link class="yellow-bg">
+              <div className="bookmark-badge-rightbox d-flex gap-3 justify-content-end">
+                <Link className="yellow-bg">
                   <img src={getInIcon} alt="" />
                   Will you get in?
                 </Link>
-                <Link class="green-bg">
+                <Link className="green-bg">
                   <img src={brochureIcon} alt="" />
                   Brochure
                 </Link>
@@ -38,19 +38,19 @@ export default function MenucSection() {
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="course-details-filtertab d-flex flex-wrap gap-3 mt-4">
-              <Link class="active">College Info</Link>
-              <Link class="">News</Link>
-              <Link class="">Reviews (11)</Link>
-              <Link class="">Placements Admissions 2023</Link>
-              <Link class="">Cutoff</Link>
-              <Link class="">Gallery</Link>
-              <Link class="">Faculty</Link>
-              <Link class="">Awards</Link>
-              <Link class="">Alumni</Link>
-              <Link class="">Contact</Link>
+        <div className="row">
+          <div className="col-12">
+            <div className="course-details-filtertab d-flex flex-wrap gap-3 mt-4">
+              <Link className="active">College Info</Link>
+              <Link className="">News</Link>
+              <Link className="">Reviews (11)</Link>
+              <Link className="">Placements Admissions 2023</Link>
+              <Link className="">Cutoff</Link>
+              <Link className="">Gallery</Link>
+              <Link className="">Faculty</Link>
+              <Link className="">Awards</Link>
+              <Link className="">Alumni</Link>
+              <Link className="">Contact</Link>
             </div>
           </div>
         </div>

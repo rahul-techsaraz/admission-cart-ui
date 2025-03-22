@@ -53,7 +53,7 @@ const LandingContainer = () => {
                       <form className="banner1_searchbutton_button">
                         <input type="text" placeholder="Search.." name="search" />
                         <button type="submit">
-                          <i class="fa fa-search"></i>
+                          <i className="fa fa-search"></i>
                         </button>
                       </form>
                     </div>
@@ -72,7 +72,7 @@ const LandingContainer = () => {
                       <form className="banner1_searchbutton_button">
                         <input type="text" placeholder="Search.." name="search" />
                         <button type="submit">
-                          <i class="fa fa-search"></i>
+                          <i className="fa fa-search"></i>
                         </button>
                       </form>
                     </div>
@@ -91,7 +91,7 @@ const LandingContainer = () => {
                       <form className="banner1_searchbutton_button">
                         <input type="text" placeholder="Search.." name="search" />
                         <button type="submit">
-                          <i class="fa fa-search"></i>
+                          <i className="fa fa-search"></i>
                         </button>
                       </form>
                     </div>
@@ -110,7 +110,7 @@ const LandingContainer = () => {
                       <form className="banner1_searchbutton_button">
                         <input type="text" placeholder="Search.." name="search" />
                         <button type="submit">
-                          <i class="fa fa-search"></i>
+                          <i className="fa fa-search"></i>
                         </button>
                       </form>
                     </div>

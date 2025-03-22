@@ -21,6 +21,7 @@
   border: none;
   position: absolute;
   top: 45%;
+  z-index: 999;
 }
 .crousel-btn-prev img,
 .crousel-btn-next img {
@@ -35,9 +36,35 @@
 }
 .carousel-container{
     height: auto;
+    position: relative;
 }
-.carousel-wraper{
+/* .carousel-wraper{
     overflow-x: hidden;
-    /* overflow-y: auto; */
+    overflow-y: auto;
     height: auto;
+} */
+.crousel-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  /* overflow-y: visible; */
+  width: 100%; /* Adjust based on your needs */
+  height: auto;
+  /* scrollbar-width: none;
+  -ms-overflow-style: none; */
 }
+.crousel-wrapper-clone{
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* .crousel-wrapper::-webkit-scrollbar{
+  display: none;
+} */
+/* .crousel-container {
+  transition: transform 0.5s ease; 
+} */
+
+/* .crousel-item {
+  flex: 0 0 auto;
+  width: 100%;
+} */

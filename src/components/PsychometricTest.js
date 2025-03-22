@@ -142,25 +142,25 @@ export default function PsychometricTest() {
         </div>
       </section>
 
-      <section class="testimonial-slider-section section-padding pt-4 mt-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="section-heading text-center">Results I have Helped Create</h1>
-              <p class="section-subheading text-center">Hear out what my clients say about me.</p>
+      <section className="testimonial-slider-section section-padding pt-4 mt-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h1 className="section-heading text-center">Results I have Helped Create</h1>
+              <p className="section-subheading text-center">Hear out what my clients say about me.</p>
             </div>
-            <div class="col-12">
+            <div className="col-12">
               {/* <!-- Slider main container --> */}
-              <div class="testimonial-slider-wrapper position-relative mt-3">
-                <div class="swiper testimonial-slider">
+              <div className="testimonial-slider-wrapper position-relative mt-3">
+                <div className="swiper testimonial-slider">
                   {/* <!-- Additional required wrapper --> */}
-                  <div class="swiper-wrapper">
+                  <div className="swiper-wrapper">
                     {/* <!-- Slides --> */}
                     <CustomSwiper noOfSlidesPerView={1} isBreakPoint={false}>
                       <swiper-slide>
-                        <div class="swiper-slide">
-                          <div class="testimonials-box">
-                            <div class="testi-content-box">
+                        <div className="swiper-slide">
+                          <div className="testimonials-box">
+                            <div className="testi-content-box">
                               <p>
                                 Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor in
                                 cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -170,19 +170,19 @@ export default function PsychometricTest() {
                             </div>
                             <img
                               src={constants.images.PsychometricTest.testiUserImg1}
-                              class="testi-user-img mx-auto d-block"
+                              className="testi-user-img mx-auto d-block"
                               alt="user img"
                             />
-                            <p class="testi-user-info text-center">
-                              Dolorsit Psumamet <span class="d-block">Founder & Ceo</span>
+                            <p className="testi-user-info text-center">
+                              Dolorsit Psumamet <span className="d-block">Founder & Ceo</span>
                             </p>
                           </div>
                         </div>
                       </swiper-slide>
                       <swiper-slide>
-                        <div class="swiper-slide">
-                          <div class="testimonials-box">
-                            <div class="testi-content-box">
+                        <div className="swiper-slide">
+                          <div className="testimonials-box">
+                            <div className="testi-content-box">
                               <p>
                                 Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor in
                                 cididunt ut labore et dolore magna aliqua. Ut
@@ -190,19 +190,19 @@ export default function PsychometricTest() {
                             </div>
                             <img
                               src={constants.images.PsychometricTest.testiUserImg2}
-                              class="testi-user-img mx-auto d-block"
+                              className="testi-user-img mx-auto d-block"
                               alt="user img"
                             />
-                            <p class="testi-user-info text-center">
-                              Dolorsit Psumamet <span class="d-block">Founder & Ceo</span>
+                            <p className="testi-user-info text-center">
+                              Dolorsit Psumamet <span className="d-block">Founder & Ceo</span>
                             </p>
                           </div>
                         </div>
                       </swiper-slide>
                       <swiper-slide>
-                        <div class="swiper-slide">
-                          <div class="testimonials-box">
-                            <div class="testi-content-box">
+                        <div className="swiper-slide">
+                          <div className="testimonials-box">
+                            <div className="testi-content-box">
                               <p>
                                 Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor in
                                 cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -211,19 +211,19 @@ export default function PsychometricTest() {
                             </div>
                             <img
                               src={constants.images.PsychometricTest.testiUserImg3}
-                              class="testi-user-img mx-auto d-block"
+                              className="testi-user-img mx-auto d-block"
                               alt="user img"
                             />
-                            <p class="testi-user-info text-center">
-                              Dolorsit Psumamet <span class="d-block">Founder & Ceo</span>
+                            <p className="testi-user-info text-center">
+                              Dolorsit Psumamet <span className="d-block">Founder & Ceo</span>
                             </p>
                           </div>
                         </div>
                       </swiper-slide>
                       <swiper-slide>
-                        <div class="swiper-slide">
-                          <div class="testimonials-box">
-                            <div class="testi-content-box">
+                        <div className="swiper-slide">
+                          <div className="testimonials-box">
+                            <div className="testi-content-box">
                               <p>
                                 Lorem ipsum dolor sit amet, conse ctetur adipiscing elit, sed do eiu smod tempor in
                                 cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -233,11 +233,11 @@ export default function PsychometricTest() {
                             </div>
                             <img
                               src={constants.images.PsychometricTest.testiUserImg1}
-                              class="testi-user-img mx-auto d-block"
+                              className="testi-user-img mx-auto d-block"
                               alt="user img"
                             />
-                            <p class="testi-user-info text-center">
-                              Dolorsit Psumamet <span class="d-block">Founder & Ceo</span>
+                            <p className="testi-user-info text-center">
+                              Dolorsit Psumamet <span className="d-block">Founder & Ceo</span>
                             </p>
                           </div>
                         </div>
@@ -247,13 +247,13 @@ export default function PsychometricTest() {
                 </div>
 
                 {/* <!-- If we need pagination --> */}
-                <div class="swiper-pagination testimonial-pagination"></div>
+                <div className="swiper-pagination testimonial-pagination"></div>
 
                 {/* <!-- If we need navigation buttons --> */}
-                <div class="swiper-button-prev testimonials-button-prev">
+                <div className="swiper-button-prev testimonials-button-prev">
                   <img src={constants.images.PsychometricTest.arrowLeftIcon} alt="" />
                 </div>
-                <div class="swiper-button-next testimonials-button-next">
+                <div className="swiper-button-next testimonials-button-next">
                   <img src={constants.images.PsychometricTest.arrowRightIcon} alt="" />
                 </div>
               </div>

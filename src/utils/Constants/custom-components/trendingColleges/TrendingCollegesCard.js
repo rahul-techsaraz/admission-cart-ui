@@ -5,7 +5,7 @@ import './trendingCollegeCard.css';
 import { useDispatch } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../../features/commonSlice';
 
-const TrendingCollegesCard = ({ college, ishidden, index, updateActiveIndex, realIndex, toggelScroll }) => {
+const TrendingCollegesCard = ({ college, index, updateActiveIndex, toggelScroll, ishidden, isModal }) => {
   const { authenticateUser } = useSearchParams((state) => state.common);
   const dispatch = useDispatch();
   // const getRandomInt = (min, max) => {
@@ -21,26 +21,26 @@ const TrendingCollegesCard = ({ college, ishidden, index, updateActiveIndex, rea
   };
   const isOdd = (i) => {
     if (i % 2 === 1) {
-      return true;
-    } else {
       return false;
+    } else {
+      return true;
     }
   };
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (e) => {
     updateActiveIndex(index);
     toggelScroll(false);
   };
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (e) => {
     updateActiveIndex(null);
     toggelScroll(true);
   };
 
   return (
-    <div className="col-md-3">
+    <div className={ishidden ? 'hidden' : isModal ? 'col-12 clg-listing-box-modal' : 'col-12'}>
       <div
-        className={isOdd(realIndex) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}
-        onMouseEnter={() => handleMouseEnter()}
-        onMouseLeave={() => handleMouseLeave()}
+        className={isOdd(index + 1) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}
+        onMouseEnter={(e) => handleMouseEnter(e)}
+        onMouseLeave={(e) => handleMouseLeave(e)}
       >
         <div className="course_card_main_box">
           <div className="course_card_1stimgbox">
@@ -87,7 +87,7 @@ const TrendingCollegesCard = ({ college, ishidden, index, updateActiveIndex, rea
             </div>
             <Link
               to={authenticateUser && `/colleges_details/${college.college_id}`}
-              className={ishidden ? 'hidden' : 'course-name_compare_parents_box'}
+              className={!isModal ? 'hidden' : 'course-name_compare_parents_box'}
               onClick={() => handleClick('View')}
             >
               <div className="course-name_courses_fees_parents_box">
@@ -98,7 +98,7 @@ const TrendingCollegesCard = ({ college, ishidden, index, updateActiveIndex, rea
               </div>
             </Link>
             <div
-              className={ishidden ? 'hidden' : 'course-name_download_brochure_parents_box'}
+              className={!isModal ? 'hidden' : 'course-name_download_brochure_parents_box'}
               onClick={() => handleClick('Download')}
             >
               Download Brochure

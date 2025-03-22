@@ -33,13 +33,13 @@ const itemsName = [
 ];
 const MockExamList = () => {
   return (
-    <section class="">
-      <div class="container">
-        {/* <div class="">
-              <div class="">
-                <div class=""> */}
+    <section className="">
+      <div className="container">
+        {/* <div className="">
+              <div className="">
+                <div className=""> */}
 
-        <div class="implink-slider-bx position-relative">
+        <div className="implink-slider-bx position-relative">
           <p>
             <CustomSwiper
               navigationNext={'.implink-button-next'}
@@ -53,10 +53,10 @@ const MockExamList = () => {
               ))}
             </CustomSwiper>
           </p>
-          <div class="swiper-button-prev implink-button-prev">
+          <div className="swiper-button-prev implink-button-prev">
             <img src={leftArrow} alt="" />
           </div>
-          <div class="swiper-button-next implink-button-next">
+          <div className="swiper-button-next implink-button-next">
             <img src={rightArrow} alt="" />
           </div>
         </div>

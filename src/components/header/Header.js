@@ -97,22 +97,22 @@ const Header = () => {
                 <ul className="d-flex align-items-center justify-content-end">
                   <li>
                     <Link>
-                      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                      <i className="fa-brands fa-facebook-f" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
                     <Link>
-                      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                      <i className="fa-brands fa-instagram" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
                     <Link>
-                      <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                      <i className="fa-brands fa-youtube" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
                     <Link>
-                      <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                      <i className="fa-brands fa-twitter" aria-hidden="true"></i>
                     </Link>
                   </li>
                 </ul>
