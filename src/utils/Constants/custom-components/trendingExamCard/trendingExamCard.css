@@ -66,12 +66,18 @@
     font-size: 24px;
   }
 }
-@media only screen and (min-width: 920px){
+@media only screen and (min-width: 1100px){
   p.course-name{
     font-size: 20px;
   }
   .course-name-text{
     min-height: 120px;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  p.course-name{
+    font-size: 17px;
   }
 }
 
