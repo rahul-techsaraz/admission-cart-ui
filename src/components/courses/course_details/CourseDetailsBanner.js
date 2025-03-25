@@ -5,7 +5,7 @@ export default function CourseDetailsBanner() {
   const { courseDetailsById } = useSelector((state) => state.common);
 
   return (
-    <section className="inner-pagebanner-section text-center pt-50 pb-50 position-relative">
+    <section className="inner-pagebanner-section text-center section-padding position-relative">
       <div className="container">
         <h1>{courseDetailsById?.basicCourseDetails?.course_name}</h1>
         <nav aria-label="breadcrumb">

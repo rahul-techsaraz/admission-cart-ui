@@ -8,7 +8,7 @@ const NewsLetter = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
-              <div className="d-flex align-items-center pt-5 mb-4 mb-lg-0">
+              <div className="d-flex align-items-center mb-4 mb-lg-0">
                 <img src={newsLetterImage} className="newsletter-icon" alt="" />
                 <h2 className="newsletter-hdng">
                   Subscribe to our Newsletter for your Daily Updates <span>Get Latest News and Keep Update</span>

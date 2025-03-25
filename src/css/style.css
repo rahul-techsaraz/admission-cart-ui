@@ -79,6 +79,9 @@ p {
   font-size: 22px;
   color: var(--color-black);
 }
+.text-justify{
+  text-align: justify;
+}
 
 p:last-child {
   margin-bottom: 0;

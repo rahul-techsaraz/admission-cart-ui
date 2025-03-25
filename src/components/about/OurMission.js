@@ -13,7 +13,7 @@ export const OurMission = () => {
           <div className="col-md-6">
             <h1 className="imgText-heading">Our Mission</h1>
 
-            <p className="imgText-para">
+            <p className="imgText-para text-justify">
               Our mission is to continuously innovate the best ways to train the next generation of developers and to
               transform the the way tech education is delivered.
             </p>
