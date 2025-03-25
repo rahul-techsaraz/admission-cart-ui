@@ -8,7 +8,7 @@ export const OurVission = () => {
         <div className="row justify-content-center align-items-center">
           <div className="col-md-6 text-end">
             <h1 className="imgText-heading">Our Vision</h1>
-            <p className="imgText-para">
+            <p className="imgText-para text-justify">
               Powering your global education dream. We support future leader from India in their quest to study at the
               best global schools.{' '}
             </p>

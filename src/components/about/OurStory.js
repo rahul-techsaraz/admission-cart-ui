@@ -13,7 +13,7 @@ export const OurStory = () => {
           <div className="col-md-6">
             <h1 className="imgText-heading">Our Story</h1>
 
-            <p className="imgText-para">
+            <p className="imgText-para text-justify">
               Our team of global study experts and student mentors guide you at every step of the way - From choosing
               the right university to helping you with your application and financing counselling to lining up job
               interviews, We invests heavily in your success.

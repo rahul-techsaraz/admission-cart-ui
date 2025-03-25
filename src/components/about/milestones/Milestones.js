@@ -3,7 +3,7 @@ import arrowRightIconImg from '../../../images/arrow-right-icon.svg';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
 export const Milestones = () => {
   return (
-    <section className="milestone-section text-center section-padding pt-4">
+    <section className="milestone-section text-center section-padding">
       <div className="container-fluid">
         <div className="row">
           <div className="col-10 mx-auto mb-5">

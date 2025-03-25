@@ -72,7 +72,7 @@
     } */
 
     p.course-name {
-        font-size: 22px;
+        font-size: 17px;
         line-height: 26px;
     }
     p.course-numbering {
@@ -256,7 +256,7 @@
         padding-left: 0;
     }
     p.course-name {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 20px;
     }
     .course-readmore-btn{
@@ -292,6 +292,17 @@
     .imgText-heading {
         font-size: 30px;
         margin-bottom: 20px;
+    }
+    .course-details-alterbox h2,
+    .tick-heading h2,
+    .faq-heading{
+        font-size: 30px;
+    }
+    .faq-heading{
+        margin-bottom: 20px;
+    }
+    .contact-form-section{
+        margin-top: 20px;
     }
     .choice-place-col2 {
         padding: 50px 30px;
@@ -539,6 +550,9 @@
       .accomodation-box {
         width: 31%;
         padding: 20px 10px;
+      }
+      .pagination-gap{
+        margin-left: 0;
       }
       
 

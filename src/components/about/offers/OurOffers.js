@@ -3,7 +3,7 @@ import { CollegeSection } from './CollegesSection';
 import arrowRightImg from '../../../images/arrow-right-icon.svg';
 export const OurOffering = () => {
   return (
-    <section className="offering-section section-padding pt-4">
+    <section className="offering-section section-padding">
       <div className="container">
         <div className="row">
           <div className="col-12 mb-5">

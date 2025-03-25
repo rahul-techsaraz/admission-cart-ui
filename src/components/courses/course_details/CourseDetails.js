@@ -105,7 +105,7 @@ export default function CourseDetails() {
                 </div>
             </section> */}
 
-      <section className="courses-details-section pt-50">
+      <section className="courses-details-section section-padding">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

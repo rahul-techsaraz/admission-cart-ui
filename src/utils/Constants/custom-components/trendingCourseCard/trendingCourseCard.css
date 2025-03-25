@@ -25,15 +25,6 @@
     color: #000;
     font-size: 16px;
 }
-/* .courses_card_flexbox-i-i {
-    width: 40px;
-    height: 40px;
-    background: var(--color-yellow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 1px 2px 2px #5a5a5a;
-} */
 .courses_card_flexbox{
     display: flex;
     justify-content: space-between;
@@ -42,9 +33,18 @@
 .course_box_childtext {
     padding: 30px 40px 0;
     border: 3px solid #5be4a896;
-    background: #e3f9ef96;
 }
 
 .tranding_border_radius{
     border-radius: 0px 50px 0px 0px;
   }
+
+  
+@media only screen and (min-width: 1024px) {
+    .course-name-text {
+        min-height: 115px;
+    }
+    .course_box_childtext{
+        padding: 20px 25px 0;
+    }
+}

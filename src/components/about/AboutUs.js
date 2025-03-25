@@ -5,7 +5,7 @@ import { toggelIsLoginPopup } from '../../features/commonSlice';
 export const AboutUs = () => {
   const dispatch = useDispatch();
   return (
-    <section className="imgText-grid-section">
+    <section className="imgText-grid-section section-padding">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-6">
@@ -17,7 +17,7 @@ export const AboutUs = () => {
             <p className="abouttxt-small">About us</p>
             <h1 className="imgText-heading">The Achievement of Perfection is our goal but Excellence is Guarantee!</h1>
 
-            <p className="imgText-para">
+            <p className="imgText-para text-justify">
               Eaconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Eaconsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>

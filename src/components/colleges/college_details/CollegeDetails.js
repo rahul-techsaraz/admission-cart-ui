@@ -145,7 +145,7 @@ export default function CollegeDetails() {
     <>
       <CollegeBannerSection />
       {/* <MenucSection /> */}
-      <section className="exam-details-section pt-50">
+      <section className="exam-details-section section-padding">
         <div className="container">
           <div className="row">
             <div className="col-8">
