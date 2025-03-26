@@ -968,12 +968,12 @@ p.course-para {
   padding-left: 65px;
   margin-top: 20px;
 }
-.course-readmore-btn2{
+/* .course-readmore-btn2{
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-}
+} */
 
 /* .course-readmore-btn-position{
   position: absolute;
@@ -983,24 +983,24 @@ p.course-para {
 } */
 .course-readmore-btn{
   border-radius: 30px 30px 0px 0px;
-  /* background-color: var(--color-white); */
+  background-color: var(--color-green);
   margin: 0 auto;
   border-top: 7px solid var(--color-green);
-  /* border: 7px solid var(--color-green); */
   text-align: center;
   display: block;
   width: 200px;
   padding: 15px 10px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   color: var(--color-black);
   max-width: 100%;
-}
-.course-box:hover .course-readmore-btn{
-  background-color: var(--color-green);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .course-readmore-btn img{
   width: 16px;
@@ -2367,7 +2367,7 @@ ul.exam-imp-list {
 .course-listing-box{
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  padding: 25px;
+  padding: 25px 25px 0px 25px;
   /* height: 480px; */
   height: auto;
   position: relative;
@@ -6099,4 +6099,8 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   animation-duration: 0.6s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.tranding-courses-heading{
+  text-shadow: 3px 3px 2px var(--color-black);
 }

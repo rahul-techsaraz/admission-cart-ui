@@ -5,7 +5,7 @@ import ratingIcon from '../images/rating-stars-icon.svg';
 const CareerStep = () => {
   return (
     <>
-      <section className="career-process-section">
+      <section className="career-process-section section-padding">
         <div className="container">
           <ul className="process-list d-flex justify-content-center">
             <li>

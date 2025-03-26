@@ -6,7 +6,7 @@ const ExploreCareer = () => {
   const { allExamData } = useSelector((state) => state.common);
   const responsive = {
     1400: {
-      itemsPerView: 3,
+      itemsPerView: 4,
       spaceBetween: 20,
     },
     1024: {
