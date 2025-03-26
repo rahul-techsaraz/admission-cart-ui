@@ -112,7 +112,7 @@
     font-size: 16px;
   }
   .course_card_1stimgbox_img_logo_collages_address{
-    font-size: 16px;
+    font-size: 14px;
     color: var(--white-100);
   }
   
@@ -130,7 +130,7 @@
     padding-bottom: 0;
   }
   .course_card_2ndtextbox_course-name_h3{
-    font-size: 20px;
+    font-size: 16px;
     color: var(--color-black);
     font-weight: 600;
     height: 50px;
