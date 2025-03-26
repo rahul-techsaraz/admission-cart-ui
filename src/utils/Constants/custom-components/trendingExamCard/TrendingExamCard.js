@@ -2,9 +2,8 @@ import React from 'react';
 import './trendingExamCard.css';
 import { Link } from 'react-router-dom';
 import rightArrow from '../../../../images/arrow-right-icon.svg';
-import scollarship from '../../../../images/scholarship-icon.svg';
 
-const TrendingExamCard = ({ exam }) => {
+const TrendingExamCard = ({ exam, isModal }) => {
   return (
     <div className="swiper-slide position-relative">
       <div className="course-box text-start course-box-heigh-set">
@@ -49,7 +48,7 @@ const TrendingExamCard = ({ exam }) => {
                     <div className='course-box-prents3-child-in-child1-date'>07 Mar 25</div>
                 </div> */}
         </div>
-        <Link className="course-readmore-btn course-readmore-btn2" to={`/exam_details/${exam.exam_id}`}>
+        <Link className={!isModal ? 'hidden' : "course-readmore-btn course-readmore-btn2"} to={`/exam_details/${exam.exam_id}`}>
           Enquire Now <img src={{ rightArrow }} alt="" />
         </Link>
       </div>

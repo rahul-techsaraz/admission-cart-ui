@@ -1,17 +1,31 @@
-import CustomSwiper from '../utils/Constants/custom-components/CustomSwiper';
-import rightArrow from '../images/arrow-right-icon.svg';
-import leftArrow from '../images/arrow-left-icon.svg';
-import scollarship from '../images/scholarship-icon.svg';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import TrendingCourseCard from '../utils/Constants/custom-components/trendingCourseCard/TrendingCourseCard';
+import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
 
 const TrandingSection = () => {
   const { allCourseData } = useSelector((state) => state.common);
+  const responsive = {
+    1400: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    1024: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+  };
 
   return (
     <>
+      {allCourseData.length > 0 &&
       <section className="trending-course-section section-padding">
         <div className="container">
           <div className="trending-course-box position-relative tranding_courses_box_heighset">
@@ -26,32 +40,35 @@ const TrandingSection = () => {
                 <div className="trending-slider-wrapper position-relative">
                   <div className="swiper trending-course-slider bg-white tranding_border_radius">
                     <div className="swiper-wrapper">
-                      <CustomSwiper
-                        navigationNext={'.trending-button-next'}
-                        navigationPrev={'.trending-button-prev'}
-                        noOfSlidesPerView={1}
-                        isBreakPoint={false}
+                      <CustomeCrousel
+                        navigatePrev={'trending-button-prev'}
+                        navigateNext={'trending-button-next'}
+                        itemsPerView={1}
+                        isAutoScroll={true}
+                        breakPoints={responsive}
+                        animation={'Card-Zoom-Effect'}
+                        autoScrollPauseOnMouseEnter={true}
                       >
-                        {allCourseData.map((course) => (
-                          <swiper-slide>
-                            <TrendingCourseCard course={course} />
-                          </swiper-slide>
+                        {allCourseData.map((course)=>(
+                        <CarouselSlides>
+                          <TrendingCourseCard course={course}/>
+                        </CarouselSlides>
                         ))}
-                      </CustomSwiper>
+                      </CustomeCrousel>
                     </div>
                   </div>
-                  <div className="swiper-button-prev trending-button-prev">
+                  {/* <div className="swiper-button-prev trending-button-prev">
                     <img src={leftArrow} alt="" />
                   </div>
                   <div className="swiper-button-next trending-button-next">
                     <img src={rightArrow} alt="" />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section>}
     </>
   );
 };

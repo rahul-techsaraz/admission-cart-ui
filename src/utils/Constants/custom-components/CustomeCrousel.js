@@ -2,13 +2,39 @@ import React, { Children, cloneElement, useEffect, useState } from 'react';
 import rightArrow from '../../../images/arrow-right-icon.svg';
 import leftArrow from '../../../images/arrow-left-icon.svg';
 
-const CarouselSlides = ({ children, slideStyle, ishidden, updateActiveIndex, toggelScroll, isModal, index }) => {
-  
+const CarouselSlides = ({ children, slideStyle, updateActiveIndex, toggelScroll, index, updatePosition, childStyle, isModal }) => {
+  const [cardPostion, setCardPosition] = useState({})
+
+  const handleMouseEnter = (e) => {
+    e.stopPropagation()
+    updateActiveIndex(index);
+    toggelScroll(false);
+    const rect = e.target.getBoundingClientRect();
+    setCardPosition({
+      top: rect.top,
+      left: rect.left,
+      x: rect.x,
+      y: rect.y,
+      width: rect.width,
+      height: rect.height,
+    })
+  };
+  const handleMouseLeave = (e) => {
+    e.stopPropagation()
+    updateActiveIndex(null);
+    toggelScroll(true);
+  };
+  useEffect(()=>{
+    if(!isModal){
+      updatePosition(cardPostion)
+    }
+  },[cardPostion])
   return (
-    <div className="crousel-item" style={slideStyle()}>
+    <div className={isModal ? "crousel-item Card-Zoom-Effect" : "crousel-item"} style={isModal ? {} : slideStyle()} onMouseEnter={(e)=>handleMouseEnter(e)} onMouseLeave={(e)=>handleMouseLeave(e)}>
       {Children.map(children, (child) =>
-        cloneElement(child, { updateActiveIndex, toggelScroll, isModal, index, ishidden })
+        cloneElement(child,{ index:index, isModal:isModal})
       )}
+      {!isModal && <div className='transparent-wraper'></div>}
     </div>
   );
 };
@@ -21,6 +47,8 @@ const CustomeCrousel = ({
   breakPoints,
   animation,
   autoScrollPauseOnMouseEnter,
+  navigatePrev,
+  navigateNext
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -30,27 +58,29 @@ const CustomeCrousel = ({
   const [isTransitioning, setIsTransitioning] = useState(isAutoScroll);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [slidePerView, setSlidePerView] = useState(itemsPerView);
-
-  let responsive = {
-    1400: {
-      itemsPerView: 4,
-      spaceBetween: 20,
-    },
-    1024: {
-      itemsPerView: 4,
-      spaceBetween: 20,
-    },
-    768: {
-      itemsPerView: 3,
-      spaceBetween: 20,
-    },
-    576: {
-      itemsPerView: 2,
-      spaceBetween: 20,
-    },
-  };
+  const [childToAnimate, setChildToAnimate] = useState([])
+  const [hoveredCardPosition, setHoveredCardPosition] = useState(null)
+  // let responsive = {
+  //   1400: {
+  //     itemsPerView: 1,
+  //     spaceBetween: 20,
+  //   },
+  //   1024: {
+  //     itemsPerView: 1,
+  //     spaceBetween: 20,
+  //   },
+  //   768: {
+  //     itemsPerView: 1,
+  //     spaceBetween: 20,
+  //   },
+  //   576: {
+  //     itemsPerView: 1,
+  //     spaceBetween: 20,
+  //   },
+  // };
+  const responsive = {...breakPoints}
   let intervalId;
-
+  const dataToMap = isAutoScroll ? clonedData : originalData;
   const cloneDataToUse = () => {
     let clonedItems = [...children];
     const firstSlide = clonedItems.slice(0, slidePerView);
@@ -99,11 +129,11 @@ const CustomeCrousel = ({
         setTimeout(() => {
           setIsTransitioning(false);
           setCurrentIndex(slidePerView); // Jump to the second slide (to avoid showing the clone of the last slide)
-        }, 300); // Wait for the transition to complete
+        }, 500); // Wait for the transition to complete
       } else if (currentIndex == 0) {
         setTimeout(() => {
           setCurrentIndex(dataToMap.length - slidePerView); // Jump to the second-to-last slide
-        }, 300); // Wait for the transition to complete
+        }, 500); // Wait for the transition to complete
       } else {
         setIsTransitioning(true);
       }
@@ -157,11 +187,12 @@ const CustomeCrousel = ({
     }
   };
 
-  useEffect(() => {
-    if (breakPoints) {
-      responsive = { ...responsive, ...breakPoints };
+  const cloneChildStyle = () => {
+    return {
+      transform:`translateX(${hoveredCardPosition.x-117.5}px)`,
+      width:`${hoveredCardPosition.width}px`,
     }
-  }, [breakPoints]);
+  }
 
   useEffect(() => {
     // Add event listener on component mount
@@ -195,7 +226,20 @@ const CustomeCrousel = ({
     setOriginalData([...children]);
   }, [children]);
 
-  const dataToMap = isAutoScroll ? clonedData : originalData;
+  useEffect(()=>{
+    if(activeIndex !== null){
+      setChildToAnimate(dataToMap.filter((_, index)=>index === activeIndex))
+    }else{
+      setChildToAnimate([])
+    }
+  },[activeIndex])
+
+  // useEffect(()=>{
+  //   if(hoveredCardPosition !== null){
+  //     console.log(hoveredCardPosition)
+  //   }
+  // },[hoveredCardPosition])
+  
   
   return (
     <>
@@ -215,19 +259,34 @@ const CustomeCrousel = ({
                 slideStyle: carouselStyle,
                 updateActiveIndex: (i) => setActiveIndex(i),
                 toggelScroll: (flag) => toggelAutoScroll(flag),
-                isModal: false,
-                ishidden: false
+                updatePosition: (p) => setHoveredCardPosition(p),
+                isModal: false
               })
             )}
           </div>
         </div>
-        {animation === 'Card-Zoom-Effect' && (
+        {animation === 'Card-Zoom-Effect' && childToAnimate.length > 0 &&
+          <div className={`cloned-child`} style={slidePerView > 1 ? cloneChildStyle() : {}}>
+            {Children.map(childToAnimate, (child, index) =>
+              cloneElement(child, {
+                index: activeIndex,
+                slideStyle: carouselStyle,
+                updateActiveIndex: (i) => setActiveIndex(i),
+                toggelScroll: (flag) => toggelAutoScroll(flag),
+                updatePosition: (p) => setHoveredCardPosition(p),
+                childStyle: cloneChildStyle,
+                isModal: true,
+              })
+            )}
+          </div>
+        }
+        {/* {animation === 'Card-Zoom-Effect' && (
           <div className="crousel-wrapper-clone">
             <div
               className="row flex-nowrap position-relative crousel-container"
               style={{
                 transform: `translateX(-${(currentIndex * 100) / slidePerView}%)`,
-                transition: isTransitioning ? 'transform 0.5s ease' : 'none',
+                transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
               }}
             >
               {Children.map(dataToMap, (child, index) =>
@@ -242,14 +301,17 @@ const CustomeCrousel = ({
               )}
             </div>
           </div>
-        )}
-        <button onClick={prevSlide} disabled={currentIndex === 0} className="crousel-btn-prev">
+        )} */}
+        <button
+          onClick={prevSlide}
+          disabled={currentIndex === 0} 
+          className={navigatePrev ? navigatePrev : "crousel-btn-prev"}>
           <img src={leftArrow} alt="" />
         </button>
         <button
           onClick={nextSlide}
           disabled={currentIndex === children.length - slidePerView}
-          className="crousel-btn-next"
+          className={navigateNext ? navigateNext : "crousel-btn-next"}
         >
           <img src={rightArrow} alt="" />
         </button>

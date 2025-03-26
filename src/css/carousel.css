@@ -7,6 +7,16 @@
     -webkit-box-sizing: border-box;
     margin: 0;
   }
+  @keyframes cardZommEffect{
+    0% {
+      transform: scale(1) translateY(0px);
+      
+    }
+  100% {
+      transform: scaleX(1.3) translateY(-40px);
+      transform-origin: center;
+  }
+  }
 .crousel-btn-prev,
 .crousel-btn-next{
   background: var(--color-green);
@@ -38,33 +48,38 @@
     height: auto;
     position: relative;
 }
-/* .carousel-wraper{
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: auto;
-} */
 .crousel-wrapper {
   position: relative;
   overflow-x: hidden;
-  /* overflow-y: visible; */
   width: 100%; /* Adjust based on your needs */
   height: auto;
-  /* scrollbar-width: none;
-  -ms-overflow-style: none; */
 }
-.crousel-wrapper-clone{
+.cloned-child {
+  position: absolute;
+  top: 0;
+}
+.Card-Zoom-Effect{
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  animation-name: cardZommEffect;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.crousel-item{
+  height: auto;
+}
+.crousel-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.visibility-hidden{
+  visibility: hidden;
+}
+.transparent-wraper{
   position: absolute;
   top: 0;
   width: 100%;
+  height: 100%;
 }
-/* .crousel-wrapper::-webkit-scrollbar{
-  display: none;
-} */
-/* .crousel-container {
-  transition: transform 0.5s ease; 
-} */
-
-/* .crousel-item {
-  flex: 0 0 auto;
-  width: 100%;
-} */
