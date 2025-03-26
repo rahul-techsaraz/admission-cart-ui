@@ -15,6 +15,44 @@
         font-size: 20px;
       }
 }
+@media screen and (max-width: 1200px){
+    .collage_card_2ndtextbox {
+        padding:20px 10px;
+    }
+    .collage_card_2ndtextbox_rating_star_number{
+        font-size: 14px;
+        gap: 2px;
+    }
+    .collage_card_2ndtextbox_course-name_h3{
+        font-size: 16px;
+    }
+    .collage_card_2ndtextbox_course-name_p{
+        font-size: 14px;
+    }
+    .collage_card_2ndtextbox_rating_star_number i{
+        font-size: 13px;
+    }
+    .exam-listing-flex-box{
+        display:block !important;
+        text-align: left !important;
+     }
+     .application-exam-date-text {
+       width: 100%;
+       flex-direction: row !important;
+     }
+     ul.exam-imp-list{
+       display: block;
+     }
+     .exam-imp-list-width-50 {
+        width: 100%;
+    }
+    .exam-apply-btn{
+        width: 130px;
+      }
+      .exam-listing-box-content {
+        padding: 0 15px 0;
+    }
+}
 @media screen and (max-width: 1024px){
     .banner-caption h1{
         font-size: 35px;
@@ -358,9 +396,9 @@
     .course-post-imgBx, .course-post-contentBx{
         width: 100%;
     }
-    .course-listing-box{
+    /* .course-listing-box{
         padding: 30px;
-    }
+    } */
     /* .course-post-contentBx{
         padding: 30px 0 0;
     } */

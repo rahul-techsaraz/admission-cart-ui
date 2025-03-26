@@ -25,7 +25,7 @@ export default function ExamCard({ data }) {
           <div className="exam-listing-box position-relative">
             <p className="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
             <div className="exam-listing-box-content">
-              <div className="d-flex justify-content-between text-center">
+              <div className="exam-listing-flex-box d-flex justify-content-between text-center">
                 <div className="d-flex gap-2 mb-3 flex-column application-exam-date-text">
                   <div className="calender-icon-circle-parent">
                     <span className="calender-icon-circle yellow-bg d-inline-flex align-items-center justify-content-center">
