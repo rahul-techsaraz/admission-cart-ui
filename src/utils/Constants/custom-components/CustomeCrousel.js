@@ -189,7 +189,7 @@ const CustomeCrousel = ({
 
   const cloneChildStyle = () => {
     return {
-      transform:`translateX(${hoveredCardPosition.x-117.5}px)`,
+      transform:`translateX(${hoveredCardPosition.x-64.5}px)`,
       width:`${hoveredCardPosition.width}px`,
     }
   }
@@ -234,11 +234,11 @@ const CustomeCrousel = ({
     }
   },[activeIndex])
 
-  // useEffect(()=>{
-  //   if(hoveredCardPosition !== null){
-  //     console.log(hoveredCardPosition)
-  //   }
-  // },[hoveredCardPosition])
+  useEffect(()=>{
+    if(hoveredCardPosition !== null){
+      console.log(hoveredCardPosition)
+    }
+  },[hoveredCardPosition])
   
   
   return (

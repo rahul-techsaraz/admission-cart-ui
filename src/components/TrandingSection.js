@@ -31,7 +31,7 @@ const TrandingSection = () => {
           <div className="trending-course-box position-relative tranding_courses_box_heighset">
             <div className="row align-items-center">
               <div className="col-12 col-lg-6">
-                <h2 className="text-white text-center text-lg-start mb-5 mb-lg-0 position-relative z-1">
+                <h2 className="tranding-courses-heading text-white text-center text-lg-start mb-5 mb-lg-0 position-relative z-1">
                   Trending Courses
                 </h2>
               </div>
@@ -44,7 +44,7 @@ const TrandingSection = () => {
                         navigatePrev={'trending-button-prev'}
                         navigateNext={'trending-button-next'}
                         itemsPerView={1}
-                        isAutoScroll={true}
+                        isAutoScroll={false}
                         breakPoints={responsive}
                         animation={'Card-Zoom-Effect'}
                         autoScrollPauseOnMouseEnter={true}
