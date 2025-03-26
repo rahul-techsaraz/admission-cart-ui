@@ -1,10 +1,10 @@
-import { shallowEqual, useSelector } from 'react-redux';
+import React from 'react';
 import TrendingCollegesCard from '../utils/Constants/custom-components/trendingColleges/TrendingCollegesCard';
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const CourseList = () => {
-  const { allCollegeData } = useSelector((state) => state.common , shallowEqual);
+  const { allCollegeData } = useSelector((state) => state.common);
   const responsive = {
     1400: {
       itemsPerView: 4,
@@ -32,7 +32,9 @@ const CourseList = () => {
           <h3 className="course-slider_h3text">Tranding Courses</h3>
           <div className="row flex-nowrap align-items-center position-relative overflow-x-hidden">
             <CustomeCrousel
-              itemsPerView={1}
+              navigatePrev={'crousel-btn-prev'}
+              navigateNext={'crousel-btn-next'}
+              itemsPerView={4}
               isAutoScroll={true}
               breakPoints={responsive}
               animation={'Card-Zoom-Effect'}

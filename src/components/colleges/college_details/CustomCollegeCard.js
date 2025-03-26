@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import constants from '../../../utils/Constants/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
 import { Link } from 'react-router-dom';
 
-export const CustomCollegeCard = ({ college, isSwiper }) => {
+export const CustomCollegeCard = ({ college }) => {
   const { authenticateUser } = useSelector((state) => state.common);
+  const [ishidden, setIsHidden] = useState(true)
   const dispatch = useDispatch();
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -18,7 +19,7 @@ export const CustomCollegeCard = ({ college, isSwiper }) => {
     }
   };
   return (
-    <div className={isSwiper ? 'col-12' : 'col-lg-3'}>
+    <div className='col-12' onMouseEnter={() => setIsHidden(false)} onMouseLeave={() => setIsHidden(true)}>
       <div className="collage_card_main_box">
         <div className="collage_card_1stimgbox">
           <img
@@ -57,25 +58,25 @@ export const CustomCollegeCard = ({ college, isSwiper }) => {
             </div>
             <div className="collage_card_2ndtextbox_rating">
               <p className="collage_card_2ndtextbox_rating_star_number">
-                <i class="fa-solid fa-star"></i> {college?.ratings}/5
+                <i className="fa-solid fa-star"></i> {college?.ratings}/5
               </p>
               <p className="collage_card_2ndtextbox_reviews">{getRandomInt(1, 300)}+ reviews</p>
             </div>
           </div>
 
-          <Link to={`/colleges_details/${college.college_id}`} className="collage-name_courses_fees_parents_box2">
+          <Link to={authenticateUser && `/colleges_details/${college.college_id}`} className={ishidden ? "hidden" : "collage-name_courses_fees_parents_box2"} onClick={() => handleClick()}>
             <div className="collage-name_courses_fees_parents_box">
               View All Courses and Fees
               <span className="collage-name_courses_fees_parents_box_icon">
-                <i class="fa-solid fa-angle-right"></i>
+                <i className="fa-solid fa-angle-right"></i>
               </span>
             </div>
           </Link>
 
-          <div className="collage-name_download_brochure_parents_box" onClick={() => handleClick()}>
+          <div className={ishidden ? "hidden" : "collage-name_download_brochure_parents_box"} onClick={() => handleClick()}>
             Download Brochure
             <span className="collage-name_courses_fees_parents_box_icon">
-              <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-angle-right"></i>
             </span>
           </div>
         </div>

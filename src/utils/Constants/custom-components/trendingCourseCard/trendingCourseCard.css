@@ -4,7 +4,12 @@
     --color-green: #5BE4A8;
 }
 
-
+.trending-course-container{
+    width: 100%;
+}
+.trnnding-course-inner-container{
+    margin: 0 auto;
+}
 .courses_card_categroy{
     font-size: 16px;
     color: #575757;
