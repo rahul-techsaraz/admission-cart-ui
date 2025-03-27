@@ -58,6 +58,11 @@
   position: absolute;
   top: 0;
 }
+.cloned-child-2 {
+  position: relative;
+  width: 100%;
+  height: 100%
+}
 .Card-Zoom-Effect{
   position: absolute;
   top: 0;
@@ -68,7 +73,16 @@
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .crousel-item{
+  position: relative;
   height: auto;
+}
+.crousel-item-modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* top: 50%;
+  left: 50%;
+  transform: scale(1.25) translate(-37.5%, -37.5%); */
 }
 .crousel-container{
   display: flex;

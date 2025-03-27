@@ -10,7 +10,7 @@ const ExploreCareer = () => {
       spaceBetween: 20,
     },
     1024: {
-      itemsPerView: 3,
+      itemsPerView: 4,
       spaceBetween: 20,
     },
     768: {
@@ -42,7 +42,7 @@ const ExploreCareer = () => {
                       <CustomeCrousel
                         navigatePrev={'crousel-btn-prev'}
                         navigateNext={'crousel-btn-next'}
-                        itemsPerView={3}
+                        itemsPerView={4}
                         isAutoScroll={true}
                         breakPoints={responsive}
                         animation={'Card-Zoom-Effect'}
