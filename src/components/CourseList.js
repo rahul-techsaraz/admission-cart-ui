@@ -30,7 +30,7 @@ const CourseList = () => {
       <section className="course-slider-section text-center section-padding">
         <div className="container">
           <h3 className="course-slider_h3text">Tranding Collages</h3>
-          <div className="row flex-nowrap align-items-center position-relative overflow-x-hidden">
+          {/* <div className=""> */}
             <CustomeCrousel
               navigatePrev={'crousel-btn-prev'}
               navigateNext={'crousel-btn-next'}
@@ -48,7 +48,7 @@ const CourseList = () => {
                   </CarouselSlides>
                 ))}
             </CustomeCrousel>
-          </div>
+          {/* </div> */}
         </div>
       </section>}
     </>

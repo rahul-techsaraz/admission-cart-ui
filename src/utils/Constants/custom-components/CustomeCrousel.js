@@ -60,24 +60,6 @@ const CustomeCrousel = ({
   const [slidePerView, setSlidePerView] = useState(itemsPerView);
   const [childToAnimate, setChildToAnimate] = useState([])
   const [hoveredCardPosition, setHoveredCardPosition] = useState(null)
-  // let responsive = {
-  //   1400: {
-  //     itemsPerView: 1,
-  //     spaceBetween: 20,
-  //   },
-  //   1024: {
-  //     itemsPerView: 1,
-  //     spaceBetween: 20,
-  //   },
-  //   768: {
-  //     itemsPerView: 1,
-  //     spaceBetween: 20,
-  //   },
-  //   576: {
-  //     itemsPerView: 1,
-  //     spaceBetween: 20,
-  //   },
-  // };
   const responsive = {...breakPoints}
   let intervalId;
   const dataToMap = isAutoScroll ? clonedData : originalData;
@@ -156,41 +138,72 @@ const CustomeCrousel = ({
   const carouselStyle = () => {
     if (breakPoints) {
       if (screenWidth >= 1400) {
-        return {
-          width: `${100 / slidePerView}%`,
-          paddingLeft: `${responsive[1400].spaceBetween / 2}`,
-          paddingRight: `${responsive[1400].spaceBetween / 2}`,
-        };
+        if (slidePerView > 1){
+          return {
+            "width": `${100 / slidePerView}%`,
+            "padding-left": `${responsive[1400].spaceBetween / 2}px`,
+            "padding-right": `${responsive[1400].spaceBetween / 2}px`,
+          };
+        }else{
+          return {
+            "width": `${100 / slidePerView}%`,
+          };
+        }
       } else if (screenWidth >= 1024) {
-        return {
-          width: `${100 / slidePerView}%`,
-          paddingLeft: `${responsive[1024].spaceBetween / 2}`,
-          paddingRight: `${responsive[1024].spaceBetween / 2}`,
-        };
+        if (slidePerView > 1){
+          return {
+            "width": `${100 / slidePerView}%`,
+            "padding-left": `${responsive[1024].spaceBetween / 2}px`,
+            "padding-right": `${responsive[1024].spaceBetween / 2}px`,
+          };
+        }else{
+          return {
+            "width": `${100 / slidePerView}%`,
+          };
+        }
       } else if (screenWidth >= 768) {
-        return {
-          width: `${100 / slidePerView}%`,
-          paddingLeft: `${responsive[768].spaceBetween / 2}`,
-          paddingRight: `${responsive[768].spaceBetween / 2}`,
-        };
+        if (slidePerView > 1){
+          return {
+            "width": `${100 / slidePerView}%`,
+            "padding-left": `${responsive[768].spaceBetween / 2}px`,
+            "padding-right": `${responsive[768].spaceBetween / 2}px`,
+          };
+        }else{
+          return {
+            "width": `${100 / slidePerView}%`,
+          };
+        }
       } else if (screenWidth >= 576) {
-        return {
-          width: `${100 / slidePerView}%`,
-          paddingLeft: `${responsive[576].spaceBetween / 2}`,
-          paddingRight: `${responsive[576].spaceBetween / 2}`,
-        };
+        if (slidePerView > 1){
+          return {
+            "width": `${100 / slidePerView}%`,
+            "padding-left": `${responsive[576].spaceBetween / 2}px`,
+            "padding-right": `${responsive[576].spaceBetween / 2}px`,
+          };
+        }else{
+          return {
+            "width": `${100 / slidePerView}%`,
+          };
+        }
       } else {
-        return { width: '100%' };
+        return { "width": '100%' };
       }
     } else {
-      return { width: `${100 / slidePerView}%` };
+      return { "width": `${100 / slidePerView}%` };
     }
   };
 
   const cloneChildStyle = () => {
-    return {
-      transform:`translateX(${hoveredCardPosition.x-117.5}px)`,
-      width:`${hoveredCardPosition.width}px`,
+    if(slidePerView > 1){
+      return {
+        transform:`translateX(${hoveredCardPosition.x-105.5-12-10}px)`,
+        width:`${hoveredCardPosition.width}px`,
+      }
+    }else{
+      return {
+        transform:`translateX(${hoveredCardPosition.x-105.5-12}px)`,
+        width:`${hoveredCardPosition.width}px`,
+      }
     }
   }
 
@@ -227,8 +240,8 @@ const CustomeCrousel = ({
   }, [children]);
 
   useEffect(()=>{
-    console.log(currentIndex)
-    console.log(activeIndex)
+    // console.log(currentIndex)
+    // console.log(activeIndex)
     if(activeIndex !== null){
       setChildToAnimate(dataToMap.filter((_, index)=>index === activeIndex))
     }else{
@@ -249,7 +262,7 @@ const CustomeCrousel = ({
         <div className="crousel-wrapper">
           {/* Adjusting the X position for smooth slide */}
           <div
-            className="row flex-nowrap position-relative crousel-container"
+            className="crousel-container"
             style={{
               transform: `translateX(-${(currentIndex * 100) / slidePerView}%)`,
               transition: isTransitioning ? 'transform 0.5s ease' : 'none',

@@ -29,16 +29,16 @@ const ExploreCareer = () => {
         <section className="career-slider-section text-center section-padding">
           <div className="container">
             <div className="row">
-              <div className="col-12">
+              <div className="col-12 ">
                 <h1 className="section-heading text-center">Explore Exams</h1>
                 <p className="section-subheading">
                   Explore your preferred streams to learn about the relevant colleges, exams and more!
                 </p>
               </div>
-              <div className="col-12">
+              {/* <div className="col-12">
                 <div className="career-slider-wrapper position-relative">
                   <div className="swiper career-slider">
-                    <div className="swiper-wrapper position-reltive">
+                    <div className="swiper-wrapper position-reltive"> */}
                       <CustomeCrousel
                         navigatePrev={'crousel-btn-prev'}
                         navigateNext={'crousel-btn-next'}
@@ -54,10 +54,10 @@ const ExploreCareer = () => {
                           </CarouselSlides>
                         ))}
                       </CustomeCrousel>
-                    </div>
+                    {/* </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
