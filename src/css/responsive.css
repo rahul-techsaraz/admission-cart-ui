@@ -1,3 +1,33 @@
+@media screen and (max-width: 1396px){
+    .collage_card_2ndtextbox {
+        padding:20px 10px;
+    }
+    .collage_card_2ndtextbox_rating_star_number{
+        font-size: 14px;
+        gap: 2px;
+    }
+    .collage_card_2ndtextbox_course-name_h3{
+        font-size: 16px;
+    }
+    .collage_card_2ndtextbox_course-name_p{
+        font-size: 14px;
+    }
+    .collage_card_2ndtextbox_rating_star_number i{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 1350px){
+    .choice-place-col2 h2{
+        font-size: 30px;
+    }
+    .choice-place-col2 p{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .choice-place-col2{
+        padding: 40px 70px 40px 80px;
+    }
+}
 @media screen and (max-width: 1240px){
     .banner-caption{
         padding: 55px 0;
@@ -16,22 +46,6 @@
       }
 }
 @media screen and (max-width: 1200px){
-    .collage_card_2ndtextbox {
-        padding:20px 10px;
-    }
-    .collage_card_2ndtextbox_rating_star_number{
-        font-size: 14px;
-        gap: 2px;
-    }
-    .collage_card_2ndtextbox_course-name_h3{
-        font-size: 16px;
-    }
-    .collage_card_2ndtextbox_course-name_p{
-        font-size: 14px;
-    }
-    .collage_card_2ndtextbox_rating_star_number i{
-        font-size: 13px;
-    }
     .exam-listing-flex-box{
         display:block !important;
         text-align: left !important;
@@ -143,6 +157,8 @@
     }
     .choice-place-col1 img{
         position: static;
+        width: 100%;
+        height: 350px;
     }
     .trending-course-section {
         padding-bottom: 40px;
@@ -184,11 +200,6 @@
     }
     a{
         justify-content: start;
-    }
-
-    .choice-place-col2 p{
-        margin-top: 30px;
-        margin-bottom: 30px;
     }
     /* .choice-place-col1 img{
         top: -60px;
@@ -253,6 +264,10 @@
       .banner-caption h1 {
         font-size: 30px;
     }
+    .trending-course-box{
+        padding: 50px 50px;
+    }
+
     
 }   /* end 991px */
 
@@ -480,6 +495,10 @@
       .banner-btn-grp{
         margin-top: 1rem !important;
       }
+      .choice-place-col1 img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 576px){
@@ -721,6 +740,23 @@
     }
     .prev-next{
         justify-content: flex-end;
+    }
+    .course_box_childtext{
+        padding: 30px 30px 0;
+    }
+    .courses_card_categroy{
+        font-size: 14px;
+    }
+    p.course-name {
+        font-size: 15px;
+        line-height: 20px;
+        height: 70px;
+    }
+    .courses_card_flexbox-i{
+        font-size: 13px;
+    }
+    .courses_card_flexbox-i i{
+        font-size: 13px;
     }
 }
 /* 393 start */

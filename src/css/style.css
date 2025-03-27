@@ -1128,6 +1128,7 @@ p.course-para {
   line-height: normal;
   margin-top: 55px;
   margin-bottom: 55px;
+  text-align: justify;
 }
 /* .choice-place-col2.green-bg{
   background-color: var(--color-green);
@@ -1337,6 +1338,7 @@ p.course-para {
   font-weight: 400;
   line-height: normal;
   margin-bottom: 30px;
+  text-align: justify;
 }
 .dots-img{
   position: absolute;
@@ -1660,7 +1662,8 @@ select.form-select {
   font-style: normal;
   font-weight: 400;
   color: var(--white-100);
-  line-height: 27px; /* 168.75% */
+  line-height: 27px;
+  text-align: justify; /* 168.75% */
 }
 .site-logo{
   font-size: 24px;
@@ -2218,6 +2221,8 @@ span.milestone-dot {
   margin-bottom: 50px;
   transition: .3s;
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  border-radius: 20px;
 }
 .exam-listing-box:hover{
   border: 1px solid var(--color-green);
@@ -2376,6 +2381,7 @@ ul.exam-imp-list {
   height: auto;
   position: relative;
   border-top: 5px solid #5BE4A8;
+  background: #fff;
 }
 .course-post-imgBx{
   overflow: hidden;
@@ -5935,15 +5941,16 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
 .collage-name_rating_parents_box{
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
 .collages-list-hr{
   width: 100%;
-  margin: 0;
+  /* margin: 0; */
   opacity: .69;
   background: var(--body-text-grey);
   height: 1px;
   border: 1px;
+  margin-top: 20px;
 }
 
 .collage_card_2ndtextbox_course-name_h3{
