@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CustomPagination from '../../../utils/Constants/custom-components/CustomPagination';
 import CustomCourseCard from './CustomCourseCard';
+import CardZoomEffect from '../../../utils/Constants/custom-components/cardZoomEffect/CardZoomEffect';
 
 export default function CourseCard({ data }) {
   const { allCourseData } = useSelector((state) => state.common);
@@ -31,7 +32,9 @@ export default function CourseCard({ data }) {
     <>
       <div className="row">
         {courseData.map((course) => (
-          <CustomCourseCard course={course} isSwiper={false} />
+          <CardZoomEffect>
+            <CustomCourseCard course={course} isSwiper={false} />
+          </CardZoomEffect>
         ))}
       </div>
       <div className="row pagination-gap">

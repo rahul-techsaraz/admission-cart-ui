@@ -2,7 +2,7 @@ import React, { Children, cloneElement, useEffect, useState } from 'react';
 import rightArrow from '../../../images/arrow-right-icon.svg';
 import leftArrow from '../../../images/arrow-left-icon.svg';
 
-const CarouselSlides = ({ children, slideStyle, updateActiveIndex, toggelScroll, index, updatePosition, childStyle, isModal }) => {
+const CarouselSlides = ({ children, slideStyle, updateActiveIndex, toggelScroll, index, updatePosition, isAnimation, isModal }) => {
   const [cardPostion, setCardPosition] = useState({})
 
   const handleMouseEnter = (e) => {
@@ -30,11 +30,11 @@ const CarouselSlides = ({ children, slideStyle, updateActiveIndex, toggelScroll,
     }
   },[cardPostion])
   return (
-    <div className={isModal ? "crousel-item Card-Zoom-Effect" : "crousel-item"} style={isModal ? {} : slideStyle()} onMouseEnter={(e)=>handleMouseEnter(e)} onMouseLeave={(e)=>handleMouseLeave(e)}>
+    <div className={isModal ? "crousel-item-modal Card-Zoom-Effect" : "crousel-item"} style={isModal ? {} : slideStyle()} onMouseEnter={(e)=>handleMouseEnter(e)} onMouseLeave={(e)=>handleMouseLeave(e)}>
       {Children.map(children, (child) =>
         cloneElement(child,{ index:index, isModal:isModal})
       )}
-      {!isModal && <div className='transparent-wraper'></div>}
+      {!isModal && isAnimation && <div className='transparent-wraper'></div>}
     </div>
   );
 };
@@ -189,7 +189,7 @@ const CustomeCrousel = ({
 
   const cloneChildStyle = () => {
     return {
-      transform:`translateX(${hoveredCardPosition.x-64.5}px)`,
+      transform:`translateX(${hoveredCardPosition.x-117.5}px)`,
       width:`${hoveredCardPosition.width}px`,
     }
   }
@@ -227,6 +227,8 @@ const CustomeCrousel = ({
   }, [children]);
 
   useEffect(()=>{
+    console.log(currentIndex)
+    console.log(activeIndex)
     if(activeIndex !== null){
       setChildToAnimate(dataToMap.filter((_, index)=>index === activeIndex))
     }else{
@@ -260,24 +262,27 @@ const CustomeCrousel = ({
                 updateActiveIndex: (i) => setActiveIndex(i),
                 toggelScroll: (flag) => toggelAutoScroll(flag),
                 updatePosition: (p) => setHoveredCardPosition(p),
-                isModal: false
+                isModal: false,
+                isAnimation: animation ? true : false
               })
             )}
           </div>
         </div>
         {animation === 'Card-Zoom-Effect' && childToAnimate.length > 0 &&
-          <div className={`cloned-child`} style={slidePerView > 1 ? cloneChildStyle() : {}}>
-            {Children.map(childToAnimate, (child, index) =>
-              cloneElement(child, {
-                index: activeIndex,
-                slideStyle: carouselStyle,
-                updateActiveIndex: (i) => setActiveIndex(i),
-                toggelScroll: (flag) => toggelAutoScroll(flag),
-                updatePosition: (p) => setHoveredCardPosition(p),
-                childStyle: cloneChildStyle,
-                isModal: true,
-              })
-            )}
+          <div className="cloned-child" style={slidePerView > 1 ? cloneChildStyle() : {width:"100%", height:"100%"}}>
+            <div className='cloned-child-2'>
+              {Children.map(childToAnimate, (child, index) =>
+                cloneElement(child, {
+                  index: activeIndex,
+                  slideStyle: carouselStyle,
+                  updateActiveIndex: (i) => setActiveIndex(i),
+                  toggelScroll: (flag) => toggelAutoScroll(flag),
+                  updatePosition: (p) => setHoveredCardPosition(p),
+                  childStyle: cloneChildStyle,
+                  isModal: true,
+                })
+              )}
+            </div>
           </div>
         }
         {/* {animation === 'Card-Zoom-Effect' && (

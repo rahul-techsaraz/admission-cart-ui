@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import sandclassNameIcon from '../../../images/sandglass-icon.svg';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggelIsLoginPopup } from '../../../features/commonSlice';
 
-const CustomCourseCard = ({ course, isSwiper }) => {
+const CustomCourseCard = ({ course }) => {
+  const { authenticateUser } = useSelector((state) => state.common);
+  const [ishidden, setIsHidden] = useState(true)
+  const dispatch = useDispatch();
+  const handleClick = () => {
+      if (!authenticateUser) {
+        dispatch(toggelIsLoginPopup({ flag: true }));
+      }
+    };
   // useEffect(()=>{
   //     console.log(course)
   // },[course])
   return (
-    <div className={isSwiper ? 'col-12' : 'col-md-4 col-lg-3'}>
-      <Link to={`/courses_details/${course.course_id}`}>
+    <div className='col-12' onMouseEnter={()=>setIsHidden(false)} onMouseLeave={()=>setIsHidden(true)}>
+      {/* <Link to={`/courses_details/${course.course_id}`}> */}
         <div className="course-listing-box align-items-center mb-4">
           <div className="course-post-contentBx">
             {/* <div className="course-box-img">
@@ -44,11 +54,12 @@ const CustomCourseCard = ({ course, isSwiper }) => {
                 </p>
               </div>
             </div>
-
-            <div className="course-readmore-btn course-readmore-btn2 course-card-hover">Enquire Now </div>
+            <Link to={authenticateUser && `/courses_details/${course.course_id}`} onClick={()=>handleClick()} className={ishidden ? 'hidden' : ''}>
+              <div className="course-readmore-btn course-readmore-btn2 course-card-hover">Enquire Now </div>
+            </Link>
           </div>
         </div>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 };
