@@ -29,7 +29,7 @@ const CourseList = () => {
     {allCollegeData.length > 0 &&
       <section className="course-slider-section text-center section-padding">
         <div className="container">
-          <h3 className="course-slider_h3text">Tranding Courses</h3>
+          <h3 className="course-slider_h3text">Tranding Collages</h3>
           <div className="row flex-nowrap align-items-center position-relative overflow-x-hidden">
             <CustomeCrousel
               navigatePrev={'crousel-btn-prev'}

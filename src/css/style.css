@@ -2213,7 +2213,7 @@ span.milestone-dot {
 
 .exam-listing-box{
   border: 1px solid #E0E0E0;
-  padding: 0 0 50px;
+  /* padding: 0 0 50px; */
   margin-bottom: 50px;
   transition: .3s;
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
@@ -2223,6 +2223,12 @@ span.milestone-dot {
   /* background: #f1f1f1; */
   transition: .3s;
   /* background: linear-gradient(to top, #ffffff 0%, #f1f1f1 100%) */
+}
+.application-exam-date-text{
+  width: 50%;
+}
+.exam-imp-list-width-50{
+  width: 45%;
 }
 
 .exam-listing-box-content{
@@ -2313,9 +2319,6 @@ ul.exam-imp-list {
   .exam-apply-btn{
     width: 130px;
   }
-  .exam-listing-box-content {
-    padding: 0 5px 0;
-}
 }
 
 @media only screen and (min-width: 1200px) {
@@ -2390,12 +2393,6 @@ ul.exam-imp-list {
 } */
 .course-listing-box:hover .course-card-hover{
   background: var(--color-green);
-}
-.application-exam-date-text{
-  width: 50%;
-}
-.exam-imp-list-width-50{
-  width: 45%;
 }
 
 .course-post-contentBx{
@@ -2475,7 +2472,7 @@ ul.exam-imp-list {
   color: #404040;
 }
 .course-infowrapper{
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   flex-direction: column;
   gap: 10px;
 }
@@ -5938,8 +5935,16 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--body-text-grey);
 }
+.collages-list-hr{
+  width: 100%;
+  margin: 0;
+  opacity: .69;
+  background: var(--body-text-grey);
+  height: 1px;
+  border: 1px;
+}
+
 .collage_card_2ndtextbox_course-name_h3{
   font-size: 20px;
   color: var(--color-black);
@@ -5993,7 +5998,6 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   color: var(--color-black);
   font-weight: 500;
   font-size: 16px;
-  border-bottom: 1px solid var(--body-text-grey);
   width: 100%;
   cursor: pointer;
 }

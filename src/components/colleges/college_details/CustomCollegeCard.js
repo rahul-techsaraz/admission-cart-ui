@@ -62,7 +62,9 @@ export const CustomCollegeCard = ({ college }) => {
               </p>
               <p className="collage_card_2ndtextbox_reviews">{getRandomInt(1, 300)}+ reviews</p>
             </div>
+            
           </div>
+          <hr className='collages-list-hr'/>
 
           <Link to={authenticateUser && `/colleges_details/${college.college_id}`} className={ishidden ? "hidden" : "collage-name_courses_fees_parents_box2"} onClick={() => handleClick()}>
             <div className="collage-name_courses_fees_parents_box">
@@ -72,7 +74,7 @@ export const CustomCollegeCard = ({ college }) => {
               </span>
             </div>
           </Link>
-
+          <hr className='collages-list-hr'/>
           <div className={ishidden ? "hidden" : "collage-name_download_brochure_parents_box"} onClick={() => handleClick()}>
             Download Brochure
             <span className="collage-name_courses_fees_parents_box_icon">
