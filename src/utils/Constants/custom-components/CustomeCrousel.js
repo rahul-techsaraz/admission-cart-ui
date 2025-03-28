@@ -111,11 +111,11 @@ const CustomeCrousel = ({
         setTimeout(() => {
           setIsTransitioning(false);
           setCurrentIndex(slidePerView); // Jump to the second slide (to avoid showing the clone of the last slide)
-        }, 500); // Wait for the transition to complete
+        }, 900); // Wait for the transition to complete
       } else if (currentIndex == 0) {
         setTimeout(() => {
           setCurrentIndex(dataToMap.length - slidePerView); // Jump to the second-to-last slide
-        }, 500); // Wait for the transition to complete
+        }, 900); // Wait for the transition to complete
       } else {
         setIsTransitioning(true);
       }
@@ -265,7 +265,7 @@ const CustomeCrousel = ({
             className="crousel-container"
             style={{
               transform: `translateX(-${(currentIndex * 100) / slidePerView}%)`,
-              transition: isTransitioning ? 'transform 0.5s ease' : 'none',
+              transition: isTransitioning ? 'transform 0.9s ease' : 'none',
             }}
           >
             {Children.map(dataToMap, (child, index) =>

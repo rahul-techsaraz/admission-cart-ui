@@ -44,7 +44,7 @@ const TrandingSection = () => {
                         navigatePrev={'trending-button-prev'}
                         navigateNext={'trending-button-next'}
                         itemsPerView={1}
-                        isAutoScroll={false}
+                        isAutoScroll={true}
                         breakPoints={responsive}
                         animation={'Card-Zoom-Effect'}
                         autoScrollPauseOnMouseEnter={true}
