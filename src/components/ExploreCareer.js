@@ -31,7 +31,7 @@ const ExploreCareer = () => {
             <div className="row">
               <div className="col-12 ">
                 <h1 className="section-heading text-center">Explore Exams</h1>
-                <p className="section-subheading">
+                <p className="section-subheading career-slider-padding">
                   Explore your preferred streams to learn about the relevant colleges, exams and more!
                 </p>
               </div>
