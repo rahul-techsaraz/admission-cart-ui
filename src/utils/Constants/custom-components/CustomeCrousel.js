@@ -196,12 +196,12 @@ const CustomeCrousel = ({
   const cloneChildStyle = () => {
     if(slidePerView > 1){
       return {
-        transform:`translateX(${hoveredCardPosition.x-105.5-12-10}px)`,
+        transform:`translateX(${hoveredCardPosition.x-52.5-12-10}px)`,
         width:`${hoveredCardPosition.width}px`,
       }
     }else{
       return {
-        transform:`translateX(${hoveredCardPosition.x-105.5-12}px)`,
+        transform:`translateX(${hoveredCardPosition.x-52.5-12}px)`,
         width:`${hoveredCardPosition.width}px`,
       }
     }

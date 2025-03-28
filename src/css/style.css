@@ -2855,7 +2855,9 @@ ul.exam-imp-list {
   position: relative !important;
   top: 10px;
 }
-
+.career-slider-padding{
+  padding-bottom: 40px;
+}
 .courses-details-rightcol{
   position: relative;
 }
@@ -3359,6 +3361,7 @@ ul.exam-imp-list {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-align: justify;
 }
 .exam-center-calenderTxt,
 .exam-center-calenderTxt1{
@@ -3396,6 +3399,7 @@ ul.exam-imp-list {
   font-weight: 400;
   line-height: normal;
   padding: 10px 50px 15px;
+  text-align: justify;
 }
 .tobe-announce-bx{
   border-radius: 0px 0px 0px 50px;
@@ -5874,6 +5878,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.25);
   margin-bottom: 50px;
   background: #fff;
+  border-radius: 20px;
 }
 .collage_card_1stimgbox{
   width: 100%;
@@ -5897,6 +5902,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-radius: 20px 20px 0 0;
 }
 .collage_card_1stimgbox_text_logo{
   width: 100%;
@@ -5928,7 +5934,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   gap: 20px;
 }
 .collage_card_1stimgbox_img_logo_collages_name{
-  font-size: 20px;
+  font-size: 16px;
 }
 .collage_card_1stimgbox_img_logo_collages_address{
   font-size: 16px;
@@ -5954,13 +5960,13 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
 }
 
 .collage_card_2ndtextbox_course-name_h3{
-  font-size: 20px;
+  font-size: 16px;
   color: var(--color-black);
   font-weight: 600;
   height: 50px;
 }
 .collage_card_2ndtextbox_course-name_p{
-  font-size: 16px;
+  font-size: 14px;
   color: var(--color-black);
 }
 .collage_card_2ndtextbox_course-name_p_span{
@@ -5968,14 +5974,14 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   font-weight: 600;
 }
 .collage_card_2ndtextbox_rating_star_number{
-  font-size: 17px;
+  font-size: 14px;
   text-align: right;
   margin-bottom: 0rem;
   font-weight: 600;
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 .collage_card_2ndtextbox_reviews{
   font-size: 12px;
@@ -5989,7 +5995,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
 }
 .collage_card_2ndtextbox_rating_star_number i{
   color: #ffe234;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .course-name_ranked_parents_box{

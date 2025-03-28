@@ -81,11 +81,11 @@ export default function CollegeDetails() {
       spaceBetween: 50,
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 40,
     },
     576: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 20,
     },
   };
@@ -99,11 +99,11 @@ export default function CollegeDetails() {
       spaceBetween: 50,
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 40,
     },
     576: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 20,
     },
   };
