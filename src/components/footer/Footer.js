@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className="widget company-intro-widget pe-lg-5 mb-5 mb-lg-0">
                   <p>
                     <Link to="/">
-                      <img src={logo} alt="logo" className="img-fluid" />
+                      <img src={logo} alt="logo" className="img-fluid footer-img-size" />
                     </Link>
                   </p>
                   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="4" viewBox="0 0 70 4" fill="none">

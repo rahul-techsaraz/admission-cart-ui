@@ -178,3 +178,7 @@
     cursor: pointer;
     font-weight: 600;
 }
+.login-model-buttons{
+    display: flex;
+    gap: 10px;
+}

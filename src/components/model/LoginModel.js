@@ -160,7 +160,7 @@ export default function LoginModel() {
                 placeholder="password"
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
-              <div style={{ display: 'flex', gap: '10px' }}>
+              <div className='login-model-buttons'>
                 <button type="submit" className="clkbtn" onClick={() => handleLogin()}>
                   Login
                 </button>
@@ -200,9 +200,14 @@ export default function LoginModel() {
                 placeholder="Confirm password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
+              <div className='login-model-buttons'>
               <button className="clkbtn" onClick={(e) => handleSignUp(e)}>
                 Signup
               </button>
+              <button className="clkbtn" onClick={() => dispatch(toggelLoginModel({ flag: false }))}>
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>

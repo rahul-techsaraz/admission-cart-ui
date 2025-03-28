@@ -929,12 +929,6 @@ ul.mega_menu {
   padding: 20px 20px 0;
   background: #fff;
 }
-.course_box_childtext{
-  padding: 30px 40px 0;
-  border: 3px solid var(--color-green);
-}
-
-
 .scollarship-icon{
   width: 50px;
   padding: 7px;
@@ -3353,6 +3347,7 @@ ul.exam-imp-list {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-align: justify;
 }
 .similar-exam-bottom-contentbox-para2{
   color: var(--body-text-grey);
@@ -4535,7 +4530,6 @@ p.clg-stream-name {
 .card .details .badge_group {
 	margin-top: 0.25rem;
 }
-
 
 .card .details_tab {
 	margin-bottom: 2rem;
