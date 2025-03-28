@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom';
 import brainStromingImage from '../images/brainstorming-img2.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggelIsLoginPopup } from '../features/commonSlice';
 
 const ExploreCoursesPage = () => {
+  const { authenticateUser } = useSelector((state) => state.common);
+  const dispatch = useDispatch();
+  const handleClick = (from) => {
+    if (!authenticateUser) {
+      dispatch(toggelIsLoginPopup({ flag: true }));
+    }
+  };
   return (
     <>
       <section className="choice-place-section section-padding">
@@ -13,7 +22,7 @@ const ExploreCoursesPage = () => {
               scientific psychometric tool, and get advised on the best career options for you. It can also derive
               whether or not you are suitable for a particular career or role type.
             </p>
-            <Link className="theme-btn black-btn" to={'/courses_list'}>
+            <Link className="theme-btn black-btn" to={authenticateUser && '/courses_list'} onClick={()=>handleClick()}>
               Explore Courses
             </Link>
           </div>

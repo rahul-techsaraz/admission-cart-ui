@@ -15,6 +15,7 @@ import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
 import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
 import { useFetchAllExam } from '../hooks/useFetchAllExam';
 const Header = () => {
+  const [isBurgerclicked, setIsBurgerClicked] = useState(false)
   const { fetchCollegeList } = useFetchAllCollege();
   const { fetchCourseList } = useFetchAllCourse();
   const { fetchExamList } = useFetchAllExam();
@@ -26,34 +27,10 @@ const Header = () => {
   }, []);
   const { authenticateUser } = useSelector((state) => state.common);
   const dispatch = useDispatch();
-  // const navigate = useNavigate()
-  // const location = useLocation()
-  // const authorise = async ()=>{
-  //     const custHeader = {...constants.apiHeader.HEADER, "Authorization" : JSON.parse(localStorage.getItem('loginResponse')).token}
-  //     const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION,constants.apiMethod.GET,custHeader)
-  //     if(jsonData.success == 0){
-  //         localStorage.removeItem('loginResponse')
-  //         dispatch(updateauthenticateUser({flag:false}))
-  //     }else{
-  //         dispatch(updateauthenticateUser({flag:true}))
-  //     }
-  // }
-  // useEffect(()=>{
-  //     if(!localStorage.getItem("loginResponse")){
-  //         dispatch(updateauthenticateUser({flag:false}))
-  //     }else{
-  //         authorise()
-  //     }
-  // },[])
-  // useEffect(()=>{
-  //     if(!authenticateUser && location.pathname.includes('profile')){
-  //         navigate('/')
-  //      }
-  //     // else{
-  //     //     navigate(lastLocation.pathname)
-  //     // }
-  // },[authenticateUser])
-
+  const handelBurgerClick = () => {
+    setIsBurgerClicked(true)
+  }
+  
   //Redux State
   const { openAfterLoginModel, openLoginModel } = useSelector((state) => state.common);
   //Dispatch Actions
@@ -66,9 +43,7 @@ const Header = () => {
       dispatch(toggelAfterLoginModel({ flag: !openAfterLoginModel }));
     }
   };
-  const handleModelLeave = () => {
-    // dispatch(toggelAfterLoginModel({flag:false}))
-  };
+  
 
   return (
     <>
@@ -128,15 +103,15 @@ const Header = () => {
               <Link to="/">
                 <img src={logo} alt="logo" className="img-fluid" />
               </Link>
-              <div className="burger" id="burger">
+              <div className="burger" id="burger" onClick={()=>handelBurgerClick()}>
                 <span className="burger-line"></span>
                 <span className="burger-line"></span>
                 <span className="burger-line"></span>
               </div>
             </section>
             <section className="navbar-center">
-              <span className="overlay"></span>
-              <div className="menu" id="menu">
+              <span className={isBurgerclicked ? "overlay is-active" : "overlay"} onClick={()=>setIsBurgerClicked(false)}></span>
+              <div className={isBurgerclicked ? "menu is-active" : "menu"} id="menu">
                 <div className="menu-header">
                   <span className="menu-arrow">
                     <i className="bx bx-chevron-left"></i>
@@ -146,7 +121,7 @@ const Header = () => {
                 <ul className="menu-inner">
                   {tabName.map((list, index) => (
                     <li className="menu-item menu-dropdown" key={index}>
-                      <Link to={list.path}>
+                      <Link to={list.path} onClick={()=>setIsBurgerClicked(false)}>
                         <span className="menu-link">
                           {list.name}
                           <i className="bx bx-chevron-right"></i>
@@ -164,7 +139,7 @@ const Header = () => {
               <span className="menu-block">
                 <img src="images/search-icon.svg" alt="" />
               </span>
-              <button className="menu-block" onClick={() => handleModel()} onMouseLeave={() => handleModelLeave()}>
+              <button className="menu-block" onClick={() => handleModel()}>
                 <img src={userImage} alt="" />
               </button>
             </section>
