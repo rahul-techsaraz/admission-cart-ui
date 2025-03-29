@@ -92,6 +92,39 @@
     .course_box_childtext{
         padding: 30px 30px 0 !important;
     }
+    .faq-heading{
+        margin-bottom: 30px;
+    }
+    .clg-info-greenbox-location{
+        font-size: 20px;
+    }
+    .exam-center-calenderTxt1,
+    .exam-center-calenderTxt{
+        font-size: 26px;
+    }
+    .similar-exam-badge{
+        font-size: 16px;
+    }
+
+    .course-slider_h3text,
+    .admission-process-content h2,
+    .tranding-courses-heading,
+    .section-heading,
+    .imgText-heading,
+    .inner-pagebanner-section h1,
+    .faq-heading,
+    .newsletter-hdng,
+    .course-details-alterImgbox-col1 h2,
+    .course-details-alterbox h2,
+    .tick-heading h2,
+    .clg-info-greenbox-hdng,
+    .section-heading2.grey,
+    .download-content-box h2,
+    .inner-pagebanner-section h1,
+    .exam-details-yellow-heading,
+    .section-heading2{
+        font-size: 30px !important;
+    }
 }
 
 @media screen and (max-width: 991px){
@@ -150,9 +183,6 @@
     }
     p.course-para {
         padding-left: 15px;
-    }
-    .admission-process-content h2 {
-        font-size: 24px;
     }
     .admission-process-btn {
         margin-left: 45px;
@@ -226,9 +256,6 @@
         font-size: 12px;
         padding: 10px 20px;
     }
-    .course-details-alterImgbox-col1 h2{
-        font-size: 30px;
-    }
     .course-details-alterImgbox-col1{
         padding: 40px 15px 40px 30px;
     }
@@ -282,6 +309,12 @@
     }
     .trending-course-box{
         padding: 50px 50px;
+    }
+    .choice-place-col1{
+        order: -1;
+    }
+    .footer-img-size{
+        width: 50%;
     }
 
     
@@ -359,7 +392,6 @@
         padding-bottom: 0 !important;
     }
     .imgText-heading {
-        font-size: 30px;
         margin-bottom: 20px;
     }
     .course-details-alterbox h2,
@@ -375,9 +407,6 @@
     }
     .choice-place-col2 {
         padding: 50px 30px;
-    }
-    .choice-place-col2 h2 {
-        font-size: 26px;
     }
     .choice-place-col2 p {
         margin-top: 20px;
@@ -490,15 +519,40 @@
       .course-details-alterImgbox-col1 h2{
         line-height: 35px;
       }
+      .course-details-alterbox h2{
+        line-height: 37px;
+      }
+      .accordion-button-mystyle{
+        font-size: 17px;
+      }
+      .course-details-alterbox p,
       .course-details-alterImgbox-col1 p{
         font-size: 17px;
       }
-
-
-
-    
-   
-
+      .course-details-alterbox h2{
+        margin-bottom: 20px;
+      }
+      .admission-process-content h2,
+      .course-slider_h3text,
+      .choice-place-col2 h2,
+      .tranding-courses-heading,
+      .section-heading,
+      .imgText-heading,
+      .inner-pagebanner-section h1,
+      .faq-heading,
+      .newsletter-hdng,
+      .course-details-alterImgbox-col1 h2,
+      .course-details-alterbox h2,
+      .tick-heading h2,
+      .clg-info-greenbox-hdng,
+      .section-heading2.grey,
+      .exam-center-calenderTxt1 span,
+      .download-content-box h2,
+      .inner-pagebanner-section h1,
+      .exam-details-yellow-heading,
+      .section-heading2 {
+        font-size: 26px !important;
+    }
 }
 
 @media screen and (max-width: 600px){
@@ -514,6 +568,14 @@
       .choice-place-col1 img {
         width: 100%;
         height: auto;
+    }
+    .banner1_searchbutton_button button{
+        padding: 6px;
+        font-size: 15px;
+    }
+    .banner1_searchbutton_button input[type=text]{
+        padding: 6px 15px;
+        font-size: 15px;
     }
 }
 
