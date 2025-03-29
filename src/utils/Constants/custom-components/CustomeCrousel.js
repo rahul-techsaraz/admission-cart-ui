@@ -88,6 +88,7 @@ const CustomeCrousel = ({
   // Move to previous slide
   const prevSlide = () => {
     if (currentIndex > 0) {
+      setIsTransitioning(true)
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
@@ -111,11 +112,11 @@ const CustomeCrousel = ({
         setTimeout(() => {
           setIsTransitioning(false);
           setCurrentIndex(slidePerView); // Jump to the second slide (to avoid showing the clone of the last slide)
-        }, 900); // Wait for the transition to complete
+        }, 500); // Wait for the transition to complete
       } else if (currentIndex == 0) {
         setTimeout(() => {
           setCurrentIndex(dataToMap.length - slidePerView); // Jump to the second-to-last slide
-        }, 900); // Wait for the transition to complete
+        }, 500); // Wait for the transition to complete
       } else {
         setIsTransitioning(true);
       }
@@ -141,20 +142,32 @@ const CustomeCrousel = ({
         if (slidePerView > 1){
           return {
             "width": `${100 / slidePerView}%`,
-            "padding-left": `${responsive[1400].spaceBetween / 2}px`,
-            "padding-right": `${responsive[1400].spaceBetween / 2}px`,
+            "padding-left": `${Math.fround(responsive[1400].spaceBetween / 2)}px`,
+            "padding-right": `${Math.fround(responsive[1400].spaceBetween / 2)}px`,
+          };
+        }else{
+          return {
+            "width": `${(100 / slidePerView)}%`,
+          };
+        }
+      } else if (screenWidth >= 1200) {
+        if (slidePerView > 1){
+          return {
+            "width": `${100 / slidePerView}%`,
+            "padding-left": `${responsive[1200].spaceBetween / 2}px`,
+            "padding-right": `${responsive[1200].spaceBetween / 2}px`,
           };
         }else{
           return {
             "width": `${100 / slidePerView}%`,
           };
         }
-      } else if (screenWidth >= 1024) {
+      } else if (screenWidth >= 992) {
         if (slidePerView > 1){
           return {
             "width": `${100 / slidePerView}%`,
-            "padding-left": `${responsive[1024].spaceBetween / 2}px`,
-            "padding-right": `${responsive[1024].spaceBetween / 2}px`,
+            "padding-left": `${responsive[992].spaceBetween / 2}px`,
+            "padding-right": `${responsive[992].spaceBetween / 2}px`,
           };
         }else{
           return {
@@ -192,18 +205,45 @@ const CustomeCrousel = ({
       return { "width": `${100 / slidePerView}%` };
     }
   };
-
-  const cloneChildStyle = () => {
-    if(slidePerView > 1){
-      return {
-        transform:`translateX(${hoveredCardPosition.x-52.5-12-10}px)`,
-        width:`${hoveredCardPosition.width}px`,
+  const valueForTranslateX = () => {
+    if(screenWidth >= 1400){
+      if(slidePerView > 1){
+        return Math.fround((screenWidth - 1320) / 2) + 12 + Math.fround(responsive[1400].spaceBetween / 2);
+      }else{
+        return Math.fround((screenWidth - 1320) / 2) + 12;
+      }
+    }else if(screenWidth >= 1200){
+      if(slidePerView > 1){
+        return Math.fround((screenWidth - 1140) / 2) + 12 + (responsive[1200].spaceBetween/2);
+      }else{
+        return Math.fround((screenWidth - 1140) / 2 ) + 12;
+      }
+    }else if (screenWidth >= 992){
+      if(slidePerView > 1){
+        return Math.fround((screenWidth - 960) / 2) + 12 + Math.fround(responsive[992].spaceBetween / 2);
+      }else{
+        return Math.fround((screenWidth - 960) / 2) + 12;
+      }
+    }else if (screenWidth >= 768){
+      if(slidePerView > 1){
+        return Math.fround((screenWidth - 720) / 2) + 12 + Math.fround(responsive[768].spaceBetween / 2);
+      }else{
+        return Math.fround((screenWidth - 720) / 2) + 12;
+      }
+    }else if (screenWidth >= 576){
+      if(slidePerView > 1){
+        return Math.fround((screenWidth - 540) / 2) + 12 + Math.fround(responsive[576].spaceBetween / 2);
+      }else{
+        return Math.fround((screenWidth - 540) / 2) + 12;
       }
     }else{
-      return {
-        transform:`translateX(${hoveredCardPosition.x-52.5-12}px)`,
-        width:`${hoveredCardPosition.width}px`,
-      }
+      return 0;
+    }
+  }
+  const cloneChildStyle = () => {
+    return {
+      transform:`translateX(${hoveredCardPosition.x - valueForTranslateX()}px)`,
+      width:`${hoveredCardPosition.width}px`,
     }
   }
 
@@ -219,14 +259,16 @@ const CustomeCrousel = ({
 
   const resetItemsPerView = () => {
     if (screenWidth >= 1400) {
-      setSlidePerView(responsive[1400].itemsPerView);
-    } else if (screenWidth >= 1024) {
-      setSlidePerView(responsive[1024].itemsPerView);
+      setSlidePerView(responsive[1400]?.itemsPerView);
+    } else if (screenWidth >= 1200) {
+      setSlidePerView(responsive[1200]?.itemsPerView);
+    } else if (screenWidth >= 992) {
+      setSlidePerView(responsive[992]?.itemsPerView);
     } else if (screenWidth >= 768) {
-      setSlidePerView(responsive[768].itemsPerView);
+      setSlidePerView(responsive[768]?.itemsPerView);
     } else if (screenWidth >= 576) {
-      setSlidePerView(responsive[576].itemsPerView);
-    } else {
+      setSlidePerView(responsive[576]?.itemsPerView);
+    }else {
       setSlidePerView(1);
     }
   };
@@ -240,8 +282,6 @@ const CustomeCrousel = ({
   }, [children]);
 
   useEffect(()=>{
-    // console.log(currentIndex)
-    // console.log(activeIndex)
     if(activeIndex !== null){
       setChildToAnimate(dataToMap.filter((_, index)=>index === activeIndex))
     }else{
@@ -265,7 +305,7 @@ const CustomeCrousel = ({
             className="crousel-container"
             style={{
               transform: `translateX(-${(currentIndex * 100) / slidePerView}%)`,
-              transition: isTransitioning ? 'transform 0.9s ease' : 'none',
+              transition: isTransitioning ? 'transform 0.5s ease' : 'none',
             }}
           >
             {Children.map(dataToMap, (child, index) =>
@@ -291,7 +331,6 @@ const CustomeCrousel = ({
                   updateActiveIndex: (i) => setActiveIndex(i),
                   toggelScroll: (flag) => toggelAutoScroll(flag),
                   updatePosition: (p) => setHoveredCardPosition(p),
-                  childStyle: cloneChildStyle,
                   isModal: true,
                 })
               )}

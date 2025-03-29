@@ -9,19 +9,23 @@ const LandingContainer = () => {
   const responsive = {
     1400: {
       itemsPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20,
     },
-    1024: {
+    1200: {
       itemsPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 1,
+      spaceBetween: 20,
     },
     768: {
       itemsPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20,
     },
     576: {
       itemsPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20,
     },
   };
   return (

@@ -10,8 +10,12 @@ const CourseList = () => {
       itemsPerView: 4,
       spaceBetween: 20,
     },
-    1024: {
+    1200: {
       itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 3,
       spaceBetween: 20,
     },
     768: {
