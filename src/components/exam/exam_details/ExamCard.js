@@ -20,7 +20,7 @@ export default function ExamCard({ data }) {
         </CardZoomEffect>
       ))}
       <div className="row">
-        <CustomPagination data={allExamData} itemsPerPage={8} currentItemsParent={setExamData} />
+        <CustomPagination data={allExamData} itemsPerPage={16} currentItemsParent={setExamData} />
       </div>
     </>
   );

@@ -55,7 +55,7 @@ const CustomExamCard = ({exam}) => {
                 </div>
             </div>
 
-            <ul className="exam-imp-list">
+            {/* <ul className="exam-imp-list">
                 <li className="exam-imp-list-width-50">
                 <div className="d-flex align-items-center gap-2 lg-gap-1 xl-gap-2">
                     <img src={examOverviewImage} alt="" />
@@ -86,7 +86,7 @@ const CustomExamCard = ({exam}) => {
                     Admit Card
                 </div>
                 </li>
-            </ul>
+            </ul> */}
             {/* <button className='examcard_applynow_button'>Apply Now</button> */}
             </div>
             {/* <Link className="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>
