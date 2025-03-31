@@ -316,6 +316,9 @@
     .footer-img-size{
         width: 50%;
     }
+    .card-zoom-box-wraper {
+        width: 33%;
+    }
 
     
 }   /* end 991px */
@@ -529,6 +532,9 @@
       .course-details-alterImgbox-col1 p{
         font-size: 17px;
       }
+      .card-zoom-box-wraper {
+        width: 50%;
+    }
       .course-details-alterbox h2{
         margin-bottom: 20px;
       }
@@ -714,6 +720,9 @@
     }
     .page2 h2{
         font-size: 24px;
+    }
+    .card-zoom-box-wraper {
+        width: 100%;
     }
 }
 

@@ -19,7 +19,7 @@ export const CustomCollegeCard = ({ college }) => {
     }
   };
   return (
-    <div className='col-12' onMouseEnter={() => setIsHidden(false)} onMouseLeave={() => setIsHidden(true)}>
+    <div className='' onMouseEnter={() => setIsHidden(false)} onMouseLeave={() => setIsHidden(true)}>
       <div className="collage_card_main_box">
         <div className="collage_card_1stimgbox">
           <img
@@ -64,23 +64,28 @@ export const CustomCollegeCard = ({ college }) => {
             </div>
             
           </div>
-          <hr className={ishidden ? 'hidden' : 'collages-list-hr'}/>
+          {/* <hr className={ishidden ? 'hidden' : 'collages-list-hr'}/> */}
+
+          <div className='tranding-collage-card-on'>
 
           <Link to={authenticateUser && `/colleges_details/${college.college_id}`} className={ishidden ? "hidden" : "collage-name_courses_fees_parents_box2"} onClick={() => handleClick()}>
             <div className="collage-name_courses_fees_parents_box">
               View All Courses and Fees
-              <span className="collage-name_courses_fees_parents_box_icon">
+              {/* <span className="collage-name_courses_fees_parents_box_icon">
                 <i className="fa-solid fa-angle-right"></i>
-              </span>
+              </span> */}
             </div>
           </Link>
-          <hr className={ishidden ? "hidden" : 'collages-list-hr'}/>
+          {/* <hr className={ishidden ? "hidden" : 'collages-list-hr'}/> */}
           <div className={ishidden ? "hidden" : "collage-name_download_brochure_parents_box"} onClick={() => handleClick()}>
             Download Brochure
-            <span className="collage-name_courses_fees_parents_box_icon">
+            {/* <span className="collage-name_courses_fees_parents_box_icon">
               <i className="fa-solid fa-angle-right"></i>
-            </span>
+            </span> */}
           </div>
+          </div>
+
+
         </div>
       </div>
     </div>

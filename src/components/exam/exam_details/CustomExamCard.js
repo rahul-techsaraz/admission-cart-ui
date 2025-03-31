@@ -20,7 +20,7 @@ const CustomExamCard = ({exam}) => {
     }
     };
   return (
-    <div className="col-12" onMouseEnter={()=>setIsHidden(false)} onMouseLeave={()=>setIsHidden(true)}>
+    <div className="" onMouseEnter={()=>setIsHidden(false)} onMouseLeave={()=>setIsHidden(true)}>
         <div className="exam-listing-box position-relative">
             <p className="exam-name-listing-box d-inline-block">{exam?.exam_name}</p>
             <div className="exam-listing-box-content">

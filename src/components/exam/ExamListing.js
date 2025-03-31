@@ -19,7 +19,7 @@ export default function ExamListing() {
       <ExamBanner />
       <section className="exam-listing-section section-padding">
         <div className="container">
-          <div className="row">
+          <div className="">
             {/* <div className="col-md-3">
                     <aside className="filter-col">
                         <div className="accordion" id="streams_accordion">
@@ -171,7 +171,7 @@ export default function ExamListing() {
                      </aside>
 
                 </div> */}
-            <div className="col-12">
+            <div className="">
               {/* <div className="row">
                         <div className="col-12">
                             <div className="applied-fliter-o d-flex align-items-center justify-content-between mb-4">
@@ -190,7 +190,7 @@ export default function ExamListing() {
                             </div>
                         </div>
                     </div> */}
-              <div className="row">
+              <div className="">
                 <ExamCard />
                 {/* <div className="col-lg-4 col-md-6">
                             <div className="exam-listing-box position-relative">

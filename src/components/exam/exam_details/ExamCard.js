@@ -14,12 +14,14 @@ export default function ExamCard({ data }) {
   }, [data]);
   return (
     <>
+    <div className='course-list-card-grid'>
       {examData.map((exam) => (
         <CardZoomEffect>
           <CustomExamCard exam={exam}/>
         </CardZoomEffect>
       ))}
-      <div className="row">
+    </div>
+      <div className="row pagination-gap">
         <CustomPagination data={allExamData} itemsPerPage={16} currentItemsParent={setExamData} />
       </div>
     </>

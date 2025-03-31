@@ -17,9 +17,9 @@ const CustomCourseCard = ({ course }) => {
   //     console.log(course)
   // },[course])
   return (
-    <div className='col-12' onMouseEnter={()=>setIsHidden(false)} onMouseLeave={()=>setIsHidden(true)}>
+    <div className='' onMouseEnter={()=>setIsHidden(false)} onMouseLeave={()=>setIsHidden(true)}>
       {/* <Link to={`/courses_details/${course.course_id}`}> */}
-        <div className="course-listing-box align-items-center mb-4">
+        <div className="course-listing-box align-items-center">
           <div className="course-post-contentBx">
             {/* <div className="course-box-img">
                             <img src="/static/media/scholarship-icon.a58590de458b29a1a0ffcd163c4c712a.svg" class="scollarship-icon" alt="Course Image"/>
