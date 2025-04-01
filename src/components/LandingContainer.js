@@ -3,6 +3,7 @@ import sliderBanner2 from '../images/slider/banner2.jpg';
 import sliderBanner3 from '../images/slider/banner3.jpg';
 import sliderBanner4 from '../images/slider/banner4.jpg';
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
+import CustomSearch from '../utils/Constants/custom-components/CustomSearch';
 
 const tarndingBanner = [sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4];
 const LandingContainer = () => {
@@ -37,7 +38,7 @@ const LandingContainer = () => {
               navigatePrev={'banner-button-prev'}
               navigateNext={'banner-button-next'}
               itemsPerView={1}
-              isAutoScroll={true}
+              isAutoScroll={false}
               breakPoints={responsive}
               autoScrollPauseOnMouseEnter={true}
             >
@@ -49,13 +50,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:true}))}>Get Started</Link> */}
-                      <form className="banner1_searchbutton_button">
-                        <input type="text" placeholder="Search.." name="search" />
-                        <button type="submit">
-                          <i className="fa fa-search"></i>
-                        </button>
-                      </form>
+                      <CustomSearch />
                     </div>
                   </div>
                 </div>
@@ -68,13 +63,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
-                      <form className="banner1_searchbutton_button">
-                        <input type="text" placeholder="Search.." name="search" />
-                        <button type="submit">
-                          <i className="fa fa-search"></i>
-                        </button>
-                      </form>
+                      <CustomSearch/>
                     </div>
                   </div>
                 </div>
@@ -87,13 +76,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
-                      <form className="banner1_searchbutton_button">
-                        <input type="text" placeholder="Search.." name="search" />
-                        <button type="submit">
-                          <i className="fa fa-search"></i>
-                        </button>
-                      </form>
+                      <CustomSearch/>
                     </div>
                   </div>
                 </div>
@@ -106,13 +89,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 md-mt-2 mt-lg-4">
-                      {/* <Link className="theme-btn black-btn" onClick={()=>dispatch(toggelPopup({flag:'true'}))}>Get Started</Link> */}
-                      <form className="banner1_searchbutton_button">
-                        <input type="text" placeholder="Search.." name="search" />
-                        <button type="submit">
-                          <i className="fa fa-search"></i>
-                        </button>
-                      </form>
+                      <CustomSearch/>
                     </div>
                   </div>
                 </div>

@@ -5772,19 +5772,32 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
 
   /* jayantadev code start */
 
+  .banner1_searchbutton_button {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
   .banner1_searchbutton_button input[type=text] {
     padding: 10px 20px;
     font-size: 17px;
     border: 1px solid grey;
-    float: left;
-    width: 80%;
+    width: 100%;
     background: #f1f1f1;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
   }
-  
+  .search-suggestion {
+    position: absolute;
+    top: 48px;
+    padding: 10px 20px;
+    width: 100%;
+    background: var(--color-white);
+    text-align: left;
+  }
+  .search-suggestion p {
+    font-size: 17px;
+  }
   /* Style the submit button */
   .banner1_searchbutton_button button {
-    float: left;
     width: 20%;
     padding: 10px;
     background: var(--color-black);
@@ -5801,11 +5814,11 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   }
   
   /* Clear floats */
-  .banner1_searchbutton_button::after {
+  /* .banner1_searchbutton_button::after {
     content: "";
     clear: both;
     display: table;
-  }
+  } */
 
   .exam_mock_list_parents{
     padding: 50px 0;
