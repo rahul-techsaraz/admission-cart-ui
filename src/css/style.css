@@ -2212,7 +2212,6 @@ span.milestone-dot {
 .exam-listing-box{
   border: 1px solid #E0E0E0;
   /* padding: 0 0 50px; */
-  margin-bottom: 50px;
   transition: .3s;
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
   background: #fff;
@@ -2376,6 +2375,18 @@ ul.exam-imp-list {
   position: relative;
   border-top: 5px solid #5BE4A8;
   background: #fff;
+}
+.course-list-card-grid{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 40px;
+}
+.card-zoom-box-wraper{
+  padding: 0 20px;
+  width: 25%;
+}
+.card-zoom-box{
+  width: 100%;
 }
 .course-post-imgBx{
   overflow: hidden;
@@ -5429,6 +5440,7 @@ label #cancel{
 }
 .pagination-gap{
   gap: 5px;
+  margin-top: 40px;
 }
 
 /* Crousel button css */
@@ -5870,7 +5882,6 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   width: 100%;
   height: auto;
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.25);
-  margin-bottom: 50px;
   background: #fff;
   border-radius: 20px;
 }
@@ -6000,40 +6011,38 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
   font-weight: 400;
 }
 .collage-name_courses_fees_parents_box{
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 10px 15px 0;
-  color: var(--color-black);
+  padding: 5px 5px 5px 5px;
+  color: #000;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   width: 100%;
   cursor: pointer;
+  background-color: var(--color-green);
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 .collage-name_download_brochure_parents_box{
   display: flex;
-  justify-content: space-between;
-  padding: 15px 10px 5px 0;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px 5px 5px;
   color: var(--color-black);
   font-weight: 500;
-  font-size: 16px;
-  /* border-bottom: 1px solid var(--body-text-grey); */
+  font-size: 12px;
   width: 100%;
   cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+  background-color: var(--color-yellow);
+  
 }
 .collage-name_courses_fees_parents_box2{
   width: 100%;
   display: flex;
   justify-content: space-between;
   
-}
-.course-name_compare_parents_box{
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 10px 5px 0;
-  color: var(--color-black);
-  font-weight: 500;
-  font-size: 16px;
-  width: 100%;
 }
 
 .stats-counter{

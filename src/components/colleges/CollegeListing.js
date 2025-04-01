@@ -15,7 +15,7 @@ export default function CollegeListing() {
       <CollegeBanner />
       <section className="course-listing-section section-padding">
         <div className="container">
-          <div className="row">
+          {/* <div className=""> */}
             {/* <div className="col-md-5 col-lg-3">
                     <aside className="filter-col">
                         <div className="accordion" id="degree_accordion">
@@ -165,7 +165,7 @@ export default function CollegeListing() {
                      </aside>
 
                 </div> */}
-            <div className="col-12">
+            {/* <div className=""> */}
               {/* <div className="row">
                         <div className="col-12">
                             <div className="mb-4">
@@ -177,7 +177,7 @@ export default function CollegeListing() {
                         </div>
                     </div> */}
 
-              <div className="row">
+              <div className="course-list-card-grid">
                 <CollegeCard allCollegeData={collegeData} />
                 {/* <div className="col-lg-6">
                             <div className="clg-listing-box">
@@ -379,8 +379,8 @@ export default function CollegeListing() {
               <div className="row pagination-gap">
                 <CustomPagination data={allCollegeData} itemsPerPage={16} currentItemsParent={setCollegeData} />
               </div>
-            </div>
-          </div>
+            {/* </div> */}
+          {/* </div> */}
         </div>
       </section>
       <CustomFaq />

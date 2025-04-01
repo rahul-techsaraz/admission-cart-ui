@@ -71,25 +71,30 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
               </p>
             </div>
           </div>
+          <div className='tranding-collage-card-on'>
           <Link to={authenticateUser && `/colleges_details/${college.college_id}`}
             className={
               !isModal ? 'hidden' : 
               'course-name_compare_parents_box'}
             onClick={() => handleClick('View')}
           >
-            <div className="course-name_courses_fees_parents_box">
+            
+            <div className={isOdd(index) ? "course-name_courses_fees_parents_box bg-green" : "course-name_courses_fees_parents_box bg-yellow"}>
               View All Courses and Fees
-              <span className="course-name_courses_fees_parents_box_icon">
+              {/* <span className="course-name_courses_fees_parents_box_icon">
                 <i className="fa-solid fa-angle-right"></i>
-              </span>
+              </span> */}
             </div>
           </Link>
-          <div className={!isModal ? 'hidden' : 'course-name_download_brochure_parents_box'} onClick={() => handleClick('Download')}>
+          <div className={!isModal ? 'hidden' : isOdd(index) ? 'course-name_download_brochure_parents_box bg-green': 'course-name_download_brochure_parents_box bg-yellow'} onClick={() => handleClick('Download')}>
             Download Brochure
-            <span className="course-name_courses_fees_parents_box_icon">
+            {/* <span className="course-name_courses_fees_parents_box_icon">
               <i className="fa-solid fa-angle-right"></i>
-            </span>
+            </span> */}
           </div>
+          </div>
+
+
         </div>
       </div>
     </div>
