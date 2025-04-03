@@ -55,7 +55,8 @@ const CustomSearch = () => {
     }
   return (
     <div className="banner1_searchbutton_button">
-        <input type="text" placeholder="Search.." value={searchItem} onChange={(e)=>handleInput(e)}/>
+        <input type="text" placeholder="Search for Collages, Exams, Courses..." value={searchItem} onChange={(e)=>handleInput(e)}/>
+        <span className='banner-search-icon'><i className="fa-solid fa-magnifying-glass"></i></span>
         <div className={searchItem ? 'search-suggestion' : 'hidden'}>
             {searchItem && 
             <ul>

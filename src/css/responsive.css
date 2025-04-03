@@ -44,6 +44,12 @@
       .course-list-rightbox p{
         font-size: 20px;
       }
+      .banner1_searchbutton_button input[type=text]{
+        width: 450px;
+      }
+      .search-suggestion{
+        height: 240px;
+      }
 }
 @media screen and (max-width: 1200px){
     .exam-listing-flex-box{
@@ -319,6 +325,14 @@
     .card-zoom-box-wraper {
         width: 33%;
     }
+    .banner1_searchbutton_button input[type=text]{
+        width: 350px;
+        font-size: 14px;
+      }
+      .search-suggestion{
+        height: 180px;
+        top: 45px;
+      }
 
     
 }   /* end 991px */
@@ -528,6 +542,19 @@
       .accordion-button-mystyle{
         font-size: 17px;
       }
+      .banner1_searchbutton_button input[type=text]{
+        width: 250px;
+        padding: 6px 10px;
+        font-size: 10px;
+      }
+      .banner-search-icon i{
+        font-size: 12px;
+      }
+      .search-suggestion{
+        height: 180px;
+        padding: 10px 10px;
+        top: 37px;
+      }
       .course-details-alterbox p,
       .course-details-alterImgbox-col1 p{
         font-size: 17px;
@@ -580,9 +607,19 @@
         font-size: 15px;
     }
     .banner1_searchbutton_button input[type=text]{
-        padding: 6px 15px;
-        font-size: 15px;
+        padding: 6px 6px;
     }
+    .banner1_searchbutton_button input[type=text]{
+        width: 180px;
+      }
+      .search-suggestion{
+        height: 130px;
+        padding: 10px 10px;
+        top: 40px;
+      }
+      .search-suggestion ul li {
+        font-size: 14px;
+      }
 }
 
 @media screen and (max-width: 576px){
@@ -749,6 +786,10 @@
     .national-flag-img img {
         max-width: 14px;
     }
+    .banner1_searchbutton_button input[type=text]{
+        width: 150px;
+        padding: 6px 10px;
+      }
 }
 
 /* 320 start */

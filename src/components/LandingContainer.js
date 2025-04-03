@@ -50,7 +50,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      <CustomSearch />
+                      {/* <CustomSearch /> */}
                     </div>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      <CustomSearch/>
+                      {/* <CustomSearch/> */}
                     </div>
                   </div>
                 </div>
@@ -76,7 +76,7 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      <CustomSearch/>
+                      {/* <CustomSearch/> */}
                     </div>
                   </div>
                 </div>
@@ -89,13 +89,15 @@ const LandingContainer = () => {
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
                     <div className="banner-btn-grp text-center mt-5 md-mt-2 mt-lg-4">
-                      <CustomSearch/>
+                      {/* <CustomSearch/> */}
                     </div>
                   </div>
                 </div>
               </CarouselSlides>
             </CustomeCrousel>
+            <div className='banner-search-button'><CustomSearch /></div>
           </div>
+
         </div>
       </section>
     </>
