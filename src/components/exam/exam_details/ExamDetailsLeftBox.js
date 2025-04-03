@@ -21,6 +21,7 @@ import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 import Tooltip from '../../../utils/Constants/custom-components/Tooltip';
 import ExamMockList from './ExamMockList';
 import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
+import CustomeCrousel, { CarouselSlides } from '../../../utils/Constants/custom-components/CustomeCrousel';
 
 export default function ExamDetailsLeftBox() {
   const [linkIndex, setLinkIndex] = useState(0);
@@ -67,23 +68,23 @@ export default function ExamDetailsLeftBox() {
   };
   const responsive = {
     1400: {
-      slidesPerView: 3,
+      itemsPerView: 4,
       spaceBetween: 20,
     },
-    1024: {
-      slidesPerView: 3,
+    1200: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 3,
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 2,
+      itemsPerView: 2,
       spaceBetween: 20,
     },
-    640: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    460: {
-      slidesPerView: 1,
+    576: {
+      itemsPerView: 1,
       spaceBetween: 20,
     },
   };
@@ -249,7 +250,24 @@ export default function ExamDetailsLeftBox() {
           <div className="swiper clg-slider">
             {/* <!-- Additional required wrapper --> */}
             <div className="swiper-wrapper position-relative">
-              <CustomSwiper
+            <CustomeCrousel
+              navigatePrev={'ind-clg-button-prev'}
+              navigateNext={'ind-clg-button-next'}
+              itemsPerView={1}
+              isAutoScroll={true}
+              breakPoints={responsive}
+              animation={'Card-Zoom-Effect'}
+              autoScrollPauseOnMouseEnter={true}
+            >
+              {examDetailsById?.examBasicDetails?.exam_name &&
+                getCollegesByExamId().map((college) => (
+                <CarouselSlides>
+                  <CustomCollegeCard college={college} />
+                </CarouselSlides>
+              ))}
+
+            </CustomeCrousel>
+              {/* <CustomSwiper
                 navigationNext={'.clg-button-next'}
                 navigationPrev={'.clg-button-prev'}
                 noOfSlidesPerView={1}
@@ -262,16 +280,16 @@ export default function ExamDetailsLeftBox() {
                       <CustomCollegeCard college={college} isSwiper={true} />
                     </swiper-slide>
                   ))}
-              </CustomSwiper>
+              </CustomSwiper> */}
               {/* <!-- Slides --> */}
 
               {/* <!-- If we need navigation buttons --> */}
-              <div className="swiper-button-prev clg-button-prev">
+              {/* <div className="swiper-button-prev clg-button-prev">
                 <img src={arrowLeft} alt="" />
               </div>
               <div className="swiper-button-next clg-button-next">
                 <img src={arrowRight} alt="" />
-              </div>
+              </div> */}
             </div>
           </div>
           {/* <!-- If we need navigation buttons --> */}
@@ -434,7 +452,7 @@ export default function ExamDetailsLeftBox() {
             </div>
           </div>
         </div>
-        <TopCollegesAccesptingExam />
+        {/* <TopCollegesAccesptingExam /> */}
         <div className="py-5 header">
           <div className="px-2">
             <div className="row">

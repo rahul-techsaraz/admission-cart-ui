@@ -33,7 +33,7 @@ export default function CourseCard({ data }) {
       <div className="course-list-card-grid">
         {courseData.map((course) => (
           <CardZoomEffect>
-            <CustomCourseCard course={course} isSwiper={false} />
+            <CustomCourseCard course={course} />
           </CardZoomEffect>
         ))}
       </div>

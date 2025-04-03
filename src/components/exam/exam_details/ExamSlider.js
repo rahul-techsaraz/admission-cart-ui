@@ -8,28 +8,29 @@ import CollegeCard from '../../colleges/college_details/CollegeCard';
 import constants from '../../../utils/Constants/constants';
 import { Link } from 'react-router-dom';
 import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
+import CustomeCrousel, { CarouselSlides } from '../../../utils/Constants/custom-components/CustomeCrousel';
 
 export default function ExamSlider() {
   const { examDetailsById, allCollegeData } = useSelector((state) => state.common);
   const responsive = {
     1400: {
-      slidesPerView: 3,
+      itemsPerView: 4,
       spaceBetween: 20,
     },
-    1024: {
-      slidesPerView: 3,
+    1200: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 3,
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 2,
+      itemsPerView: 2,
       spaceBetween: 20,
     },
-    640: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    460: {
-      slidesPerView: 1,
+    576: {
+      itemsPerView: 1,
       spaceBetween: 20,
     },
   };
@@ -53,7 +54,24 @@ export default function ExamSlider() {
         {/* Additional required wrapper */}
         <div className="swiper-wrapper position-relative">
           {/* <!-- Slides --> */}
-          <CustomSwiper
+          <CustomeCrousel
+            navigatePrev={'clg-button-prev'}
+            navigateNext={'clg-button-next'}
+            itemsPerView={1}
+            isAutoScroll={true}
+            breakPoints={responsive}
+            animation={'Card-Zoom-Effect'}
+            autoScrollPauseOnMouseEnter={true}
+          >
+            {examDetailsById?.examBasicDetails?.exam_name &&
+            getCollegesByExamId().map((college) => (
+              <CarouselSlides>
+                <CustomCollegeCard college={college} />
+              </CarouselSlides>
+            ))}
+
+          </CustomeCrousel>
+          {/* <CustomSwiper
             navigationNext={'.clg-button-next'}
             navigationPrev={'.clg-button-prev'}
             noOfSlidesPerView={1}
@@ -66,15 +84,15 @@ export default function ExamSlider() {
                   <CustomCollegeCard college={college} isSwiper={true} />
                 </swiper-slide>
               ))}
-          </CustomSwiper>
+          </CustomSwiper> */}
 
           {/* <!-- If we need navigation buttons --> */}
-          <div className="swiper-button-prev clg-button-prev">
+          {/* <div className="swiper-button-prev clg-button-prev">
             <img src={arrowLeft} alt="" />
           </div>
           <div className="swiper-button-next clg-button-next">
             <img src={arrowRight} alt="" />
-          </div>
+          </div> */}
         </div>
       </div>
       {/* <!-- If we need navigation buttons --> */}

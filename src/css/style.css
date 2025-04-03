@@ -855,7 +855,9 @@ ul.mega_menu {
 .banner-button-prev img,
 .banner-button-next img,
 .trending-button-next img,
-.trending-button-prev img{
+.trending-button-prev img,
+.ind-clg-button-prev img,
+.ind-clg-button-next img{
   width: 20px;
   filter: invert(1);
 }
