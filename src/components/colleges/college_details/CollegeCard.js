@@ -7,7 +7,7 @@ export default function CollegeCard({ allCollegeData }) {
     <>
       {allCollegeData.map((college) => (
         <CardZoomEffect>
-          <CustomCollegeCard college={college} isSwiper={false} />
+          <CustomCollegeCard college={college} />
         </CardZoomEffect>
       ))}
     </>

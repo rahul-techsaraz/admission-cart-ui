@@ -10,7 +10,7 @@ import examAdmitCardIconImage from '../../../images/admit-card-icon.svg';
 import examRegisterIconImage from '../../../images/register-icon.svg';
 import { Link } from 'react-router-dom';
 
-const CustomExamCard = ({exam}) => {
+const CustomExamCard = ({exam, isModal}) => {
     const { authenticateUser } = useSelector((state) => state.common);
   const [ishidden, setIsHidden] = useState(true)
   const dispatch = useDispatch();
@@ -91,7 +91,7 @@ const CustomExamCard = ({exam}) => {
             </div>
             {/* <Link className="register-btn yellow-bg" to={`/exam_details/${exam?.exam_id}`}><img src={examRegisterIconImage} alt="" /> View Details</Link>
                     <Link className="exam-apply-btn examcard_applynow_button yellow-bg" to={`/exam_details/${exam?.exam_id}`}>Apply Now</Link> */}
-            <Link to={authenticateUser && `/exam_details/${exam?.exam_id}`} className={ishidden ? 'hidden' : ''} onClick={()=>handleClick()}>
+            <Link to={authenticateUser && `/exam_details/${exam?.exam_id}`} className={!isModal ? 'hidden' : ''} onClick={()=>handleClick()}>
             <div className={"course-readmore-btn course-readmore-btn2 course-card-hover"}>Enquire Now </div>
             </Link>
         </div>

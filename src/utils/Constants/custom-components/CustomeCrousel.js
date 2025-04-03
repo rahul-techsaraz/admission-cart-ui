@@ -141,7 +141,7 @@ const CustomeCrousel = ({
       if (screenWidth >= 1400) {
         if (slidePerView > 1){
           return {
-            "width": `${100 / slidePerView}%`,
+            "width": `${Math.fround(100 / slidePerView)}%`,
             "padding-left": `${Math.fround(responsive[1400].spaceBetween / 2)}px`,
             "padding-right": `${Math.fround(responsive[1400].spaceBetween / 2)}px`,
           };
@@ -153,9 +153,9 @@ const CustomeCrousel = ({
       } else if (screenWidth >= 1200) {
         if (slidePerView > 1){
           return {
-            "width": `${100 / slidePerView}%`,
-            "padding-left": `${responsive[1200].spaceBetween / 2}px`,
-            "padding-right": `${responsive[1200].spaceBetween / 2}px`,
+            "width": `${Math.fround(100 / slidePerView)}%`,
+            "padding-left": `${Math.fround(responsive[1200].spaceBetween / 2)}px`,
+            "padding-right": `${Math.fround(responsive[1200].spaceBetween / 2)}px`,
           };
         }else{
           return {
@@ -165,9 +165,9 @@ const CustomeCrousel = ({
       } else if (screenWidth >= 992) {
         if (slidePerView > 1){
           return {
-            "width": `${100 / slidePerView}%`,
-            "padding-left": `${responsive[992].spaceBetween / 2}px`,
-            "padding-right": `${responsive[992].spaceBetween / 2}px`,
+            "width": `${Math.fround(100 / slidePerView)}%`,
+            "padding-left": `${Math.fround(responsive[992].spaceBetween / 2)}px`,
+            "padding-right": `${Math.fround(responsive[992].spaceBetween / 2)}px`,
           };
         }else{
           return {
@@ -177,9 +177,9 @@ const CustomeCrousel = ({
       } else if (screenWidth >= 768) {
         if (slidePerView > 1){
           return {
-            "width": `${100 / slidePerView}%`,
-            "padding-left": `${responsive[768].spaceBetween / 2}px`,
-            "padding-right": `${responsive[768].spaceBetween / 2}px`,
+            "width": `${Math.fround(100 / slidePerView)}%`,
+            "padding-left": `${Math.fround(responsive[768].spaceBetween / 2)}px`,
+            "padding-right": `${Math.fround(responsive[768].spaceBetween / 2)}px`,
           };
         }else{
           return {
@@ -189,9 +189,9 @@ const CustomeCrousel = ({
       } else if (screenWidth >= 576) {
         if (slidePerView > 1){
           return {
-            "width": `${100 / slidePerView}%`,
-            "padding-left": `${responsive[576].spaceBetween / 2}px`,
-            "padding-right": `${responsive[576].spaceBetween / 2}px`,
+            "width": `${Math.fround(100 / slidePerView)}%`,
+            "padding-left": `${Math.fround(responsive[576].spaceBetween / 2)}px`,
+            "padding-right": `${Math.fround(responsive[576].spaceBetween / 2)}px`,
           };
         }else{
           return {
@@ -202,7 +202,7 @@ const CustomeCrousel = ({
         return { "width": '100%' };
       }
     } else {
-      return { "width": `${100 / slidePerView}%` };
+      return { "width": `${Math.fround(100 / slidePerView)}%` };
     }
   };
   const valueForTranslateX = () => {
@@ -291,7 +291,7 @@ const CustomeCrousel = ({
 
   useEffect(()=>{
     if(hoveredCardPosition !== null){
-      console.log(hoveredCardPosition)
+      // console.log(hoveredCardPosition)
     }
   },[hoveredCardPosition])
   

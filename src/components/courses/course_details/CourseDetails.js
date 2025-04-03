@@ -19,6 +19,7 @@ import constants from '../../../utils/Constants/constants';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
 import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
 import CustomFaq from '../../colleges/CustomFaq';
+import CustomeCrousel, { CarouselSlides } from '../../../utils/Constants/custom-components/CustomeCrousel';
 
 export default function CourseDetails() {
   const [readmore, setReadmore] = useState({
@@ -55,20 +56,24 @@ export default function CourseDetails() {
   };
   const responsive = {
     1400: {
-      slidesPerView: 4,
-      spaceBetween: 50,
+      itemsPerView: 4,
+      spaceBetween: 20,
     },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 50,
+    1200: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 3,
+      spaceBetween: 20,
     },
     768: {
-      slidesPerView: 3,
-      spaceBetween: 40,
+      itemsPerView: 2,
+      spaceBetween: 20,
     },
     576: {
-      slidesPerView: 2,
-      spaceBetween: 10,
+      itemsPerView: 1,
+      spaceBetween: 20,
     },
   };
   useEffect(() => {
@@ -403,7 +408,23 @@ export default function CourseDetails() {
                 </div>
                 <div className="swiper clg-slider">
                   <div className="swiper-wrapper position-relative">
-                    <CustomSwiper
+                    <CustomeCrousel
+                      navigatePrev={'ind-clg-button-prev'}
+                      navigateNext={'ind-clg-button-next'}
+                      itemsPerView={1}
+                      isAutoScroll={true}
+                      breakPoints={responsive}
+                      animation={'Card-Zoom-Effect'}
+                      autoScrollPauseOnMouseEnter={true}
+                    >
+                      {getCollegeByCourse().map((college) => (
+                        <CarouselSlides>
+                          <CustomCollegeCard college={college} />
+                        </CarouselSlides>
+                      ))}
+
+                    </CustomeCrousel>
+                    {/* <CustomSwiper
                       navigationNext={'.ind-clg-button-next'}
                       navigationPrev={'.ind-clg-button-prev'}
                       noOfSlidesPerView={1}
@@ -421,7 +442,7 @@ export default function CourseDetails() {
                     </div>
                     <div className="swiper-button-next ind-clg-button-next">
                       <img src={rightArrow} alt="" />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 

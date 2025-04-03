@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
 import { Link } from 'react-router-dom';
 
-export const CustomCollegeCard = ({ college }) => {
+export const CustomCollegeCard = ({ college, isModal }) => {
   const { authenticateUser } = useSelector((state) => state.common);
   const [ishidden, setIsHidden] = useState(true)
   const dispatch = useDispatch();
@@ -13,13 +13,21 @@ export const CustomCollegeCard = ({ college }) => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
   };
+  const handleMouseEnter = () => {
+    console.log('mouse enter trigred')
+    setIsHidden(false)
+  }
+  const handleMouseLeave = () => {
+    console.log('mouse leave trigred')
+    setIsHidden(true)
+  }
   const handleClick = () => {
     if (!authenticateUser) {
       dispatch(toggelIsLoginPopup({ flag: true }));
     }
   };
   return (
-    <div className='' onMouseEnter={() => setIsHidden(false)} onMouseLeave={() => setIsHidden(true)}>
+    <div className='' onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
       <div className="collage_card_main_box">
         <div className="collage_card_1stimgbox">
           <img
@@ -66,9 +74,9 @@ export const CustomCollegeCard = ({ college }) => {
           </div>
           {/* <hr className={ishidden ? 'hidden' : 'collages-list-hr'}/> */}
 
-          <div className='tranding-collage-card-on'>
+          <div className={!isModal ? "hidden" : 'tranding-collage-card-on'}>
 
-          <Link to={authenticateUser && `/colleges_details/${college.college_id}`} className={ishidden ? "hidden" : "collage-name_courses_fees_parents_box2"} onClick={() => handleClick()}>
+          <Link to={authenticateUser && `/colleges_details/${college.college_id}`} className="collage-name_courses_fees_parents_box2" onClick={() => handleClick()}>
             <div className="collage-name_courses_fees_parents_box">
               View All Courses and Fees
               {/* <span className="collage-name_courses_fees_parents_box_icon">
@@ -77,7 +85,7 @@ export const CustomCollegeCard = ({ college }) => {
             </div>
           </Link>
           {/* <hr className={ishidden ? "hidden" : 'collages-list-hr'}/> */}
-          <div className={ishidden ? "hidden" : "collage-name_download_brochure_parents_box"} onClick={() => handleClick()}>
+          <div className="collage-name_download_brochure_parents_box" onClick={() => handleClick()}>
             Download Brochure
             {/* <span className="collage-name_courses_fees_parents_box_icon">
               <i className="fa-solid fa-angle-right"></i>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
 
-const CustomCourseCard = ({ course }) => {
+const CustomCourseCard = ({ course, isModal }) => {
   const { authenticateUser } = useSelector((state) => state.common);
   const [ishidden, setIsHidden] = useState(true)
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const CustomCourseCard = ({ course }) => {
                 </p>
               </div>
             </div>
-            <Link to={authenticateUser && `/courses_details/${course.course_id}`} onClick={()=>handleClick()} className={ishidden ? 'hidden' : ''}>
+            <Link to={authenticateUser && `/courses_details/${course.course_id}`} onClick={()=>handleClick()} className={!isModal ? 'hidden' : ''}>
               <div className="course-readmore-btn course-readmore-btn2 course-card-hover">Enquire Now </div>
             </Link>
           </div>
