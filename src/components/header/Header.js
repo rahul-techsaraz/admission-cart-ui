@@ -1,21 +1,22 @@
 import userImage from '../../images/user-icon.svg';
 import logo from '../../images/logo.png';
-import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MegaMenu from './MegaMenu';
 import { tabName } from '../../data/header/TabData';
 import { megaMenuData } from '../../data/header/megaMenuData';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggelLoginModel, toggelAfterLoginModel, updateauthenticateUser } from '../../features/commonSlice';
+import { toggelLoginModel, toggelAfterLoginModel } from '../../features/commonSlice';
 import LoginModel from '../model/LoginModel';
 import AfterLoginModel from '../model/AfterLoginModel';
-import constants from '../../utils/Constants/constants';
-import httpFetch from '../../fetch/useFetch';
 import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
 import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
 import { useFetchAllExam } from '../hooks/useFetchAllExam';
+
 const Header = () => {
-  const [isBurgerclicked, setIsBurgerClicked] = useState(false)
+  const [isBurgerclicked, setIsBurgerClicked] = useState(false);
+  const modalRef = useRef(null); // For detecting outside clicks on modals
+
   const { fetchCollegeList } = useFetchAllCollege();
   const { fetchCourseList } = useFetchAllCourse();
   const { fetchExamList } = useFetchAllExam();
@@ -25,15 +26,14 @@ const Header = () => {
     fetchCourseList();
     fetchExamList();
   }, []);
-  const { authenticateUser } = useSelector((state) => state.common);
-  const dispatch = useDispatch();
-  const handelBurgerClick = () => {
-    setIsBurgerClicked(true)
-  }
-  
-  //Redux State
+
   const { openAfterLoginModel, openLoginModel } = useSelector((state) => state.common);
-  //Dispatch Actions
+  const dispatch = useDispatch();
+
+  const handelBurgerClick = () => {
+    setIsBurgerClicked(true);
+  };
+
   const handleModel = () => {
     if (!localStorage.getItem('loginResponse')) {
       dispatch(toggelLoginModel({ flag: true }));
@@ -43,12 +43,30 @@ const Header = () => {
       dispatch(toggelAfterLoginModel({ flag: !openAfterLoginModel }));
     }
   };
-  
+
+  // Close modal when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target) && (openLoginModel || openAfterLoginModel)) {
+        dispatch(toggelLoginModel({ flag: false }));
+        dispatch(toggelAfterLoginModel({ flag: false }));
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openLoginModel, openAfterLoginModel, dispatch]);
 
   return (
     <>
-      {openAfterLoginModel && <AfterLoginModel />}
-      {openLoginModel && <LoginModel />}
+      {(openAfterLoginModel || openLoginModel) && (
+        <div ref={modalRef}>
+          {openAfterLoginModel && <AfterLoginModel />}
+          {openLoginModel && <LoginModel />}
+        </div>
+      )}
       <div className="h7_header-top d-none d-md-block">
         <div className="container">
           <div className="row">
@@ -103,15 +121,18 @@ const Header = () => {
               <Link to="/">
                 <img src={logo} alt="logo" className="img-fluid" />
               </Link>
-              <div className="burger" id="burger" onClick={()=>handelBurgerClick()}>
+              <div className="burger" id="burger" onClick={() => handelBurgerClick()}>
                 <span className="burger-line"></span>
                 <span className="burger-line"></span>
                 <span className="burger-line"></span>
               </div>
             </section>
             <section className="navbar-center">
-              <span className={isBurgerclicked ? "overlay is-active" : "overlay"} onClick={()=>setIsBurgerClicked(false)}></span>
-              <div className={isBurgerclicked ? "menu is-active" : "menu"} id="menu">
+              <span
+                className={isBurgerclicked ? 'overlay is-active' : 'overlay'}
+                onClick={() => setIsBurgerClicked(false)}
+              ></span>
+              <div className={isBurgerclicked ? 'menu is-active' : 'menu'} id="menu">
                 <div className="menu-header">
                   <span className="menu-arrow">
                     <i className="bx bx-chevron-left"></i>
@@ -121,7 +142,7 @@ const Header = () => {
                 <ul className="menu-inner">
                   {tabName.map((list, index) => (
                     <li className="menu-item menu-dropdown" key={index}>
-                      <Link to={list.path} onClick={()=>setIsBurgerClicked(false)}>
+                      <Link to={list.path} onClick={() => setIsBurgerClicked(false)}>
                         <span className="menu-link">
                           {list.name}
                           <i className="bx bx-chevron-right"></i>
@@ -139,7 +160,7 @@ const Header = () => {
               <span className="menu-block">
                 <img src="images/search-icon.svg" alt="" />
               </span>
-              <button className="menu-block" onClick={() => handleModel()}>
+              <button className="menu-block" onClick={handleModel}>
                 <img src={userImage} alt="" />
               </button>
             </section>
@@ -149,4 +170,5 @@ const Header = () => {
     </>
   );
 };
+
 export default Header;
