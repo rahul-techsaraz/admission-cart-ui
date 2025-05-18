@@ -1,8 +1,104 @@
+import { useState } from 'react';
+import { useUserCallbackRequest } from '../components/hooks/useUserCallbackRequest';
 import { useDispatch } from 'react-redux';
-import { toggelIsLoginPopup } from '../features/commonSlice';
+import { showNotification } from '../features/commonSlice';
 
 const ContactUsPage = () => {
   const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mob: '',
+    stream: '',
+  });
+  const { sendUserCallbackRequest } = useUserCallbackRequest();
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+  const validateForm = () => {
+    const { name, email, mob, stream } = formData;
+    if (!name || !email || !mob || !stream) {
+      dispatch(
+        showNotification({
+          isOpen: true,
+          type: 'warning',
+          message: 'Please fill in all the fields.',
+        })
+      );
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      dispatch(
+        showNotification({
+          isOpen: true,
+          type: 'warning',
+          message: 'Please enter a valid email address.',
+        })
+      );
+      return false;
+    }
+    const mobileRegex = /^[0-9]{10}$/;
+    if (!mobileRegex.test(mob)) {
+      dispatch(
+        showNotification({
+          isOpen: true,
+          type: 'warning',
+          message: 'Please enter a valid 10-digit mobile number.',
+        })
+      );
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    if (!validateForm()) return;
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.mob,
+      query_for: formData.stream,
+      others: [],
+    };
+
+    try {
+      const response = await sendUserCallbackRequest(payload);
+      console.log({ response });
+      if (response?.payload?.status === 'success') {
+        dispatch(
+          showNotification({
+            isOpen: true,
+            type: response?.payload?.status ?? 'info',
+            message: 'Your request has been submitted successfully!',
+          })
+        );
+        //alert('Your request has been submitted successfully!');
+        setFormData({ name: '', email: '', mob: '', stream: '' });
+      } else {
+        dispatch(
+          showNotification({
+            isOpen: true,
+            type: response?.payload?.status ?? 'warning',
+            message: 'Failed to submit your request. Please try again later.',
+          })
+        );
+      }
+    } catch (error) {
+      dispatch(
+        showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Something went wrong while submitting your request.',
+        })
+      );
+    }
+  };
   return (
     <>
       <section className="contact-section section-padding">
@@ -64,26 +160,53 @@ const ContactUsPage = () => {
                 <h2>Get in Touch with Our Expert Counsellors</h2>
                 {/* <form> */}
                 <div className="mb-3">
-                  <input className="form-control" id="name" type="text" name="Name" placeholder="Name" />
+                  <input
+                    className="form-control"
+                    id="name"
+                    type="text"
+                    name="Name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="mb-3">
-                  <input className="form-control" id="email" type="email" name="Email" placeholder="Email" />
+                  <input
+                    className="form-control"
+                    id="email"
+                    type="email"
+                    name="Email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="mb-3">
-                  <input className="form-control" id="mob" type="tel" name="Mob" placeholder="Mobile" />
+                  <input
+                    className="form-control"
+                    id="mob"
+                    type="tel"
+                    name="Mob"
+                    placeholder="Mobile"
+                    value={formData.mob}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="mb-3">
-                  <select className="form-select" aria-label="">
+                  <select
+                    className="form-select"
+                    aria-label=""
+                    id="stream"
+                    value={formData.stream}
+                    onChange={handleChange}
+                  >
                     <option selected>Your Stream</option>
                     <option value="1">Stream One</option>
                     <option value="2">Stream Two</option>
                     <option value="3">Stream Three</option>
                   </select>
                 </div>
-                <button
-                  className="theme-btn black-btn submit-btn mt-3"
-                  onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}
-                >
+                <button className="theme-btn black-btn submit-btn mt-3" onClick={handleSubmit}>
                   Request for a Callback
                 </button>
                 {/* </form> */}

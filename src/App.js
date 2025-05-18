@@ -20,7 +20,12 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './state/store';
 import ErrorBoundary from './components/ErrorBoundary';
 import { useEffect } from 'react';
-import { toggelAfterLoginModel, toggelLoginModel, updateauthenticateUser } from './features/commonSlice';
+import {
+  hideNotification,
+  toggelAfterLoginModel,
+  toggelLoginModel,
+  updateauthenticateUser,
+} from './features/commonSlice';
 import constants from './utils/Constants/constants';
 import httpFetch from './fetch/useFetch';
 import { register } from 'swiper/element/bundle';
@@ -30,12 +35,16 @@ import ChatBot from './components/chatBot/ChatBot';
 import ContactUsPopup from './components/contactUs/ContactUsPopup';
 import LoginPopup from './components/contactUs/LoginPopup';
 import FeedbackPopup from './components/contactUs/FeedbackPopup';
+import NotificationToast from './components/NotificationToast';
 
 const AppLayout = () => {
-  const { isLoading, isLoginPopup, isSignupPopup, authenticateUser, isFeedbackPopup } = useSelector(
+  const dispatch = useDispatch();
+  const { isLoading, isLoginPopup, isSignupPopup, authenticateUser, isFeedbackPopup, notificationInfo } = useSelector(
     (state) => state.common
   );
   const { loader } = useSelector((state) => state.userSlice);
+  const { isOpen, notificationType, notificationMessage } = notificationInfo;
+
   const location = useLocation();
   register();
 
@@ -46,8 +55,16 @@ const AppLayout = () => {
   return (
     <>
       {(isLoading || loader) && <Loader />}
+      <NotificationToast
+        isOpen={isOpen}
+        notificationType={notificationType}
+        notificationMessage={notificationMessage}
+        onCloseAction={() => dispatch(hideNotification())}
+      />
+
       <div className="app position-relative">
         <Header />
+
         <Outlet />
         <ScrollTop />
         <ChatBot />
