@@ -72,6 +72,7 @@ const constants = {
     EXAM_LIST: 'https://techsaraz.in//admission-cart/api/exam.php',
     COURSE_LIST: 'https://techsaraz.in//admission-cart/api/courses.php',
     CATEGORY_LIST: 'https://techsaraz.in//admission-cart/api/course_category_list.php',
+    USER_CALL_BACK_REQUEST: 'https://techsaraz.in/admission-cart/api/user.php?requestType=callBackRequest',
   },
   apiMethod: {
     GET: 'get',

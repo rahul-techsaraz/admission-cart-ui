@@ -135,6 +135,11 @@ const initialState = {
     },
     syllabusDetails: [],
   },
+  notificationInfo: {
+    isOpen: false,
+    notificationType: '',
+    notificationMessage: '',
+  },
 };
 
 const commonSlice = createSlice({
@@ -167,6 +172,16 @@ const commonSlice = createSlice({
     },
     toggelIsFeedBackPopup: (state, { payload }) => {
       state.isFeedbackPopup = payload.flag;
+    },
+    showNotification: (state, action) => {
+      state.notificationInfo.isOpen = true;
+      state.notificationInfo.notificationType = action.payload.type;
+      state.notificationInfo.notificationMessage = action.payload.message;
+    },
+    hideNotification: (state) => {
+      state.notificationInfo.isOpen = false;
+      state.notificationInfo.notificationType = '';
+      state.notificationInfo.notificationMessage = '';
     },
   },
   extraReducers: (builder) => {
@@ -271,6 +286,8 @@ export const {
   toggelIsLoginPopup,
   toggelIsSignupPopup,
   toggelIsFeedBackPopup,
+  showNotification,
+  hideNotification,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

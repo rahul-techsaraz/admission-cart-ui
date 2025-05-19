@@ -118,11 +118,11 @@ export default function Collages() {
                           <div className="reco-text-button">
                             <div className="reco-text-i">
                               Why should you choose this college? Know more about the College.{' '}
-                              <Link to={`/colleges_details/${college.college_id}`} style={{ display: 'inline-flex' }}>
+                              {/* <Link to={`/colleges_details/${college.college_id}`} style={{ display: 'inline-flex' }}>
                                 <span className="reco-span">
                                   Checkout USPs <i className="fa-solid fa-arrow-right"></i>
                                 </span>
-                              </Link>
+                              </Link> */}
                             </div>
                             <div className="reco-button">
                               {/* <div className="reco-btn">

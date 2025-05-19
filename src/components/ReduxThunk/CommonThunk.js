@@ -256,6 +256,22 @@ export const fetchUserFeedback = createAsyncThunk(
     }
   }
 );
+// User Callback Request
+export const addUserCallBackRequest = createAsyncThunk(
+  'UserFeedback/fetchUserFeedback',
+  async ({ url, method, header, body }, thunkApi) => {
+    try {
+      const data = await httpFetch(url, method, header, body);
+      console.log({ data });
+      if (data.status !== constants.apiResponseStatus.SUCCESS) {
+        throw new Error('Somting went wrong... try again');
+      }
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);
 
 export const fetchUserDocument = createAsyncThunk(
   'UserDocument/fetchUserDocument',
