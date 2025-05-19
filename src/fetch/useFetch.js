@@ -1,4 +1,4 @@
-const httpFetch = async (url, method, header, body) => {
+const httpFetch = async (url, header, method, body) => {
   if (method !== 'get') {
     const data = await fetch(url, {
       method: method,

@@ -73,6 +73,7 @@ const constants = {
     COURSE_LIST: 'https://techsaraz.in//admission-cart/api/courses.php',
     CATEGORY_LIST: 'https://techsaraz.in//admission-cart/api/course_category_list.php',
     USER_CALL_BACK_REQUEST: 'https://techsaraz.in/admission-cart/api/user.php?requestType=callBackRequest',
+    NEW_COLLEGE_API: 'https://techsaraz.in/admission-cart/api/newcollege.php',
   },
   apiMethod: {
     GET: 'get',
@@ -90,6 +91,7 @@ const constants = {
     NOT_FOUND: 'NOT FOUND',
   },
   imageAbsolutePath: 'https://techsaraz.in/admission-cart/api/fileupload/',
+  assestAbsolutePath: 'https://techsaraz.in/admission-cart/api/',
   tabList: {
     COURSES_NAME: 'Courses',
     COLLEGES_NAME: 'Colleges',
