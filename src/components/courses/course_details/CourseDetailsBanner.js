@@ -1,13 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-export default function CourseDetailsBanner() {
-  const { courseDetailsById } = useSelector((state) => state.common);
-
+export default function CourseDetailsBanner({ courseDetails }) {
   return (
     <section className="inner-pagebanner-section text-center section-padding position-relative">
       <div className="container">
-        <h1>{courseDetailsById?.basicCourseDetails?.course_name}</h1>
+        <h1>{courseDetails?.course_name}</h1>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb justify-content-center">
             <li className="breadcrumb-item active" aria-current="page">
