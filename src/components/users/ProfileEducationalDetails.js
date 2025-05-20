@@ -48,7 +48,7 @@ export default function ProfileEducationalDetails() {
             url: constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE,
             method: constants.apiMethod.POST,
             header: constants.apiHeader.HEADER,
-            body: payload,
+            payload: payload,
           })
         );
         if (response?.payload?.status === 'success') {
@@ -80,7 +80,7 @@ export default function ProfileEducationalDetails() {
           url: constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE,
           method: constants.apiMethod.PUT,
           header: constants.apiHeader.HEADER,
-          body: payload,
+          payload: payload,
         })
       );
       if (response?.payload?.status === 'success') {
@@ -110,7 +110,7 @@ export default function ProfileEducationalDetails() {
           url: constants.apiEndPoint.USER_EDUCATIONAL_QUALIFICATION_UPDATE,
           method: constants.apiMethod.DELETE,
           header: constants.apiHeader.HEADER,
-          body: payload,
+          payload: payload,
         })
       );
       if (response?.payload.status === constants.apiResponseStatus.SUCCESS) {

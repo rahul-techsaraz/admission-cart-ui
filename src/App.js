@@ -9,7 +9,6 @@ import './css/style.css';
 import './css/responsive.css';
 import './css/carousel.css';
 // import './css/collagedekho.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/header/Header';
 import NewsLetter from './components/footer/NewsLetter';

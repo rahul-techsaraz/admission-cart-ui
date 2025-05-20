@@ -44,7 +44,7 @@ export default function ProfilePreferences() {
           url: constants.apiEndPoint.USER_PREFERENCE_SAVE_UPDATE,
           method: constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
-          body: payload,
+          payload: payload,
         })
       );
       console.log(response);
@@ -74,7 +74,7 @@ export default function ProfilePreferences() {
           url: constants.apiEndPoint.USER_PREFERENCE_SAVE_UPDATE,
           method: constants.apiMethod.PUT,
           header: constants.apiHeader.HEADER,
-          body: payload,
+          payload: payload,
         })
       );
       if (response?.payload?.status === 'success') {

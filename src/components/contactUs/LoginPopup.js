@@ -39,7 +39,7 @@ const LoginPopup = () => {
           url: constants.apiEndPoint.USER_LOGIN,
           method: constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
-          body: loginPayload,
+          payload: loginPayload,
         })
       );
       if (jsonData?.payload?.success !== 1) {

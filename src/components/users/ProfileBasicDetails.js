@@ -58,7 +58,7 @@ export default function ProfileBasicDetails() {
         url: constants.apiEndPoint.USER_DETAILS_SAVE_UPDATE,
         method: constants.apiMethod.POST,
         header: constants.apiHeader.HEADER,
-        body: payload,
+        payload: payload,
       })
     );
     if (response?.payload?.status === constants.apiResponseStatus.SUCCESS) {
@@ -85,7 +85,7 @@ export default function ProfileBasicDetails() {
         url: constants.apiEndPoint.USER_DETAILS_SAVE_UPDATE,
         method: constants.apiMethod.PUT,
         header: constants.apiHeader.HEADER,
-        body: payload,
+        payload: payload,
       })
     );
     if (response?.payload?.status === constants.apiResponseStatus.SUCCESS) {

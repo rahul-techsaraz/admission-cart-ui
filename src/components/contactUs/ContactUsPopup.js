@@ -59,7 +59,7 @@ function ContactUsPopup() {
           url: constants.apiEndPoint.USER_SIGNUP,
           method: constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
-          body: signupPayload,
+          payload: signupPayload,
         })
       );
       if (data?.payload?.success !== 1) {
