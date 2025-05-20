@@ -89,6 +89,9 @@ export default function CollegeDetails() {
             <div className="col-8">
               <div className="colg-examinfo-leftcol">
                 <CollegeNewsSection
+                 readmore={readmore}
+                  setReadmore={setReadmore}
+                  getCurrentYear={getCurrentYear}
                   collegeDetails={collegeDetailsById}
                   whatsIcon={whatsIcon}
                   responsive={responsive}
@@ -97,7 +100,74 @@ export default function CollegeDetails() {
                   arrowRightIcon={arrowRightIcon}
                 />
 
-                <CourseOfferedByCollage
+                {/* <CourseOfferedByCollage
+                  collegeDetails={collegeDetailsById}
+                  readmore={readmore}
+                  setReadmore={setReadmore}
+                  getCurrentYear={getCurrentYear}
+                  greyTickIcon={greyTickIcon}
+                  courseHighlight={getHighlightedCourses()}
+                  handleLoginModalPopup={() => dispatch(toggelIsLoginPopup({ flag: true }))}
+                  courseOffered={collegeDetailsById?.courses_offered ?? []}
+                />
+
+                <CollegeFacilities
+                  collegeDetails={collegeDetailsById}
+                  getCurrentYear={getCurrentYear}
+                  swiperResponsive={swiperResponsive}
+                  responsive={responsive}
+                  audienceIcon={audienceIcon}
+                  hostelIcon={hostelIcon}
+                  arrowLeftIcon={arrowLeftIcon}
+                  arrowRightIcon={arrowRightIcon}
+                  cdIcon={cdIcon}
+                  greyTickIcon={greyTickIcon}
+                  canteenIcon={canteenIcon}
+                  yellowCircleIcon={yellowCircleIcon}
+                  avtar={avtar}
+                  facultyData={collegeDetailsById?.faculty_data ?? []}
+                />
+
+                <CollageAdmissionProcess
+                  collegeDetails={collegeDetailsById}
+                  downloadIcon={downloadIcon}
+                  getCurrentYear={getCurrentYear}
+                  greyTickIcon={greyTickIcon}
+                  responsive1={responsive}
+                  swiperResponsive={swiperResponsive}
+                  arrowLeftIcon={arrowLeftIcon}
+                  arrowRightIcon={arrowRightIcon}
+                  askQuesImage={askQuesImage}
+                  getAllCourseDataById={getAllCourseDataById}
+                  courseOffered={collegeDetailsById?.faculty_data ?? []}
+                /> */}
+
+                {getAllCollegesDataByCity().length > 0 && (
+                  <RecommendedCollege
+                    collegeDetails={collegeDetailsById}
+                    greyTickIcon={greyTickIcon}
+                    responsive={responsive}
+                    swiperResponsive={swiperResponsive}
+                    arrowLeftIcon={arrowLeftIcon}
+                    arrowRightIcon={arrowRightIcon}
+                    recommendedCollege={getAllCollegesDataByCity()}
+                  />
+                )}
+              </div>
+            </div>
+
+            {/* Right Sidebar */}
+            <div className="col-md-4">
+              <aside id="courses_details_rightcol" className="courses-details-rightcol">
+                {/* Photos Section */}
+                <CollegeGallery galleryImages={collegeDetailsById?.gallary} assetPath={constants.assestAbsolutePath} />
+
+                {/* Placement Section */}
+                <PlacementSection placementData={collegeDetailsById?.placement_data} />
+              </aside>
+            </div>
+            <div className='col-md-12'>
+   <CourseOfferedByCollage
                   collegeDetails={collegeDetailsById}
                   readmore={readmore}
                   setReadmore={setReadmore}
@@ -138,31 +208,8 @@ export default function CollegeDetails() {
                   getAllCourseDataById={getAllCourseDataById}
                   courseOffered={collegeDetailsById?.faculty_data ?? []}
                 />
-
-                {getAllCollegesDataByCity().length > 0 && (
-                  <RecommendedCollege
-                    collegeDetails={collegeDetailsById}
-                    greyTickIcon={greyTickIcon}
-                    responsive={responsive}
-                    swiperResponsive={swiperResponsive}
-                    arrowLeftIcon={arrowLeftIcon}
-                    arrowRightIcon={arrowRightIcon}
-                    recommendedCollege={getAllCollegesDataByCity()}
-                  />
-                )}
-              </div>
             </div>
 
-            {/* Right Sidebar */}
-            <div className="col-md-4">
-              <aside id="courses_details_rightcol" className="courses-details-rightcol">
-                {/* Photos Section */}
-                <CollegeGallery galleryImages={collegeDetailsById?.gallary} assetPath={constants.assestAbsolutePath} />
-
-                {/* Placement Section */}
-                <PlacementSection placementData={collegeDetailsById?.placement_data} />
-              </aside>
-            </div>
           </div>
         </div>
       </section>

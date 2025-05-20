@@ -5,13 +5,20 @@ import CustomSwiper from '../../../../utils/Constants/custom-components/CustomSw
 
 const CollegeNewsSection = ({
   collegeDetails,
+  readmore = {},
+  setReadmore,
+  getCurrentYear,
   whatsIcon,
   responsive,
   swiperResponsive,
   arrowLeftIcon,
   arrowRightIcon,
 }) => {
+  const collegeDescription = collegeDetails?.description?.college_description || '';
+  const collegeHighlightsDescription = collegeDetails?.description?.college_highlights_description || '';
+  const collegeName = collegeDetails?.college_name || '';
   return (
+    <>
     <div className="whatsNew-box mb-5">
       <div className="d-flex mb-4 ms-3">
         <div className="whatsnew-cal-badge">
@@ -69,6 +76,46 @@ const CollegeNewsSection = ({
         </div>
       </div>
     </div>
+    <div className="course-details-left-innerBox mb-5 text-center">
+            <h2 className="imgText-heading mb-4">{collegeName ? `${collegeName} Overview` : 'Overview'}</h2>
+            <p className="imgText-para">
+              {collegeDescription.length > 300 && !readmore.overview
+                ? collegeDescription.slice(0, 300) + '...'
+                : collegeDescription}
+            </p>
+            {collegeDescription.length > 300 && (
+              <div className="text-center">
+                <Link
+                  className="theme-btn green-btn"
+                  onClick={() => setReadmore({ ...readmore, overview: !readmore.overview })}
+                >
+                  {!readmore.overview ? 'Read More' : 'Read Less'}
+                </Link>
+              </div>
+            )}
+          </div>
+    
+          <div className="course-details-left-innerBox mb-5 text-center">
+            <h2 className="imgText-heading mb-4">
+              {collegeName ? `${collegeName} Highlights ${getCurrentYear()}` : 'Highlights'}
+            </h2>
+            <p className="imgText-para">
+              {collegeHighlightsDescription.length > 300 && !readmore.highlightDescription
+                ? `${collegeHighlightsDescription.slice(0, 300)}...`
+                : collegeHighlightsDescription}
+            </p>
+            {collegeHighlightsDescription.length > 300 && (
+              <div className="text-center">
+                <Link
+                  className="theme-btn green-btn"
+                  onClick={() => setReadmore({ ...readmore, highlightDescription: !readmore.highlightDescription })}
+                >
+                  {!readmore.highlightDescription ? 'Read More' : 'Read Less'}
+                </Link>
+              </div>
+            )}
+          </div>
+    </>
   );
 };
 
@@ -77,10 +124,18 @@ CollegeNewsSection.propTypes = {
     college_name: PropTypes.string,
   }),
   whatsIcon: PropTypes.string.isRequired,
+  getCurrentYear: PropTypes.func.isRequired,
   responsive: PropTypes.object.isRequired,
   swiperResponsive: PropTypes.func.isRequired,
+  setReadmore: PropTypes.func.isRequired,
   arrowLeftIcon: PropTypes.string.isRequired,
   arrowRightIcon: PropTypes.string.isRequired,
+  readmore: PropTypes.shape({
+      overview: PropTypes.bool,
+      highlightDescription: PropTypes.bool,
+      highlightCourses: PropTypes.bool,
+      allCourses: PropTypes.bool,
+    }),
 };
 
 export default CollegeNewsSection;
