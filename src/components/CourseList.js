@@ -27,14 +27,14 @@ const CourseList = () => {
       spaceBetween: 20,
     },
   };
-  
+
   return (
     <>
-    {allCollegeData.length > 0 &&
-      <section className="course-slider-section text-center section-padding">
-        <div className="container">
-          <h3 className="course-slider_h3text">Tranding Collages</h3>
-          {/* <div className=""> */}
+      {allCollegeData.length > 0 && (
+        <section className="course-slider-section text-center section-padding">
+          <div className="container">
+            <h3 className="course-slider_h3text">Tranding Collages</h3>
+            {/* <div className=""> */}
             <CustomeCrousel
               navigatePrev={'crousel-btn-prev'}
               navigateNext={'crousel-btn-next'}
@@ -45,16 +45,17 @@ const CourseList = () => {
               autoScrollPauseOnMouseEnter={true}
             >
               {allCollegeData
-                .filter((data) => data.ratings >= 3)
+                .filter((data) => data?.is_trending)
                 .map((college) => (
                   <CarouselSlides>
                     <TrendingCollegesCard college={college} />
                   </CarouselSlides>
                 ))}
             </CustomeCrousel>
-          {/* </div> */}
-        </div>
-      </section>}
+            {/* </div> */}
+          </div>
+        </section>
+      )}
     </>
   );
 };

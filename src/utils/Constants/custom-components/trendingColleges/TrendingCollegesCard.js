@@ -25,13 +25,13 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
       return true;
     }
   };
-  
+
   return (
     <div className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}>
       <div className="course_card_main_box">
         <div className="course_card_1stimgbox">
           <img
-            src={constants.imageAbsolutePath + college?.college_thumbnail}
+            src={constants.assestAbsolutePath + college?.college_thumbnail}
             className="course_card_images_img"
             alt="College Thumbnail"
           />
@@ -39,7 +39,7 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
             <div className="course_card_1stimgbox_text_logo">
               <img
                 className="course_card_1stimgbox_img_logo_logo_img"
-                src={constants.imageAbsolutePath + college?.college_logo}
+                src={constants.assestAbsolutePath + college?.college_logo}
                 alt="college Logo"
               />
               <div className="course_card_2ndtextbox_rating">
@@ -65,36 +65,49 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
         <div className="course_card_2ndtextbox">
           <div className="course-name_rating_parents_box course-name_rating_parents_box-2">
             <div className="course_card_2ndtextbox_course-name">
-              <h3 className="course_card_2ndtextbox_course-name_h3">{college?.category_name}</h3>
+              {college?.category_name?.map((collageCategory) => (
+                <h3 className="course_card_2ndtextbox_course-name_h3">{collageCategory}</h3>
+              ))}
               <p className="course_card_2ndtextbox_course-name_p">
-                <span className="course_card_2ndtextbox_course-name_p_span">2.31 Lacs</span> First Year Fees
+                <span className="course_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span> Starting Fee
               </p>
             </div>
           </div>
-          <div className='tranding-collage-card-on'>
-          <Link to={authenticateUser && `/colleges_details/${college.college_id}`}
-            className={
-              !isModal ? 'hidden' : 
-              'course-name_compare_parents_box'}
-            onClick={() => handleClick('View')}
-          >
-            
-            <div className={isOdd(index) ? "course-name_courses_fees_parents_box bg-green" : "course-name_courses_fees_parents_box bg-yellow"}>
-              View All Courses and Fees
-              {/* <span className="course-name_courses_fees_parents_box_icon">
+          <div className="tranding-collage-card-on">
+            <Link
+              to={authenticateUser && `/colleges_details/${college.college_id}`}
+              className={!isModal ? 'hidden' : 'course-name_compare_parents_box'}
+              onClick={() => handleClick('View')}
+            >
+              <div
+                className={
+                  isOdd(index)
+                    ? 'course-name_courses_fees_parents_box bg-green'
+                    : 'course-name_courses_fees_parents_box bg-yellow'
+                }
+              >
+                View All Courses and Fees
+                {/* <span className="course-name_courses_fees_parents_box_icon">
                 <i className="fa-solid fa-angle-right"></i>
               </span> */}
-            </div>
-          </Link>
-          <div className={!isModal ? 'hidden' : isOdd(index) ? 'course-name_download_brochure_parents_box bg-green': 'course-name_download_brochure_parents_box bg-yellow'} onClick={() => handleClick('Download')}>
-            Download Brochure
-            {/* <span className="course-name_courses_fees_parents_box_icon">
+              </div>
+            </Link>
+            <div
+              className={
+                !isModal
+                  ? 'hidden'
+                  : isOdd(index)
+                    ? 'course-name_download_brochure_parents_box bg-green'
+                    : 'course-name_download_brochure_parents_box bg-yellow'
+              }
+              onClick={() => handleClick('Download')}
+            >
+              Download Brochure
+              {/* <span className="course-name_courses_fees_parents_box_icon">
               <i className="fa-solid fa-angle-right"></i>
             </span> */}
+            </div>
           </div>
-          </div>
-
-
         </div>
       </div>
     </div>

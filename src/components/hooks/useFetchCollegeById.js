@@ -8,7 +8,7 @@ export const useFetchCollegeById = () => {
   const fetchCollege = async (college_id) => {
     dispatch(
       fetchCollegeById({
-        url: constants.apiEndPoint.COLLEGE_LIST + '?requestType=getAllCollegeDetails&college_id=' + college_id,
+        url: constants.apiEndPoint.NEW_COLLEGE_API + '?college_id=' + college_id,
         method: constants.apiMethod.GET,
         header: constants.apiHeader.HEADER,
       })

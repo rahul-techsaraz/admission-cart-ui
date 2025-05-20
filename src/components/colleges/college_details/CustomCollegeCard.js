@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export const CustomCollegeCard = ({ college, isModal }) => {
   const { authenticateUser } = useSelector((state) => state.common);
-  const [ishidden, setIsHidden] = useState(true)
+  const [ishidden, setIsHidden] = useState(true);
   const dispatch = useDispatch();
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -14,24 +14,24 @@ export const CustomCollegeCard = ({ college, isModal }) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
   const handleMouseEnter = () => {
-    console.log('mouse enter trigred')
-    setIsHidden(false)
-  }
+    console.log('mouse enter trigred');
+    setIsHidden(false);
+  };
   const handleMouseLeave = () => {
-    console.log('mouse leave trigred')
-    setIsHidden(true)
-  }
+    console.log('mouse leave trigred');
+    setIsHidden(true);
+  };
   const handleClick = () => {
     if (!authenticateUser) {
       dispatch(toggelIsLoginPopup({ flag: true }));
     }
   };
   return (
-    <div className='' onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
+    <div className="" onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
       <div className="collage_card_main_box">
         <div className="collage_card_1stimgbox">
           <img
-            src={constants.imageAbsolutePath + college?.college_thumbnail}
+            src={constants.assestAbsolutePath + college?.college_thumbnail}
             className="collages_card_images_img"
             alt="College Thumbnail"
           />
@@ -39,10 +39,10 @@ export const CustomCollegeCard = ({ college, isModal }) => {
             <div className="collage_card_1stimgbox_text_logo">
               <img
                 className="collage_card_1stimgbox_img_logo_logo_img"
-                src={constants.imageAbsolutePath + college?.college_logo}
+                src={constants.assestAbsolutePath + college?.college_logo}
                 alt="college Logo"
               />
-              <span className="span_text">118/1800</span>
+              {/* <span className="span_text">118/1800</span> */}
             </div>
             <div className="collage_card_1stimgbox_img_logo">
               <div className="collage_card_1stimgbox_img_logo_logo">
@@ -59,9 +59,11 @@ export const CustomCollegeCard = ({ college, isModal }) => {
         <div className="collage_card_2ndtextbox">
           <div className="collage-name_rating_parents_box">
             <div className="collage_card_2ndtextbox_course-name">
-              <h3 className="collage_card_2ndtextbox_course-name_h3">{college?.category_name}</h3>
+              {college?.category_name?.map((categoryName) => (
+                <h3 className="collage_card_2ndtextbox_course-name_h3">{categoryName}</h3>
+              ))}
               <p className="collage_card_2ndtextbox_course-name_p">
-                <span className="collage_card_2ndtextbox_course-name_p_span">2.31 Lacs</span> First Year Fees
+                <span className="collage_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span> Starting Fee
               </p>
             </div>
             <div className="collage_card_2ndtextbox_rating">
@@ -70,30 +72,30 @@ export const CustomCollegeCard = ({ college, isModal }) => {
               </p>
               <p className="collage_card_2ndtextbox_reviews">{getRandomInt(1, 300)}+ reviews</p>
             </div>
-            
           </div>
           {/* <hr className={ishidden ? 'hidden' : 'collages-list-hr'}/> */}
 
-          <div className={!isModal ? "hidden" : 'tranding-collage-card-on'}>
-
-          <Link to={authenticateUser && `/colleges_details/${college.college_id}`} className="collage-name_courses_fees_parents_box2" onClick={() => handleClick()}>
-            <div className="collage-name_courses_fees_parents_box">
-              View All Courses and Fees
-              {/* <span className="collage-name_courses_fees_parents_box_icon">
+          <div className={!isModal ? 'hidden' : 'tranding-collage-card-on'}>
+            <Link
+              to={authenticateUser && `/colleges_details/${college.college_id}`}
+              className="collage-name_courses_fees_parents_box2"
+              onClick={() => handleClick()}
+            >
+              <div className="collage-name_courses_fees_parents_box">
+                View All Courses and Fees
+                {/* <span className="collage-name_courses_fees_parents_box_icon">
                 <i className="fa-solid fa-angle-right"></i>
               </span> */}
-            </div>
-          </Link>
-          {/* <hr className={ishidden ? "hidden" : 'collages-list-hr'}/> */}
-          <div className="collage-name_download_brochure_parents_box" onClick={() => handleClick()}>
-            Download Brochure
-            {/* <span className="collage-name_courses_fees_parents_box_icon">
+              </div>
+            </Link>
+            {/* <hr className={ishidden ? "hidden" : 'collages-list-hr'}/> */}
+            <div className="collage-name_download_brochure_parents_box" onClick={() => handleClick()}>
+              Download Brochure
+              {/* <span className="collage-name_courses_fees_parents_box_icon">
               <i className="fa-solid fa-angle-right"></i>
             </span> */}
+            </div>
           </div>
-          </div>
-
-
         </div>
       </div>
     </div>

@@ -1,335 +1,47 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import httpFetch from '../../fetch/useFetch';
-import constants from '../../utils/Constants/constants';
+import { createApiThunk } from './apiThunk';
 
-export const fetchAllCollegeList = createAsyncThunk(
-  'college/fetchAllCollegeList',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchAllCollegeList = createApiThunk('college/fetchAllCollegeList');
 
-export const fetchAllCourseList = createAsyncThunk(
-  'course/fetchAllCourseList',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchAllCourseList = createApiThunk('course/fetchAllCourseList');
 
-export const fetchAllExamList = createAsyncThunk('exam/fetchAllExamList', async ({ url, method, header }, thunkApi) => {
-  try {
-    const data = await httpFetch(url, method, header);
-    if (data.status !== constants.apiResponseStatus.SUCCESS) {
-      throw new Error('Somting went wrong... try again');
-    }
-    return data;
-  } catch (error) {
-    return thunkApi.rejectWithError(error);
-  }
-});
+export const fetchAllExamList = createApiThunk('exam/fetchAllExamList');
 
-export const fetchCollegeById = createAsyncThunk(
-  'college/fetchCollegeById',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchCollegeById = createApiThunk('college/fetchCollegeById');
 
-export const fetchCourseById = createAsyncThunk('course/fetchCourseById', async ({ url, method, header }, thunkApi) => {
-  try {
-    const data = await httpFetch(url, method, header);
-    if (data.status !== constants.apiResponseStatus.SUCCESS) {
-      throw new Error('Somting went wrong... try again');
-    }
-    return data;
-  } catch (error) {
-    return thunkApi.rejectWithError(error);
-  }
-});
+export const fetchCourseById = createApiThunk('course/fetchCourseById');
 
-export const fetchExamById = createAsyncThunk('exam/fetchExamById', async ({ url, method, header }, thunkApi) => {
-  try {
-    const data = await httpFetch(url, method, header);
-    if (data.status !== constants.apiResponseStatus.SUCCESS) {
-      throw new Error('Somting went wrong... try again');
-    }
-    return data;
-  } catch (error) {
-    return thunkApi.rejectWithError(error);
-  }
-});
+export const fetchExamById = createApiThunk('exam/fetchExamById');
 
-export const signup = createAsyncThunk('signup/userSignup', async ({ url, method, header, body }, thunkApi) => {
-  try {
-    const data = await httpFetch(url, method, header, body);
-    if (data.success !== 1) {
-      throw new Error('Somting went wrong... try again');
-    }
-    return data;
-  } catch (error) {
-    return thunkApi.rejectWithError(error);
-  }
-});
+export const signup = createApiThunk('signup/userSignup');
 
-export const login = createAsyncThunk('login/userLogin', async ({ url, method, header, body }, thunkApi) => {
-  try {
-    const data = await httpFetch(url, method, header, body);
-    if (data.success !== 1) {
-      throw new Error('Somting went wrong... try again');
-    }
-    return data;
-  } catch (error) {
-    return thunkApi.rejectWithError(error);
-  }
-});
+export const login = createApiThunk('login/userLogin');
 
-export const fetchUserBasicDetails = createAsyncThunk(
-  'UserBasicDetails/fetchUserBasicDetails',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchUserBasicDetails = createApiThunk('UserBasicDetails/fetchUserBasicDetails');
 
-export const saveUserBasicDetails = createAsyncThunk(
-  'UserBasicDetails/saveUserBasicDetails',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const saveUserBasicDetails = createApiThunk('UserBasicDetails/saveUserBasicDetails');
 
-export const fetchUserEducationalDetails = createAsyncThunk(
-  'UserEducationalDetails/fetchUserEducationalDetails',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchUserEducationalDetails = createApiThunk('UserEducationalDetails/fetchUserEducationalDetails');
 
-export const saveUserEducationalDetails = createAsyncThunk(
-  'UserEducationalDetails/saveUserEducationalDetails',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const saveUserEducationalDetails = createApiThunk('UserEducationalDetails/saveUserEducationalDetails');
 
-export const deleteUserEducationalDetails = createAsyncThunk(
-  'UserEducationalDetails/deleteUserEducationalDetails',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const deleteUserEducationalDetails = createApiThunk('UserEducationalDetails/deleteUserEducationalDetails');
 
-export const fetchSpecializationCategory = createAsyncThunk(
-  'UserPreferenceslDetails/fetchSpecializationCategory',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchSpecializationCategory = createApiThunk('UserPreferenceslDetails/fetchSpecializationCategory');
 
-export const fetchUserPreferenceDetails = createAsyncThunk(
-  'UserPreferenceDetails/fetchUserPreferenceDetails',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchUserPreferenceDetails = createApiThunk('UserPreferenceDetails/fetchUserPreferenceDetails');
 
-export const saveUserPreferenceDetails = createAsyncThunk(
-  'UserPreferenceDetails/saveUserPreferenceDetails',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const saveUserPreferenceDetails = createApiThunk('UserPreferenceDetails/saveUserPreferenceDetails');
 
-export const saveUserFeedback = createAsyncThunk(
-  'UserFeedback/saveUserFeedback',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const saveUserFeedback = createApiThunk('UserFeedback/saveUserFeedback');
 
-export const fetchUserFeedback = createAsyncThunk(
-  'UserFeedback/fetchUserFeedback',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchUserFeedback = createApiThunk('UserFeedback/fetchUserFeedback');
 // User Callback Request
-export const addUserCallBackRequest = createAsyncThunk(
-  'UserFeedback/fetchUserFeedback',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      console.log({ data });
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error);
-    }
-  }
-);
+export const addUserCallBackRequest = createApiThunk('UserFeedback/fetchUserFeedback');
 
-export const fetchUserDocument = createAsyncThunk(
-  'UserDocument/fetchUserDocument',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchUserDocument = createApiThunk('UserDocument/fetchUserDocument');
 
-export const saveUserDocument = createAsyncThunk(
-  'UserDocument/saveUserDocument',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const saveUserDocument = createApiThunk('UserDocument/saveUserDocument');
 
-export const fetchUserShortlist = createAsyncThunk(
-  'UserShortlist/fetchUserShortlist',
-  async ({ url, method, header }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const fetchUserShortlist = createApiThunk('UserShortlist/fetchUserShortlist');
 
-export const saveUserShortlist = createAsyncThunk(
-  'UserShortlist/saveUserShortlist',
-  async ({ url, method, header, body }, thunkApi) => {
-    try {
-      const data = await httpFetch(url, method, header, body);
-      console.log(data);
-      if (data.status !== constants.apiResponseStatus.SUCCESS) {
-        throw new Error('Somting went wrong... try again');
-      }
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithError(error);
-    }
-  }
-);
+export const saveUserShortlist = createApiThunk('UserShortlist/saveUserShortlist');

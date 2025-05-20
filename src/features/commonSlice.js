@@ -10,6 +10,7 @@ import {
   signup,
 } from '../components/ReduxThunk/CommonThunk';
 import constants from '../utils/Constants/constants';
+import { deepParseTypedJSON } from '../utils/deepParseTypedJSON';
 
 const initialState = {
   isLoading: false,
@@ -25,41 +26,7 @@ const initialState = {
   allCollegeData: [],
   allExamData: [],
   allCourseData: [],
-  collegeDetailsById: {
-    basicDetails: {
-      account_name: '',
-      affiliate_by: '',
-      category_name: '',
-      city: '',
-      college_logo: '',
-      college_name: '',
-      college_thumbnail: '',
-      college_type: '',
-      created_at: '',
-      is_publish: '',
-      location: '',
-      message: '',
-      ratings: '',
-      state: '',
-      updated_at: '',
-    },
-    courseOfferedDetails: [],
-    descriptionDetails: {
-      college_campus_description: '',
-      college_course_description: '',
-      college_description: '',
-      college_highlights_description: '',
-    },
-    facilitiesDetails: {
-      facilities: '',
-      faculty_name: '',
-    },
-    gallaryDetails: {
-      image_path: '',
-      video_path: '',
-    },
-    highlightsDetails: [],
-  },
+  collegeDetailsById: {},
   examDetailsById: {
     descriptionDetails: {
       apllication_form_step1_description: '',
@@ -204,8 +171,11 @@ const commonSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fetchAllCollegeList.fulfilled, (state, { payload }) => {
-      if (payload.status === constants.apiResponseStatus.SUCCESS) {
-        state.allCollegeData = payload.data;
+      if (payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0) {
+        const parseCollegeList = payload.data
+          .map((college) => deepParseTypedJSON(college))
+          .filter((approvedCollege) => approvedCollege?.is_publish?.toLowerCase() === 'approved');
+        state.allCollegeData = parseCollegeList;
       }
       state.isLoading = false;
     });
@@ -241,9 +211,10 @@ const commonSlice = createSlice({
     });
     builder.addCase(fetchCollegeById.fulfilled, (state, { payload }) => {
       if (payload.status === constants.apiResponseStatus.SUCCESS) {
-        state.collegeDetailsById = payload.data;
+        const parseCollageDetails = deepParseTypedJSON(payload.data);
+        state.collegeDetailsById = parseCollageDetails;
+        state.isLoading = false;
       }
-      state.isLoading = false;
     });
     builder.addCase(fetchCollegeById.pending, (state, { payload }) => {
       state.isLoading = true;
