@@ -69,39 +69,7 @@ const initialState = {
     },
     highlightsDetails: [],
   },
-  courseDetailsById: {
-    basicCourseDetails: {
-      category_name: '',
-      course_accepting_exam: '',
-      course_description: '',
-      course_duration: '',
-      course_fee_max: '',
-      course_fee_min: '',
-      course_mode: '',
-      course_name: '',
-      created_at: '',
-      is_publish: '',
-      updated_at: '',
-    },
-    courseDetails: {
-      course_level: '',
-      created_at: '',
-      eligiblity_criteria: '',
-      exam_type: '',
-      updated_at: '',
-    },
-    descriptionDetails: {
-      course_admission_process_description: '',
-      course_eligibility_criteria_description: '',
-      course_entrance_exam_description: '',
-      course_fee_description: '',
-      course_overview_description: '',
-      course_placement_description: '',
-      created_at: '',
-      updated_at: '',
-    },
-    syllabusDetails: [],
-  },
+  courseDetailsById: {},
   notificationInfo: {
     isOpen: false,
     notificationType: '',
@@ -186,8 +154,9 @@ const commonSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fetchAllCourseList.fulfilled, (state, { payload }) => {
-      if (payload.status === constants.apiResponseStatus.SUCCESS) {
-        state.allCourseData = payload.data.result;
+      if (payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0) {
+        const parseCourseResponse = payload.data.map((course) => deepParseTypedJSON(course));
+        state.allCourseData = parseCourseResponse;
       }
       state.isLoading = false;
     });
@@ -224,7 +193,7 @@ const commonSlice = createSlice({
     });
     builder.addCase(fetchCourseById.fulfilled, (state, { payload }) => {
       if (payload.status === constants.apiResponseStatus.SUCCESS) {
-        state.courseDetailsById = payload.data;
+        state.courseDetailsById = deepParseTypedJSON(payload.data);
       }
       state.isLoading = false;
     });

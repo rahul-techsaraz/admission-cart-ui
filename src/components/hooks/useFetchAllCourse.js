@@ -8,11 +8,17 @@ export const useFetchAllCourse = () => {
   const fetchCourseList = async () => {
     dispatch(
       fetchAllCourseList({
-        url: constants.apiEndPoint.COURSE_LIST + '?requestType=getAllCourseDetails',
+        url: constants.apiEndPoint.NEW_COURSE_API,
         method: constants.apiMethod.GET,
         header: constants.apiHeader.HEADER,
       })
     );
   };
-  return { fetchCourseList };
+
+  const getTrendingCourses = (course) => {
+    const trendingCourse = course.filter((trendingCourse) => trendingCourse.is_trending) ?? [];
+    console.log({ trendingCourse });
+    return trendingCourse;
+  };
+  return { fetchCourseList, getTrendingCourses };
 };

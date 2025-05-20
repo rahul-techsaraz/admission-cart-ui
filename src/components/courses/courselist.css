@@ -1,0 +1,270 @@
+:root {
+  --primary-color: #5be4a8; /* Green */
+  --secondary-color: #fed626; /* Yellow */
+  --white-color: #ffffff;
+  --text-dark: #333;
+  --text-light: #666;
+  --border-color-light: #f0f0f0; /* Much lighter border */
+  --shadow-subtle: rgba(0, 0, 0, 0.03); /* Very light shadow */
+  --shadow-hover-subtle: rgba(0, 0, 0, 0.08); /* Slightly more on hover */
+
+  /* New lighter shades for header */
+  --header-bg-start: #e0ffee; /* Very light green */
+  --header-bg-end: #fff8e0; /* Very light yellow */
+
+  /* New colors for info tags */
+  --tag-bg-color: #e9f9f2; /* Light background for tags, from primary */
+  --tag-text-color: #3cb877; /* Darker text for tags, from primary */
+  --category-bg-color: #fffde0; /* Light background for category, from secondary */
+  --category-text-color: #d1b100; /* Darker text for category, from secondary */
+}
+
+.course-listing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  width: 100%;
+  padding: 20px;
+}
+
+.course-card {
+  background-color: var(--white-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-subtle);
+  overflow: hidden; /* Crucial for hiding parts of the ribbon that extend outside */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid var(--border-color-light);
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px var(--shadow-hover-subtle);
+}
+
+.course-card-header {
+  background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+  padding: 20px;
+  color: var(--text-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.course-title-group {
+  flex-grow: 1;
+}
+
+.course-name {
+  font-size: 1.6em;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: none;
+}
+
+.sub-course-name {
+  font-size: 1em;
+  font-weight: 400;
+  margin: 5px 0 0;
+  opacity: 0.8;
+}
+
+.course-mode {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  padding: 7px 14px;
+  font-size: 0.88em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 15px;
+  backdrop-filter: blur(3px);
+  color: var(--text-dark);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  /* Ensure course-mode is visible above header background but below trending-tag if needed */
+  z-index: 3; /* Give it a slightly higher z-index if it tends to go under */
+}
+
+.course-mode i {
+  font-size: 0.95em;
+}
+
+.course-card-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.course-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border-color-light);
+}
+
+.course-info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 0.98em;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.info-value {
+  font-size: 0.98em;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.course-card-additional-info {
+  padding: 15px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  border-top: 1px solid var(--border-color-light);
+  margin-top: auto;
+}
+
+.info-tag-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.info-tag {
+  background-color: var(--tag-bg-color);
+  color: var(--tag-text-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.info-category {
+  background-color: var(--tag-bg-color);
+  color: var(--tag-text-color);
+  border-radius: 6px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- START: UPDATED TRENDING TAG (RIBBON) STYLES --- */
+.trending-tag {
+  position: absolute;
+  top: 20px; /* Position it a bit lower from the very top to prevent overlap */
+  right: -25px; /* Pull it outside the card slightly more for the ribbon effect */
+  width: 120px; /* Give it a fixed width so content fits when rotated */
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  padding: 6px 0; /* Vertical padding, no horizontal padding for a flat ribbon */
+  text-align: center; /* Center the text */
+  font-size: 0.8em;
+  font-weight: 700;
+  display: flex;
+  justify-content: center; /* Center content within the ribbon */
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for the ribbon */
+  transform: rotate(21deg); /* Rotate to create the ribbon angle */
+  transform-origin: 100% 0; /* Rotate from the top-right corner */
+  z-index: 5; /* Ensure it's on top of everything else */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle bottom border for depth */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle top light border */
+
+  /* To hide the pointy ends of the ribbon that go over the card */
+  /* This works with `overflow: hidden;` on `.course-card` */
+}
+
+.trending-tag i {
+  font-size: 0.9em;
+}
+/* --- END: UPDATED TRENDING TAG (RIBBON) STYLES --- */
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .course-listing-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 992px) {
+  .course-listing-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-listing-container {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+  }
+
+  .course-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .course-mode {
+    margin-left: 0;
+  }
+
+  .trending-tag {
+    top: 10px; /* Adjust ribbon position for smaller screens if needed */
+    right: -20px; /* Keep it slightly off */
+    width: 100px; /* Make it slightly narrower */
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin: 15px;
+  }
+  .course-listing-container {
+    padding: 10px;
+    gap: 20px;
+  }
+  .course-name {
+    font-size: 1.4em;
+  }
+  .sub-course-name {
+    font-size: 0.9em;
+  }
+
+  .info-tag,
+  .info-category {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+  .course-card-additional-info {
+    padding: 10px 15px 15px;
+  }
+}

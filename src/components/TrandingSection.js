@@ -1,9 +1,13 @@
 import { useSelector } from 'react-redux';
 import TrendingCourseCard from '../utils/Constants/custom-components/trendingCourseCard/TrendingCourseCard';
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
+import { useFetchAllCourse } from './hooks/useFetchAllCourse';
+import { useEffect, useState } from 'react';
 
 const TrandingSection = () => {
+  const [trendingCourse, setTrendingCourse] = useState([]);
   const { allCourseData } = useSelector((state) => state.common);
+  const { getTrendingCourses } = useFetchAllCourse();
   const responsive = {
     1400: {
       itemsPerView: 1,
@@ -26,10 +30,16 @@ const TrandingSection = () => {
       spaceBetween: 20,
     },
   };
-
+  useEffect(() => {
+    const trending_course = getTrendingCourses(allCourseData);
+    setTrendingCourse(trending_course);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allCourseData]);
+  if (trendingCourse.length < 2) {
+    return null;
+  }
   return (
     <>
-      {allCourseData.length > 0 &&
       <section className="trending-course-section section-padding">
         <div className="container">
           <div className="trending-course-box position-relative tranding_courses_box_heighset">
@@ -39,11 +49,10 @@ const TrandingSection = () => {
                   Trending Courses
                 </h2>
               </div>
-
               <div className="col-12 col-md-9 col-lg-4 mx-auto ms-lg-auto">
                 <div className="trending-slider-wrapper position-relative">
                   <div className="swiper trending-course-slider bg-white tranding_border_radius">
-                    <div className="swiper-wrapper">
+                    <div className="swiper-wrapper ddddsdsdsd">
                       <CustomeCrousel
                         navigatePrev={'trending-button-prev'}
                         navigateNext={'trending-button-next'}
@@ -53,26 +62,20 @@ const TrandingSection = () => {
                         animation={'Card-Zoom-Effect'}
                         autoScrollPauseOnMouseEnter={true}
                       >
-                        {allCourseData.map((course)=>(
-                        <CarouselSlides>
-                          <TrendingCourseCard course={course}/>
-                        </CarouselSlides>
+                        {trendingCourse.map((course) => (
+                          <CarouselSlides key={course?.course_id}>
+                            <TrendingCourseCard course={course} />
+                          </CarouselSlides>
                         ))}
                       </CustomeCrousel>
                     </div>
                   </div>
-                  {/* <div className="swiper-button-prev trending-button-prev">
-                    <img src={leftArrow} alt="" />
-                  </div>
-                  <div className="swiper-button-next trending-button-next">
-                    <img src={rightArrow} alt="" />
-                  </div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>}
+      </section>
     </>
   );
 };
