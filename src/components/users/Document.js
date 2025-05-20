@@ -87,7 +87,7 @@ export default function Document() {
           url: constants.apiEndPoint.USER_DOCUMENT_SAVE_UPDATE,
           method: constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
-          body: filePayload,
+          payload: filePayload,
         })
       );
       if (jsonData.status === constants.apiResponseStatus.SUCCESS) {

@@ -23,8 +23,8 @@ const ProtectedRouter = ({ children }) => {
       ...constants.apiHeader.HEADER,
       Authorization: JSON.parse(localStorage.getItem('loginResponse')).token,
     };
-    const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION, constants.apiMethod.GET, custHeader);
-    if (jsonData.success == 0) {
+    const jsonData = await httpFetch(constants.apiEndPoint.USER_AUTHORISATION, custHeader, constants.apiMethod.GET);
+    if (jsonData.success === 0) {
       localStorage.removeItem('loginResponse');
       dispatch(updateauthenticateUser({ flag: false }));
       navigate('/');

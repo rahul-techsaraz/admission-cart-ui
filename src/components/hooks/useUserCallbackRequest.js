@@ -12,7 +12,7 @@ export const useUserCallbackRequest = () => {
         url: constants.apiEndPoint.USER_CALL_BACK_REQUEST,
         method: constants.apiMethod.POST,
         header: constants.apiHeader.HEADER,
-        body: payload,
+        payload: payload,
       })
     );
   };

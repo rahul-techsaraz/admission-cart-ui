@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
 import './PlacementSection.css'; // Add styles here or inline via className
 
 const PlacementSection = ({ placementData = [] }) => {
@@ -59,15 +58,15 @@ const PlacementSection = ({ placementData = [] }) => {
         <h2 className="courses-details-rightcol-grid-title">Placement</h2>
         <div className="placement-grid">{placementData.slice(0, 2).map(renderPlacementCard)}</div>
 
-        {placementData.length > 2 && (
+        {/* {placementData.length > 2 && (
           <Button variant="link" className="p-0 mt-3" onClick={handleOpenModal}>
             View All Placements
           </Button>
-        )}
+        )} */}
       </div>
 
       {/* Modal */}
-      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered scrollable>
+      {/* <Modal show={showModal} onHide={handleCloseModal} size="lg" centered scrollable>
         <Modal.Header closeButton>
           <Modal.Title>All Placement Records</Modal.Title>
         </Modal.Header>
@@ -79,7 +78,7 @@ const PlacementSection = ({ placementData = [] }) => {
             Close
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

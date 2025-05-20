@@ -59,7 +59,7 @@ export default function Collages() {
               ? constants.apiMethod.POST
               : constants.apiMethod.PUT,
           header: constants.apiHeader.HEADER,
-          body: payload,
+          payload: payload,
         })
       );
       console.log(response);

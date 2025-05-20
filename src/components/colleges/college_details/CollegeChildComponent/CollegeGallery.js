@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+//import { Modal, Button } from 'react-bootstrap';
 
 const CollegeGallery = ({ galleryImages, assetPath }) => {
   const [showModal, setShowModal] = useState(false);
@@ -28,15 +28,15 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
         </ul>
 
         {/* View More Button */}
-        {galleryImages.length > 4 && (
+        {/* {galleryImages.length > 4 && (
           <Button variant="link" className="p-0 mt-2" onClick={handleOpenModal}>
             View All Photos
           </Button>
-        )}
+        )} */}
       </div>
 
       {/* Modal */}
-      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
+      {/* <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>College Photo Gallery</Modal.Title>
         </Modal.Header>
@@ -57,7 +57,7 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
             Close
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

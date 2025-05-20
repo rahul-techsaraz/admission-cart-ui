@@ -63,7 +63,7 @@ export default function LoginModel() {
       const data = await fetch('https://techsaraz.in/admission-cart/api/login/register.php', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        payload: JSON.stringify({
           phone: phone,
           email: email,
           password: password,
@@ -99,7 +99,7 @@ export default function LoginModel() {
           url: constants.apiEndPoint.USER_LOGIN,
           method: constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
-          body: loginPayload,
+          payload: loginPayload,
         })
       );
       if (jsonData?.payload?.success !== 1) {
@@ -160,7 +160,7 @@ export default function LoginModel() {
                 placeholder="password"
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
-              <div className='login-model-buttons'>
+              <div className="login-model-buttons">
                 <button type="submit" className="clkbtn" onClick={() => handleLogin()}>
                   Login
                 </button>
@@ -200,11 +200,11 @@ export default function LoginModel() {
                 placeholder="Confirm password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <div className='login-model-buttons'>
-              <button className="clkbtn" onClick={(e) => handleSignUp(e)}>
-                Signup
-              </button>
-              <button className="clkbtn" onClick={() => dispatch(toggelLoginModel({ flag: false }))}>
+              <div className="login-model-buttons">
+                <button className="clkbtn" onClick={(e) => handleSignUp(e)}>
+                  Signup
+                </button>
+                <button className="clkbtn" onClick={() => dispatch(toggelLoginModel({ flag: false }))}>
                   Close
                 </button>
               </div>

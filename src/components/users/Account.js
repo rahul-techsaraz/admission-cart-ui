@@ -27,7 +27,7 @@ export default function Account() {
           url: constants.apiEndPoint.USER_FEADBACK,
           method: feedback.length > 0 ? constants.apiMethod.PUT : constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
-          body: payload,
+          payload: payload,
         })
       );
       if (response.payload?.status === constants.apiResponseStatus.SUCCESS) {
