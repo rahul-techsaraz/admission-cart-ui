@@ -6,20 +6,17 @@ const CourseOfferedByCollage = ({
   collegeDetails = {},
   readmore = {},
   setReadmore,
-  getCurrentYear,
   greyTickIcon,
   courseHighlight = [],
   handleLoginModalPopup,
   courseOffered = [],
 }) => {
   const collegeName = collegeDetails?.college_name || '';
-  const collegeDescription = collegeDetails?.description?.college_description || '';
-  const collegeHighlightsDescription = collegeDetails?.description?.college_highlights_description || '';
   const collegeCourseDescription = collegeDetails?.description?.college_course_description || '';
 
   return (
     <>
-      <div className="course-details-left-innerBox mb-5 text-center">
+      {/* <div className="course-details-left-innerBox mb-5 text-center">
         <h2 className="imgText-heading mb-4">{collegeName ? `${collegeName} Overview` : 'Overview'}</h2>
         <p className="imgText-para">
           {collegeDescription.length > 300 && !readmore.overview
@@ -57,7 +54,7 @@ const CourseOfferedByCollage = ({
             </Link>
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="tick-heading d-flex align-items-center mb-4">
         <span className="tick-heading-icon d-inline-flex">
