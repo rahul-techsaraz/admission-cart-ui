@@ -13,7 +13,7 @@ export default function CollegeHighlights() {
                   <p>Courses</p>
                 </th>
                 <th>
-                  <p>Annual Course Fees</p>
+                  <p>Course Fee</p>
                 </th>
                 <th></th>
               </tr>

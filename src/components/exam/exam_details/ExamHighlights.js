@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 import greyTick from '../../../images/grey-tick.svg';
 import { useSelector } from 'react-redux';
 
-export default function ExamHighlights() {
-  const { examDetailsById } = useSelector((state) => state.common);
+export default function ExamHighlights({ examDetailsById }) {
   return (
     <div className="exam-details-hightlisghts-sec mt-5">
       <div className="tick-heading d-flex align-items-center mb-4">
         <span className="tick-heading-icon d-inline-flex">
           <img src={greyTick} alt="" />
         </span>
-        <h2>{`Highlights of ${examDetailsById?.examBasicDetails?.exam_name} ${examDetailsById?.examBasicDetails?.exam_year}`}</h2>
+        <h2>{`Highlights of ${examDetailsById?.exam_name} ${examDetailsById?.exam_year}`}</h2>
       </div>
       <div className="exam-details-hightlights-table">
         <table className="table">
@@ -21,14 +20,14 @@ export default function ExamHighlights() {
                 <p>Particulars</p>
               </th>
               <th>
-                <p>{examDetailsById?.examBasicDetails?.exam_name + ' Exam Details'}</p>
+                <p>{examDetailsById?.exam_name + ' Exam Details'}</p>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Exam Name</td>
-              <td>{examDetailsById?.examBasicDetails?.exam_name}</td>
+              <td>{examDetailsById?.exam_name}</td>
             </tr>
             <tr>
               <td>Conducting Body</td>

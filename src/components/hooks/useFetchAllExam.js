@@ -8,11 +8,14 @@ export const useFetchAllExam = () => {
   const fetchExamList = async () => {
     dispatch(
       fetchAllExamList({
-        url: constants.apiEndPoint.EXAM_LIST + '?requestType=basicExamDetails',
+        url: constants.apiEndPoint.NEW_EXAM_API,
         method: constants.apiMethod.GET,
         header: constants.apiHeader.HEADER,
       })
     );
   };
-  return { fetchExamList };
+  const fetchTrendingExam = (exams) => {
+    return exams.filter((exam) => exam?.is_trending) ?? [];
+  };
+  return { fetchExamList, fetchTrendingExam };
 };

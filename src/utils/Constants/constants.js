@@ -75,6 +75,7 @@ const constants = {
     USER_CALL_BACK_REQUEST: 'https://techsaraz.in/admission-cart/api/user.php?requestType=callBackRequest',
     NEW_COLLEGE_API: 'https://techsaraz.in/admission-cart/api/newcollege.php',
     NEW_COURSE_API: 'https://techsaraz.in//admission-cart/api/newcourses.php',
+    NEW_EXAM_API: 'https://techsaraz.in//admission-cart/api/newexams.php',
   },
   apiMethod: {
     GET: 'get',

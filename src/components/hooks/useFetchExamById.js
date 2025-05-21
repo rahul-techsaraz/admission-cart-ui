@@ -8,7 +8,7 @@ export const useFetchExamById = () => {
   const fetchExam = async (exam_id) => {
     await dispatch(
       fetchExamById({
-        url: constants.apiEndPoint.EXAM_LIST + '?requestType=getExamDetails&exam_id=' + exam_id,
+        url: constants.apiEndPoint.NEW_EXAM_API + '?exam_id=' + exam_id,
         method: constants.apiMethod.GET,
         header: constants.apiHeader.HEADER,
       })

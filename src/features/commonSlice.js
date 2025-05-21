@@ -27,48 +27,7 @@ const initialState = {
   allExamData: [],
   allCourseData: [],
   collegeDetailsById: {},
-  examDetailsById: {
-    descriptionDetails: {
-      apllication_form_step1_description: '',
-      apllication_form_step2_description: '',
-      apllication_form_step3_description: '',
-      created_at: '',
-      exam_admit_card_description: '',
-      exam_application_form_description: '',
-      exam_center_description: '',
-      exam_conducting_body_description: '',
-      exam_counselling_description: '',
-      exam_description: '',
-      exam_important_dates_description: '',
-      exam_intimation_slip_description: '',
-      exam_pattern_description: '',
-      exam_session_description: '',
-      exam_syllabus_description: '',
-      updated_at: '',
-    },
-    examBasicDetails: {
-      application_end_date: '',
-      application_start_date: '',
-      category_name: '',
-      created_at: '',
-      exam_end_date: '',
-      exam_name: '',
-      exam_start_date: '',
-      exam_year: '',
-      updated_at: '',
-    },
-    examDetails: {
-      counselling_dates: '',
-      created_at: '',
-      exam_conducting_address: '',
-      exam_conducting_email: '',
-      is_counselling_announced: '',
-      no_of_session: '',
-      session_name: '',
-      updated_at: '',
-    },
-    highlightsDetails: [],
-  },
+  examDetailsById: {},
   courseDetailsById: {},
   notificationInfo: {
     isOpen: false,
@@ -167,8 +126,9 @@ const commonSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fetchAllExamList.fulfilled, (state, { payload }) => {
-      if (payload.status === constants.apiResponseStatus.SUCCESS) {
-        state.allExamData = payload.data;
+      if (payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0) {
+        const parseExamList = payload.data.map((exam) => deepParseTypedJSON(exam));
+        state.allExamData = parseExamList;
       }
       state.isLoading = false;
     });
@@ -204,7 +164,8 @@ const commonSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fetchExamById.fulfilled, (state, { payload }) => {
-      state.examDetailsById = payload.data;
+      const parseExamDetails = deepParseTypedJSON(payload.data);
+      state.examDetailsById = parseExamDetails;
       state.isLoading = false;
     });
     builder.addCase(fetchExamById.pending, (state, { payload }) => {
