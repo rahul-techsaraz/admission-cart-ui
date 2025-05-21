@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function ExamDetailsRightCol() {
+export default function ExamDetailsRightCol({ examDetails }) {
   return (
     <div className="col-md-3">
       <aside id="exam_details_rightcol" className="exam-details-rightcol">

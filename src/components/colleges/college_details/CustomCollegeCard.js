@@ -59,9 +59,10 @@ export const CustomCollegeCard = ({ college, isModal }) => {
         <div className="collage_card_2ndtextbox">
           <div className="collage-name_rating_parents_box">
             <div className="collage_card_2ndtextbox_course-name">
-              {college?.category_name?.map((categoryName) => (
+              {/* {college?.category_name?.map((categoryName) => (
                 <h3 className="collage_card_2ndtextbox_course-name_h3">{categoryName}</h3>
-              ))}
+              ))} */}
+              <h3 className="collage_card_2ndtextbox_course-name_h3">{college?.category_name[0]}</h3>
               <p className="collage_card_2ndtextbox_course-name_p">
                 <span className="collage_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span> Starting Fee
               </p>

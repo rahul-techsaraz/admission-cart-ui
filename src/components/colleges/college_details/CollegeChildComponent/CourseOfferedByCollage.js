@@ -73,7 +73,7 @@ const CourseOfferedByCollage = ({
                     <p>Courses</p>
                   </th>
                   <th>
-                    <p>Annual Course Fees</p>
+                    <p>Course Fee</p>
                   </th>
                   <th></th>
                 </tr>
@@ -131,7 +131,7 @@ const CourseOfferedByCollage = ({
                     <p>Courses</p>
                   </th>
                   <th>
-                    <p>Annual Course Fees</p>
+                    <p>Course Fee</p>
                   </th>
                   <th>
                     <p>Duration</p>
@@ -140,7 +140,7 @@ const CourseOfferedByCollage = ({
                     <p>Eligibility</p>
                   </th>
                   <th>
-                    <p>Accepting Exam</p>
+                    <p>Exam</p>
                   </th>
                 </tr>
               </thead>

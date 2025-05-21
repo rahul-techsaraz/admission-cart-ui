@@ -25,7 +25,7 @@ export default function CollegeCourseFee() {
                   <p>Courses</p>
                 </th>
                 <th>
-                  <p>Annual Course Fees</p>
+                  <p>Course Fee</p>
                 </th>
                 <th>
                   <p>Eligibility</p>

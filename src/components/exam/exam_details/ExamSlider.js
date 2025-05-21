@@ -48,7 +48,7 @@ export default function ExamSlider() {
   return (
     <div className="clg-accepting-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
       <h2 className="section-heading2 grey text-center mb-4">
-        {'Colleges Accepting Exam ' + examDetailsById?.examBasicDetails?.exam_name} :
+        {'Colleges Exam ' + examDetailsById?.examBasicDetails?.exam_name} :
       </h2>
       <div className="swiper clg-slider">
         {/* Additional required wrapper */}
@@ -64,12 +64,11 @@ export default function ExamSlider() {
             autoScrollPauseOnMouseEnter={true}
           >
             {examDetailsById?.examBasicDetails?.exam_name &&
-            getCollegesByExamId().map((college) => (
-              <CarouselSlides>
-                <CustomCollegeCard college={college} />
-              </CarouselSlides>
-            ))}
-
+              getCollegesByExamId().map((college) => (
+                <CarouselSlides>
+                  <CustomCollegeCard college={college} />
+                </CarouselSlides>
+              ))}
           </CustomeCrousel>
           {/* <CustomSwiper
             navigationNext={'.clg-button-next'}
