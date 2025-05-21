@@ -65,9 +65,10 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
         <div className="course_card_2ndtextbox">
           <div className="course-name_rating_parents_box course-name_rating_parents_box-2">
             <div className="course_card_2ndtextbox_course-name">
-              {college?.category_name?.map((collageCategory) => (
+              {/* {college?.category_name?.map((collageCategory) => (
                 <h3 className="course_card_2ndtextbox_course-name_h3">{collageCategory}</h3>
-              ))}
+              ))} */}
+              <h3 className="course_card_2ndtextbox_course-name_h3">{college?.category_name[0]}</h3>
               <p className="course_card_2ndtextbox_course-name_p">
                 <span className="course_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span> Starting Fee
               </p>
