@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import constants from '../../constants';
 import { Link } from 'react-router-dom';
 import './trendingCollegeCard.css';
@@ -25,7 +25,9 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
       return true;
     }
   };
-
+  useEffect(() => {
+    console.log(college);
+  }, [college]);
   return (
     <div className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}>
       <div className="course_card_main_box">

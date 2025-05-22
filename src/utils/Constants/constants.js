@@ -76,6 +76,8 @@ const constants = {
     NEW_COLLEGE_API: 'https://techsaraz.in/admission-cart/api/newcollege.php',
     NEW_COURSE_API: 'https://techsaraz.in//admission-cart/api/newcourses.php',
     NEW_EXAM_API: 'https://techsaraz.in//admission-cart/api/newexams.php',
+    VERIFY_EMAIL: 'https://techsaraz.in/admission-cart/api/login/adminlogin/forgotpassword.php',
+    SENDMAIL: 'https://techsaraz.in/mail/newsendmail.php',
   },
   apiMethod: {
     GET: 'get',

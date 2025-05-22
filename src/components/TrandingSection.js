@@ -32,6 +32,7 @@ const TrandingSection = () => {
   };
   useEffect(() => {
     const trending_course = getTrendingCourses(allCourseData);
+    console.log(trending_course)
     setTrendingCourse(trending_course);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allCourseData]);

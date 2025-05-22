@@ -98,3 +98,12 @@
 .my-collage-box-log-out a i{
     background-color: #FED626;
 }
+.otp-input {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fed626;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+  border-radius: 8px;
+}

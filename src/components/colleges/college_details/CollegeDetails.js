@@ -89,7 +89,7 @@ export default function CollegeDetails() {
             <div className="col-8">
               <div className="colg-examinfo-leftcol">
                 <CollegeNewsSection
-                 readmore={readmore}
+                  readmore={readmore}
                   setReadmore={setReadmore}
                   getCurrentYear={getCurrentYear}
                   collegeDetails={collegeDetailsById}
@@ -166,50 +166,49 @@ export default function CollegeDetails() {
                 <PlacementSection placementData={collegeDetailsById?.placement_data} />
               </aside>
             </div>
-            <div className='col-md-12'>
-   <CourseOfferedByCollage
-                  collegeDetails={collegeDetailsById}
-                  readmore={readmore}
-                  setReadmore={setReadmore}
-                  getCurrentYear={getCurrentYear}
-                  greyTickIcon={greyTickIcon}
-                  courseHighlight={getHighlightedCourses()}
-                  handleLoginModalPopup={() => dispatch(toggelIsLoginPopup({ flag: true }))}
-                  courseOffered={collegeDetailsById?.courses_offered ?? []}
-                />
+            <div className="col-md-12">
+              <CourseOfferedByCollage
+                collegeDetails={collegeDetailsById}
+                readmore={readmore}
+                setReadmore={setReadmore}
+                getCurrentYear={getCurrentYear}
+                greyTickIcon={greyTickIcon}
+                courseHighlight={getHighlightedCourses()}
+                handleLoginModalPopup={() => dispatch(toggelIsLoginPopup({ flag: true }))}
+                courseOffered={collegeDetailsById?.courses_offered ?? []}
+              />
 
-                <CollegeFacilities
-                  collegeDetails={collegeDetailsById}
-                  getCurrentYear={getCurrentYear}
-                  swiperResponsive={swiperResponsive}
-                  responsive={responsive}
-                  audienceIcon={audienceIcon}
-                  hostelIcon={hostelIcon}
-                  arrowLeftIcon={arrowLeftIcon}
-                  arrowRightIcon={arrowRightIcon}
-                  cdIcon={cdIcon}
-                  greyTickIcon={greyTickIcon}
-                  canteenIcon={canteenIcon}
-                  yellowCircleIcon={yellowCircleIcon}
-                  avtar={avtar}
-                  facultyData={collegeDetailsById?.faculty_data ?? []}
-                />
+              <CollegeFacilities
+                collegeDetails={collegeDetailsById}
+                getCurrentYear={getCurrentYear}
+                swiperResponsive={swiperResponsive}
+                responsive={responsive}
+                audienceIcon={audienceIcon}
+                hostelIcon={hostelIcon}
+                arrowLeftIcon={arrowLeftIcon}
+                arrowRightIcon={arrowRightIcon}
+                cdIcon={cdIcon}
+                greyTickIcon={greyTickIcon}
+                canteenIcon={canteenIcon}
+                yellowCircleIcon={yellowCircleIcon}
+                avtar={avtar}
+                facultyData={collegeDetailsById?.faculty_data ?? []}
+              />
 
-                <CollageAdmissionProcess
-                  collegeDetails={collegeDetailsById}
-                  downloadIcon={downloadIcon}
-                  getCurrentYear={getCurrentYear}
-                  greyTickIcon={greyTickIcon}
-                  responsive1={responsive}
-                  swiperResponsive={swiperResponsive}
-                  arrowLeftIcon={arrowLeftIcon}
-                  arrowRightIcon={arrowRightIcon}
-                  askQuesImage={askQuesImage}
-                  getAllCourseDataById={getAllCourseDataById}
-                  courseOffered={collegeDetailsById?.faculty_data ?? []}
-                />
+              <CollageAdmissionProcess
+                collegeDetails={collegeDetailsById}
+                downloadIcon={downloadIcon}
+                getCurrentYear={getCurrentYear}
+                greyTickIcon={greyTickIcon}
+                responsive1={responsive}
+                swiperResponsive={swiperResponsive}
+                arrowLeftIcon={arrowLeftIcon}
+                arrowRightIcon={arrowRightIcon}
+                askQuesImage={askQuesImage}
+                getAllCourseDataById={getAllCourseDataById}
+                courseOffered={collegeDetailsById?.faculty_data ?? []}
+              />
             </div>
-
           </div>
         </div>
       </section>

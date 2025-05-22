@@ -1,3 +1,4 @@
+import { httpCall2 } from '../../fetch/service';
 import { createApiThunk } from './apiThunk';
 
 export const fetchAllCollegeList = createApiThunk('college/fetchAllCollegeList');
@@ -45,3 +46,7 @@ export const saveUserDocument = createApiThunk('UserDocument/saveUserDocument');
 export const fetchUserShortlist = createApiThunk('UserShortlist/fetchUserShortlist');
 
 export const saveUserShortlist = createApiThunk('UserShortlist/saveUserShortlist');
+
+export const verifyEmail = createApiThunk('user/verifyEmail');
+
+export const sendMail = createApiThunk('mail/sendMail', httpCall2)

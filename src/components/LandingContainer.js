@@ -49,9 +49,7 @@ const LandingContainer = () => {
                       <span className="d-block">From</span>
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
-                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      {/* <CustomSearch /> */}
-                    </div>
+                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">{/* <CustomSearch /> */}</div>
                   </div>
                 </div>
               </CarouselSlides>
@@ -62,9 +60,7 @@ const LandingContainer = () => {
                       <span className="d-block">From</span>
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
-                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      {/* <CustomSearch/> */}
-                    </div>
+                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">{/* <CustomSearch/> */}</div>
                   </div>
                 </div>
               </CarouselSlides>
@@ -75,9 +71,7 @@ const LandingContainer = () => {
                       <span className="d-block">From</span>
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
-                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">
-                      {/* <CustomSearch/> */}
-                    </div>
+                    <div className="banner-btn-grp text-center mt-5 mt-md-1 mt-lg-4">{/* <CustomSearch/> */}</div>
                   </div>
                 </div>
               </CarouselSlides>
@@ -88,16 +82,15 @@ const LandingContainer = () => {
                       <span className="d-block">From</span>
                       College Admissions to <strong className="d-block">Being Job Ready</strong>
                     </h1>
-                    <div className="banner-btn-grp text-center mt-5 md-mt-2 mt-lg-4">
-                      {/* <CustomSearch/> */}
-                    </div>
+                    <div className="banner-btn-grp text-center mt-5 md-mt-2 mt-lg-4">{/* <CustomSearch/> */}</div>
                   </div>
                 </div>
               </CarouselSlides>
             </CustomeCrousel>
-            <div className='banner-search-button'><CustomSearch /></div>
+            <div className="banner-search-button">
+              <CustomSearch />
+            </div>
           </div>
-
         </div>
       </section>
     </>
