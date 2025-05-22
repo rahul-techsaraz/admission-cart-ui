@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './PlacementSection.css'; // Add styles here or inline via className
+import ShowMoreDetailsModal from '../../../model/ShowMoreDetailsModal';
 
 const PlacementSection = ({ placementData = [] }) => {
   const [showModal, setShowModal] = useState(false);
@@ -58,11 +59,11 @@ const PlacementSection = ({ placementData = [] }) => {
         <h2 className="courses-details-rightcol-grid-title">Placement</h2>
         <div className="placement-grid">{placementData.slice(0, 2).map(renderPlacementCard)}</div>
 
-        {/* {placementData.length > 2 && (
-          <Button variant="link" className="p-0 mt-3" onClick={handleOpenModal}>
+        {placementData.length > 1 && (
+          <button variant="link" className="p-0 mt-3" onClick={handleOpenModal}>
             View All Placements
-          </Button>
-        )} */}
+          </button>
+        )}
       </div>
 
       {/* Modal */}
@@ -79,6 +80,13 @@ const PlacementSection = ({ placementData = [] }) => {
           </Button>
         </Modal.Footer>
       </Modal> */}
+      {showModal && (
+        <ShowMoreDetailsModal handleClose={handleCloseModal} label={'All Placement Records'}>
+          <div className="placement-grid" style={{ display: 'flex', height: 'auto', width: 'auto' }}>
+            {placementData.map(renderPlacementCard)}
+          </div>
+        </ShowMoreDetailsModal>
+      )}
     </>
   );
 };

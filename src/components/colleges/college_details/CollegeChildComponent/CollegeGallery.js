@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ShowMoreDetailsModal from '../../../model/ShowMoreDetailsModal';
 //import { Modal, Button } from 'react-bootstrap';
 
 const CollegeGallery = ({ galleryImages, assetPath }) => {
@@ -26,38 +27,33 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
             </li>
           ))}
         </ul>
-
         {/* View More Button */}
-        {/* {galleryImages.length > 4 && (
-          <Button variant="link" className="p-0 mt-2" onClick={handleOpenModal}>
+        {galleryImages.length > 4 && (
+          <button variant="link" className="p-0 mt-2" onClick={handleOpenModal}>
             View All Photos
-          </Button>
-        )} */}
+          </button>
+        )}{' '}
+        *
       </div>
 
       {/* Modal */}
-      {/* <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>College Photo Gallery</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="d-flex flex-wrap gap-3">
-            {galleryImages.map((img, index) => (
-              <img
-                key={index}
-                src={assetPath + img}
-                alt={`Gallery Full ${index}`}
-                style={{ width: '150px', height: '100px', objectFit: 'cover', borderRadius: '4px' }}
-              />
-            ))}
+
+      {showModal && (
+        <ShowMoreDetailsModal handleClose={handleCloseModal} label={'Our Gallary'}>
+          <div className="admission-images-model-images-box">
+            <div className="admission-images-model-images-box-child">
+              {galleryImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={assetPath + image}
+                  alt={`Gallery Full ${index}`}
+                  style={{ width: '150px', height: '100px', objectFit: 'cover', borderRadius: '4px' }}
+                />
+              ))}
+            </div>
           </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
+        </ShowMoreDetailsModal>
+      )}
     </div>
   );
 };

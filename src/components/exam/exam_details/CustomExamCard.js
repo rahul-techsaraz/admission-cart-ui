@@ -31,14 +31,14 @@ const CustomExamCard = ({ exam, isModal }) => {
               <span class="info-label">Duration:</span>
               <span class="info-value">{exam?.exam_duration} Minutes</span>
             </div>
-            <div class="course-info-item">
+            {/* <div class="course-info-item">
               <span class="info-label">Application Start Date:</span>
               <span class="info-value">{formatDate(exam?.application_start_date)}</span>
             </div>
             <div class="course-info-item">
               <span class="info-label">Application End Date:</span>
               <span class="info-value">{formatDate(exam?.application_end_date)}</span>
-            </div>
+            </div> */}
           </div>
           <div class="course-card-additional-info">
             <div class="info-tag-group">
