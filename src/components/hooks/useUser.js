@@ -33,7 +33,7 @@ const useUser = () => {
     return dispatch(
       sendMail({
         url: constants.apiEndPoint.SENDMAIL,
-        header: { Authorization: '865913f6692726f102d2715908fd0870bbbbd06775805c8396853cd348aa6108' },
+        header: { Authorization: process.env.REACT_APP_MAIL_AUTH_TOKEN },
         method: constants.apiMethod.POST,
         payload: formDataPayload
       })
