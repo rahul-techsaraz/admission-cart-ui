@@ -95,7 +95,7 @@ const LandingContainer = () => {
                 </div>
               </CarouselSlides>
             </CustomeCrousel>
-            <div className='banner-search-button'><CustomSearch /></div>
+            {/* <div className='banner-search-button'><CustomSearch /></div> */}
           </div>
 
         </div>

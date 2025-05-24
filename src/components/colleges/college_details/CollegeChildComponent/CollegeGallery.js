@@ -11,6 +11,7 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
   if (!Array.isArray(galleryImages) || galleryImages.length === 0) return null;
 
   return (
+    <>
     <div className="courses-details-rightcol-grid">
       <h2 className="courses-details-rightcol-grid-title">Photos</h2>
       <div className="courses-details-rightcol-gridcontent clg-info-photo-innergrid">
@@ -28,12 +29,12 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
           ))}
         </ul>
         {/* View More Button */}
-        {galleryImages.length > 4 && (
+        {/* {galleryImages.length > 4 && (
           <button variant="link" className="p-0 mt-2" onClick={handleOpenModal}>
             View All Photos
           </button>
         )}{' '}
-        *
+        * */}
       </div>
 
       {/* Modal */}
@@ -55,6 +56,13 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
         </ShowMoreDetailsModal>
       )}
     </div>
+    {galleryImages.length > 4 && (
+          <button variant="link" className="collage-details-gallery-button-on" onClick={handleOpenModal}>
+            View All Photos
+          </button>
+        )}{' '}
+        
+    </>
   );
 };
 
