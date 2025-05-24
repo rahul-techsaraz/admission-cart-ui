@@ -35,6 +35,7 @@ import PlacementSection from './CollegeChildComponent/PlacementSection';
 
 export default function CollegeDetails() {
   const [readmore, setReadmore] = useState({
+    news: false,
     overview: false,
     highlightDescription: false,
     highlightCourses: false,

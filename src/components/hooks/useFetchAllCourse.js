@@ -17,7 +17,7 @@ export const useFetchAllCourse = () => {
 
   const getTrendingCourses = (course) => {
     const trendingCourse = course.filter((trendingCourse) => trendingCourse.is_trending) ?? [];
-    console.log({ trendingCourse });
+    console.log({trendingCourse})
     return trendingCourse;
   };
   return { fetchCourseList, getTrendingCourses };

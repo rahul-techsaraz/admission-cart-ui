@@ -59,11 +59,11 @@ const PlacementSection = ({ placementData = [] }) => {
         <h2 className="courses-details-rightcol-grid-title">Placement</h2>
         <div className="placement-grid">{placementData.slice(0, 2).map(renderPlacementCard)}</div>
 
-        {placementData.length > 1 && (
+        {/* {placementData.length > 1 && (
           <button variant="link" className="p-0 mt-3" onClick={handleOpenModal}>
             View All Placements
           </button>
-        )}
+        )} */}
       </div>
 
       {/* Modal */}
@@ -87,6 +87,11 @@ const PlacementSection = ({ placementData = [] }) => {
           </div>
         </ShowMoreDetailsModal>
       )}
+     {placementData.length > 1 && (
+          <button variant="link" className="collage-details-gallery-button-on" onClick={handleOpenModal}>
+            View All Placements
+          </button>
+        )}
     </>
   );
 };

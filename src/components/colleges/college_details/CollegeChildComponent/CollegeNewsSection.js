@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CustomSwiper from '../../../../utils/Constants/custom-components/CustomSwiper';
@@ -17,6 +17,9 @@ const CollegeNewsSection = ({
   const collegeDescription = collegeDetails?.description?.college_description || '';
   const collegeHighlightsDescription = collegeDetails?.description?.college_highlights_description || '';
   const collegeName = collegeDetails?.college_name || '';
+  useEffect(()=>{
+    console.log({collegeDetails})
+  },[collegeDetails])
   return (
     <>
       <div className="whatsNew-box mb-5">
@@ -30,15 +33,14 @@ const CollegeNewsSection = ({
           </h1>
         </div>
         <div className="whatsNew-inner-box">
-          <p className="whatsNew-date">October 6, 2023 10:09 AM</p>
+          <p className="whatsNew-date">{collegeDetails.news_data[collegeDetails.news_data.length-1]?.title}</p>
           <p className="whatsNew-para">
-            IIT Chennai University PhD applications 2024 are open and the last date to apply is Jan 17, 2024. Below are
-            some of the other important IIM Ahmedabad latest updates:
+            {collegeDetails.news_data[collegeDetails.news_data.length-1]?.content}
           </p>
-          <ul className="whatsNew-list">
+          {/* <ul className="whatsNew-list">
             <li>The CAT 2023 exam will be held on Nov 26, 2023.</li>
             <li>MBA-PGPX R2 applications are open and the last date to apply is Oct 30, 2023.</li>
-          </ul>
+          </ul> */}
           <Link className="whatsNew-readmore-btn mt-4 d-inline-block">Read More</Link>
         </div>
         <div className="whatsNew-slider-wrapper mt-4 mb-5">

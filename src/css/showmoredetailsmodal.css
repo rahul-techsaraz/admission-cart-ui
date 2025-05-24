@@ -1,14 +1,27 @@
 .admission-images-model {
-  width: 550px;
-  height: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f8f9fa;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2d2c2c47;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.admission-images-model-mainparent-full{
+  width: 650px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9e9e9;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-top: 3px solid #5be4a8;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border-top: 5px solid #5be4a8;
 }
 .admission-images-model-all-content {
   display: flex;
@@ -40,6 +53,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
+  margin-bottom: 0px;
 }
 .admission-images-model-images-box img {
   width: 100%;

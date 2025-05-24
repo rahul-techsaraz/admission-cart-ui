@@ -318,7 +318,7 @@ li {
 .navbar-left {
   display: flex;
   align-items: center;
-  flex: 0 0 17%;
+  /* flex: 0 0 17%; */
 }
 
 .navbar-left a {
@@ -333,10 +333,10 @@ li {
 }
 .navbar-right {
   display: flex;
-  flex: 0 0 17%;
+  /* flex: 0 0 17%; */
   align-items: center;
   justify-content: flex-end;
-  column-gap: 1.5rem;
+  /* column-gap: 1.5rem; */
 }
 .menu-block {
   background: transparent;
@@ -2833,11 +2833,23 @@ ul.exam-imp-list {
   position: fixed;
 }
 .courses-details-rightcol-grid {
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   background: #fff;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   padding-bottom: 10px;
-  /* ma */
+}
+.collage-details-gallery-button-on{
+  border-radius: 0 0 10px 10px;
+  background: var(--body-text-grey);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-green);
+  display: inline-block;
+  padding: 7px 24px;
+  border: none;
 }
 .courses-details-rightcol-grid-title {
   border-radius: 10px 10px 0px 0px;
@@ -3208,8 +3220,8 @@ ul.exam-imp-list {
   padding: 15px 40px;
   margin-bottom: 25px;
 }
-.exam-details-para1 {
-  font-size: 14px;
+.exam-details-para1 > div > * {
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
@@ -3321,7 +3333,7 @@ ul.exam-imp-list {
   font-weight: 500;
   line-height: normal;
 }
-.similar-exam-bottom-contentbox-para1 {
+.similar-exam-bottom-contentbox-para1 > div > * {
   color: var(--color-grey);
   text-align: center;
   font-size: 20px;
@@ -3330,7 +3342,7 @@ ul.exam-imp-list {
   line-height: normal;
   text-align: justify;
 }
-.similar-exam-bottom-contentbox-para2 {
+.similar-exam-bottom-contentbox-para2 > div > * {
   color: var(--body-text-grey);
   text-align: center;
   font-size: 16px;
@@ -3367,7 +3379,7 @@ ul.exam-imp-list {
   font-weight: 500;
   line-height: normal;
 }
-.counselling-date-box-para {
+.counselling-date-box-para > div > * {
   color: var(--body-text-grey);
   text-align: center;
   font-size: 16px;
@@ -3466,7 +3478,7 @@ ul.exam-imp-list {
   font-weight: 500;
   line-height: normal;
 }
-.exam-registration-infopara {
+.exam-registration-infopara > div > * {
   color: var(--color-black);
   font-size: 16px;
   font-style: normal;
@@ -3526,7 +3538,10 @@ ul.exam-imp-list {
   color: #404040;
   padding: 0;
 }
-
+.exam-details-toollip-main-parents-div{
+  position: relative !important;
+  z-index: 9 !important;
+}
 .nav-pills-custom .nav-link.active {
   background: #fff;
   color: #404040;
@@ -3750,6 +3765,12 @@ ul.exam-imp-list {
 }
 .banner-button-next {
   right: 10px !important;
+}
+.trending-button-prev{
+  left: -40px;
+}
+.trending-button-next{
+  right: -40px;
 }
 .clg-banner-greenbox {
   /* bottom: 25px; */
@@ -5385,6 +5406,7 @@ label #cancel {
 
 .faculty-slider-box-img {
   width: 100%;
+  height: 400px;
 }
 
 #v-pills-home {
@@ -5768,11 +5790,11 @@ label #cancel {
   transform: translateY(-50%);
 }
 .banner1_searchbutton_button input[type='text'] {
-  padding: 10px 20px;
-  font-size: 17px;
-  border: 2px solid rgb(0, 0, 0);
-  width: 500px;
-  background: #f1f1f1;
+  padding: 10px;
+  font-size: 12px;
+  border: 0px;
+  width: 300px;
+  background: var(--color-green);
   border-radius: 6px;
   box-shadow: 2px 2px 4px #6b6b6b;
 }

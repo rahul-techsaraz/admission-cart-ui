@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import CustomSwiper from '../../../../utils/Constants/custom-components/CustomSwiper';
 import { Link } from 'react-router-dom';
 import constants from '../../../../utils/Constants/constants';
+import { toggelIsContactUs } from '../../../../features/commonSlice';
+import { useDispatch } from 'react-redux';
 
 const CollegeFacilities = ({
   collegeDetails,
@@ -20,6 +22,7 @@ const CollegeFacilities = ({
   yellowCircleIcon,
   avtar,
 }) => {
+  const dispatch = useDispatch()
   return (
     <>
       <div className="tick-heading d-flex align-items-center mb-4">
@@ -31,7 +34,7 @@ const CollegeFacilities = ({
       <div className="clg-location-infograybx mb-5">
         <p>{collegeDetails?.description?.college_admission_description}</p>
         <div className="text-start mt-3">
-          <Link className="course-details-readmore-btn btn text-white">Read More</Link>
+          <Link className="course-details-readmore-btn btn text-white" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Read More</Link>
         </div>
       </div>
 
@@ -41,14 +44,14 @@ const CollegeFacilities = ({
             Worried About College <span>Guidance?</span>
           </h2>
           <p>Convert your Upfront Fees in to Simple, Convenient & Affordable EMIs</p>
-          <Link className="theme-btn white-btn">Ask Our Experts</Link>
+          <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Ask Our Experts</Link>
         </div>
         <div className="course-details-alterImgbox-col2 position-relative">
           <img src={cdIcon} alt="" />
         </div>
       </div>
       <div className="clg-facilities-slider-wrapper position-relative px-4 pt-5 mt-5 mb-5">
-        <h2 className="section-heading2 grey text-center mb-5">IIT Chennai Facilities</h2>
+        <h2 className="section-heading2 grey text-center mb-5">{`${collegeDetails?.college_name} Facilities`}</h2>
         <div className="swiper clg-facilities-slider">
           <div className="swiper-wrapper position-relative">
             <CustomSwiper
@@ -124,7 +127,7 @@ const CollegeFacilities = ({
             Are you feeling lost and unsure about what <span>career path to take after completing 12th standard?</span>
           </h2>
           <p>Say goodbye to confusion and hello to a bright future!</p>
-          <Link className="theme-btn white-btn">Ask Our Experts</Link>
+          <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Ask Our Experts</Link>
         </div>
       </div>
       <div className="py-5 mt-4">
@@ -140,7 +143,7 @@ const CollegeFacilities = ({
           </div>
           <div className="col-md-5 text-center">
             <h1 className="exam-center-calenderTxt">Goodbye doubts! Say hello to our experts</h1>
-            <Link className="theme-btn black-btn">Ask A Question</Link>
+            <Link className="theme-btn black-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Ask A Question</Link>
           </div>
         </div>
       </div>
@@ -170,9 +173,9 @@ const CollegeFacilities = ({
                           <img
                             className="faculty-slider-box-img"
                             src={
-                              faculty?.image_path !== '' ? constants.assestAbsolutePath + faculty?.image_path : avtar
+                              (faculty?.image_path && faculty?.image_path !== '') ? constants.assestAbsolutePath + faculty?.image_path : avtar
                             }
-                            alt=""
+                            alt="Faculty Image"
                           />
                           <p>
                             {`Prof. ${faculty?.faculty_name}`}

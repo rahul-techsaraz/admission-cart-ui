@@ -3,6 +3,7 @@ import TrendingExamCard from '../utils/Constants/custom-components/trendingExamC
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
 import { useFetchAllExam } from './hooks/useFetchAllExam';
 import { useEffect, useState } from 'react';
+import CustomExamCard from './exam/exam_details/CustomExamCard';
 
 const ExploreCareer = () => {
   const [trendingExam, setTrendingExam] = useState([]);
@@ -63,7 +64,8 @@ const ExploreCareer = () => {
               >
                 {trendingExam.map((exam) => (
                   <CarouselSlides>
-                    <TrendingExamCard exam={exam} />
+                    {/* <TrendingExamCard exam={exam} /> */}
+                    <CustomExamCard exam={exam} />
                   </CarouselSlides>
                 ))}
               </CustomeCrousel>

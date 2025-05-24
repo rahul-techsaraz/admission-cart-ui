@@ -16,6 +16,7 @@ const initialState = {
   isLoading: false,
   isLoginPopup: false,
   isSignupPopup: false,
+  isContactUs: false,
   isFeedbackPopup: false,
   authenticateUser: localStorage.getItem('loginResponse') ? true : false,
   lastLocation: '',
@@ -66,6 +67,9 @@ const commonSlice = createSlice({
     },
     toggelIsFeedBackPopup: (state, { payload }) => {
       state.isFeedbackPopup = payload.flag;
+    },
+    toggelIsContactUs: (state, { payload }) => {
+      state.isContactUs = payload.flag;
     },
     showNotification: (state, action) => {
       state.notificationInfo.isOpen = true;
@@ -189,6 +193,7 @@ export const {
   toggelIsFeedBackPopup,
   showNotification,
   hideNotification,
+  toggelIsContactUs
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

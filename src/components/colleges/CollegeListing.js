@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CollegeBanner from './CollegeBanner';
-import collegeImage1 from '../../images/clg-img1.jpg';
-import collegeLogo from '../../images/clg-logo3.png';
-import collegeWishList from '../../images/wishlist-checked-icon.svg';
-import { useSelector } from 'react-redux';
 import CollegeCard from './college_details/CollegeCard';
-import CustomPagination from '../../utils/Constants/custom-components/CustomPagination';
 import CustomFaq from './CustomFaq';
 export default function CollegeListing() {
-  const [collegeData, setCollegeData] = useState([]);
-  const { allCollegeData } = useSelector((state) => state.common);
+  
+  
   return (
     <>
       <CollegeBanner />
@@ -177,8 +172,8 @@ export default function CollegeListing() {
                         </div>
                     </div> */}
 
-          <div className="course-list-card-grid">
-            <CollegeCard allCollegeData={collegeData} />
+          {/* <div className="course-list-card-grid"> */}
+            <CollegeCard  />
             {/* <div className="col-lg-6">
                             <div className="clg-listing-box">
                                 <div className="clg-listing-inner-upbx position-relative">
@@ -375,10 +370,10 @@ export default function CollegeListing() {
                                 </div>
                             </div>
                         </div> */}
-          </div>
+          {/* </div>
           <div className="row pagination-gap">
             <CustomPagination data={allCollegeData} itemsPerPage={16} currentItemsParent={setCollegeData} />
-          </div>
+          </div> */}
           {/* </div> */}
           {/* </div> */}
         </div>

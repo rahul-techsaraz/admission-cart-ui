@@ -5,6 +5,7 @@ const ShowMoreDetailsModal = ({ children, label, handleClose }) => {
   return (
     <>
       <section className="admission-images-model">
+        <div className='admission-images-model-mainparent-full'>
         <div className="admission-images-model-all-content">
           <div className="admission-images-model-heading-content">
             <h1 className="admission-images-model-heading-content-h1">{label}</h1>
@@ -15,6 +16,7 @@ const ShowMoreDetailsModal = ({ children, label, handleClose }) => {
               close
             </button>
           </div>
+        </div>
         </div>
       </section>
     </>

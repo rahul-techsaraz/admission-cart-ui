@@ -3,6 +3,7 @@ import TrendingCourseCard from '../utils/Constants/custom-components/trendingCou
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
 import { useFetchAllCourse } from './hooks/useFetchAllCourse';
 import { useEffect, useState } from 'react';
+import CustomCourseCard from './courses/course_details/CustomCourseCard';
 
 const TrandingSection = () => {
   const [trendingCourse, setTrendingCourse] = useState([]);
@@ -32,7 +33,6 @@ const TrandingSection = () => {
   };
   useEffect(() => {
     const trending_course = getTrendingCourses(allCourseData);
-    console.log(trending_course)
     setTrendingCourse(trending_course);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allCourseData]);
@@ -65,7 +65,8 @@ const TrandingSection = () => {
                       >
                         {trendingCourse.map((course) => (
                           <CarouselSlides key={course?.course_id}>
-                            <TrendingCourseCard course={course} />
+                            {/* <TrendingCourseCard course={course} /> */}
+                            <CustomCourseCard course={course} />
                           </CarouselSlides>
                         ))}
                       </CustomeCrousel>
