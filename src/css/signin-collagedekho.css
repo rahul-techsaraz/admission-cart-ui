@@ -151,6 +151,15 @@
 .signup-box {
     gap: 15px;
 }
+
+.after-verify{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 40px;
+    gap: 15px;
+}
  
 .ele {
     height: 45px;

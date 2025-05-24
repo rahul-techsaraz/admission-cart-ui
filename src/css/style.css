@@ -3766,6 +3766,12 @@ ul.exam-imp-list {
 .banner-button-next {
   right: 10px !important;
 }
+.trending-button-prev{
+  left: -40px;
+}
+.trending-button-next{
+  right: -40px;
+}
 .clg-banner-greenbox {
   /* bottom: 25px; */
   /* top: 30px; */

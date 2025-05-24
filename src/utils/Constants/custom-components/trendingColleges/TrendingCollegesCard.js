@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import constants from '../../constants';
 import { Link } from 'react-router-dom';
 import './trendingCollegeCard.css';
@@ -25,7 +25,9 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
       return true;
     }
   };
-
+  useEffect(() => {
+    console.log(college);
+  }, [college]);
   return (
     <div className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}>
       <div className="course_card_main_box">
@@ -68,9 +70,15 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
               {/* {college?.category_name?.map((collageCategory) => (
                 <h3 className="course_card_2ndtextbox_course-name_h3">{collageCategory}</h3>
               ))} */}
-              <h3 className="course_card_2ndtextbox_course-name_h3">{college?.category_name[0]}</h3>
+              {/* <h3 className="course_card_2ndtextbox_course-name_h3">{college?.category_name[0]}</h3> */}
               <p className="course_card_2ndtextbox_course-name_p">
-                <span className="course_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span> Starting Fee
+                <span className="course_card_2ndtextbox_course-name_p_span">Affiliated By:</span>{` ${college?.affiliate_by}`}
+              </p>
+              <p className="course_card_2ndtextbox_course-name_p">
+                <span className="course_card_2ndtextbox_course-name_p_span">Starting Fee:</span>{` ${college?.fee_starting}`}
+              </p>
+              <p className="course_card_2ndtextbox_course-name_p">
+                <span className="course_card_2ndtextbox_course-name_p_span">Average yearly Fee:</span>{` ${college?.avg_first_year_fee}`}
               </p>
             </div>
           </div>

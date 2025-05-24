@@ -16,7 +16,7 @@ import examStep3Info from '../../../images/exam-step3info-img2.png';
 import examStep4Info from '../../../images/exam-step3info-img3.png';
 import CustomSwiper from '../../../utils/Constants/custom-components/CustomSwiper';
 import constants from '../../../utils/Constants/constants';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { swiperResponsive } from '../../../utils/Constants/swiperResponsive';
 import Tooltip from '../../../utils/Constants/custom-components/Tooltip';
 import ExamMockList from './ExamMockList';
@@ -24,6 +24,7 @@ import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeC
 import CustomeCrousel, { CarouselSlides } from '../../../utils/Constants/custom-components/CustomeCrousel';
 import ReadMoreHTML from '../../ParseHtmlResponse';
 import { formatDate } from '../../../utils/formatDate';
+import { toggelIsContactUs } from '../../../features/commonSlice';
 
 export default function ExamDetailsLeftBox({ examDetails, allExamData, allCollegeData }) {
   const [linkIndex, setLinkIndex] = useState(0);
@@ -54,6 +55,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
     exam_center,
     exam_syllabus,
   } = exam_descriptions;
+  const dispatch = useDispatch()
   const updateActive = (p, index) => {
     setLinkIndex(index);
   };
@@ -163,7 +165,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
               Start free <span>Mock Test Now</span>
             </h2>
             <p>No Problem! Speak to our experts safely from your home.</p>
-            <Link className="theme-btn white-btn">Attempt Now</Link>
+            <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Attempt Now</Link>
           </div>
           <div className="course-details-alterImgbox-col2 position-relative">
             <img src={cdImage} alt="" />

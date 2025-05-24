@@ -22,9 +22,10 @@ import ContactUsPopup from './components/contactUs/ContactUsPopup';
 import LoginPopup from './components/contactUs/LoginPopup';
 import FeedbackPopup from './components/contactUs/FeedbackPopup';
 import NotificationToast from './components/NotificationToast';
+import ContactUsModal from './components/contactUs/ContactUsModal';
 
 const AppLayout = () => {
-  const { isLoading, isLoginPopup, isSignupPopup, authenticateUser, isFeedbackPopup, notificationInfo } = useSelector(
+  const { isLoading, isLoginPopup, isSignupPopup, isContactUs, authenticateUser, isFeedbackPopup, notificationInfo } = useSelector(
     (state) => state.common,
     shallowEqual
   );
@@ -58,6 +59,7 @@ const AppLayout = () => {
         {isLoginPopup && authenticateUser === false && <LoginPopup />}
         {isSignupPopup && authenticateUser === false && <ContactUsPopup />}
         {isFeedbackPopup && <FeedbackPopup />}
+        {isContactUs && <ContactUsModal />}
         <NewsLetter />
         {/* <ContactUsPage /> */}
         <Footer />

@@ -1,6 +1,29 @@
 import logo from '../../images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
+import { useFetchAllExam } from '../hooks/useFetchAllExam';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
+import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
 const Footer = () => {
+  const [trendingData, setTrendingData] = useState({
+    trendingExam: [],
+    trendingCollege: [],
+    trendingCourse: []
+  })
+  const { allExamData, allCollegeData, allCourseData } = useSelector((state) => state.common);
+  const { fetchTrendingExam} = useFetchAllExam()
+  const {fetchTrendingCollege} = useFetchAllCollege()
+  const {getTrendingCourses}= useFetchAllCourse()
+  useEffect(()=>{
+    if(allExamData.length > 0 && allCollegeData.length > 0 && allCourseData.length > 0){
+      const trendingExamList = fetchTrendingExam(allExamData)
+      const trendingCollegeList = fetchTrendingCollege(allCollegeData)
+      const trendingCourseList = getTrendingCourses(allCourseData)
+      setTrendingData({...trendingData, trendingExam:trendingExamList, trendingCollege:trendingCollegeList, trendingCourse:trendingCourseList})
+    }
+  },[allExamData, allCollegeData, allCourseData])
+  
   return (
     <>
       <footer className="footer-section section-padding pb-0">
@@ -35,58 +58,17 @@ const Footer = () => {
                       fill="#5BE4A8"
                     />
                   </svg>
+                  {trendingData.trendingExam.length > 0 &&
                   <ul className="courses-link-list">
-                    <li>
-                      <Link to={'about'} target="_blank">
-                        JEE Main 2025
+                    {trendingData.trendingExam.map((exam, index)=>(
+                      <li key={index}>
+                      <Link to={'/exam_list'}>
+                        {exam.exam_name}
                       </Link>
-                    </li>
-                    <li>
-                      <Link to={'/contact-us'} target="_blank">
-                        CAT 2024
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'about'} target="_blank">
-                        NEET 2025
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/contact-us'} target="_blank">
-                        GATE 2024
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'about'} target="_blank">
-                        XATE 2025
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/contact-us'} target="_blank">
-                        NIFT 2024
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'about'} target="_blank">
-                        JEE Main 2025
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/contact-us'} target="_blank">
-                        CAT 2024
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'about'} target="_blank">
-                        JEE Main 2025
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/contact-us'} target="_blank">
-                        CAT 2024
-                      </Link>
-                    </li>
+                    </li>  
+                    ))}
                   </ul>
+                  }
                 </div>
               </div>
               <div className="col-12 col-md-4 col-lg-3">
@@ -98,26 +80,15 @@ const Footer = () => {
                       fill="#5BE4A8"
                     />
                   </svg>
-                  <ul className="collages-link-list">
-                    <li>
-                      <Link to={'/courses_list'}>Engineering and Architecture</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Management and Business</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Medicine and Allied Sciences</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Computer Application and IT</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Pharmacy</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>MBBS</Link>
-                    </li>
-                  </ul>
+                  {trendingData.trendingCollege.length > 0 &&
+                    <ul className="collages-link-list">
+                      {trendingData.trendingCollege.map((college, index)=>(
+                        <li key={index}>
+                          <Link to={'/colleges_list'}>{college.college_name}</Link>
+                        </li>  
+                      ))}
+                    </ul>
+                  }
                 </div>
               </div>
               <div className="col-12 col-md-4 col-lg-3">
@@ -129,26 +100,15 @@ const Footer = () => {
                       fill="#5BE4A8"
                     />
                   </svg>
-                  <ul className="courses-link-list">
-                    <li>
-                      <Link to={'/courses_list'}>Engineering and Architecture</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Management and Business</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Medicine and Allied Sciences</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Computer Application and IT</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>Pharmacy</Link>
-                    </li>
-                    <li>
-                      <Link to={'/courses_list'}>MBBS</Link>
-                    </li>
-                  </ul>
+                  {trendingData.trendingCourse.length > 0 &&
+                    <ul className="courses-link-list">
+                      {trendingData.trendingCourse.map((course, index)=>(
+                        <li key={index}>
+                          <Link to={'/courses_list'}>{course.slug}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  }
                 </div>
               </div>
             </div>

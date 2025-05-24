@@ -82,7 +82,7 @@ const CourseOfferedByCollage = ({
                 {courseHighlight.map((college, index) => (
                   <tr key={index}>
                     <td>
-                      {college?.course_name || 'N/A'}
+                      {/* {college?.course_name || 'N/A'} */}
                       <span className="d-block">{college?.course_name || ''}</span>
                     </td>
                     <td>₹ {college?.sub_course_fee || '0'}</td>

@@ -9,10 +9,10 @@ const TrendingExamCard = ({ exam, isModal }) => {
   const dispatch = useDispatch();
   const { authenticateUser } = useSelector((state) => state.common);
   const handleClick = () => {
-      if (!authenticateUser) {
-        dispatch(toggelIsLoginPopup({ flag: true }));
-      }
-    };
+    if (!authenticateUser) {
+      dispatch(toggelIsLoginPopup({ flag: true }));
+    }
+  };
   return (
     <div className="swiper-slide position-relative">
       <div className="course-box text-start course-box-heigh-set">
@@ -57,7 +57,11 @@ const TrendingExamCard = ({ exam, isModal }) => {
                     <div className='course-box-prents3-child-in-child1-date'>07 Mar 25</div>
                 </div> */}
         </div>
-        <Link className={!isModal ? 'hidden' : "course-readmore-btn course-readmore-btn2"} to={authenticateUser && `/exam_details/${exam.exam_id}`} onClick={()=>handleClick()}>
+        <Link
+          className={!isModal ? 'hidden' : 'course-readmore-btn course-readmore-btn2'}
+          to={authenticateUser && `/exam_details/${exam.exam_id}`}
+          onClick={() => handleClick()}
+        >
           Enquire Now <img src={{ rightArrow }} alt="" />
         </Link>
       </div>

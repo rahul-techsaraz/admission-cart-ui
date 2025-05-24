@@ -22,7 +22,11 @@ const ExploreCoursesPage = () => {
               scientific psychometric tool, and get advised on the best career options for you. It can also derive
               whether or not you are suitable for a particular career or role type.
             </p>
-            <Link className="theme-btn black-btn" to={authenticateUser && '/courses_list'} onClick={()=>handleClick()}>
+            <Link
+              className="theme-btn black-btn"
+              to={authenticateUser && '/courses_list'}
+              onClick={() => handleClick()}
+            >
               Explore Courses
             </Link>
           </div>

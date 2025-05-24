@@ -6,7 +6,7 @@ import greyTick from '../../../images/grey-tick.svg';
 import cd from '../../../images/cd-img1.png';
 import { useFetchCourseById } from '../../hooks/useFetchCourseById';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggelIsLoginPopup } from '../../../features/commonSlice';
+import { toggelIsContactUs, toggelIsLoginPopup } from '../../../features/commonSlice';
 import { CustomCollegeCard } from '../../colleges/college_details/CustomCollegeCard';
 import CustomFaq from '../../colleges/CustomFaq';
 import CustomeCrousel, { CarouselSlides } from '../../../utils/Constants/custom-components/CustomeCrousel';
@@ -81,7 +81,7 @@ export default function CourseDetails() {
                     Can’t find right <span className="course-details-span">Guidance?</span>
                   </h2>
                   <p>No Problem! Speak to our experts safely from your home.</p>
-                  <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                  <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>
                     Request a Call Back
                   </Link>
                 </div>
@@ -93,7 +93,7 @@ export default function CourseDetails() {
               <div className="course-details-alterbox">
                 <h2>Don't Miss Anything!</h2>
                 <p>Subscribe now and get latest updates on college news, exam and much more.</p>
-                <Link className="theme-btn green-btn">Subscribe Now</Link>
+                <Link className="theme-btn green-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Subscribe Now</Link>
               </div>
 
               <div className="course-details-alterbox greybg">
@@ -101,7 +101,7 @@ export default function CourseDetails() {
                   So, How do you <span>secure your job?</span>
                 </h2>
                 <p>Master employable skills under the mentorship of industry experts to become job ready.</p>
-                <Link className="theme-btn yellow-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                <Link className="theme-btn yellow-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>
                   Job Assured
                 </Link>
               </div>
@@ -113,7 +113,7 @@ export default function CourseDetails() {
                   {courseDetailsById?.course_name || 'this course'}?
                 </h2>
                 <p>Ask us and get personalized response free of cost.</p>
-                <Link className="theme-btn green-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                <Link className="theme-btn green-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>
                   Ask A Question
                 </Link>
               </div>
@@ -124,7 +124,7 @@ export default function CourseDetails() {
                   <span className="d-block">{courseDetailsById?.course_name || 'this course'}</span>
                 </h2>
                 <p>Goodbye doubts! Say hello to our experts</p>
-                <Link className="theme-btn yellow-btn" onClick={() => dispatch(toggelIsLoginPopup({ flag: true }))}>
+                <Link className="theme-btn yellow-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>
                   Job Assured
                 </Link>
               </div>

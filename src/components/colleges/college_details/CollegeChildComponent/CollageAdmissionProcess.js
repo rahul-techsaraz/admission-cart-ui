@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CustomSwiper from '../../../../utils/Constants/custom-components/CustomSwiper';
 import CustomCourseCard from '../../../courses/course_details/CustomCourseCard';
+import { toggelIsContactUs } from '../../../../features/commonSlice';
+import { useDispatch } from 'react-redux';
 
 const CollageAdmissionProcess = ({
   collegeDetails,
@@ -17,6 +19,7 @@ const CollageAdmissionProcess = ({
   getAllCourseDataById,
   courseOffered,
 }) => {
+  const dispatch = useDispatch()
   return (
     <>
       <div className="row justify-content-center mb-5">
@@ -29,7 +32,7 @@ const CollageAdmissionProcess = ({
             </h2>
             <div className="d-flex justify-content-center gap-3 align-items-center download-btn-sec">
               <p>Download brochure</p>
-              <Link className="theme-btn black-btn">Ask A Question</Link>
+              <Link className="theme-btn black-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Ask A Question</Link>
             </div>
           </div>
         </div>
@@ -82,7 +85,7 @@ const CollageAdmissionProcess = ({
             Still have questions about <span>{`${collegeDetails?.college_name}?`}</span>
           </h2>
           <p>Ask us and get personalized</p>
-          <Link className="theme-btn white-btn">Ask A Question</Link>
+          <Link className="theme-btn white-btn" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Ask A Question</Link>
         </div>
         <div className="course-details-alterImgbox-col2 position-relative">
           <img src={askQuesImage} alt="" />

@@ -23,7 +23,11 @@ const ChoiceSection = () => {
               1 single form and get access to 2500+ colleges across India. CAF saves your time, money and makes the
               college application process easier for you to apply to numerous colleges using one window.
             </p>
-            <Link className="theme-btn black-btn" to={authenticateUser && '/colleges_list'} onClick={()=>handleClick()}>
+            <Link
+              className="theme-btn black-btn"
+              to={authenticateUser && '/colleges_list'}
+              onClick={() => handleClick()}
+            >
               Find Colleges
             </Link>
           </div>

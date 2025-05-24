@@ -7,6 +7,9 @@ import CustomExamCard from './CustomExamCard';
 export default function ExamCard({ data }) {
   const { allExamData } = useSelector((state) => state.common);
   const [examData, setExamData] = useState([]);
+
+  const dataToMap = examData.length > 16 ? examData : allExamData
+
   useEffect(() => {
     if (data) {
       setExamData(data);
@@ -15,15 +18,16 @@ export default function ExamCard({ data }) {
   return (
     <>
       <div className="course-list-card-grid">
-        {examData.map((exam) => (
+        {dataToMap.map((exam) => (
           <CardZoomEffect>
             <CustomExamCard exam={exam} />
           </CardZoomEffect>
         ))}
       </div>
+      {allExamData.length > 16 &&
       <div className="row pagination-gap">
         <CustomPagination data={allExamData} itemsPerPage={16} currentItemsParent={setExamData} />
-      </div>
+      </div>}
     </>
   );
 }

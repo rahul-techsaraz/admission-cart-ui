@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TrendingCollegesCard from '../utils/Constants/custom-components/trendingColleges/TrendingCollegesCard';
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
 import { useSelector } from 'react-redux';
+import { useFetchAllCollege } from './hooks/useFetchAllCollege';
 
 const CourseList = () => {
+  const [trendingCollege, setTrendingCollege] = useState([])
   const { allCollegeData } = useSelector((state) => state.common);
+  const {fetchTrendingCollege} = useFetchAllCollege()
   const responsive = {
     1400: {
       itemsPerView: 4,
@@ -27,10 +30,15 @@ const CourseList = () => {
       spaceBetween: 20,
     },
   };
-
+  useEffect(()=>{
+    if(allCollegeData.length > 0){
+      const trendingList = fetchTrendingCollege(allCollegeData)
+      setTrendingCollege(trendingList)
+    }
+  },[allCollegeData])
   return (
     <>
-      {allCollegeData.length > 0 && (
+      {trendingCollege.length > 0 && (
         <section className="course-slider-section text-center section-padding">
           <div className="container">
             <h3 className="course-slider_h3text">Tranding Collages</h3>
@@ -44,9 +52,7 @@ const CourseList = () => {
               animation={'Card-Zoom-Effect'}
               autoScrollPauseOnMouseEnter={true}
             >
-              {allCollegeData
-                .filter((data) => data?.is_trending)
-                .map((college) => (
+              {trendingCollege.map((college) => (
                   <CarouselSlides>
                     <TrendingCollegesCard college={college} />
                   </CarouselSlides>

@@ -14,5 +14,11 @@ export const useFetchAllCollege = () => {
       })
     );
   };
-  return { fetchCollegeList };
+
+  const fetchTrendingCollege = (colleges) =>{
+    const trendingColleges = colleges.filter((college)=>college.is_trending) ?? [];
+    console.log({trendingColleges})
+    return trendingColleges
+  }
+  return { fetchCollegeList, fetchTrendingCollege };
 };
