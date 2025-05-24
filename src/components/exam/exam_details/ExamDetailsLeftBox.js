@@ -502,7 +502,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
           </div>
         </div>
         {/* <TopCollegesAccesptingExam /> */}
-        <div className="py-5 header">
+        <div className="py-5 header exam-details-toollip-main-parents-div">
           <div className="px-2">
             <div className="row">
               <div className="col-12 col-lg-5 pe-0">

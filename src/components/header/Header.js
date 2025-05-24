@@ -12,6 +12,7 @@ import AfterLoginModel from '../model/AfterLoginModel';
 import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
 import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
 import { useFetchAllExam } from '../hooks/useFetchAllExam';
+import CustomSearch from '../../utils/Constants/custom-components/CustomSearch';
 
 const Header = () => {
   const [isBurgerclicked, setIsBurgerClicked] = useState(false);
@@ -155,6 +156,9 @@ const Header = () => {
                   ))}
                 </ul>
               </div>
+            </section>
+            <section className='header-navbar-search'>
+              <CustomSearch/>
             </section>
             <section className="navbar-right">
               <span className="menu-block">
