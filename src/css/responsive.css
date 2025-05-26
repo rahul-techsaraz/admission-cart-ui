@@ -348,6 +348,15 @@
   .menu-link {
     font-size: 16px;
   }
+    .exam-3step-leftTxt{
+    font-size: 16px;
+  }
+  .exam-3step-text {
+    font-size: 14px;
+}
+.exam-3step-text span{
+  font-size: 20px;
+}
 } /* end 991px */
 
 @media screen and (max-width: 768px) {
@@ -709,6 +718,9 @@
   }
   .clg-accepting-exam-slider-box {
     padding: 20px 40px;
+  }
+  .tick-heading h2{
+    font-size: 22px !important;
   }
 }
 

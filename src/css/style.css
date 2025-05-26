@@ -2117,6 +2117,9 @@ span.milestone-dot {
   display: none;
   cursor: pointer;
 }
+.tick-heading{
+  margin-top: 20px;
+}
 .filter-col .form-group label {
   position: relative;
   cursor: pointer;
