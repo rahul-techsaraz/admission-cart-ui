@@ -92,6 +92,9 @@
   .course-box-prents3-child-in-child1-confirmed {
     font-size: 13px;
   }
+  .copy-right-text {
+    font-size: 13px;
+}
 }
 @media screen and (max-width: 1024px) {
   .banner-caption h1 {
@@ -746,10 +749,9 @@
   .pagination-gap {
     margin-left: 0;
   }
-
-  /* .banner-slider, .swiper-slide{
-        background-repeat: no-repeat;
-      } */
+  .copy-right-text {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 470px){

@@ -117,7 +117,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-md-5 col-sm-5">
+              <div className="col-md-5 col-sm-5 footer-icon-none">
                 <ul className="terms-privacy d-flex gap-4 mb-3 mb-md-0">
                   <li>
                     <Link>
@@ -141,7 +141,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className="col-md-7 col-sm-7 text-center text-md-end">
+              <div className="col-md-12 col-lg-12 col-sm-12 text-center text-lg-end">
                 <p className="copy-right-text">
                   {' '}
                   ©Copyright 2023 All Rights Reserved by AdmissionKart. Designed by

@@ -21,14 +21,18 @@ const CustomCourseCard = ({ course, isModal }) => {
       {/* <Link to={`/courses_details/${course.course_id}`}> */}
       <div class="course-card">
         <div class="course-card-header">
+          <h3 class="course-name">{course.course_name}</h3>
+          {/* <div className='course-title-mode-parents-box'> */}
           <div class="course-title-group">
-            <h3 class="course-name">{course.course_name}</h3>
             <p class="sub-course-name">{course.sub_course_name}</p>
           </div>
+          <div className='course-mode-box-parents'>
           <div class="course-mode">
             <i class="fa-solid fa-graduation-cap"></i>
             <span>{course?.course_mode}</span>
           </div>
+          </div>
+        {/* </div> */}
         </div>
         <div class="course-card-body">
           <div class="course-info-item">

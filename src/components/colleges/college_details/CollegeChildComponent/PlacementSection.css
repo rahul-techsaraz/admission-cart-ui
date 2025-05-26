@@ -20,8 +20,6 @@
 }
 
 .placement-row {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 8px;
   font-size: 14px;
 }
@@ -38,7 +36,6 @@
 .recruiters-list {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   gap: 6px;
   margin-top: 4px;
 }

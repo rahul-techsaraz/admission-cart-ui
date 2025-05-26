@@ -39,57 +39,65 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  border: 1px solid var(--border-color-light);
+  /* border: 1px solid var(--border-color-light); */
 }
-
-.course-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px var(--shadow-hover-subtle);
-}
-
 .course-card-header {
   background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
   padding: 20px;
   color: var(--text-dark);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--border-color-light);
 }
-
-.course-title-group {
-  flex-grow: 1;
+.course-title-mode-parents-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.course-title-group{
+  height: 50px;
 }
 
+/* .course-title-group {
+  flex-grow: 1;
+} */
+
 .course-name {
-  font-size: 1.6em;
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
   text-shadow: none;
+  text-align: left;
 }
 
 .sub-course-name {
-  font-size: 1em;
+  font-size: 15px;
   font-weight: 400;
   margin: 5px 0 0;
   opacity: 0.8;
+  text-align: left;
 }
-
+.course-mode-box-parents{
+  display: flex;
+  justify-content: end;
+}
 .course-mode {
-  background-color: rgba(255, 255, 255, 0.6);
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  background-color: var(--primary-color);
   border-radius: 25px;
-  padding: 7px 14px;
-  font-size: 0.88em;
+  padding: 5px 10px;
+  font-size: 12px;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-left: 15px;
+  gap: 5px;
+  width: 100px;
+  justify-content: center;
+  /* margin-left: 15px; */
   backdrop-filter: blur(3px);
   color: var(--text-dark);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -211,6 +219,10 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     max-width: 900px;
   }
+  .course-info-item{
+  align-items: start;
+  gap: 5px;
+}
 }
 
 @media (max-width: 992px) {
