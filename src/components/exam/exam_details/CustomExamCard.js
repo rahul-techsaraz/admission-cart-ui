@@ -17,13 +17,15 @@ const CustomExamCard = ({ exam, isModal }) => {
       <div className="exam-listing-box position-relative">
         <div class="course-card">
           <div class="course-card-header">
+            <h3 class="course-name">{exam.exam_name}</h3>
             <div class="course-title-group">
-              <h3 class="course-name">{exam.exam_name}</h3>
               <p class="sub-course-name">{exam.exam_year}</p>
             </div>
+            <div className='course-mode-box-parents'>
             <div class="course-mode">
               <i class="fa-solid fa-graduation-cap"></i>
               <span>{exam?.exam_mode}</span>
+            </div>
             </div>
           </div>
           <div class="course-card-body">

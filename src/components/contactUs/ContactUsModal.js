@@ -55,7 +55,6 @@ const ContactUsModal = () => {
                 <input type="text" placeholder="Phone" class="admission-cart-contact-model-filed-form-filed-name-email-phone" onChange={(e)=>setdata({...data, mobile: e.target.value})}/>
                 <select name="General Inquiry" id="admission-cart-contact-model-filed-form-filed-general-inquiry" onChange={(e)=>setdata({...data, query_for: e.target.value})}>
                     <option value="">Select...</option>
-                    <option value="General Inquiry">General Inquiry</option>
                     <option value="Admission Process Assistance">Admission Process Assistance</option>
                     <option value="Course Selection Guidance">Course Selection Guidance</option>
                     <option value="Fee Structure Information">Fee Structure Information</option>

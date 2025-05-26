@@ -64,7 +64,8 @@ export const CustomCollegeCard = ({ college, isModal }) => {
               ))} */}
               <h3 className="collage_card_2ndtextbox_course-name_h3">{college?.category_name[0]}</h3>
               <p className="collage_card_2ndtextbox_course-name_p">
-                <span className="collage_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span> Starting Fee
+                <span className='collage_card_2ndtextbox_course-name_p-starting-fee-text'>Starting Fee:
+                <span className="collage_card_2ndtextbox_course-name_p_span">{college?.fee_starting}</span></span>
               </p>
             </div>
             <div className="collage_card_2ndtextbox_rating">
