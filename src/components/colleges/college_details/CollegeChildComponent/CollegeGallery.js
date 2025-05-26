@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ShowMoreDetailsModal from '../../../model/ShowMoreDetailsModal';
+import CustomeCrousel, { CarouselSlides } from '../../../../utils/Constants/custom-components/CustomeCrousel';
 //import { Modal, Button } from 'react-bootstrap';
 
 const CollegeGallery = ({ galleryImages, assetPath }) => {
@@ -9,6 +10,29 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
   const handleCloseModal = () => setShowModal(false);
 
   if (!Array.isArray(galleryImages) || galleryImages.length === 0) return null;
+
+  const responsive = {
+    1400: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    1200: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+  };
 
   return (
     <>
@@ -42,16 +66,28 @@ const CollegeGallery = ({ galleryImages, assetPath }) => {
       {showModal && (
         <ShowMoreDetailsModal handleClose={handleCloseModal} label={'Our Gallary'}>
           <div className="admission-images-model-images-box">
-            <div className="admission-images-model-images-box-child">
+            {/* <div className="admission-images-model-images-box-child"> */}
+              <CustomeCrousel
+                navigatePrev={'gallary-button-prev'}
+                navigateNext={'gallary-button-next'}
+                itemsPerView={1}
+                isAutoScroll={true}
+                breakPoints={responsive}
+                // animation={'Card-Zoom-Effect'}
+                autoScrollPauseOnMouseEnter={true}
+              >
               {galleryImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={assetPath + image}
-                  alt={`Gallery Full ${index}`}
-                  style={{ width: '150px', height: '100px', objectFit: 'cover', borderRadius: '4px' }}
-                />
-              ))}
-            </div>
+                  <CarouselSlides>
+                    <img
+                      key={index}
+                      src={assetPath + image}
+                      alt={`Gallery Full ${index}`}
+                      style={{ width: '100%', maxHeight: '227px', objectFit: 'cover', borderRadius: '4px' }}
+                    />
+                  </CarouselSlides>
+                ))}
+              </CustomeCrousel>    
+            {/* </div> */}
           </div>
         </ShowMoreDetailsModal>
       )}

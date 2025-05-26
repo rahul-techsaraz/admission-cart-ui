@@ -49,7 +49,11 @@ const CustomSearch = () => {
   const handleClick = () => {
     if (!authenticateUser) {
       dispatch(toggelIsLoginPopup({ flag: true }));
+      setSearchItem('')
+      setSuggestion([])
     }
+    setSearchItem('')
+    setSuggestion([])
   };
   return (
     <div className="banner1_searchbutton_button">
@@ -63,7 +67,7 @@ const CustomSearch = () => {
         <i className="fa-solid fa-magnifying-glass"></i>
       </span>
       <div className={searchItem ? 'search-suggestion' : 'hidden'}>
-        {searchItem && (
+        {(searchItem && suggestion.length > 0) &&(
           <ul>
             {suggestion.length > 0 ? (
               suggestion.map((suggested) => (
