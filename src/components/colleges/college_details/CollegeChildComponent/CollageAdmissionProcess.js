@@ -5,13 +5,13 @@ import CustomSwiper from '../../../../utils/Constants/custom-components/CustomSw
 import CustomCourseCard from '../../../courses/course_details/CustomCourseCard';
 import { toggelIsContactUs } from '../../../../features/commonSlice';
 import { useDispatch } from 'react-redux';
+import CustomeCrousel, { CarouselSlides } from '../../../../utils/Constants/custom-components/CustomeCrousel';
 
 const CollageAdmissionProcess = ({
   collegeDetails,
   downloadIcon,
   getCurrentYear,
   greyTickIcon,
-  responsive1,
   swiperResponsive,
   arrowLeftIcon,
   arrowRightIcon,
@@ -20,6 +20,28 @@ const CollageAdmissionProcess = ({
   courseOffered,
 }) => {
   const dispatch = useDispatch()
+  const responsive = {
+    1400: {
+      itemsPerView: 3,
+      spaceBetween: 20,
+    },
+    1200: {
+      itemsPerView: 3,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 23,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 2,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+  };
   return (
     <>
       <div className="row justify-content-center mb-5">
@@ -51,7 +73,7 @@ const CollageAdmissionProcess = ({
               <div className="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
                 <div className="swiper course-offered-slider pb-5">
                   <div className="swiper-wrapper">
-                    <CustomSwiper
+                    {/* <CustomSwiper
                       navigationNext={'.courseOffer-button-next'}
                       navigationPrev={'.courseOffer-button-prev'}
                       noOfSlidesPerView={1}
@@ -70,7 +92,22 @@ const CollageAdmissionProcess = ({
                     </div>
                     <div className="swiper-button-next courseOffer-button-next">
                       <img src={arrowRightIcon} alt="" />
-                    </div>
+                    </div> */}
+                    <CustomeCrousel
+                      navigatePrev={'courseOffer-button-prev'}
+                      navigateNext={'courseOffer-button-next'}
+                      itemsPerView={4}
+                      isAutoScroll={false}
+                      breakPoints={responsive}
+                      // animation={'Card-Zoom-Effect'}
+                      autoScrollPauseOnMouseEnter={true}
+                    >
+                    {getAllCourseDataById().map((course) => (
+                        <CarouselSlides>
+                          <CustomCourseCard course={course}/>
+                        </CarouselSlides>
+                      ))}
+                    </CustomeCrousel>
                   </div>
                 </div>
               </div>

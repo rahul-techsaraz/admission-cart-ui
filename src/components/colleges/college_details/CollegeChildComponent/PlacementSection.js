@@ -1,12 +1,35 @@
 import { useState } from 'react';
 import './PlacementSection.css'; // Add styles here or inline via className
 import ShowMoreDetailsModal from '../../../model/ShowMoreDetailsModal';
+import CustomeCrousel, { CarouselSlides } from '../../../../utils/Constants/custom-components/CustomeCrousel';
 
 const PlacementSection = ({ placementData = [] }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+  const responsive = {
+    1400: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    1200: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+  };
 
   const renderPlacementCard = (item, index) => (
     <div className="placement-card" key={`placement-${item?.year || 'y'}-${index}`}>
@@ -82,9 +105,24 @@ const PlacementSection = ({ placementData = [] }) => {
       </Modal> */}
       {showModal && (
         <ShowMoreDetailsModal handleClose={handleCloseModal} label={'All Placement Records'}>
-          <div className="placement-grid" style={{ display: 'flex', height: 'auto', width: 'auto' }}>
+          {/* <div className="placement-grid" style={{ display: 'flex', height: 'auto', width: 'auto' }}>
             {placementData.map(renderPlacementCard)}
-          </div>
+          </div> */}
+          <CustomeCrousel
+            navigatePrev={'placement-button-prev'}
+            navigateNext={'placement-button-next'}
+            itemsPerView={1}
+            isAutoScroll={false}
+            breakPoints={responsive}
+            // animation={'Card-Zoom-Effect'}
+            autoScrollPauseOnMouseEnter={true}
+          >
+          {placementData.map((item, index) => (
+              <CarouselSlides>
+                {renderPlacementCard(item, index)}
+              </CarouselSlides>
+            ))}
+          </CustomeCrousel> 
         </ShowMoreDetailsModal>
       )}
      {placementData.length > 1 && (

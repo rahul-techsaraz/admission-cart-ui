@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 import constants from '../../../../utils/Constants/constants';
 import { toggelIsContactUs } from '../../../../features/commonSlice';
 import { useDispatch } from 'react-redux';
+import CustomeCrousel, { CarouselSlides } from '../../../../utils/Constants/custom-components/CustomeCrousel';
 
 const CollegeFacilities = ({
   collegeDetails,
   facultyData,
   getCurrentYear,
   swiperResponsive,
-  responsive,
   audienceIcon,
   hostelIcon,
   arrowLeftIcon,
@@ -22,6 +22,28 @@ const CollegeFacilities = ({
   yellowCircleIcon,
   avtar,
 }) => {
+  const responsive = {
+    1400: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    1200: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 2,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+  };
   const dispatch = useDispatch()
   return (
     <>
@@ -54,7 +76,7 @@ const CollegeFacilities = ({
         <h2 className="section-heading2 grey text-center mb-5">{`${collegeDetails?.college_name} Facilities`}</h2>
         <div className="swiper clg-facilities-slider">
           <div className="swiper-wrapper position-relative">
-            <CustomSwiper
+            {/* <CustomSwiper
               navigationNext={'.clg-facilities-button-next'}
               navigationPrev={'.clg-facilities-button-prev'}
               isBreakPoint={true}
@@ -114,7 +136,73 @@ const CollegeFacilities = ({
             </div>
             <div className="swiper-button-next clg-facilities-button-next">
               <img src={arrowRightIcon} alt="" />
-            </div>
+            </div> */}
+            <CustomeCrousel
+              navigatePrev={'clg-facilities-button-prev'}
+              navigateNext={'clg-facilities-button-next'}
+              itemsPerView={4}
+              isAutoScroll={true}
+              breakPoints={responsive}
+              // animation={'Card-Zoom-Effect'}
+              autoScrollPauseOnMouseEnter={true}
+            >
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={audienceIcon} alt="" />
+                    <p>Auditorium</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={hostelIcon} alt="" />
+                    <p>Boys Hostel</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={canteenIcon} alt="" />
+                    <p>Canteen</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={audienceIcon} alt="" />
+                    <p>Computer Lab</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={audienceIcon} alt="" />
+                    <p>Computer Lab</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={audienceIcon} alt="" />
+                    <p>Computer Lab</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+              <CarouselSlides>
+                <div className="swiper-slide">
+                  <div className="clg-facilities-box position-relative">
+                    <img src={audienceIcon} alt="" />
+                    <p>Computer Lab</p>
+                  </div>
+                </div>
+              </CarouselSlides>
+            </CustomeCrousel>
           </div>
         </div>
       </div>
@@ -159,7 +247,7 @@ const CollegeFacilities = ({
           <div className="faculty-slider-wrapper position-relative px-4 mt-4 mb-5">
             <div className="swiper faculty-slider-slider">
               <div className="swiper-wrapper">
-                <CustomSwiper
+                {/* <CustomSwiper
                   navigationNext={'.clg-faculty-button-next'}
                   navigationPrev={'.clg-faculty-button-prev'}
                   noOfSlidesPerView={3}
@@ -192,7 +280,37 @@ const CollegeFacilities = ({
                 </div>
                 <div className="swiper-button-next clg-faculty-button-next">
                   <img src={arrowRightIcon} alt="" />
-                </div>
+                </div> */}
+                <CustomeCrousel
+                  navigatePrev={'clg-faculty-button-prev'}
+                  navigateNext={'clg-faculty-button-next'}
+                  itemsPerView={4}
+                  isAutoScroll={false}
+                  breakPoints={responsive}
+                  // animation={'Card-Zoom-Effect'}
+                  autoScrollPauseOnMouseEnter={true}
+                >
+                {facultyData?.map((faculty) => (
+                  <CarouselSlides>
+                    <div className="swiper-slide">
+                      <div className="faculty-slider-box">
+                        <img
+                          className="faculty-slider-box-img"
+                          src={
+                            (faculty?.image_path && faculty?.image_path !== '') ? constants.assestAbsolutePath + faculty?.image_path : avtar
+                          }
+                          alt="Faculty Image"
+                        />
+                        <p>
+                          {`Prof. ${faculty?.faculty_name}`}
+                          <br />
+                          <span>{`Dept. ${faculty?.department}`}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </CarouselSlides>
+                ))}
+                </CustomeCrousel>
               </div>
             </div>
           </div>
@@ -211,7 +329,7 @@ CollegeFacilities.propTypes = {
   }).isRequired,
   getCurrentYear: PropTypes.func.isRequired,
   swiperResponsive: PropTypes.func.isRequired,
-  responsive: PropTypes.object.isRequired,
+  // responsive: PropTypes.object.isRequired,
   facultyData: PropTypes.array.isRequired,
 
   audienceIcon: PropTypes.string.isRequired,

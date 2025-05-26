@@ -53,10 +53,26 @@ export default function CollegeDetails() {
   }, [college_id]);
 
   const responsive = {
-    1400: { slidesPerView: 3, spaceBetween: 50 },
-    1024: { slidesPerView: 3, spaceBetween: 50 },
-    768: { slidesPerView: 1, spaceBetween: 40 },
-    576: { slidesPerView: 1, spaceBetween: 20 },
+    1400: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    1200: {
+      itemsPerView: 4,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 2,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
   };
 
   const getCurrentYear = () => new Date().getFullYear();
@@ -95,7 +111,7 @@ export default function CollegeDetails() {
                   getCurrentYear={getCurrentYear}
                   collegeDetails={collegeDetailsById}
                   whatsIcon={whatsIcon}
-                  responsive={responsive}
+                  // responsive={responsive}
                   swiperResponsive={swiperResponsive}
                   arrowLeftIcon={arrowLeftIcon}
                   arrowRightIcon={arrowRightIcon}
@@ -183,7 +199,7 @@ export default function CollegeDetails() {
                 collegeDetails={collegeDetailsById}
                 getCurrentYear={getCurrentYear}
                 swiperResponsive={swiperResponsive}
-                responsive={responsive}
+                // responsive={responsive}
                 audienceIcon={audienceIcon}
                 hostelIcon={hostelIcon}
                 arrowLeftIcon={arrowLeftIcon}

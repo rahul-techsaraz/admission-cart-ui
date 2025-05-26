@@ -1195,7 +1195,13 @@ p.course-para {
 .whatsNew-button-prev img,
 .whatsNew-button-next img,
 .swiper-button-prev img,
-.swiper-button-next img {
+.swiper-button-next img,
+.placement-button-prev img,
+.placement-button-next img,
+.gallary-button-prev img,
+.gallary-button-next img,
+.clg-faculty-button-prev img,
+.clg-faculty-button-next img {
   width: 20px;
   filter: invert(1);
 }
@@ -3715,7 +3721,9 @@ ul.exam-imp-list {
 .whatsNew-button-prev,
 .clg-alumni-button-prev,
 .clg-faculty-button-prev,
-.courseOffer-button-prev {
+.courseOffer-button-prev,
+.placement-button-prev,
+.gallary-button-prev {
   position: absolute;
   top: 40%;
   z-index: 20;
@@ -3743,7 +3751,9 @@ ul.exam-imp-list {
 .whatsNew-button-next,
 .clg-alumni-button-next,
 .clg-faculty-button-next,
-.courseOffer-button-next {
+.courseOffer-button-next,
+.placement-button-next,
+.gallary-button-next {
   position: absolute;
   top: 40%;
   z-index: 20;
@@ -5807,7 +5817,8 @@ label #cancel {
   width: 100%;
   background: var(--color-white);
   text-align: left;
-  height: 300px;
+  max-height: 300px;
+  z-index: 999px;
   overflow: scroll;
 }
 .search-suggestion p {

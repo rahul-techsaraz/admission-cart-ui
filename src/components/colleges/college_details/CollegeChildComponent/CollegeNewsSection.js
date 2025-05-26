@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CustomSwiper from '../../../../utils/Constants/custom-components/CustomSwiper';
+import NewsCard from './NewsCard';
+import CustomeCrousel, { CarouselSlides } from '../../../../utils/Constants/custom-components/CustomeCrousel';
 
 const CollegeNewsSection = ({
   collegeDetails,
@@ -9,7 +11,6 @@ const CollegeNewsSection = ({
   setReadmore,
   getCurrentYear,
   whatsIcon,
-  responsive,
   swiperResponsive,
   arrowLeftIcon,
   arrowRightIcon,
@@ -17,6 +18,29 @@ const CollegeNewsSection = ({
   const collegeDescription = collegeDetails?.description?.college_description || '';
   const collegeHighlightsDescription = collegeDetails?.description?.college_highlights_description || '';
   const collegeName = collegeDetails?.college_name || '';
+  const collegeNews = collegeDetails?.news_data || [];
+  const responsive = {
+    1400: {
+      itemsPerView: 3,
+      spaceBetween: 20,
+    },
+    1200: {
+      itemsPerView: 3,
+      spaceBetween: 20,
+    },
+    992: {
+      itemsPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+    576: {
+      itemsPerView: 1,
+      spaceBetween: 20,
+    },
+  };
   useEffect(()=>{
     console.log({collegeDetails})
   },[collegeDetails])
@@ -32,22 +56,38 @@ const CollegeNewsSection = ({
             What’s New
           </h1>
         </div>
-        <div className="whatsNew-inner-box">
+        {/* <div className="whatsNew-inner-box">
           <p className="whatsNew-date">{collegeDetails.news_data[collegeDetails.news_data.length-1]?.title}</p>
           <p className="whatsNew-para">
             {collegeDetails.news_data[collegeDetails.news_data.length-1]?.content}
           </p>
-          {/* <ul className="whatsNew-list">
+          <ul className="whatsNew-list">
             <li>The CAT 2023 exam will be held on Nov 26, 2023.</li>
             <li>MBA-PGPX R2 applications are open and the last date to apply is Oct 30, 2023.</li>
-          </ul> */}
+          </ul>
           <Link className="whatsNew-readmore-btn mt-4 d-inline-block">Read More</Link>
-        </div>
-        <div className="whatsNew-slider-wrapper mt-4 mb-5">
+        </div> */}
+        {/* <div className="whatsNew-slider-wrapper mt-4 mb-5">
           <div className="swiper whatsNew-slider">
             <div className="swiper-wrapper">
-              <main className="slider-main-container position-relative">
-                <CustomSwiper
+              <main className="slider-main-container position-relative"> */}
+                <CustomeCrousel
+                  navigatePrev={'whatsNew-button-prev'}
+                  navigateNext={'whatsNew-button-next'}
+                  itemsPerView={3}
+                  isAutoScroll={false}
+                  breakPoints={responsive}
+                  // animation={'Card-Zoom-Effect'}
+                  autoScrollPauseOnMouseEnter={true}
+                >
+                  {collegeNews.map((news, index) => (
+                      <CarouselSlides>
+                        {/* <TrendingCollegesCard college={college} /> */}
+                        <NewsCard data={news} index={index}/>
+                      </CarouselSlides>
+                    ))}
+                </CustomeCrousel>
+                {/* <CustomSwiper
                   navigationNext={'.whatsNew-button-next'}
                   navigationPrev={'.whatsNew-button-prev'}
                   isBreakPoint={true}
@@ -66,17 +106,17 @@ const CollegeNewsSection = ({
                       </div>
                     </swiper-slide>
                   ))}
-                </CustomSwiper>
-                <div className="swiper-button-prev whatsNew-button-prev">
+                </CustomSwiper> */}
+                {/* <div className="swiper-button-prev whatsNew-button-prev">
                   <img src={arrowLeftIcon} alt="" />
                 </div>
                 <div className="swiper-button-next whatsNew-button-next ">
                   <img src={arrowRightIcon} alt="" />
-                </div>
-              </main>
+                </div> */}
+              {/* </main>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="course-details-left-innerBox mb-5 text-center">
         <h2 className="imgText-heading mb-4">{collegeName ? `${collegeName} Overview` : 'Overview'}</h2>
@@ -127,7 +167,6 @@ CollegeNewsSection.propTypes = {
   }),
   whatsIcon: PropTypes.string.isRequired,
   getCurrentYear: PropTypes.func.isRequired,
-  responsive: PropTypes.object.isRequired,
   swiperResponsive: PropTypes.func.isRequired,
   setReadmore: PropTypes.func.isRequired,
   arrowLeftIcon: PropTypes.string.isRequired,
