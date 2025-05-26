@@ -223,6 +223,22 @@
   align-items: start;
   gap: 5px;
 }
+.info-value{
+  display: flex;
+  flex-direction: column;
+}
+.course-card-body{
+  padding: 20px 10px;
+}
+.course-card-additional-info{
+  padding: 15px 10px 20px;
+}
+.info-category{
+  font-size: 11px;
+}
+
+
+
 }
 
 @media (max-width: 992px) {
@@ -279,4 +295,10 @@
   .course-card-additional-info {
     padding: 10px 15px 15px;
   }
+}
+@media (max-width: 430px){
+      .info-value {
+        display: flex;
+        flex-direction: row;
+    }
 }

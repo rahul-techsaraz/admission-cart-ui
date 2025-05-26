@@ -5415,10 +5415,13 @@ label #cancel {
 .applied-fliter-o {
   gap: 20px;
 }
-
+.faculty-slider-box{
+   width: 100%;
+  min-height: 300px;
+}
 .faculty-slider-box-img {
   width: 100%;
-  height: 400px;
+  height: auto;
 }
 
 #v-pills-home {
