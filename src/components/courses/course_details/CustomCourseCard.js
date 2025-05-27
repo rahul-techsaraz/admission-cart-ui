@@ -41,9 +41,11 @@ const CustomCourseCard = ({ course, isModal }) => {
           </div>
           <div class="course-info-item">
             <span class="info-label">Fee:</span>
-            <span class="info-value">
-              ₹{course?.course_fee_min} - ₹{course?.course_fee_max}
-            </span>
+            
+            <div class="info-value">
+              <span>₹{course?.course_fee_min} -</span> <span>₹{course?.course_fee_max}</span>
+            </div>
+            
           </div>
         </div>
         <div class="course-card-additional-info">
