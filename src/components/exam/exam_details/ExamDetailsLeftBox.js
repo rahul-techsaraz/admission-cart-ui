@@ -25,6 +25,7 @@ import CustomeCrousel, { CarouselSlides } from '../../../utils/Constants/custom-
 import ReadMoreHTML from '../../ParseHtmlResponse';
 import { formatDate } from '../../../utils/formatDate';
 import { toggelIsContactUs } from '../../../features/commonSlice';
+import ExamFeeStructure from './ExamFeeStructure';
 
 export default function ExamDetailsLeftBox({ examDetails, allExamData, allCollegeData }) {
   const [linkIndex, setLinkIndex] = useState(0);
@@ -172,6 +173,8 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
           </div>
         </div>
 
+        <ExamFeeStructure examDetails={examDetails}/>
+
         {/* <ExamHighlights /> */}
         <ExamMockList examDetails={examDetails} />
         {/* <ExamSlider examDetails={examDetails} /> */}
@@ -214,7 +217,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
           </div>
         </div>
         <div className="similar-exam-bottom-contentbox text-center mt-5">
-          <h2 className="section-heading2 text-center mb-2">{`${examDetails?.exam_name} ${examDetails?.exam_year} Important Dates`}</h2>
+          <h2 className="section-heading2 text-center mb-2">{`${examDetails?.exam_name} ${examDetails?.exam_year} Important Dates `}</h2>
           {/* <p className="similar-exam-bottom-contentbox-para1 mb-5">
             {examDetails?.exam_important_dates_description.length > 300 &&
             readmore.exam_important_dates_description === false
@@ -226,14 +229,14 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
             maxLength={800}
             className="similar-exam-bottom-contentbox-para1 mb-5"
           />
-          <h3 className="mb-3">{`${examDetails?.exam_name} ${examDetails?.exam_year} Exam Dates (${examDetails?.examDetails?.session_name} Sessions)`}</h3>
+          <h3 className="mb-3">{`${examDetails?.exam_name} ${examDetails?.exam_year} Exam Dates (`}<ReadMoreHTML htmlContent={exam_session} maxLength={800} renderAsPlainText={true} />{` Sessions)`}</h3>
           {/* <p className="similar-exam-bottom-contentbox-para2">
             {examDetails?.descriptionDetails?.exam_session_description.length > 300 &&
             readmore.exam_important_dates_description === false
               ? `${examDetails?.descriptionDetails?.exam_session_description.slice(0, 300)}...`
               : examDetails?.descriptionDetails?.exam_session_description}
           </p> */}
-          <ReadMoreHTML htmlContent={exam_session} maxLength={800} className="similar-exam-bottom-contentbox-para2" />
+          {/* <ReadMoreHTML htmlContent={exam_session} maxLength={800} className="similar-exam-bottom-contentbox-para2" /> */}
         </div>
         <div className="py-5 mt-4">
           <div className="d-flex justify-content-around align-items-center">
