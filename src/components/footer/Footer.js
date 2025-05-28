@@ -2,19 +2,27 @@ import logo from '../../images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFetchAllExam } from '../hooks/useFetchAllExam';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
 import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
+import { toggelIsLoginPopup } from '../../features/commonSlice';
 const Footer = () => {
   const [trendingData, setTrendingData] = useState({
     trendingExam: [],
     trendingCollege: [],
     trendingCourse: []
   })
-  const { allExamData, allCollegeData, allCourseData } = useSelector((state) => state.common);
+  const { allExamData, allCollegeData, allCourseData, authenticateUser } = useSelector((state) => state.common);
   const { fetchTrendingExam} = useFetchAllExam()
   const {fetchTrendingCollege} = useFetchAllCollege()
   const {getTrendingCourses}= useFetchAllCourse()
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    if (!authenticateUser) {
+          dispatch(toggelIsLoginPopup({ flag: true }));
+        }
+  }
   useEffect(()=>{
     if(allExamData.length > 0 && allCollegeData.length > 0 && allCourseData.length > 0){
       const trendingExamList = fetchTrendingExam(allExamData)
@@ -62,7 +70,7 @@ const Footer = () => {
                   <ul className="courses-link-list">
                     {trendingData.trendingExam.map((exam, index)=>(
                       <li key={index}>
-                      <Link to={'/exam_list'}>
+                      <Link to={authenticateUser ? '/exam_list' : ''} onClick={()=> handleClick()}>
                         {exam.exam_name}
                       </Link>
                     </li>  
@@ -84,7 +92,7 @@ const Footer = () => {
                     <ul className="collages-link-list">
                       {trendingData.trendingCollege.map((college, index)=>(
                         <li key={index}>
-                          <Link to={'/colleges_list'}>{college.college_name}</Link>
+                          <Link to={authenticateUser ? '/colleges_list' : ''} onClick={()=> handleClick()}>{college.college_name}</Link>
                         </li>  
                       ))}
                     </ul>
@@ -104,7 +112,7 @@ const Footer = () => {
                     <ul className="courses-link-list">
                       {trendingData.trendingCourse.map((course, index)=>(
                         <li key={index}>
-                          <Link to={'/courses_list'}>{course.slug}</Link>
+                          <Link to={authenticateUser ? '/courses_list' : ''} onClick={()=> handleClick()}>{course.slug}</Link>
                         </li>
                       ))}
                     </ul>
