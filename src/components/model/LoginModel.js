@@ -279,7 +279,7 @@ export default function LoginModel() {
             </button>
           </div>
           <div className={!classChange ? "form-section" : "form-section form-section-move"}>
-            <div className="login-box">
+            <div className={!classChange ? "login-box" : "hidden"}>
               <input
                 type="tel"
                 className="email ele"

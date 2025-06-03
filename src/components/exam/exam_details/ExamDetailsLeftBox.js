@@ -229,7 +229,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
             maxLength={800}
             className="similar-exam-bottom-contentbox-para1 mb-5"
           />
-          <h3 className="mb-3">{`${examDetails?.exam_name} ${examDetails?.exam_year} Exam Dates (`}<ReadMoreHTML htmlContent={exam_session} maxLength={800} renderAsPlainText={true} />{` Sessions)`}</h3>
+          <p className="mb-3 examdetails-text-on">{`${examDetails?.exam_name} ${examDetails?.exam_year} Exam Dates (`}<ReadMoreHTML htmlContent={exam_session} maxLength={800} renderAsPlainText={true} />{` Sessions)`}</p>
           {/* <p className="similar-exam-bottom-contentbox-para2">
             {examDetails?.descriptionDetails?.exam_session_description.length > 300 &&
             readmore.exam_important_dates_description === false
@@ -339,7 +339,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
           </div>
         )}
 
-        <div className="tick-heading d-flex align-items-center mb-4">
+        <div className="tick-heading tick-heading-extra-top d-flex align-items-center mb-4">
           <span className="tick-heading-icon d-inline-flex">
             <img src={greyTick} alt="" />
           </span>
@@ -372,7 +372,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
           <div className="row">
             <div className="col-md-4">
               <div className="exam-3step-box d-flex align-items-center">
-                <p className="exam-3step-leftTxt">Upload the required documents</p>
+                <p className="exam-3step-leftTxt">Registration & Application Form Fill-up</p>
                 <div className="exam-3step-badgebx">
                   <p className="exam-3step-text d-flex align-items-center justify-content-center">
                     <span className="me-1">01</span> Step
@@ -382,7 +382,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
             </div>
             <div className="col-md-4">
               <div className="exam-3step-box d-flex align-items-center">
-                <p className="exam-3step-leftTxt">Upload the required documents</p>
+                <p className="exam-3step-leftTxt">Upload the Necessary Documents</p>
                 <div className="exam-3step-badgebx">
                   <p className="exam-3step-text d-flex align-items-center justify-content-center">
                     <span className="me-1">02</span> Step

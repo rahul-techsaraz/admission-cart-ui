@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="footer-top">
           <div className="container">
             <div className="row justify-content-between">
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-5">
                 <div className="widget company-intro-widget pe-lg-5 mb-5 mb-lg-0">
                   <p>
                     <Link to="/">
@@ -51,9 +51,14 @@ const Footer = () => {
                       fill="#5BE4A8"
                     />
                   </svg>
-                  <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  <p className="footer-para">
+                        Your Gateway to the Right College <br/>
+                        At Admission Kart, we guide students toward the best educational opportunities across all streams and 
+                        courses — including Engineering, Medical, Management, Arts, Science, Commerce, Law, Design, and more. 
+                        Our mission is to make the admission process easy, transparent, and tailored to each student’s goals.
+                        From entrance exam guidance to college selection and application support, we offer end-to-end 
+                        counselling that helps you take confident steps toward a successful future. Wherever you dream of
+                        studying, we’ll help you get there. 
                   </p>
                 </div>
               </div>
@@ -79,7 +84,7 @@ const Footer = () => {
                   }
                 </div>
               </div>
-              <div className="col-12 col-md-4 col-lg-3">
+              <div className="col-12 col-md-4 col-lg-2">
                 <div className="widget course-links-widget">
                   <h5 className="widget-title">COLLEGES</h5>
                   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="4" viewBox="0 0 70 4" fill="none">

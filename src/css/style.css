@@ -210,14 +210,17 @@ li {
   line-height: 42px;
 }
 /***end***/
+.headertop-header-container{
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
 .header {
   width: 100%;
   height: auto;
-  z-index: 99;
   margin: 0 auto;
   /* position: relative; */
-  position: sticky;
-  top: 0;
   background: #fff;
 }
 
@@ -895,9 +898,6 @@ ul.mega_menu {
 
 /* course-slider-section
 ============================== */
-.course-slider-section {
-  /* overflow-x: hidden; */
-}
 .course-slider swiper-container swiper-slide:nth-child(odd) {
   background-color: var(--color-yellow);
 }
@@ -1637,6 +1637,11 @@ select.form-select {
 .footer-top {
   border-bottom: 1px solid var(--color-green);
   padding-bottom: 50px;
+}
+.footer-para{
+  font-size: 14px !important;
+  line-height: 23px !important;
+  padding-top: 10px;
 }
 .company-intro-widget p {
   font-size: 16px;
@@ -2773,6 +2778,9 @@ ul.exam-imp-list {
   background: var(--color-yellow);
   padding: 20px;
 }
+.tick-heading-extra-top{
+  margin-top: 50px;
+}
 .tick-heading h2 {
   color: #404040;
   font-size: 36px;
@@ -2864,14 +2872,12 @@ ul.exam-imp-list {
 }
 .courses-details-rightcol-grid-title {
   border-radius: 10px 10px 0px 0px;
-  background: var(--color-green);
-  /* icon shadow */
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
   padding: 17px 28px;
+  border-bottom: 1px solid #f0f0f0;
 }
 .courses-details-rightcol-gridcontent {
   padding: 0 20px 25px;
@@ -3336,7 +3342,6 @@ ul.exam-imp-list {
   line-height: 20px;
   padding: 10px 45px;
 }
-
 .similar-exam-bottom-contentbox h3 {
   color: var(--color-grey);
   font-size: 24px;
@@ -3344,10 +3349,22 @@ ul.exam-imp-list {
   font-weight: 500;
   line-height: normal;
 }
+.similar-exam-bottom-contentbox-para1{
+  margin-top: 30px;
+}
 .similar-exam-bottom-contentbox-para1 > div > * {
   color: var(--color-grey);
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: justify;
+}
+.examdetails-text-on{
+   color: var(--body-text-grey);
+  text-align: center;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -3801,6 +3818,12 @@ ul.exam-imp-list {
   width: fit-content;
   margin-bottom: 5px;
   height: fit-content;
+}
+.white-bg{
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 20px;
 }
 @media only screen and (min-width: 768px) {
   .clglisting-clglogo {

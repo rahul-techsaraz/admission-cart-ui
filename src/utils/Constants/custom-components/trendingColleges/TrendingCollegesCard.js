@@ -29,7 +29,7 @@ const TrendingCollegesCard = ({ college, index, isModal }) => {
     console.log(college);
   }, [college]);
   return (
-    <div className={isOdd(index) ? 'clg-listing-box bg-yellow' : 'clg-listing-box bg-green'}>
+    <div className={isOdd(index) ? 'clg-listing-box' : 'clg-listing-box'}>
       <div className="course_card_main_box">
         <div className="course_card_1stimgbox">
           <img

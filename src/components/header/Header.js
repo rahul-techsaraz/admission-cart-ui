@@ -68,6 +68,7 @@ const Header = () => {
           {openLoginModel && <LoginModel />}
         </div>
       )}
+      <section className='headertop-header-container'>
       <div className="h7_header-top d-none d-md-block">
         <div className="container">
           <div className="row">
@@ -75,12 +76,12 @@ const Header = () => {
               <ul className="h7_header-top-list d-flex align-items-center">
                 <li className="position-relative">
                   <span href="tel:8812356877787 ">
-                    <i className="fa fa-phone" aria-hidden="true"></i> (88) 123 568 777 87{' '}
+                    <i className="fa fa-phone" aria-hidden="true"></i> +919886220024{' '}
                   </span>
                 </li>
                 <li>
                   <span href="mailto:info@xyz-text.com ">
-                    <i className="fa fa-envelope-o" aria-hidden="true"></i> info@xyz-text.com
+                    <i className="fa fa-envelope-o" aria-hidden="true"></i> admissionkartinfo@gmail.com
                   </span>
                 </li>
               </ul>
@@ -90,12 +91,12 @@ const Header = () => {
               <div className="h7_header-top-social">
                 <ul className="d-flex align-items-center justify-content-end">
                   <li>
-                    <Link>
+                    <Link to={'https://www.facebook.com/share/1AhUiZhgpN/'} target='blank'>
                       <i className="fa-brands fa-facebook-f" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link>
+                    <Link to={'https://www.instagram.com/admissionkart_official?utm_source=qr&igsh=MWV3cDN3OTkzaWJuaA=='} target='blank'>
                       <i className="fa-brands fa-instagram" aria-hidden="true"></i>
                     </Link>
                   </li>
@@ -171,6 +172,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      </section>
     </>
   );
 };
