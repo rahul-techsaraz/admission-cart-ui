@@ -2,19 +2,27 @@ import logo from '../../images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFetchAllExam } from '../hooks/useFetchAllExam';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFetchAllCollege } from '../hooks/useFetchAllCollege';
 import { useFetchAllCourse } from '../hooks/useFetchAllCourse';
+import { toggelIsLoginPopup } from '../../features/commonSlice';
 const Footer = () => {
   const [trendingData, setTrendingData] = useState({
     trendingExam: [],
     trendingCollege: [],
     trendingCourse: []
   })
-  const { allExamData, allCollegeData, allCourseData } = useSelector((state) => state.common);
+  const { allExamData, allCollegeData, allCourseData, authenticateUser } = useSelector((state) => state.common);
   const { fetchTrendingExam} = useFetchAllExam()
   const {fetchTrendingCollege} = useFetchAllCollege()
   const {getTrendingCourses}= useFetchAllCourse()
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    if (!authenticateUser) {
+          dispatch(toggelIsLoginPopup({ flag: true }));
+        }
+  }
   useEffect(()=>{
     if(allExamData.length > 0 && allCollegeData.length > 0 && allCourseData.length > 0){
       const trendingExamList = fetchTrendingExam(allExamData)
@@ -30,7 +38,7 @@ const Footer = () => {
         <div className="footer-top">
           <div className="container">
             <div className="row justify-content-between">
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-5">
                 <div className="widget company-intro-widget pe-lg-5 mb-5 mb-lg-0">
                   <p>
                     <Link to="/">
@@ -43,9 +51,14 @@ const Footer = () => {
                       fill="#5BE4A8"
                     />
                   </svg>
-                  <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  <p className="footer-para">
+                        Your Gateway to the Right College <br/>
+                        At Admission Kart, we guide students toward the best educational opportunities across all streams and 
+                        courses — including Engineering, Medical, Management, Arts, Science, Commerce, Law, Design, and more. 
+                        Our mission is to make the admission process easy, transparent, and tailored to each student’s goals.
+                        From entrance exam guidance to college selection and application support, we offer end-to-end 
+                        counselling that helps you take confident steps toward a successful future. Wherever you dream of
+                        studying, we’ll help you get there. 
                   </p>
                 </div>
               </div>
@@ -62,7 +75,7 @@ const Footer = () => {
                   <ul className="courses-link-list">
                     {trendingData.trendingExam.map((exam, index)=>(
                       <li key={index}>
-                      <Link to={'/exam_list'}>
+                      <Link to={authenticateUser ? '/exam_list' : ''} onClick={()=> handleClick()}>
                         {exam.exam_name}
                       </Link>
                     </li>  
@@ -71,7 +84,7 @@ const Footer = () => {
                   }
                 </div>
               </div>
-              <div className="col-12 col-md-4 col-lg-3">
+              <div className="col-12 col-md-4 col-lg-2">
                 <div className="widget course-links-widget">
                   <h5 className="widget-title">COLLEGES</h5>
                   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="4" viewBox="0 0 70 4" fill="none">
@@ -84,7 +97,7 @@ const Footer = () => {
                     <ul className="collages-link-list">
                       {trendingData.trendingCollege.map((college, index)=>(
                         <li key={index}>
-                          <Link to={'/colleges_list'}>{college.college_name}</Link>
+                          <Link to={authenticateUser ? '/colleges_list' : ''} onClick={()=> handleClick()}>{college.college_name}</Link>
                         </li>  
                       ))}
                     </ul>
@@ -104,7 +117,7 @@ const Footer = () => {
                     <ul className="courses-link-list">
                       {trendingData.trendingCourse.map((course, index)=>(
                         <li key={index}>
-                          <Link to={'/courses_list'}>{course.slug}</Link>
+                          <Link to={authenticateUser ? '/courses_list' : ''} onClick={()=> handleClick()}>{course.slug}</Link>
                         </li>
                       ))}
                     </ul>

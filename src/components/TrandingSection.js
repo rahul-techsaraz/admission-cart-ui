@@ -47,7 +47,7 @@ const TrandingSection = () => {
             <div className="row align-items-center">
               <div className="col-12 col-lg-6">
                 <h2 className="tranding-courses-heading text-white text-center text-lg-start mb-5 mb-lg-0 position-relative z-1">
-                  Trending Courses
+                  Featured Courses
                 </h2>
               </div>
               <div className="col-12 col-md-9 col-lg-4 mx-auto ms-lg-auto">
