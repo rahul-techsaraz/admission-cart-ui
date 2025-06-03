@@ -29,7 +29,7 @@ export default function CollegeBannerSection() {
                 style={{ width: '100%', height: '100%' }}
               />
             </div>
-            <div className="container green-bg col-10">
+            <div className="container white-bg col-10">
               <div className="row align-items-center">
                 <div className="col-lg-9 text-start">
                   <h1 className="clg-info-greenbox-hdng">{collegeDetailsById?.college_name}</h1>
