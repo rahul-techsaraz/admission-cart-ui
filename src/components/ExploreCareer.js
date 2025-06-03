@@ -36,7 +36,6 @@ const ExploreCareer = () => {
     setTrendingExam(trendingExamDetails);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allExamData]);
-  console.log({ trendingExam });
   return (
     <>
       {trendingExam.length > 4 && (
