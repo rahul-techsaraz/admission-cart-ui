@@ -95,6 +95,9 @@
   .copy-right-text {
     font-size: 13px;
 }
+.process-title{
+  font-size: 17px;
+}
 }
 @media screen and (max-width: 1024px) {
   .banner-caption h1 {
@@ -618,6 +621,9 @@
     position: relative;
     padding: 5px 20px;
   }
+  .process-title {
+    height: 40px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -788,7 +794,11 @@
         width: 100%;
     }
 }
-
+@media screen and (max-width: 480px){
+  .process-title{
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 470px){
   .banner1_searchbutton_button input[type='text'] {
       width: 120px;
@@ -797,6 +807,10 @@
   .navbar-left a {
     width: 150px;
 }
+    .process-title {
+        height: 60px;
+    }
+
 }
 
 /* 430 start */

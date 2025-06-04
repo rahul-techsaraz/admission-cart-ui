@@ -54,9 +54,9 @@ const CustomCourseCard = ({ course, isModal }) => {
             <span class="info-tag freq-tag">{course?.exam_frequency}</span>
           </div>
           {course?.course_categories.map((category) => (
-            <span class="info-category" key={category}>
+            <div class="info-category" key={category}>
               {category}
-            </span>
+            </div>
           ))}
         </div>
         {course.is_trending ? (

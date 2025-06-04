@@ -23,9 +23,9 @@ const CareerProcess = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">01</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Take the Career Compass Test</p>
+                <p className="process-title">Fill the Application Form</p>
                 <p className="process-para">
-                  Take the intuitive technology-based Career Compass test to assess the right career choice for you.
+                  Start your journey by filling out our easy online application form. Just provide your basic details, academic background, and course preferences. It takes less than 5 minutes!
                 </p>
               </div>
             </li>
@@ -42,9 +42,9 @@ const CareerProcess = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">02</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Take the Career Compass Test</p>
+                <p className="process-title">Get Free Expert Counseling</p>
                 <p className="process-para">
-                  Take the intuitive technology-based Career Compass test to assess the right career choice for you.
+                  Our expert counselors will get in touch to understand your goals and guide you through the best college and course options based on your interests, budget, and eligibility.
                 </p>
               </div>
             </li>
@@ -61,9 +61,9 @@ const CareerProcess = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">03</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Take the Career Compass Test</p>
+                <p className="process-title">Shortlist the Right Colleges</p>
                 <p className="process-para">
-                  Take the intuitive technology-based Career Compass test to assess the right career choice for you.
+                  We’ll help you shortlist top colleges that match your profile and preferences. Compare courses, rankings, fees, and more to make an informed decision.
                 </p>
               </div>
             </li>
@@ -80,9 +80,9 @@ const CareerProcess = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">04</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Take the Career Compass Test</p>
+                <p className="process-title">Document Verification & Profile Building</p>
                 <p className="process-para">
-                  Take the intuitive technology-based Career Compass test to assess the right career choice for you.
+                  Upload the required documents securely. We verify your academic records and help you create a strong application profile to maximize your chances of admission.
                 </p>
               </div>
             </li>
@@ -99,9 +99,9 @@ const CareerProcess = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">05</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Take the Career Compass Test</p>
+                <p className="process-title">Get Admission Confirmation</p>
                 <p className="process-para">
-                  Take the intuitive technology-based Career Compass test to assess the right career choice for you.
+                  We coordinate directly with colleges to fast-track your application. Once approved, receive your official admission offer letter – no stress, no delays.
                 </p>
               </div>
             </li>
@@ -118,9 +118,9 @@ const CareerProcess = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">06</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Take the Career Compass Test</p>
+                <p className="process-title">Post-Admission Support</p>
                 <p className="process-para">
-                  Take the intuitive technology-based Career Compass test to assess the right career choice for you.
+                  After admission, we assist you with hostel booking, education loan guidance, scholarship info, and other post-admission services to ensure a smooth start to your college life.
                 </p>
               </div>
             </li>
