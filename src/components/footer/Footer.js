@@ -130,16 +130,16 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-md-5 col-sm-5 footer-icon-none">
-                <ul className="terms-privacy d-flex gap-4 mb-3 mb-md-0">
+              <div className="col-md-3 col-sm-5 col-lg-3">
+                <ul className="terms-privacy d-flex gap-3 mb-3 mb-md-0">
                   <li>
-                    <Link>
-                      <img src="images/facebook-icon.svg" alt="" />
+                     <Link to={'https://www.facebook.com/share/1AhUiZhgpN/'} target='blank'>
+                      <i className="fa-brands fa-facebook-f" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link>
-                      <img src="images/instagram-icon.svg" alt="" />
+                    <Link to={'https://www.instagram.com/admissionkart_official?utm_source=qr&igsh=MWV3cDN3OTkzaWJuaA=='} target='blank'>
+                      <i className="fa-brands fa-instagram" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
@@ -154,7 +154,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className="col-md-12 col-lg-12 col-sm-12 text-center text-lg-end">
+              <div className="col-md-9 col-lg-9 col-sm-12 text-center text-lg-end">
                 <p className="copy-right-text">
                   {' '}
                   ©Copyright 2023 All Rights Reserved by AdmissionKart. Designed by

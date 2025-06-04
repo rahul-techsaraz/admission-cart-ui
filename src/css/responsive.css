@@ -96,7 +96,7 @@
     font-size: 13px;
 }
 .process-title{
-  font-size: 17px;
+  font-size: 16px;
 }
 }
 @media screen and (max-width: 1024px) {
@@ -359,6 +359,9 @@
 }
 .exam-3step-text span{
   font-size: 20px;
+}
+.process-title-height, .process-title{
+    height: 50px;
 }
 } /* end 991px */
 
