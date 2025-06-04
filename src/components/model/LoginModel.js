@@ -271,15 +271,15 @@ export default function LoginModel() {
         <div className="login-main-box">
           <div className={!classChange ? "slider" : 'slider moveslider'}></div>
           <div className="btn">
-            <button className="login" onClick={(e) => togelLoginClass(e)}>
+            <button className="login" onClick={(e) => setClassChange(false)}>
               Login
             </button>
-            <button className="signup" onClick={(e) => togelSignupClass(e)}>
+            <button className="signup" onClick={(e) => setClassChange(true)}>
               Signup
             </button>
           </div>
           <div className={!classChange ? "form-section" : "form-section form-section-move"}>
-            <div className={!classChange ? "login-box" : "hidden"}>
+            <div className={!classChange ? "login-box" : "login-box hidden"}>
               <input
                 type="tel"
                 className="email ele"

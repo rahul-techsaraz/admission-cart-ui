@@ -22,6 +22,7 @@ export default function Document() {
   const { userInfo, userDocument } = useSelector((state) => state.userSlice);
   const { fetchDocument } = useFetchUserDocuments();
   const handleTabClick = (e) => {
+    console.log(e.target.innerText)
     if (e.target.innerText === 'Basic Documents') {
       setTabToShow({ ...tabToShow, basicDocuments: true, admissionProof: false });
       return;
@@ -42,11 +43,13 @@ export default function Document() {
       return;
     } else {
       const file = new File([e.target.files[0]], newName);
-      selectedFiles.push(file);
+      // selectedFiles.push(file);
+      setSelectedFiles([...selectedFiles, file]);
     }
-    setSelectedFiles(selectedFiles);
+    
   };
   const handleUpload = async () => {
+    console.log(selectedFiles)
     const data = new FormData();
     for (let i = 0; i < selectedFiles.length; i++) {
       data.append('file[]', selectedFiles[i]);
@@ -67,6 +70,7 @@ export default function Document() {
         setUploadResponse(true);
       })
       .catch((error) => {
+        console.log(error)
         alert('File Upload unsucessfull... try again');
       });
   };
@@ -82,15 +86,17 @@ export default function Document() {
         aadhaar_card: userDocument.aadhaar_card,
         pan_card: userDocument.pan_card,
       };
+      const isDocumentExist = Object.keys(userDocument).length > 0
       const jsonData = await dispatch(
         saveUserDocument({
           url: constants.apiEndPoint.USER_DOCUMENT_SAVE_UPDATE,
-          method: constants.apiMethod.POST,
+          method: isDocumentExist ? constants.apiMethod.PUT : constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
           payload: filePayload,
         })
       );
-      if (jsonData.status === constants.apiResponseStatus.SUCCESS) {
+      console.log(jsonData)
+      if (jsonData?.payload?.status === constants.apiResponseStatus.SUCCESS) {
         alert('File Upload Sucessfull');
         fetchDocument();
         setUploadResponse(false);
@@ -128,6 +134,9 @@ export default function Document() {
   useEffect(() => {
     fetchDocument();
   }, []);
+  useEffect(()=>{
+    console.log(selectedFiles)
+  },[selectedFiles])
   return (
     <>
       <section className="profile-page">
