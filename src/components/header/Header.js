@@ -101,14 +101,14 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link>
+                    {/* <Link>
                       <i className="fa-brands fa-youtube" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
                     <Link>
                       <i className="fa-brands fa-twitter" aria-hidden="true"></i>
-                    </Link>
+                    </Link> */}
                   </li>
                 </ul>
               </div>
