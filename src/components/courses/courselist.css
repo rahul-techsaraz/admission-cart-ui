@@ -106,11 +106,12 @@
 }
 
 .course-card-body {
-  padding: 20px;
+  /* padding: 20px; */
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  padding: 15px 20px 12px;
 }
 
 .course-info-item {
@@ -175,7 +176,8 @@
   white-space: nowrap;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--text-dark);
-  padding: 0 2px;
+  text-wrap: wrap;
+  padding: 6px;
 }
 
 /* --- START: UPDATED TRENDING TAG (RIBBON) STYLES --- */
@@ -269,6 +271,13 @@
     font-size: 0.75em;
   }
 }
+@media (max-width: 500px){
+   .info-value {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 
 @media (max-width: 480px) {
   body {
@@ -294,9 +303,4 @@
     padding: 10px 15px 15px;
   }
 }
-@media (max-width: 430px){
-      .info-value {
-        display: flex;
-        flex-direction: row;
-    }
-}
+

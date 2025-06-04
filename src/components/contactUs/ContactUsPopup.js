@@ -95,15 +95,6 @@ function ContactUsPopup() {
             </div>
             <div className="form-div-start">
               <input
-                type="text"
-                className="popup-name-input"
-                id="name1"
-                placeholder="Name"
-                required
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              <input
                 type="email"
                 className="popup-email-input"
                 id="email1"
@@ -111,6 +102,33 @@ function ContactUsPopup() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className='admission-cart-signin-otpbox'>
+                <input type="otp"
+                className="popup-otp-input-model"
+                id="otp1"
+                required />
+                <input type="otp"
+                className="popup-otp-input-model"
+                id="otp1"
+                required />
+                <input type="otp"
+                className="popup-otp-input-model"
+                id="otp1"
+                required />
+                <input type="otp"
+                className="popup-otp-input-model"
+                id="otp1"
+                required />
+              </div>
+              <input
+                type="text"
+                className="popup-name-input"
+                id="name1"
+                placeholder="Name"
+                required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <div className="phone-container">
                 <input type="text" className="popup-country-code" placeholder="+91" value={'+91'} readOnly />
