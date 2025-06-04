@@ -47,7 +47,7 @@ const CourseList = () => {
               navigatePrev={'crousel-btn-prev'}
               navigateNext={'crousel-btn-next'}
               itemsPerView={4}
-              isAutoScroll={true}
+              isAutoScroll={trendingCollege.length > 4 ? true : false}
               breakPoints={responsive}
               animation={'Card-Zoom-Effect'}
               autoScrollPauseOnMouseEnter={true}

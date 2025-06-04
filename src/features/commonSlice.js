@@ -7,6 +7,7 @@ import {
   fetchCourseById,
   fetchExamById,
   login,
+  sendMail,
   signup,
 } from '../components/ReduxThunk/CommonThunk';
 import constants from '../utils/Constants/constants';
@@ -176,6 +177,15 @@ const commonSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchExamById.rejected, (state, { payload }) => {
+      state.isLoading = false;
+    });
+    builder.addCase(sendMail.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+    });
+    builder.addCase(sendMail.pending, (state, { payload }) => {
+      state.isLoading = true;
+    });
+    builder.addCase(sendMail.rejected, (state, { payload }) => {
       state.isLoading = false;
     });
   },
