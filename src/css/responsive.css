@@ -30,7 +30,7 @@
 }
 @media screen and (max-width: 1240px) {
   .banner-caption {
-    padding: 55px 0;
+    padding: 80px 0;
   }
   .course-list-leftbox {
     width: 130px;
@@ -98,11 +98,12 @@
 .process-title{
   font-size: 16px;
 }
+.banner-caption h1 {
+    font-size: 35px;
+    line-height: 60px;
+  }
 }
 @media screen and (max-width: 1024px) {
-  .banner-caption h1 {
-    font-size: 35px;
-  }
   .course_box_childtext {
     padding: 30px 30px 0 !important;
   }
@@ -177,7 +178,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px 0 40px 40px;
+    padding: 60px 0 60px 40px;
   }
   .banner-button-prev {
     left: 20px;
@@ -362,6 +363,9 @@
 }
 .process-title-height, .process-title{
     height: 50px;
+}
+.banner-caption h1{
+  line-height: 55px;
 }
 } /* end 991px */
 
