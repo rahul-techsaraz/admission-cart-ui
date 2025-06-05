@@ -31,6 +31,16 @@
     }
 }
 
+@media screen and (max-width: 767px){
+   .counsellors-child{
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+    .counsellors-text-image{
+        gap: 10px;
+    }
+}
 
 /* 520 start */
 
@@ -48,11 +58,6 @@
     .counsellors-text-h5-button{
         width: 100%;
         margin-top: 20px;
-    }
-    .counsellors-child{
-        flex-direction: column;
-        text-align: center;
-        height: auto;
     }
     .counsellors-box2{
         height: auto;

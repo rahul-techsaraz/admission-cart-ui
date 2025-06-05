@@ -247,7 +247,7 @@ export default function Document() {
                             <h6>PAN Card</h6>
                             <p className="document-p">File should be max 500kb and jpg, jpeg, png, pdf</p>
                           </div>
-                          <div
+                          <div className='document-box-on-box'
                             style={{
                               display: 'flex',
                               width: '100%',
