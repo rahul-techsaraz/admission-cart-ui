@@ -13,7 +13,7 @@ import '../../css/collagedekho.css';
 import constants from '../../utils/Constants/constants';
 import httpFetch from '../../fetch/useFetch';
 import { updateUserInfo } from '../../features/userSlice';
-import { login } from '../ReduxThunk/CommonThunk';
+import { login, signup } from '../ReduxThunk/CommonThunk';
 import useUser from '../hooks/useUser';
 
 export default function LoginModel() {
@@ -42,7 +42,11 @@ export default function LoginModel() {
   // }
   const validateName = () => {
     if (firstName.length === 0) {
-      alert("Name can't be blank");
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: "Name can't be blank",
+      }))
     } else {
       return true;
     }
@@ -50,7 +54,11 @@ export default function LoginModel() {
   const validatePhone = () => {
     const phoneRegex = /[0-9]{10}/;
     if (!phone.match(phoneRegex)) {
-      alert('Invalid Phone Number');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Invalid Phone Number',
+      }))
     } else {
       return true;
     }
@@ -58,16 +66,28 @@ export default function LoginModel() {
   const validateEmail = () => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!email.match(emailRegex)) {
-      alert('Invalid Email');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Invalid Email',
+      }))
     } else {
       return true;
     }
   };
   const validatePassword = () => {
     if (password.length < 8) {
-      alert('Your password must be at least 8 characters long!');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Your password must be at least 8 characters long!',
+      }))
     } else if (password !== confirmPassword) {
-      alert('Password Missmatch');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Password Missmatch',
+      }))
     } else {
       return true;
     }
@@ -80,15 +100,30 @@ export default function LoginModel() {
         password: password,
         full_name: firstName,
       }
-      const data = await fetch('https://techsaraz.in/admission-cart/api/login/register.php', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      const jsonData = await data.json();
-      if (jsonData.success === 0) {
-        alert(jsonData.message);
+      // const data = await fetch('https://techsaraz.in/admission-cart/api/login/register.php', {
+      //   method: 'post',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(payload)
+      // });
+      const response = await dispatch(signup({
+        url: constants.apiEndPoint.USER_SIGNUP,
+        header: constants.apiHeader.HEADER,
+        method: constants.apiMethod.POST,
+        payload: payload,
+      }))
+      console.log(response)
+      if (response?.payload?.success === 0) {
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'error',
+            message: response?.payload?.message,
+        }))
       } else {
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'sucess',
+            message: response?.payload?.message,
+        }))
         setClassChange(true)
       }
     }
@@ -163,13 +198,28 @@ export default function LoginModel() {
   const handleVerify = async () => {
     const userOTP = otp.join('')
     if(userOTP === otp4Digit){
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'success',
+          message: 'Verified Successfully',
+      }))
       setIsOTP(false)
       setIsVerifyed(true)
+    }else{
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Invalid OTP...',
+      }))
     }
   };
   const validateLogin = () => {
     if (loginPhone.length < 10 || loginPassword.length < 8) {
-      alert('Invalid Credentials');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Invalid User Name or Password...',
+      }))
     } else {
       return true;
     }
@@ -190,7 +240,11 @@ export default function LoginModel() {
         })
       );
       if (jsonData?.payload?.success !== 1) {
-        alert('Invalid Phone or Password');
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'error',
+            message: 'Invalid User Name or Password...',
+        }))
       } else {
         dispatch(toggelLoginModel({ flag: false }));
         dispatch(toggelAfterLoginModel({ flag: true }));
@@ -308,6 +362,7 @@ export default function LoginModel() {
                 className="email ele"
                 placeholder="youremail@email.com"
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={isVerifyed}
               />
               {isOTP && (
                 <div className="otp-code-main-box" onPaste={handlePaste}>
