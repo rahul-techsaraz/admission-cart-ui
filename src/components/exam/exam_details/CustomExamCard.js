@@ -52,11 +52,11 @@ const CustomExamCard = ({ exam, isModal }) => {
               </span>
             ))}
           </div>
-          {exam.is_trending ? (
+          {/* {exam.is_trending ? (
             <div class="trending-tag">
               <i class="fa-solid fa-arrow-trend-up"></i> Trending
             </div>
-          ) : null}
+          ) : null} */}
           <Link
             to={authenticateUser && `/exam_details/${exam?.exam_id}`}
             className={!isModal ? 'hidden' : ''}
