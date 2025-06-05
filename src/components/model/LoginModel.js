@@ -100,11 +100,6 @@ export default function LoginModel() {
         password: password,
         full_name: firstName,
       }
-      // const data = await fetch('https://techsaraz.in/admission-cart/api/login/register.php', {
-      //   method: 'post',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(payload)
-      // });
       const response = await dispatch(signup({
         url: constants.apiEndPoint.USER_SIGNUP,
         header: constants.apiHeader.HEADER,
@@ -261,18 +256,18 @@ export default function LoginModel() {
       }
     }
   };
-  const togelSignupClass = (e) => {
-    let sliderElement = e.target.parentElement.parentElement.childNodes[0];
-    sliderElement.classList.add('moveslider');
-    let formElement = e.target.parentElement.parentElement.childNodes[2];
-    formElement.classList.add('form-section-move');
-  };
-  const togelLoginClass = (e) => {
-    let sliderElement = e.target.parentElement.parentElement.childNodes[0];
-    sliderElement.classList.remove('moveslider');
-    let formElement = e.target.parentElement.parentElement.childNodes[2];
-    formElement.classList.remove('form-section-move');
-  };
+  // const togelSignupClass = (e) => {
+  //   let sliderElement = e.target.parentElement.parentElement.childNodes[0];
+  //   sliderElement.classList.add('moveslider');
+  //   let formElement = e.target.parentElement.parentElement.childNodes[2];
+  //   formElement.classList.add('form-section-move');
+  // };
+  // const togelLoginClass = (e) => {
+  //   let sliderElement = e.target.parentElement.parentElement.childNodes[0];
+  //   sliderElement.classList.remove('moveslider');
+  //   let formElement = e.target.parentElement.parentElement.childNodes[2];
+  //   formElement.classList.remove('form-section-move');
+  // };
   const handleChange = (e, index) => {
     const value = e.target.value.replace(/\D/g, '');
     if (!value) return;
