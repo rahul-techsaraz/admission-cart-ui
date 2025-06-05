@@ -107,7 +107,6 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUserBasicDetails.fulfilled, (state, { payload }) => {
-      console.log(payload)
       state.userInfo = { ...state.userInfo, ...payload.data };
       state.loader = false;
     });

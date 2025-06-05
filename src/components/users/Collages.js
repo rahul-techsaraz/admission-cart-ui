@@ -31,8 +31,9 @@ export default function Collages() {
   };
   const filteredColleges = () => {
     console.log(allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization))
-    return allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization);
+    // return allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization);
   };
+  filteredColleges()
   const filteredCollegesById = () => {
     return allCollegeData.filter((college) =>
       userShortListedColleges.college_id.split(',').includes(college.college_id)

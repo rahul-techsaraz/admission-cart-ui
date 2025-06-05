@@ -1644,24 +1644,29 @@ const constants = {
   loan: ['Select', 'Yes', 'No'],
   faqData: [
     {
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?',
+      question: 'What types of courses do you help with admissions for?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'We assist with admissions in a wide range of courses including Engineering, Medical, Management, Law, Arts, Science, Commerce, Design, Nursing, and many more – across top universities and colleges in India.',
     },
     {
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?',
+      question: 'Do you provide support for entrance exams like JEE, NEET, CAT, etc.?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'Yes. We provide detailed guidance, updates, and strategies for major entrance exams like JEE, NEET, CUET, CAT, MAT, CLAT, and others as part of our counselling services.',
     },
     {
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?',
+      question: 'How do I start the admission process with Admission Kart?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'Simply fill out our enquiry form or contact us directly. Our counsellors will connect with you to understand your goals and guide you through the entire process step-by-step.',
     },
     {
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?',
+      question: 'Do you charge for your counselling and admission services?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'We offer both free and premium plans based on the type of support you need. Get in touch with us to know more about our service packages.',
+    },
+    {
+      question: 'Can I apply to colleges outside my state through Admission Kart?',
+      answer:
+        'Absolutely. We help students secure seats in top private and government colleges across India, regardless of their home state or board.',
     },
   ],
 };
