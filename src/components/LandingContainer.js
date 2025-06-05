@@ -1,7 +1,7 @@
-import sliderBanner1 from '../images/slider/banner1.jpg';
-import sliderBanner2 from '../images/slider/banner2.jpg';
-import sliderBanner3 from '../images/slider/banner3.jpg';
-import sliderBanner4 from '../images/slider/banner4.jpg';
+import sliderBanner1 from '../images/slider/new-banner1.png';
+import sliderBanner2 from '../images/slider/new-banner2.png';
+import sliderBanner3 from '../images/slider/new-banner3.png';
+import sliderBanner4 from '../images/slider/new-banner4.png';
 import CustomeCrousel, { CarouselSlides } from '../utils/Constants/custom-components/CustomeCrousel';
 import CustomSearch from '../utils/Constants/custom-components/CustomSearch';
 
