@@ -131,6 +131,7 @@ export default function LoginModel() {
         }
         try {
             const response = await sendEmail(mailPayload)
+            console.log(response)
             if (response.payload.data.success === true) {
                 dispatch(
                   showNotification({

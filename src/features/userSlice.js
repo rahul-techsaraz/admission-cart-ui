@@ -21,7 +21,7 @@ const initialState = {
   loader: false,
   userInfo: localStorage.getItem('loginResponse') ? JSON.parse(localStorage.getItem('loginResponse')) : {},
   userQualificationInfo: [],
-  userPreferenceInfo: [],
+  userPreferenceInfo: {},
   specializationCategory: [],
   userPreferences: {
     level: '',
@@ -107,6 +107,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUserBasicDetails.fulfilled, (state, { payload }) => {
+      console.log(payload)
       state.userInfo = { ...state.userInfo, ...payload.data };
       state.loader = false;
     });

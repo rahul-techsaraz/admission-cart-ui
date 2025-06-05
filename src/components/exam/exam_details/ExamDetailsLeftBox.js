@@ -292,7 +292,7 @@ export default function ExamDetailsLeftBox({ examDetails, allExamData, allColleg
                   navigatePrev={'ind-clg-button-prev'}
                   navigateNext={'ind-clg-button-next'}
                   itemsPerView={1}
-                  isAutoScroll={true}
+                  isAutoScroll={getCollegesByExamId().length > 4 ? true : false}
                   breakPoints={responsive}
                   animation={'Card-Zoom-Effect'}
                   autoScrollPauseOnMouseEnter={true}

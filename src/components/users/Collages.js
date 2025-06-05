@@ -30,7 +30,8 @@ export default function Collages() {
     }
   };
   const filteredColleges = () => {
-    return allCollegeData.filter((college) => college?.category_name === userPreferenceInfo[0]?.specialization);
+    console.log(allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization))
+    return allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization);
   };
   const filteredCollegesById = () => {
     return allCollegeData.filter((college) =>
@@ -81,6 +82,7 @@ export default function Collages() {
       uploadSortList();
     }
   }, [userShortListedColleges.college_id]);
+  
   return (
     <>
       <section className="profile-page">
@@ -138,7 +140,7 @@ export default function Collages() {
                         </div>
                       </section>
                     ))}
-                  {tabToShow?.recomendation && (
+                  {/* {tabToShow?.recomendation && (
                     <div className="row pagination-gap">
                       <CustomPagination
                         data={filteredColleges()}
@@ -146,7 +148,7 @@ export default function Collages() {
                         currentItemsParent={setRecomendedColleges}
                       />
                     </div>
-                  )}
+                  )} */}
 
                   {tabToShow?.shortlist && userShortListedColleges.college_id !== ''
                     ? recomendedColleges.map((college) => (
