@@ -21,7 +21,7 @@ export default function ProfilePreferences() {
 
   const handleEdit = async () => {
     if (userPreferenceInfo.length > 0) {
-      dispatch(updateUserPreferences({ preferences: userPreferenceInfo[0] }));
+      dispatch(updateUserPreferences({ preferences: userPreferenceInfo }));
       setToggleButton(false);
     }
     setShow(false);
@@ -135,34 +135,34 @@ export default function ProfilePreferences() {
           <div className="preferences-all-text">
             <div className="text">
               Level
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.level : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.level || 'NA'}</h6>
             </div>
             <div className="text">
               Specialization
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.specialization : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.specialization || 'NA'}</h6>
             </div>
             <div className="text">
               Location
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.location : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.location || 'NA'}</h6>
             </div>
             <div className="text">
               College Type
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.college_type : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.college_type || 'NA'}</h6>
             </div>
             <div className="text">
               Fee Range
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.fee_range : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.fee_range || 'NA'}</h6>
             </div>
             {/* <div className="text">Colleges
                     <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.colleges : "NA"}</h6>
                 </div> */}
             <div className="text">
               Interested in studying abroad?
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.interested_abroad : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.interested_abroad || 'NA'}</h6>
             </div>
             <div className="text">
               Need a loan?
-              <h6>{userPreferenceInfo.length > 0 ? userPreferenceInfo[0]?.need_loan : 'NA'}</h6>
+              <h6>{userPreferenceInfo?.need_loan || 'NA'}</h6>
             </div>
           </div>
         </div>

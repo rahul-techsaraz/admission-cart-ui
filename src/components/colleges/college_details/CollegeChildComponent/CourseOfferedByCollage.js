@@ -13,6 +13,7 @@ const CourseOfferedByCollage = ({
 }) => {
   const collegeName = collegeDetails?.college_name || '';
   const collegeCourseDescription = collegeDetails?.description?.college_course_description || '';
+  const courseOfferedList = readmore?.allCourses ? courseOffered : courseOffered.slice(0, 4)
 
   return (
     <>
@@ -145,7 +146,7 @@ const CourseOfferedByCollage = ({
                 </tr>
               </thead>
               <tbody>
-                {courseOffered.map((course, index) => (
+                {courseOfferedList.map((course, index) => (
                   <tr key={course?.course_id || index}>
                     <td>{course?.course_name || 'N/A'}</td>
                     <td>{course?.sub_course_fee ? `₹ ${Number(course.sub_course_fee).toLocaleString()}` : '₹ 0.00'}</td>

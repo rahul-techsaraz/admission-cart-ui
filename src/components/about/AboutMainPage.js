@@ -13,8 +13,8 @@ export const AboutMainPage = () => {
       <OurMission />
       <OurVission />
       <OurStory />
-      <Milestones />
-      <OurOffering />
+      {/* <Milestones />
+      <OurOffering /> */}
     </>
   );
 };

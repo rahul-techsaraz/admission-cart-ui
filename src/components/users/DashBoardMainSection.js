@@ -190,7 +190,7 @@ export default function DashBoardMainSection() {
                       </p>
                     </div>
                     <div className="click">
-                      <Link to={'/aptitude_test'}>
+                      <Link to={''}>
                         <span className="schedule-a-Call">
                           Predict Your Career<i className="fa-solid fa-angle-right"></i>
                         </span>
