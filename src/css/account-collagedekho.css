@@ -1,7 +1,7 @@
 
 /* firstletter-name start */
 
-.main{
+/* .main{
     width: 100%;
     padding: 10px 0;
     background-color:#FED626;
@@ -16,19 +16,6 @@
     border-radius: 100px;
     margin-top: 10px;
     max-height: 100%;
-}
-.firstletter{
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    position: relative;
-    overflow: hidden;
-    /* border: 5px solid #fff; */
 }
 .firstletter h1{
     position: relative;
@@ -66,7 +53,7 @@
     text-decoration: none;
     color: #252525;
     font-size: 14px;
-}
+} */
 
 /*  */
 
