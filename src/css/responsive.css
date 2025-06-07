@@ -368,6 +368,10 @@
 .banner-caption h1{
   line-height: 55px;
 }
+.placement-grid{
+  width: 100%;
+  grid-template-columns: auto !important;
+}
 } /* end 991px */
 
 @media screen and (max-width: 768px) {
@@ -855,8 +859,11 @@
     font-size: 40px;
   }
   .course-details-alterImgbox-col1 h2{
-    font-size: 16px !important;
+    font-size: 20px !important;
     line-height: 25px !important;
+  }
+  #banner3-caption-right-position, #banner2-caption-right-position, #banner1-caption-right-position, #banner4-caption-right-position {
+    margin-right: 14vw !important;
   }
 }
 @media screen and (max-width: 470px){
@@ -895,6 +902,12 @@
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  .burger{
+    width: 20px;
+  }
+  .theme-btn{
+    font-size: 10px;
+  }
 }
 
 /* 375 px start */
@@ -923,6 +936,12 @@
   .navbar-left a {
      width: 80px;
   }
+  .banner-caption h1 {
+    font-size: 14px;
+  }
+  .process-title {
+      font-size: 14px;
+  }
 }
 
 /* 320 start */
@@ -930,6 +949,9 @@
 @media screen and (max-width: 320px) {
   .page2 h2 {
     font-size: 18px;
+  }
+  .banner-caption h1 {
+    font-size: 13px;
   }
 }
 

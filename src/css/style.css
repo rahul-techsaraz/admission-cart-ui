@@ -6193,9 +6193,10 @@ label #cancel {
   margin-top: -100px;
   padding: 30px;
   text-align: justify;
+  z-index: 9;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 300px) {
   .tooltip-top {
     position: relative;
     right: 0px;
