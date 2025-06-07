@@ -38,7 +38,7 @@ const LandingContainer = () => {
               navigatePrev={'banner-button-prev'}
               navigateNext={'banner-button-next'}
               itemsPerView={1}
-              isAutoScroll={true}
+              isAutoScroll={false}
               breakPoints={responsive}
               autoScrollPauseOnMouseEnter={true}
             >

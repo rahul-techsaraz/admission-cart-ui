@@ -279,9 +279,9 @@
 
 
 @media (max-width: 480px) {
-  body {
+  /* body {
     margin: 15px;
-  }
+  } */
   .course-listing-container {
     padding: 10px;
     gap: 20px;

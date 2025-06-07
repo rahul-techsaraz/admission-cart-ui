@@ -1,3 +1,16 @@
+@media screen and (max-width: 1200px){
+  .dashboard-box-center{
+    display: flex;
+    align-items: center;
+  }
+  .imgbox-img {
+    height: 100px;
+  }
+  .imgbox-img img {
+    object-fit: contain;
+  }
+}
+
 @media screen and (max-width: 1024px){
     .progress-wraper{
         display: none;
@@ -41,16 +54,12 @@
         font-size: 17px;
     }
     .img-box{
-        height: 230px;
         padding: 20px 15px;
         gap: 20px;
     }
     .imgbox-img img{
         width: 100px;
         object-fit: contain;
-    }
-    .imgbox-p{
-        padding-bottom: 20px;
     }
     .complete-p {
         font-size: 9px;
@@ -108,10 +117,6 @@
      .name h1{
         font-size: 24px;
      }
-     .firstletter{
-        width: 130px;
-        height: 100px;    
-     }
      .firstletter h1{
         font-size: 50px;
      }
@@ -152,10 +157,6 @@
      .name h1{
         font-size: 24px;
      }
-     .firstletter{
-        width: 120px;
-        height: 80px;    
-     }
      .firstletter h1{
         font-size: 50px;
      }
@@ -184,9 +185,6 @@
      .imgbox-img img{
         width: 100px;
         object-fit: contain;
-     }
-     .imgboxh3-p{
-        padding-bottom: 40px;
      }
 }
 

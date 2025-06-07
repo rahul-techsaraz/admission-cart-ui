@@ -149,7 +149,7 @@ export default function DashBoardMainSection() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-3 col-lg-3 col-xl-3">
+                <div className="col-md-3 col-lg-3 col-xl-3 dashboard-box-center">
                   <div className="imgbox-img">
                     <img src={expertPersonImage} alt="img-talk-to-expert" />
                   </div>
@@ -199,7 +199,7 @@ export default function DashBoardMainSection() {
                   </div>
                 </div>
 
-                <div className="col-xl-3">
+                <div className="col-xl-3 dashboard-box-center">
                   <div className="imgbox-img">
                     <img src={imageCareer} alt="img-talk-to-expert" />
                   </div>
