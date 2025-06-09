@@ -291,6 +291,7 @@
   }
   .clginfo-applybtn {
     width: 140px;
+    font-size: 15px;
   }
   .exam-details-hightlights-table td,
   .td-inner-html {
@@ -366,6 +367,10 @@
 }
 .banner-caption h1{
   line-height: 55px;
+}
+.placement-grid{
+  width: 100%;
+  grid-template-columns: auto !important;
 }
 } /* end 991px */
 
@@ -819,10 +824,51 @@
 .banner-caption h1 span {
         font-size: 16px;
   }
+  .admission-process-content h2,
+  .course-slider_h3text,
+  .choice-place-col2 h2,
+  .tranding-courses-heading,
+  .section-heading,
+  .imgText-heading,
+  .inner-pagebanner-section h1,
+  .faq-heading,
+  .newsletter-hdng,
+  .course-details-alterbox h2,
+  .tick-heading h2,
+  .clg-info-greenbox-hdng,
+  .section-heading2.grey,
+  .exam-center-calenderTxt1 span,
+  .download-content-box h2,
+  .inner-pagebanner-section h1,
+  .exam-details-yellow-heading,
+  .section-heading2,
+  .contact-form-section h2,
+  .contact-info-section h2 {
+    font-size: 22px !important;
+  }
+  .firstletter{
+    min-height: 70px;
+    min-width: 70px;
+    width: 70px;
+    height: 70px;
+  }
+  .name h1{
+    font-size: 25px;
+  }
+  .firstletter h1{
+    font-size: 40px;
+  }
+  .course-details-alterImgbox-col1 h2{
+    font-size: 20px !important;
+    line-height: 25px !important;
+  }
+  #banner3-caption-right-position, #banner2-caption-right-position, #banner1-caption-right-position, #banner4-caption-right-position {
+    margin-right: 14vw !important;
+  }
 }
 @media screen and (max-width: 470px){
   .navbar-left a {
-    width: 100px;
+    width: 120px;
 }
   .process-title {
     height: 60px;
@@ -852,6 +898,16 @@
   .card-zoom-box-wraper {
     width: 100%;
   }
+  .section-padding {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .burger{
+    width: 20px;
+  }
+  .theme-btn{
+    font-size: 10px;
+  }
 }
 
 /* 375 px start */
@@ -880,6 +936,12 @@
   .navbar-left a {
      width: 80px;
   }
+  .banner-caption h1 {
+    font-size: 14px;
+  }
+  .process-title {
+      font-size: 14px;
+  }
 }
 
 /* 320 start */
@@ -887,6 +949,9 @@
 @media screen and (max-width: 320px) {
   .page2 h2 {
     font-size: 18px;
+  }
+  .banner-caption h1 {
+    font-size: 13px;
   }
 }
 
@@ -923,6 +988,18 @@
   }
   .submit-and-prev-next {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 500px){
+  .collage_card_2ndtextbox_course-name_h3{
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .accordion-button-mystyle{
+    padding: 20px;
+    font-size: 16px;
   }
 }
 
@@ -983,6 +1060,12 @@
   .page {
     padding: 50px 0;
     height: 100%;
+  }
+  .newsletter-hdng{
+    font-size: 20px !important;
+  }
+  .inner-pagebanner-section h1{
+    font-size: 22px !important;
   }
 }
 

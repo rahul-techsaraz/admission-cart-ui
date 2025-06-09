@@ -1,7 +1,7 @@
 
 /* firstletter-name start */
 
-.main{
+/* .main{
     width: 100%;
     padding: 10px 0;
     background-color:#FED626;
@@ -28,7 +28,6 @@
     font-size: 60px;
     position: relative;
     overflow: hidden;
-    /* border: 5px solid #fff; */
 }
 .firstletter h1{
     position: relative;
@@ -66,7 +65,7 @@
     text-decoration: none;
     color: #252525;
     font-size: 14px;
-}
+} */
 
 /*  */
 
@@ -738,15 +737,17 @@ label #cancel{
     height: auto !important;
     padding-top: 20px !important;
   }
-}
-@media (min-width: 500px) {
-  .content {
+  .upload{
+    height: 230px;
+  }
+   .content {
     width: 43%;
   }
   #scroll-top {
     margin: 30px;
   }
 }
+
 .content h1 {
   margin-bottom: -10px;
   color: #03a9f4;
