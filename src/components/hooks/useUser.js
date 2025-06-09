@@ -16,33 +16,32 @@ const useUser = () => {
     );
   };
   function objectToFormData(obj) {
-    const formData = new FormData()
+    const formData = new FormData();
     for (const key in obj) {
       // eslint-disable-next-line no-prototype-builtins
       if (obj.hasOwnProperty(key)) {
-        formData.append(key, obj[key])
+        formData.append(key, obj[key]);
       }
     }
-    return formData
+    return formData;
   }
   const sendEmail = (payload) => {
     // Assuming payload is an object with key-value pairs
-    const formDataPayload = objectToFormData(payload)
-    
+    const formDataPayload = objectToFormData(payload);
 
     return dispatch(
       sendMail({
         url: constants.apiEndPoint.SENDMAIL,
         header: { Authorization: process.env.REACT_APP_MAIL_AUTH_TOKEN },
         method: constants.apiMethod.POST,
-        payload: formDataPayload
+        payload: formDataPayload,
       })
-    )
-  }
+    );
+  };
 
   const generate4DigitOTP = () => {
-    return Math.floor(1000 + Math.random() * 9000).toString()
-  }
+    return Math.floor(1000 + Math.random() * 9000).toString();
+  };
   return { verifyUserEmail, sendEmail, generate4DigitOTP };
 };
 

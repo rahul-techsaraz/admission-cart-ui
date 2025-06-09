@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import sandclassNameIcon from '../../../images/sandglass-icon.svg';
+// import sandclassNameIcon from '../../../images/sandglass-icon.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggelIsLoginPopup } from '../../../features/commonSlice';
@@ -54,16 +54,16 @@ const CustomCourseCard = ({ course, isModal }) => {
             <span class="info-tag freq-tag">{course?.exam_frequency}</span>
           </div>
           {course?.course_categories.map((category) => (
-            <span class="info-category" key={category}>
+            <div class="info-category" key={category}>
               {category}
-            </span>
+            </div>
           ))}
         </div>
-        {course.is_trending ? (
+        {/* {course.is_trending ? (
           <div class="trending-tag">
             <i class="fa-solid fa-arrow-trend-up"></i> Trending
           </div>
-        ) : null}
+        ) : null} */}
         <Link
           to={authenticateUser && `/courses_details/${course.course_id}`}
           onClick={() => handleClick()}

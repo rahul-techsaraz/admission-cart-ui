@@ -41,13 +41,13 @@ const CourseList = () => {
       {trendingCollege.length > 0 && (
         <section className="course-slider-section text-center section-padding">
           <div className="container">
-            <h3 className="course-slider_h3text">Tranding Collages</h3>
+            <h3 className="course-slider_h3text">Featured Colleges</h3>
             {/* <div className=""> */}
             <CustomeCrousel
               navigatePrev={'crousel-btn-prev'}
               navigateNext={'crousel-btn-next'}
               itemsPerView={4}
-              isAutoScroll={true}
+              isAutoScroll={trendingCollege.length > 4 ? true : false}
               breakPoints={responsive}
               animation={'Card-Zoom-Effect'}
               autoScrollPauseOnMouseEnter={true}

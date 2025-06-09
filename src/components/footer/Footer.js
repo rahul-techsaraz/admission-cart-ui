@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="footer-top">
           <div className="container">
             <div className="row justify-content-between">
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-5">
                 <div className="widget company-intro-widget pe-lg-5 mb-5 mb-lg-0">
                   <p>
                     <Link to="/">
@@ -51,9 +51,14 @@ const Footer = () => {
                       fill="#5BE4A8"
                     />
                   </svg>
-                  <p className="">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  <p className="footer-para">
+                        Your Gateway to the Right College <br/>
+                        At Admission Kart, we guide students toward the best educational opportunities across all streams and 
+                        courses — including Engineering, Medical, Management, Arts, Science, Commerce, Law, Design, and more. 
+                        Our mission is to make the admission process easy, transparent, and tailored to each student’s goals.
+                        From entrance exam guidance to college selection and application support, we offer end-to-end 
+                        counselling that helps you take confident steps toward a successful future. Wherever you dream of
+                        studying, we’ll help you get there. 
                   </p>
                 </div>
               </div>
@@ -79,7 +84,7 @@ const Footer = () => {
                   }
                 </div>
               </div>
-              <div className="col-12 col-md-4 col-lg-3">
+              <div className="col-12 col-md-4 col-lg-2">
                 <div className="widget course-links-widget">
                   <h5 className="widget-title">COLLEGES</h5>
                   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="4" viewBox="0 0 70 4" fill="none">
@@ -125,16 +130,16 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-md-5 col-sm-5 footer-icon-none">
-                <ul className="terms-privacy d-flex gap-4 mb-3 mb-md-0">
+              <div className="col-md-3 col-sm-5 col-lg-3">
+                <ul className="terms-privacy d-flex gap-3 mb-3 mb-md-0">
                   <li>
-                    <Link>
-                      <img src="images/facebook-icon.svg" alt="" />
+                     <Link to={'https://www.facebook.com/share/1AhUiZhgpN/'} target='blank'>
+                      <i className="fa-brands fa-facebook-f" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link>
-                      <img src="images/instagram-icon.svg" alt="" />
+                    <Link to={'https://www.instagram.com/admissionkart_official?utm_source=qr&igsh=MWV3cDN3OTkzaWJuaA=='} target='blank'>
+                      <i className="fa-brands fa-instagram" aria-hidden="true"></i>
                     </Link>
                   </li>
                   <li>
@@ -149,7 +154,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className="col-md-12 col-lg-12 col-sm-12 text-center text-lg-end">
+              <div className="col-md-9 col-lg-9 col-sm-12 text-center text-lg-end">
                 <p className="copy-right-text">
                   {' '}
                   ©Copyright 2023 All Rights Reserved by AdmissionKart. Designed by

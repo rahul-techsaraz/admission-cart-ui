@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 
 const CustomPagination = ({ data, itemsPerPage, currentItemsParent }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const [currentItems, setCurrentItems] = useState(
-    data.length > 0 ? data.slice(indexOfFirstItem, indexOfLastItem) : []
-  );
+  // const [currentItems, setCurrentItems] = useState(
+  //   data.length > 0 ? data.slice(indexOfFirstItem, indexOfLastItem) : []
+  // );
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
   const pageRange = [];
 
-  const calculation = () => {
-    if (data.length > itemsPerPage) {
-      setCurrentItems(data.slice(indexOfFirstItem, indexOfLastItem));
-    } else {
-      setCurrentItems(data);
-    }
-  };
+  // useEffect(() => {
+  //   let items = data ?? []
+  //   if (data.length > itemsPerPage) {
+  //     items = data.slice(indexOfFirstItem, indexOfLastItem);
+  //   }
+  //   currentItemsParent(items)
+  // },[data, currentPage]);
 
   const pageNumber = () => {
     if (pageNumbers.length <= 7) {
@@ -64,15 +64,24 @@ const CustomPagination = ({ data, itemsPerPage, currentItemsParent }) => {
     }
   };
 
-  useEffect(() => {
-    currentItemsParent(currentItems);
-  }, [currentItems]);
+  // useEffect(() => {
+  //   currentItems
+  // }, [currentItems]);
 
+  // useEffect(() => {
+  //   calculation();
+  // }, [currentPage, data]);
   useEffect(() => {
-    calculation();
-  }, [currentPage, data]);
+    let items = data ?? []
+    if (data.length > itemsPerPage) {
+      items = data.slice(indexOfFirstItem, indexOfLastItem);
+    }
+    currentItemsParent(items)
+  },[data, currentPage]);
 
   return (
+    <>
+    {data.length > itemsPerPage &&
     <>
       <button className="pagination-item" onClick={handlePreviousPage} disabled={currentPage === 1}>
         Prev
@@ -90,8 +99,9 @@ const CustomPagination = ({ data, itemsPerPage, currentItemsParent }) => {
       <button className="pagination-item" onClick={handleNextPage} disabled={currentPage === totalPages}>
         Next
       </button>
+    </>}
     </>
   );
 };
 
-export default CustomPagination;
+export default memo(CustomPagination);

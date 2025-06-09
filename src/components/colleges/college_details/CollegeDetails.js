@@ -40,6 +40,7 @@ export default function CollegeDetails() {
     highlightDescription: false,
     highlightCourses: false,
     allCourses: false,
+    admission: false
   });
 
   const { college_id } = useParams();
@@ -199,6 +200,8 @@ export default function CollegeDetails() {
                 collegeDetails={collegeDetailsById}
                 getCurrentYear={getCurrentYear}
                 swiperResponsive={swiperResponsive}
+                readmore={readmore}
+                setReadmore={setReadmore}
                 // responsive={responsive}
                 audienceIcon={audienceIcon}
                 hostelIcon={hostelIcon}

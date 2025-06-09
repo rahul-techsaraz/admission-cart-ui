@@ -68,7 +68,7 @@
 
 
   .login-main-box {
-    height: 500px;
+    height: auto;
     width: 500px;
     background-color: white;
     box-shadow: 8px 8px 20px rgb(128, 128, 128);
@@ -78,8 +78,8 @@
     z-index: 99999;
     top: 0;
     right: 0;
+    transition: all 0.5s ease-in-out;
 }
- 
 .btn {
     height: 55px;
     width: 300px;
@@ -93,7 +93,7 @@
  
 .login,
 .signup {
-    font-size: 22px;
+    font-size: 20px;
     border: none;
     outline: none;
     background-color: transparent;
@@ -121,7 +121,7 @@
 }
  
 .form-section {
-    height: 500px;
+    height: auto;
     width: 1000px;
     padding: 20px 0;
     display: flex;
@@ -130,20 +130,20 @@
     left: 0px;
 }
  
-.form-section-move {
-    left: -500px;
-}
- 
 .login-box,
 .signup-box {
-    height: 100%;
+    height: auto;
     width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px 40px;
+    transition: all 0.5s ease-in-out;
 }
- 
+.signup-box{
+    right: -100%;
+    position: relative;
+}
 .login-box {
     gap: 50px;
 }
@@ -175,14 +175,14 @@
 }
  
 .clkbtn {
-    height: 55px;
+    height: 50px;
     width: 150px;
     border-radius: 50px;
     /* background-image: linear-gradient(to right,
             rgb(255, 195, 110),
             rgb(255, 146, 91)); */
             background-color: #FED626;
-    font-size: 22px;
+    font-size: 19px;
     border: none;
     cursor: pointer;
     font-weight: 600;
@@ -191,3 +191,18 @@
     display: flex;
     gap: 10px;
 }
+/* .hidden{
+    display: none;
+} */
+ .sign-upbox-click{
+    right: 0px;
+ }
+.login-box{
+    left: 0;
+    position: relative;
+ }
+ .login-upbox-click{
+    left: -100%;
+    position: absolute;
+    opacity: 0;
+ }

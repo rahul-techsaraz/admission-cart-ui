@@ -11,6 +11,8 @@ const CollegeFacilities = ({
   collegeDetails,
   facultyData,
   getCurrentYear,
+  readmore,
+  setReadmore,
   swiperResponsive,
   audienceIcon,
   hostelIcon,
@@ -45,6 +47,7 @@ const CollegeFacilities = ({
     },
   };
   const dispatch = useDispatch()
+  const admissionDescription = readmore?.admission ? collegeDetails?.description?.college_admission_description : collegeDetails?.description?.college_admission_description.slice(0, 200)
   return (
     <>
       <div className="tick-heading d-flex align-items-center mb-4">
@@ -54,10 +57,20 @@ const CollegeFacilities = ({
         <h2>{`${collegeDetails?.college_name} Admission ${getCurrentYear()}`}</h2>
       </div>
       <div className="clg-location-infograybx mb-5">
-        <p>{collegeDetails?.description?.college_admission_description}</p>
-        <div className="text-start mt-3">
-          <Link className="course-details-readmore-btn btn text-white" onClick={() => dispatch(toggelIsContactUs({ flag: true }))}>Read More</Link>
-        </div>
+        <p>{admissionDescription}</p>
+        {/* <div className="text-start mt-3">
+          <Link className="course-details-readmore-btn btn text-white">Read More</Link>
+        </div> */}
+        {collegeDetails?.description?.college_admission_description.length > 200 && (
+          <div className="text-start mt-5">
+            <Link
+              className="course-details-readmore-btn btn text-white"
+              onClick={() => setReadmore({ ...readmore, admission: !readmore.admission })}
+            >
+              {!readmore.admission ? 'Read More' : 'Read Less'}
+            </Link>
+          </div>
+        )}
       </div>
 
       <div className="course-details-alterImgbox d-flex align-items-center">
@@ -284,7 +297,7 @@ const CollegeFacilities = ({
                 <CustomeCrousel
                   navigatePrev={'clg-faculty-button-prev'}
                   navigateNext={'clg-faculty-button-next'}
-                  itemsPerView={4}
+                  itemsPerView={3}
                   isAutoScroll={false}
                   breakPoints={responsive}
                   // animation={'Card-Zoom-Effect'}
@@ -329,6 +342,7 @@ CollegeFacilities.propTypes = {
   }).isRequired,
   getCurrentYear: PropTypes.func.isRequired,
   swiperResponsive: PropTypes.func.isRequired,
+  readmore: PropTypes.object.isRequired,
   // responsive: PropTypes.object.isRequired,
   facultyData: PropTypes.array.isRequired,
 

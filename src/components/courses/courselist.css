@@ -36,13 +36,10 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  /* border: 1px solid var(--border-color-light); */
+  border: 1px solid #b4b4b4;
 }
 .course-card-header {
-  background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+  background: var(--white-color);
   padding: 20px;
   color: var(--text-dark);
   border-top-left-radius: 10px;
@@ -86,21 +83,20 @@
   justify-content: end;
 }
 .course-mode {
-  /* background-color: rgba(255, 255, 255, 0.6); */
-  background-color: var(--primary-color);
-  border-radius: 25px;
-  padding: 5px 10px;
+  border-radius: 6px;
+  padding: 5px 6px;
   font-size: 12px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 5px;
-  width: 100px;
+  width: 90px;
   justify-content: center;
   /* margin-left: 15px; */
   backdrop-filter: blur(3px);
   color: var(--text-dark);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--text-dark);
+  /* box-shadow: 1px 2px 4px #666; */
   /* Ensure course-mode is visible above header background but below trending-tag if needed */
   z-index: 3; /* Give it a slightly higher z-index if it tends to go under */
 }
@@ -110,11 +106,12 @@
 }
 
 .course-card-body {
-  padding: 20px;
+  /* padding: 20px; */
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  padding: 15px 20px 12px;
 }
 
 .course-info-item {
@@ -158,26 +155,28 @@
 }
 
 .info-tag {
-  background-color: var(--tag-bg-color);
-  color: var(--tag-text-color);
+  /* background-color: var(--tag-bg-color); */
+  color: var(--text-dark);
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 0.85em;
   font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--text-dark);
 }
 
 .info-category {
-  background-color: var(--tag-bg-color);
-  color: var(--tag-text-color);
+  color: var(--text-dark);
   border-radius: 6px;
   font-size: 0.75em;
   font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--text-dark);
+  text-wrap: wrap;
+  padding: 6px;
 }
 
 /* --- START: UPDATED TRENDING TAG (RIBBON) STYLES --- */
@@ -271,6 +270,13 @@
     font-size: 0.75em;
   }
 }
+@media (max-width: 500px){
+   .info-value {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 
 @media (max-width: 480px) {
   body {
@@ -296,9 +302,4 @@
     padding: 10px 15px 15px;
   }
 }
-@media (max-width: 430px){
-      .info-value {
-        display: flex;
-        flex-direction: row;
-    }
-}
+

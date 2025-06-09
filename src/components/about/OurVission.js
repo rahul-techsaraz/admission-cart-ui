@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import ourVissionImg from '../../images/vission-img.png';
+import { useDispatch } from 'react-redux';
+import { toggelIsContactUs } from '../../features/commonSlice';
 
 export const OurVission = () => {
+  const dispatch = useDispatch()
   return (
     <section className="imgText-grid-section section-padding">
       <div className="container-fluid">
@@ -12,7 +15,7 @@ export const OurVission = () => {
               Powering your global education dream. We support future leader from India in their quest to study at the
               best global schools.{' '}
             </p>
-            <Link className="leftdash-btn greendash">Enquire Now</Link>
+            <Link className="leftdash-btn greendash" onClick={()=>dispatch(toggelIsContactUs({flag:true}))}>Enquire Now</Link>
           </div>
           <div className="col-md-3">
             <div className="about-img-parent position-relative ps-md-5">

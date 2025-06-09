@@ -35,37 +35,10 @@ export default function ProfileBasicDetails() {
       setDisable(true);
     }
   };
-  const handleEdit = async () => {
-    setToggleButton(false);
+  const handleEdit = () => {
     setShow(false);
   };
-  const handleSave = async () => {
-    const payload = {
-      requestType: 'userDetails',
-      email: userInfo?.email,
-      full_name: userInfo?.full_name,
-      city: userInfo?.city,
-      state: userInfo?.state,
-      country: 'India',
-      dob: userInfo?.dob,
-      gender: userInfo?.gender,
-      marital_status: userInfo?.marital_status,
-      physically_challenged: userInfo.physically_challenged,
-      social_category: userInfo?.social_category,
-    };
-    const response = await dispatch(
-      saveUserBasicDetails({
-        url: constants.apiEndPoint.USER_DETAILS_SAVE_UPDATE,
-        method: constants.apiMethod.POST,
-        header: constants.apiHeader.HEADER,
-        payload: payload,
-      })
-    );
-    if (response?.payload?.status === constants.apiResponseStatus.SUCCESS) {
-      fetchUserBasicDetail();
-      setShow(true);
-    }
-  };
+  
   const handleUpdate = async () => {
     const payload = {
       requestType: 'userDetails',
@@ -82,7 +55,7 @@ export default function ProfileBasicDetails() {
     };
     const response = await dispatch(
       saveUserBasicDetails({
-        url: constants.apiEndPoint.USER_DETAILS_SAVE_UPDATE,
+        url: `${constants.apiEndPoint.USER_DETAILS_SAVE_UPDATE}&email=${userInfo?.email}`,
         method: constants.apiMethod.PUT,
         header: constants.apiHeader.HEADER,
         payload: payload,
@@ -108,9 +81,12 @@ export default function ProfileBasicDetails() {
   useEffect(() => {
     fetchUserBasicDetail();
   }, []);
+  useEffect(()=>{
+    console.log(toggleButton)
+  },[toggleButton])
   return (
     <>
-      {show === true ? (
+      {show ? (
         <>
           <ProfileTheme>
             <div className="besic-detials-h3-i">
@@ -257,25 +233,14 @@ export default function ProfileBasicDetails() {
               <button className="besic-detials-all-text-hide-button1" onClick={() => setShow(true)}>
                 Cancle
               </button>
-              {toggleButton === true ? (
-                <button
-                  className="besic-detials-button-save"
-                  disabled={disable === true ? true : false}
-                  onClick={() => handleSave()}
-                  style={disable ? { backgroundColor: 'lightgray' } : {}}
-                >
-                  Save
-                </button>
-              ) : (
-                <button
-                  className="besic-detials-button-save"
-                  disabled={disable === true ? true : false}
-                  onClick={() => handleUpdate()}
-                  style={disable ? { backgroundColor: 'lightgray' } : {}}
-                >
-                  Update
-                </button>
-              )}
+              <button
+                className="besic-detials-button-save"
+                disabled={disable === true ? true : false}
+                onClick={() => handleUpdate()}
+                style={disable ? { backgroundColor: 'lightgray' } : {}}
+              >
+                Update
+              </button>
             </div>
           </ProfileTheme>
         </>

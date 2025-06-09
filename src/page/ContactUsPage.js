@@ -131,7 +131,7 @@ const ContactUsPage = () => {
                 </svg>
                 <h2> Call Us</h2>
                 <p>
-                  044-22570509 / 22578280 / 22578000 <br /> 22579000 / 9444008001 / 9444008002
+                  +919886220024
                 </p>
               </div>
 
@@ -151,7 +151,7 @@ const ContactUsPage = () => {
                   />
                 </svg>
                 <h2>Email us</h2>
-                <p>info@gmail.com</p>
+                <p>admissionkartinfo@gmail.com</p>
               </div>
             </div>
 

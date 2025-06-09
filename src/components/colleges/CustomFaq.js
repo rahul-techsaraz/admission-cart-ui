@@ -44,7 +44,7 @@ export default function CustomFaq() {
                 </div>
               ))}
 
-              <button className="theme-btn black-btn mt-5">Request for a Callback</button>
+              <button className="theme-btn black-btn mt-3">Request for a Callback</button>
             </div>
           </div>
         </div>

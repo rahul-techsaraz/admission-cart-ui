@@ -30,7 +30,7 @@
 }
 @media screen and (max-width: 1240px) {
   .banner-caption {
-    padding: 55px 0;
+    padding: 80px 0;
   }
   .course-list-leftbox {
     width: 130px;
@@ -95,11 +95,15 @@
   .copy-right-text {
     font-size: 13px;
 }
+.process-title{
+  font-size: 16px;
+}
+.banner-caption h1 {
+    font-size: 35px;
+    line-height: 60px;
+  }
 }
 @media screen and (max-width: 1024px) {
-  .banner-caption h1 {
-    font-size: 35px;
-  }
   .course_box_childtext {
     padding: 30px 30px 0 !important;
   }
@@ -174,7 +178,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px 0 40px 40px;
+    padding: 60px 0 60px 40px;
   }
   .banner-button-prev {
     left: 20px;
@@ -356,6 +360,12 @@
 }
 .exam-3step-text span{
   font-size: 20px;
+}
+.process-title-height, .process-title{
+    height: 50px;
+}
+.banner-caption h1{
+  line-height: 55px;
 }
 } /* end 991px */
 
@@ -618,15 +628,15 @@
     position: relative;
     padding: 5px 20px;
   }
+  .process-title {
+    height: 40px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   /* .banner-slider, .swiper-slide{
         background-repeat: no-repeat;
       } */
-  .banner-caption {
-    height: 220px;
-  }
   .banner-btn-grp {
     margin-top: 1rem !important;
   }
@@ -788,15 +798,39 @@
         width: 100%;
     }
 }
-
-@media screen and (max-width: 470px){
-  .banner1_searchbutton_button input[type='text'] {
-      width: 120px;
-      font-size: 6px;
+@media screen and (max-width: 480px){
+  .process-title{
+    font-size: 16px;
   }
   .navbar-left a {
-    width: 150px;
+    width: 140px;
 }
+.banner1_searchbutton_button input[type='text'] {
+  width: 100px;
+  font-size: 6px;
+}
+.banner-caption h1 {
+  font-size: 16px;
+  line-height: 25px;
+}
+.banner-caption {
+  padding: 20px 0 20px 40px;
+}
+.banner-caption h1 span {
+        font-size: 16px;
+  }
+}
+@media screen and (max-width: 470px){
+  .navbar-left a {
+    width: 100px;
+}
+  .process-title {
+    height: 60px;
+  }
+  .banner1_searchbutton_button input[type='text'] {
+    width: 100px;
+  }
+
 }
 
 /* 430 start */
@@ -843,9 +877,8 @@
   .national-flag-img img {
     max-width: 14px;
   }
-  .banner1_searchbutton_button input[type='text'] {
-    width: 150px;
-    padding: 6px 10px;
+  .navbar-left a {
+     width: 80px;
   }
 }
 

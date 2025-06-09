@@ -21,8 +21,8 @@ const CareerStep = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">01</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Register</p>
-                <p className="process-para">Just drop in your phone number to register.</p>
+                <p className="process-title process-title-height">Personalized Career Counselling</p>
+                <p className="process-para">We begin by understanding your interests, strengths, and career goals to guide you toward the right course and college aligned with your dream job.</p>
               </div>
             </li>
             <li>
@@ -38,10 +38,9 @@ const CareerStep = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">02</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Ability / Communication Assessment</p>
+                <p className="process-title process-title-height">Expert College Admission Guidance</p>
                 <p className="process-para">
-                  Our experts will contact you to understand your career goals. Our experts will contact you to
-                  understand your career goals.
+                  Our admission experts help you shortlist top institutes offering industry-relevant programs that enhance employability and placement opportunities.
                 </p>
               </div>
             </li>
@@ -58,9 +57,9 @@ const CareerStep = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">03</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Talent Suggestion</p>
+                <p className="process-title process-title-height">Skill-Building & Mentorship Support</p>
                 <p className="process-para">
-                  Experts will recommend MBA/ B.Tech course suggestions customised to your skill set.
+                  We connect you with mentors and recommend certified programs that help you gain real-world skills, making you industry-ready even before graduation.
                 </p>
               </div>
             </li>
@@ -77,10 +76,9 @@ const CareerStep = () => {
                 <span className="mx-auto d-flex align-items-center justify-content-center">04</span>
               </div>
               <div className="px-2">
-                <p className="process-title">Course Commencement</p>
+                <p className="process-title process-title-height">Placement Support & Career Readiness</p>
                 <p className="process-para">
-                  Get set go! Get an edge over your peers and shine out throughout your college years as well as
-                  jumpstart your career even before you graduate!
+                  Through our partner network and placement training resources, we assist you with internships, mock interviews, and job opportunities to kickstart your career with confidence.
                 </p>
               </div>
             </li>
