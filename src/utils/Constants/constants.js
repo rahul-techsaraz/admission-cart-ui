@@ -45,7 +45,7 @@ import ICLegalProfile from '../../images/homepage-image/ic-legal.6c5d124d.svg';
 import ICSettingProfile from '../../images/homepage-image/Ic-settings.5c58e061.svg';
 const constants = {
   apiEndPoint: {
-    UPLOAD_FILE: 'https://techsaraz.in/admission-cart/api/fileupload/upload.php',
+    UPLOAD_FILE: 'https://techsaraz.in/admission-cart/api/user.php?requestType=uploadBasicDocument',
     USER_SIGNUP: 'https://techsaraz.in//admission-cart/api/login/register.php',
     USER_LOGIN: 'https://techsaraz.in//admission-cart/api/login/login.php',
     USER_AUTHORISATION: 'https://techsaraz.in//admission-cart/api/login/user-info.php',
@@ -59,7 +59,7 @@ const constants = {
     USER_EDUCATIONAL_QUALIFICATION_UPDATE:
       'https://techsaraz.in/admission-cart/api/user.php?requestType=educationalQualification',
     USER_PREFERENCE_SAVE_UPDATE: 'https://techsaraz.in/admission-cart/api/user.php?requestType=collegePreferences',
-    USER_DOCUMENT_SAVE_UPDATE: 'https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument',
+    USER_DOCUMENT_SAVE_UPDATE: 'https://techsaraz.in/admission-cart/api/user.php?requestType=uploadBasicDocument',
     USER_DOCUMENT_GET_ALL_DOCUMENT:
       ' https://techsaraz.in//admission-cart/api/user.php?requestType=uploadBasicDocument&email=',
     USER_FEADBACK: 'https://techsaraz.in//admission-cart/api/user.php?requestType=userFeedbackReport',
@@ -87,6 +87,7 @@ const constants = {
   },
   apiHeader: {
     HEADER: { 'Content-Type': 'application/json' },
+    HEADER_FORM_DATA: { 'Content-Type': 'multipart/form-data' },
   },
   apiResponseStatus: {
     SUCCESS: 'success',

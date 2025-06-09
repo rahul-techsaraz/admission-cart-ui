@@ -1,5 +1,4 @@
 const httpFetch = async (url, header, method, body) => {
-  console.log(url, header, method, body);
   if (method !== 'get') {
     const data = await fetch(url, {
       method: method,

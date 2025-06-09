@@ -51,6 +51,7 @@ const initialState = {
     pan_card: ' ',
   },
   userShortListedColleges: {
+    email: '',
     college_id: '',
     college_name: '',
   },
@@ -88,6 +89,9 @@ const userSlice = createSlice({
           college_name: `${state.userShortListedColleges?.college_name},${payload?.sortlistedCollege?.college_name}`,
         };
       }
+    },
+    removefromSortlistColleges: (state, {payload}) => {
+      state.userShortListedColleges = payload?.shortlist
     },
     updateUserFeedback: (state, { payload }) => {},
     updateUserDocument: (state, { payload }) => {
@@ -237,6 +241,7 @@ const userSlice = createSlice({
     builder.addCase(fetchUserShortlist.fulfilled, (state, { payload }) => {
       if (payload.status === constants.apiResponseStatus.SUCCESS && payload.data.length > 0) {
         state.userShortListedColleges = {
+          email: payload?.data[0]?.email,
           college_id: payload?.data[0]?.college_id,
           college_name: payload?.data[0]?.college_name,
         };
@@ -258,6 +263,7 @@ export const {
   resetQualification,
   updateUserPreferences,
   updateUserSortlistedColleges,
+  removefromSortlistColleges,
   updateUserFeedback,
   updateUserDocument,
   updateUserDocumentAfterFetch,

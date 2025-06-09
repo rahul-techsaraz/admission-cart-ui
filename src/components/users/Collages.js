@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import constants from '../../utils/Constants/constants';
 import '../../css/collages-responsive.css';
 import '../../css/collage-collagedekho.css';
 import Sidebar from './Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserSortlistedColleges } from '../../features/userSlice';
+import { removefromSortlistColleges, updateUserSortlistedColleges } from '../../features/userSlice';
 import { Link } from 'react-router-dom';
 import { useFetchUserSortlist } from '../hooks/useFetchUserSortlist';
 import { saveUserShortlist } from '../ReduxThunk/CommonThunk';
 import CustomPagination from '../../utils/Constants/custom-components/CustomPagination';
+import { showNotification } from '../../features/commonSlice';
 
-export default function Collages() {
+ function Collages() {
   const [recomendedColleges, setRecomendedColleges] = useState([]);
   const { userPreferenceInfo, userShortListedColleges, userInfo } = useSelector((state) => state.userSlice);
   const { allCollegeData } = useSelector((state) => state.common);
@@ -29,60 +30,155 @@ export default function Collages() {
       setTabToShow({ ...tabToShow, recomendation: false, shortlist: true });
     }
   };
-  const filteredColleges = () => {
-    console.log(allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization))
-    // return allCollegeData.filter((college) => college?.category_name === userPreferenceInfo?.specialization);
-  };
-  filteredColleges()
-  const filteredCollegesById = () => {
-    return allCollegeData.filter((college) =>
-      userShortListedColleges.college_id.split(',').includes(college.college_id)
-    );
-  };
-  const moveToShortList = (college) => {
-    if (userShortListedColleges.college_id.split(',').includes(college.college_id)) {
-      return;
-    } else {
-      dispatch(updateUserSortlistedColleges({ sortlistedCollege: college }));
+  const filteredColleges = useMemo(() => {
+    if(userShortListedColleges.college_id){
+      let filteredData = []
+      filteredData = allCollegeData.filter((college)=> !userShortListedColleges.college_id.split(',').includes(college.college_id))
+      // console.log(allCollegeData)
+      // console.log(filteredData)
+      // console.log(filteredData.filter((college) => college?.category_name.includes(userPreferenceInfo?.specialization)))
+      return filteredData.filter((college) => college?.category_name.includes(userPreferenceInfo?.specialization));
     }
-  };
-  const uploadSortList = async () => {
+    return allCollegeData.filter((college) => college?.category_name.includes(userPreferenceInfo?.specialization));
+  },[allCollegeData, userPreferenceInfo?.specialization, userShortListedColleges.college_id]);
+  
+  const filteredCollegesById = useMemo(() => {
+    console.log(allCollegeData)
+    console.log(allCollegeData.filter((college) => userShortListedColleges.college_id.split(',').includes(college.college_id)))
+    return allCollegeData.filter((college) => userShortListedColleges.college_id.split(',').includes(college.college_id)
+    );
+  },[allCollegeData, userShortListedColleges.college_id]);
+  
+  const moveToShortList = async (college) => {
     try {
       const payload = {
         email: userInfo.email,
-        college_id: userShortListedColleges.college_id,
-        college_name: userShortListedColleges.college_name,
+        college_id: college.college_id,
+        college_name: college.college_name,
       };
       const response = await dispatch(
         saveUserShortlist({
           url: constants.apiEndPoint.USER_SORTLIST_SAVE_UPDATE,
           method:
-            userShortListedColleges.college_id.split(',').length <= 1
-              ? constants.apiMethod.POST
-              : constants.apiMethod.PUT,
+            userShortListedColleges.email
+              ? constants.apiMethod.PUT
+              : constants.apiMethod.POST,
           header: constants.apiHeader.HEADER,
           payload: payload,
         })
       );
-      console.log(response);
       if (response?.payload.status === constants.apiResponseStatus.SUCCESS) {
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'sucess',
+            message: 'Shortlisting Sucessfully',
+        }))
         fetchSortlist();
       } else {
-        alert('Something went wrong try again later...');
+         dispatch(showNotification({
+            isOpen: true,
+            type: 'error',
+            message: 'Shortlisting Unsucessful...',
+        }))
       }
     } catch (err) {
-      alert('Something went wrong try again later...');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Something went wrong... try again later',
+      }))
     }
   };
+  // const uploadSortList = async () => {
+  //   try {
+  //     const payload = {
+  //       email: userInfo.email,
+  //       college_id: userShortListedColleges.college_id,
+  //       college_name: userShortListedColleges.college_name,
+  //     };
+  //     const response = await dispatch(
+  //       saveUserShortlist({
+  //         url: constants.apiEndPoint.USER_SORTLIST_SAVE_UPDATE,
+  //         method:
+  //           userShortListedColleges.college_id.split(',').length < 1
+  //             ? constants.apiMethod.POST
+  //             : constants.apiMethod.PUT,
+  //         header: constants.apiHeader.HEADER,
+  //         payload: payload,
+  //       })
+  //     );
+  //     if (response?.payload.status === constants.apiResponseStatus.SUCCESS) {
+  //       fetchSortlist();
+  //     } else {
+  //        dispatch(showNotification({
+  //           isOpen: true,
+  //           type: 'error',
+  //           message: 'Something went wrong',
+  //       }))
+  //     }
+  //   } catch (err) {
+  //     dispatch(showNotification({
+  //         isOpen: true,
+  //         type: 'error',
+  //         message: 'Something went wrong',
+  //     }))
+  //   }
+  // };
+  const removeShortlist = async (college) => {
+    try{
+      const collageID = userShortListedColleges?.college_id.split(',').filter((id)=>id !== college.college_id)
+      const collegeName = userShortListedColleges?.college_name.split(',').filter((name)=>name !== college.college_name)
+      const remainingCollegeID = collageID.join(',')
+      const remainingCollegeName = collegeName.join(',')
+      const payload = {
+        email: userInfo.email,
+        college_id: `${remainingCollegeID}`,
+        college_name: `${remainingCollegeName}`,
+      };
+      const response = await dispatch(
+        saveUserShortlist({
+          url: constants.apiEndPoint.USER_SORTLIST_SAVE_UPDATE,
+          method:
+            userShortListedColleges.college_id
+              ? constants.apiMethod.PUT
+              : constants.apiMethod.POST,
+          header: constants.apiHeader.HEADER,
+          payload: payload,
+        })
+      );
+      if (response?.payload.status === constants.apiResponseStatus.SUCCESS) {
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'sucess',
+            message: 'Shortlisting Sucessfully',
+        }))
+        fetchSortlist();
+      } else {
+         dispatch(showNotification({
+            isOpen: true,
+            type: 'error',
+            message: 'Shortlisting Unsucessful...',
+        }))
+      }
+    }catch(err){
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Something went wrong... try again later',
+      }))
+    }
+  }
+  
   useEffect(() => {
     fetchSortlist();
   }, []);
-  useEffect(() => {
-    if (userShortListedColleges.college_id !== '') {
-      console.log(userShortListedColleges);
-      uploadSortList();
-    }
-  }, [userShortListedColleges.college_id]);
+  // useEffect(() => {
+  //   // if (userShortListedColleges.college_id !== '') {
+  //   //   console.log(userShortListedColleges);
+  //   //   uploadSortList();
+  //   // }
+  //   uploadSortList();
+  // }, [userShortListedColleges.college_id]);
   
   return (
     <>
@@ -104,13 +200,14 @@ export default function Collages() {
                 <label for="tab3">Applications</label> */}
 
                 <div className="tab-panels">
-                  {tabToShow?.recomendation &&
+                  {(tabToShow?.recomendation && (
+                    filteredColleges.length>0 ? 
                     recomendedColleges.map((college) => (
                       <section id="Recommendations" style={{ marginBottom: '10px' }}>
                         <div className="recomendation-box">
                           <div className="reco-img-name">
                             <div className="reco-img">
-                              <img src={constants.imageAbsolutePath + college?.college_logo} alt="" />
+                              <img src={constants.assestAbsolutePath + college?.college_logo} alt="" />
                             </div>
                             <div className="reco-text">
                               <h4>{college?.college_name}</h4>
@@ -140,16 +237,26 @@ export default function Collages() {
                           </div>
                         </div>
                       </section>
+                    ))
+                    :
+                    <section id="Shortlists">
+                      <div className="not-show">
+                        <div className="not-show-img">
+                          <img src={constants.images.users.noDataImg} alt="no-data" />
+                        </div>
+                        <h5>Sorry! Seems like you have no recomended colleges</h5>
+                      </div>
+                    </section>
                     ))}
-                  {/* {tabToShow?.recomendation && (
+                  {(tabToShow?.recomendation) && (
                     <div className="row pagination-gap">
                       <CustomPagination
-                        data={filteredColleges()}
+                        data={filteredColleges}
                         itemsPerPage={2}
-                        currentItemsParent={setRecomendedColleges}
+                        currentItemsParent={(items)=>setRecomendedColleges(items)}
                       />
                     </div>
-                  )} */}
+                  )}
 
                   {tabToShow?.shortlist && userShortListedColleges.college_id !== ''
                     ? recomendedColleges.map((college) => (
@@ -157,7 +264,7 @@ export default function Collages() {
                           <div className="recomendation-box">
                             <div className="reco-img-name">
                               <div className="reco-img">
-                                <img src={constants.imageAbsolutePath + college?.college_logo} alt="" />
+                                <img src={constants.assestAbsolutePath + college?.college_logo} alt="" />
                               </div>
                               <div className="reco-text">
                                 <h4>{college?.college_name}</h4>
@@ -171,7 +278,7 @@ export default function Collages() {
                               </div>
                               <div className="reco-button">
                                 <div className="button-box">
-                                  <div className="collages-btn from-down">Remove from Shortlist</div>
+                                  <div className="collages-btn from-down" onClick={()=>removeShortlist(college)}>Remove from Shortlist</div>
                                 </div>
                               </div>
                             </div>
@@ -185,17 +292,17 @@ export default function Collages() {
                             <div className="not-show-img">
                               <img src={constants.images.users.noDataImg} alt="no-data" />
                             </div>
-                            <h5>Sorry! Seems like you have no Insurance</h5>
+                            <h5>Sorry! Seems like you have no Shortlisted colleges</h5>
                           </div>
                         </section>
                       )}
 
-                  {tabToShow?.shortlist && userShortListedColleges.college_id !== '' && (
+                  {(tabToShow?.shortlist && userShortListedColleges.college_id !== '') && (
                     <div className="row pagination-gap">
                       <CustomPagination
-                        data={filteredCollegesById()}
+                        data={filteredCollegesById}
                         itemsPerPage={2}
-                        currentItemsParent={setRecomendedColleges}
+                        currentItemsParent={(items)=>setRecomendedColleges(items)}
                       />
                     </div>
                   )}
@@ -251,3 +358,4 @@ export default function Collages() {
     </>
   );
 }
+export default memo(Collages);

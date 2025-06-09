@@ -8,7 +8,7 @@ export default function CourseCard({ data }) {
   const { allCourseData } = useSelector((state) => state.common);
   const [courseData, setCourseData] = useState([]);
 
-  const dataToMap = courseData.length > 16 ? courseData : allCourseData
+  const dataToMap = allCourseData.length > 8 ? courseData : allCourseData
 
   useEffect(() => {
     if (data) {
@@ -24,9 +24,9 @@ export default function CourseCard({ data }) {
           </CardZoomEffect>
         ))}
       </div>
-      {allCourseData.length > 16 &&
+      {allCourseData.length > 8 &&
       <div className="row pagination-gap">
-        <CustomPagination data={allCourseData} itemsPerPage={16} currentItemsParent={setCourseData} />
+        <CustomPagination data={allCourseData} itemsPerPage={8} currentItemsParent={setCourseData} />
       </div>}
     </>
   );

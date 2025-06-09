@@ -9,6 +9,8 @@ import { updateUserDocument, updateUserDocumentAfterFetch } from '../../features
 import httpFetch from '../../fetch/useFetch';
 import { saveUserDocument } from '../ReduxThunk/CommonThunk';
 import { useFetchUserDocuments } from '../hooks/useFetchUserDocuments';
+import { showNotification } from '../../features/commonSlice';
+import { httpCall2 } from '../../fetch/service';
 
 export default function Document() {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -36,14 +38,21 @@ export default function Document() {
     const fileType = e.target.files[0].type.split('/');
     const newName = document + '.' + fileType[1];
     if (!allowedFileTypes.includes(fileType[1])) {
-      alert('Selected File Type is not Supported');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Selected File Type is not Supported',
+      }))
       return;
     } else if (e.target.files[0].size > 2097152) {
-      alert('Selected File Size exceeds the limit');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'Selected File Size exceeds the limit',
+      }))
       return;
     } else {
       const file = new File([e.target.files[0]], newName);
-      // selectedFiles.push(file);
       setSelectedFiles([...selectedFiles, file]);
     }
     
@@ -51,28 +60,45 @@ export default function Document() {
   const handleUpload = async () => {
     console.log(selectedFiles)
     const data = new FormData();
+    console.log(data)
+    data.append('email', userInfo.email)
+    console.log(data.get('email'))
     for (let i = 0; i < selectedFiles.length; i++) {
-      data.append('file[]', selectedFiles[i]);
+      data.append(`${selectedFiles[i].name.split('.')[0]}[]`, selectedFiles[i]);
     }
-    let url = constants.apiEndPoint.UPLOAD_FILE + '?dir=upload';
-
-    await axios
-      .post(url, data, {
-        // receive two parameter endpoint url ,form data
-      })
-      .then((res) => {
-        // then print response status
-        console.log(res);
-        if (res.status !== 200) {
-          alert('File Upload unsucessfull... try again');
-        }
-        dispatch(updateUserDocument({ data: res.data }));
-        setUploadResponse(true);
-      })
-      .catch((error) => {
-        console.log(error)
-        alert('File Upload unsucessfull... try again');
-      });
+    console.log(data)
+    const response = await httpCall2(
+      constants.apiEndPoint.UPLOAD_FILE, 
+      constants.apiHeader.HEADER_FORM_DATA, 
+      constants.apiMethod.POST, 
+      data
+    )
+    console.log(response)
+    // await axios
+    //   .post(url, data, {
+    //     // receive two parameter endpoint url ,form data
+    //   })
+    //   .then((res) => {
+    //     // then print response status
+    //     console.log(res);
+    //     if (res.status !== 200) {
+    //       dispatch(showNotification({
+    //           isOpen: true,
+    //           type: 'error',
+    //           message: 'File Upload unsucessfull... try again',
+    //       }))
+    //     }
+    //     dispatch(updateUserDocument({ data: res.data }));
+    //     setUploadResponse(true);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error)
+    //     dispatch(showNotification({
+    //         isOpen: true,
+    //         type: 'error',
+    //         message: 'File Upload unsucessfull... try again',
+    //     }))
+    //   });
   };
 
   const afterFileUpload = async () => {
@@ -97,15 +123,27 @@ export default function Document() {
       );
       console.log(jsonData)
       if (jsonData?.payload?.status === constants.apiResponseStatus.SUCCESS) {
-        alert('File Upload Sucessfull');
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'sucess',
+            message: 'File Upload Sucessfull',
+        }))
         fetchDocument();
         setUploadResponse(false);
       } else {
-        alert('File Upload unsucessfull... try again');
+        dispatch(showNotification({
+            isOpen: true,
+            type: 'error',
+            message: 'File Upload unsucessfull... try again',
+        }))
         setUploadResponse(false);
       }
     } catch (error) {
-      alert('File Upload unsucessfull... try again');
+      dispatch(showNotification({
+          isOpen: true,
+          type: 'error',
+          message: 'File Upload unsucessfull... try again',
+      }))
     }
   };
 
@@ -119,12 +157,12 @@ export default function Document() {
 
   const customLabel = (data) => {
     console.log(data);
-    const capturedName = data.split('-')[1].split('.')[0];
-    const removeExtension = capturedName.replace(/_/, ' ');
-    if (removeExtension === 'certificate 10th' || removeExtension === 'certificate 12th') {
-      return removeExtension.split(' ').reverse().join(' ');
-    }
-    return removeExtension;
+    // const capturedName = data.split('-')[1].split('.')[0];
+    // const removeExtension = capturedName.replace(/_/, ' ');
+    // if (removeExtension === 'certificate 10th' || removeExtension === 'certificate 12th') {
+    //   return removeExtension.split(' ').reverse().join(' ');
+    // }
+    // return removeExtension;
   };
   useEffect(() => {
     if (uploadResponse) {
@@ -134,9 +172,9 @@ export default function Document() {
   useEffect(() => {
     fetchDocument();
   }, []);
-  useEffect(()=>{
-    console.log(selectedFiles)
-  },[selectedFiles])
+  // useEffect(()=>{
+  //   console.log(selectedFiles)
+  // },[selectedFiles])
   return (
     <>
       <section className="profile-page">
